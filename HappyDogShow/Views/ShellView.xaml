@@ -1,0 +1,27 @@
+﻿<Controls:MetroWindow 
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    x:Class="HappyDogShow.Views.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:HappyDogShow.Views"
+    xmlns:cal="http://www.codeplex.com/prism"
+    xmlns:inf="clr-namespace:HappyDogShow.Infrastructure;assembly=HappyDogShow.Infrastructure"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800"
+    Title="Happy Dog Show"
+    >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0"  Style="{StaticResource MetroMenu}" cal:RegionManager.RegionName="{x:Static inf:RegionNames.MainMenuRegion}" >
+        </Menu>
+
+        <Controls:TransitioningContentControl Grid.Row="1" cal:RegionManager.RegionName="{x:Static inf:RegionNames.ContentRegion}" Transition="Left" />
+
+    </Grid>
+</Controls:MetroWindow>
