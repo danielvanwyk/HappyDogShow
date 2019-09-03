@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HappyDogShow.Data\HappyDogShow.Data.csproj">
-      <Project>{0b8eae37-030b-4ef9-8c44-274748e9af9a}</Project>
+      <Project>{dc51c5e5-d670-4012-b0b6-d1c2cfb31894}</Project>
       <Name>HappyDogShow.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\HappyDogShow.Infrastructure\HappyDogShow.Infrastructure.csproj">

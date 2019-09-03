@@ -152,6 +152,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\HappyDogShow.Data\HappyDogShow.Data.csproj">
+      <Project>{dc51c5e5-d670-4012-b0b6-d1c2cfb31894}</Project>
+      <Name>HappyDogShow.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HappyDogShow.Infrastructure\HappyDogShow.Infrastructure.csproj">
       <Project>{1444f955-65b2-412a-a1be-2511ffe5c2c6}</Project>
       <Name>HappyDogShow.Infrastructure</Name>

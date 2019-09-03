@@ -4,10 +4,9 @@ using System.Text;
 
 namespace HappyDogShow.Data
 {
-    public class Breed
+    public class BreedGroup
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public BreedGroup BreedGroup {get;set;}
     }
 }

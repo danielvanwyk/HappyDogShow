@@ -19,5 +19,6 @@ namespace HappyDogShow.Data
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Title> Titles { get; set; }
+        public DbSet<BreedGroup> BreedGroups { get; set; }
     }
 }
