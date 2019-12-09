@@ -20,5 +20,12 @@ namespace HappyDogShow.Data
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<BreedGroup> BreedGroups { get; set; }
+
+        public DbSet<Club> Clubs { get; set; }
+        public DbSet<DogShow> DogShows { get; set; }
+        public DbSet<Discipline> Disciplines { get; set; }
+        public DbSet<DisciplineClass> DisciplineClasses { get; set; }
+        public DbSet<DisciplineSize> DisciplineSizes { get; set; }
+        public DbSet<DisciplineGrade> DisciplineGrades { get; set; }
     }
 }

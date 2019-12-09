@@ -17,6 +17,7 @@ using System.Windows.Data;
 using HappyDogShow.Infrastructure.WPF.Infrastructure;
 using System.Windows.Controls.Primitives;
 using HappyDogShow.Modules.Entries;
+using HappyDogShow.Modules.Shows;
 
 namespace HappyDogShow
 {
@@ -52,6 +53,7 @@ namespace HappyDogShow
 
             catalog.AddModule(typeof(DogsModule));
             catalog.AddModule(typeof(EntriesModule));
+            catalog.AddModule(typeof(ShowsModule));
 
             return catalog;
         }

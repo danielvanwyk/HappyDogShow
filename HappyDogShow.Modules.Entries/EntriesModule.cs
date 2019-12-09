@@ -16,6 +16,7 @@ namespace HappyDogShow.Modules.Entries
     public class EntriesModule : ModuleBase
     {
         private ShowEntryListCommandExecutor _showEntryListCommandExecutor;
+        private ShowViewToCaptureNewEntryCommandExecutor _showViewToCaptureNewEntryCommandExecutor;
 
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -28,6 +29,7 @@ namespace HappyDogShow.Modules.Entries
             RegisterViewWithRegionUsingViewModel<IEntriesMainMenuViewViewModel>(RegionNames.MainMenuRegion);
             //RegisterViewWithRegionUsingViewModel<IExploreDogsViewViewModel>(RegionNames.ContentRegion);
             _showEntryListCommandExecutor = Container.Resolve<ShowEntryListCommandExecutor>();
+            _showViewToCaptureNewEntryCommandExecutor = Container.Resolve<ShowViewToCaptureNewEntryCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -40,7 +42,13 @@ namespace HappyDogShow.Modules.Entries
             Container.RegisterType<object, ExploreEntriesViewViewModel>(FormNameConstants.Entries.EntriesList.ViewName);
             Container.RegisterType<IExploreEntriesView, ExploreEntriesView>();
 
+            // the new form
+            Container.RegisterType<object, CaptureNewEntryViewViewModel>(FormNameConstants.Entries.NewEntry.ViewName);
+            Container.RegisterType<ICaptureNewEntryView, CaptureNewEntryView>();
+
+            // the command executors
             Container.RegisterType<ShowEntryListCommandExecutor, ShowEntryListCommandExecutor>();
+            Container.RegisterType<ShowViewToCaptureNewEntryCommandExecutor, ShowViewToCaptureNewEntryCommandExecutor>();
         }
     }
 }

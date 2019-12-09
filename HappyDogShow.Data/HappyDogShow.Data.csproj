@@ -51,7 +51,13 @@
     <Compile Include="Address.cs" />
     <Compile Include="Breed.cs" />
     <Compile Include="BreedGroup.cs" />
+    <Compile Include="Club.cs" />
+    <Compile Include="Discipline.cs" />
+    <Compile Include="DisciplineClass.cs" />
+    <Compile Include="DisciplineGrade.cs" />
+    <Compile Include="DisciplineSize.cs" />
     <Compile Include="DogRegistration.cs" />
+    <Compile Include="DogShow.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="HappyDogShowContext.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.cs" />
@@ -61,6 +67,10 @@
     <Compile Include="Migrations\201908280557333_AddBreedGroupTable.cs" />
     <Compile Include="Migrations\201908280557333_AddBreedGroupTable.Designer.cs">
       <DependentUpon>201908280557333_AddBreedGroupTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909030535505_EntryReferenceTables.cs" />
+    <Compile Include="Migrations\201909030535505_EntryReferenceTables.Designer.cs">
+      <DependentUpon>201909030535505_EntryReferenceTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
@@ -77,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908280557333_AddBreedGroupTable.resx">
       <DependentUpon>201908280557333_AddBreedGroupTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909030535505_EntryReferenceTables.resx">
+      <DependentUpon>201909030535505_EntryReferenceTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

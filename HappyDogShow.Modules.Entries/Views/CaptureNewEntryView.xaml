@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="HappyDogShow.Modules.Entries.Views.CaptureNewEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HappyDogShow.Modules.Entries.Views"
+             mc:Ignorable="d" 
+             xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
+             xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <infrastructureControls:BasicContentLayout>
+        <infrastructureControls:BasicContentLayout.MainTitleText>Capture a new entry</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0">Show</Label>
+                    <ComboBox Grid.Row="0" Grid.Column="1">
+                        <ComboBoxItem Content="2019-06-22 - Swartland Kennel Club 1" />
+                        <ComboBoxItem Content="2019-06-21 - Swartland Kennel Club 2" />
+                    </ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="0">Dog Registration Number</Label>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox 
+                            Grid.Row="0" Grid.Column="1" Width="250"
+                            behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding TestItems}"
+                            ></TextBox>
+                    </Grid>
+                    
+
+                </Grid>
+
+
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Button Content="Save Entry" />
+                </StackPanel>
+            </Grid>
+        </infrastructureControls:BasicContentLayout.MainContent>
+    </infrastructureControls:BasicContentLayout>
+</UserControl>

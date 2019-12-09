@@ -14,6 +14,10 @@ namespace HappyDogShow.Modules.Entries
             {
                 public static string ViewName = "EntriesList";
             }
+            public static class NewEntry
+            {
+                public static string ViewName = "NewEntry";
+            }
         }
     }
 }

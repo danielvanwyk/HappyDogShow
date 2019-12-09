@@ -1,0 +1,15 @@
+﻿<MenuItem 
+    x:Class="HappyDogShow.Modules.Shows.Views.ShowsMainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:HappyDogShow.Modules.Shows.Views"
+    mc:Ignorable="d"
+    Header="Shows"
+    Background="Transparent" 
+    Style="{StaticResource MetroMenuItem}" 
+    xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Shows.Commands"
+    >
+    <MenuItem Header="View List of Shows" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="localCommands:ShowListCommands.ShowShowListCommand" />
+</MenuItem>
