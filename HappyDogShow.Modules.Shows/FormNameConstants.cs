@@ -14,9 +14,9 @@ namespace HappyDogShow.Modules.Shows
             {
                 public static string ViewName = "ShowsList";
             }
-            public static class NewShow
+            public static class NewDogShow
             {
-                public static string ViewName = "NewShow";
+                public static string ViewName = "NewDogShow";
             }
         }
     }

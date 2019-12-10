@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="HappyDogShow.Modules.Shows.Views.CaptureNewDogShowView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HappyDogShow.Modules.Shows.Views"
+             mc:Ignorable="d" 
+             xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
+             xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+             >
+    <infrastructureControls:BasicContentLayout>
+        <infrastructureControls:BasicContentLayout.MainTitleText>Capture a new dog show</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0">Name</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentEntity.DogShowName}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0">Date</Label>
+                    <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding CurrentEntity.ShowDate}" />
+
+
+                </Grid>
+
+
+
+            </Grid>
+        </infrastructureControls:BasicContentLayout.MainContent>
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button Content="Save" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
+    </infrastructureControls:BasicContentLayout>
+</UserControl>

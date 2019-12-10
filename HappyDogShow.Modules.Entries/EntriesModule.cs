@@ -45,10 +45,6 @@ namespace HappyDogShow.Modules.Entries
             // the new form
             Container.RegisterType<object, CaptureNewEntryViewViewModel>(FormNameConstants.Entries.NewEntry.ViewName);
             Container.RegisterType<ICaptureNewEntryView, CaptureNewEntryView>();
-
-            // the command executors
-            Container.RegisterType<ShowEntryListCommandExecutor, ShowEntryListCommandExecutor>();
-            Container.RegisterType<ShowViewToCaptureNewEntryCommandExecutor, ShowViewToCaptureNewEntryCommandExecutor>();
         }
     }
 }
