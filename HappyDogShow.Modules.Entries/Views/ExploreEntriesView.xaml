@@ -25,11 +25,14 @@
                 >
                     <!--<DataGridTextColumn Header="KUSA #" Width="3*" />-->
                 </DataGrid>
-
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Button Content="Capture new Entry" Command="{x:Static localCommands:NewEntryCommands.ShowViewToCaptureNewEntryCommand}" />
-                </StackPanel>
             </Grid>
         </infrastructureControls:BasicContentLayout.MainContent>
+
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Capture new Entry" Command="{x:Static localCommands:NewEntryCommands.ShowViewToCaptureNewEntryCommand}" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
+
     </infrastructureControls:BasicContentLayout>
 </UserControl>

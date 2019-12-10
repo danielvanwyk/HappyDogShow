@@ -42,6 +42,19 @@ namespace HappyDogShow.Infrastructure.UserControls
             new PropertyMetadata(null)
             );
 
+        public object ButtonContent
+        {
+            get { return (object)GetValue(ButtonContentProperty); }
+            set { SetValue(ButtonContentProperty, value); }
+        }
+        public static readonly DependencyProperty ButtonContentProperty =
+            DependencyProperty.RegisterAttached(
+            "ButtonContent",
+            typeof(object),
+            typeof(BasicContentLayout),
+            new PropertyMetadata(null)
+            );
+
         public BasicContentLayout()
         {
             InitializeComponent();

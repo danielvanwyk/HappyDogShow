@@ -9,7 +9,7 @@
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
              >
     <infrastructureControls:BasicContentLayout>
-        <infrastructureControls:BasicContentLayout.MainTitleText>View the show list</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainTitleText>View the list of shows</infrastructureControls:BasicContentLayout.MainTitleText>
         <infrastructureControls:BasicContentLayout.MainContent>
             <Grid>
                 <Grid.RowDefinitions>
@@ -25,10 +25,12 @@
                     <!--<DataGridTextColumn Header="KUSA #" Width="3*" />-->
                 </DataGrid>
 
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Button Content="Add Show" />
-                </StackPanel>
             </Grid>
         </infrastructureControls:BasicContentLayout.MainContent>
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Add Show" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>
 </UserControl>

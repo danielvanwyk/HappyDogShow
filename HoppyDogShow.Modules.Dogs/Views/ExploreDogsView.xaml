@@ -24,11 +24,14 @@
                 >
                     <!--<DataGridTextColumn Header="KUSA #" Width="3*" />-->
                 </DataGrid>
-
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Button Content="Add Dog" />
-                </StackPanel>
             </Grid>
         </infrastructureControls:BasicContentLayout.MainContent>
+
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Add Dog" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
+
     </infrastructureControls:BasicContentLayout>
 </UserControl>

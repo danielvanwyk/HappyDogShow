@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <!-- Main Title -->
@@ -20,6 +21,11 @@
         <!-- Main Content -->
         <Border Grid.Row="1" Style="{StaticResource MainWindowContentBorderStyle}">
             <ContentControl VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Content="{Binding Path=MainContent, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BasicContentLayout}}}" />
+        </Border>
+
+        <!-- Buttons -->
+        <Border Grid.Row="2" Style="{StaticResource MainWindowContentBorderStyle}">
+            <ContentControl VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Content="{Binding Path=ButtonContent, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BasicContentLayout}}}" />
         </Border>
 
     </Grid>
