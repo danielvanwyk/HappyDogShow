@@ -104,6 +104,7 @@
     <Compile Include="WPF\Infrastructure\IView.cs" />
     <Compile Include="WPF\Infrastructure\IViewViewModel.cs" />
     <Compile Include="WPF\ViewModels\BindableViewModelBase.cs" />
+    <Compile Include="WPF\ViewModels\NavigateableBindableViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

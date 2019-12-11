@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public class CaptureNewDogShowViewViewModel : BindableViewModelBase, ICaptureNewDogShowViewViewModel, INavigationAware, IConfirmNavigationRequest
+    public class CaptureNewDogShowViewViewModel : NavigateableBindableViewModelBase, ICaptureNewDogShowViewViewModel
     {
         private ValidatableBindableBase currentEntity;
         public ValidatableBindableBase CurrentEntity
@@ -20,31 +20,14 @@ namespace HappyDogShow.Modules.Shows.ViewModels
             set { SetProperty(ref currentEntity, value); }
         }
 
-        public CaptureNewDogShowViewViewModel(ICaptureNewDogShowView view) : base(view)
+        public CaptureNewDogShowViewViewModel(ICaptureNewDogShowView view) 
+            : base(view)
         {
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public override void Prepare()
         {
             CurrentEntity = new DogShowDetail();
-        }
-
-        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
-        {
-            if (IsBusy)
-                continuationCallback(false);
-            else
-                continuationCallback(true);
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public class ExploreShowsViewViewModel : BindableViewModelBase, IExploreShowsViewViewModel, INavigationAware
+    public class ExploreShowsViewViewModel : NavigateableBindableViewModelBase, IExploreShowsViewViewModel
     {
         private List<DogShow> showList;
         public List<DogShow> ShowList
@@ -22,17 +22,7 @@ namespace HappyDogShow.Modules.Shows.ViewModels
         {
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public override void Prepare()
         {
             using (var ctx = new HappyDogShowContext())
             {
