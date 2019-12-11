@@ -20,11 +20,13 @@ using HappyDogShow.Modules.Entries;
 using HappyDogShow.Modules.Shows;
 using HappyDogShow.Services.Infrastructure.Services;
 using HappyDogShow.Services;
+using HappyDogShow.Infrastructure.CommandExecutors;
 
 namespace HappyDogShow
 {
     public class Bootstrapper : UnityBootstrapper
     {
+        private CancelEntityCommandExecutor cancelEntityCommandExecutor;
         protected override DependencyObject CreateShell()
         {
             IShellView v = Container.Resolve<IShellView>();
@@ -39,6 +41,8 @@ namespace HappyDogShow
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
+
+            cancelEntityCommandExecutor = Container.Resolve<CancelEntityCommandExecutor>();
         }
 
         protected override void ConfigureContainer()

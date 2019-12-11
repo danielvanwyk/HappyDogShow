@@ -2,6 +2,7 @@
 using HappyDogShow.Services.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,27 @@ namespace HappyDogShow.Modules.Shows.Models
     public class DogShowDetail : ValidatableBindableBase, IDogShowEntity
     {
         public int Id { get; set; }
-        public string DogShowName { get; set; }
-        public DateTime ShowDate { get; set; }
+
+        private string dogShowName;
+        [Required()]
+        public string DogShowName
+        {
+            get { return dogShowName; }
+            set { SetProperty(ref dogShowName, value); }
+        }
+
+        private DateTime showDate;
+        [Required()]
+        public DateTime ShowDate
+        {
+            get { return showDate; }
+            set { SetProperty(ref showDate, value); }
+        }
 
         public DogShowDetail()
         {
-            DogShowName = "enter name please";
             ShowDate = DateTime.Now;
+            MarkEntityAsClean();
         }
     }
 }
