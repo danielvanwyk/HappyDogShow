@@ -85,9 +85,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveNewDogShowEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowShowListCommandExecutor.cs" />
-    <Compile Include="CommandExecutors\ShowViewToCaptureNewDogShowCommandExecutor.cs" />
-    <Compile Include="Commands\NewShowCommands.cs" />
+    <Compile Include="CommandExecutors\ShowViewToCaptureNewDogShowEntityCommandExecutor.cs" />
+    <Compile Include="Commands\DogShowEntityCRUDCommands.cs" />
     <Compile Include="Commands\ShowListCommands.cs" />
     <Compile Include="FormNameConstants.cs" />
     <Compile Include="Infrastructure\ICaptureNewDogShowView.cs" />
@@ -124,6 +125,10 @@
     <ProjectReference Include="..\HappyDogShow.Infrastructure\HappyDogShow.Infrastructure.csproj">
       <Project>{1444F955-65B2-412A-A1BE-2511FFE5C2C6}</Project>
       <Name>HappyDogShow.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.Services.Infrastructure\HappyDogShow.Services.Infrastructure.csproj">
+      <Project>{EFC72165-674F-4D99-B464-13E26B9C45FA}</Project>
+      <Name>HappyDogShow.Services.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

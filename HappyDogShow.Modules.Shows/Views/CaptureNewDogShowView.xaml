@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
              xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+             xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Shows.Commands"
+             Style="{StaticResource BusyAwareEnabledUserControl}"
              >
     <infrastructureControls:BasicContentLayout>
         <infrastructureControls:BasicContentLayout.MainTitleText>Capture a new dog show</infrastructureControls:BasicContentLayout.MainTitleText>
@@ -49,7 +51,7 @@
         </infrastructureControls:BasicContentLayout.MainContent>
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Button Content="Save" />
+                <Button Content="Save" Command="{x:Static localCommands:DogShowEntityCRUDCommands.SaveNewDogShowEntityCommand}" CommandParameter="{Binding}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>

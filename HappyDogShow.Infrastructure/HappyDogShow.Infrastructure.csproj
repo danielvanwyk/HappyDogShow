@@ -85,6 +85,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveNewEntityCommandExecutor.cs" />
+    <Compile Include="Events\NewEntityCreatedEvent.cs" />
+    <Compile Include="Exceptions\CouldNotSaveNewEntityException.cs" />
+    <Compile Include="Extensions\BusyAwareViewModelExtensions.cs" />
     <Compile Include="Models\IDirtyAwareEntity.cs" />
     <Compile Include="Models\ValidatableBindableBase.cs" />
     <Compile Include="ModuleBase.cs" />
@@ -93,6 +97,8 @@
     <Compile Include="UserControls\BasicContentLayout.xaml.cs">
       <DependentUpon>BasicContentLayout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\IBusyAwareViewModel.cs" />
+    <Compile Include="ViewModels\IEntityAwareViewViewModel.cs" />
     <Compile Include="WPF\Infrastructure\IBusyAwareViewModel.cs" />
     <Compile Include="WPF\Infrastructure\IView.cs" />
     <Compile Include="WPF\Infrastructure\IViewViewModel.cs" />
@@ -107,6 +113,12 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HappyDogShow.Services.Infrastructure\HappyDogShow.Services.Infrastructure.csproj">
+      <Project>{efc72165-674f-4d99-b464-13e26b9c45fa}</Project>
+      <Name>HappyDogShow.Services.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

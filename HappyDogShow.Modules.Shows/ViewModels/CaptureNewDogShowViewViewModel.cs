@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Infrastructure.WPF.ViewModels;
+﻿using HappyDogShow.Infrastructure.Models;
+using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Shows.Infrastructure;
 using HappyDogShow.Modules.Shows.Models;
 using Microsoft.Practices.Prism.Regions;
@@ -10,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public class CaptureNewDogShowViewViewModel : BindableViewModelBase, ICaptureNewDogShowViewViewModel, INavigationAware
+    public class CaptureNewDogShowViewViewModel : BindableViewModelBase, ICaptureNewDogShowViewViewModel, INavigationAware, IConfirmNavigationRequest
     {
-        private DogShowDetail currentEntity;
-        public DogShowDetail CurrentEntity
+        private ValidatableBindableBase currentEntity;
+        public ValidatableBindableBase CurrentEntity
         {
             get { return currentEntity; }
             set { SetProperty(ref currentEntity, value); }
@@ -36,6 +37,14 @@ namespace HappyDogShow.Modules.Shows.ViewModels
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             CurrentEntity = new DogShowDetail();
+        }
+
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
+        {
+            if (IsBusy)
+                continuationCallback(false);
+            else
+                continuationCallback(true);
         }
     }
 }

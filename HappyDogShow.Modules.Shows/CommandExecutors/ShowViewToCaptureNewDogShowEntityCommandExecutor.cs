@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.CommandExecutors
 {
-    public class ShowViewToCaptureNewDogShowCommandExecutor
+    public class ShowViewToCaptureNewDogShowEntityCommandExecutor
     {
         private IRegionManager _regionManager;
 
         public DelegateCommand CommandHandler { get; set; }
 
-        public ShowViewToCaptureNewDogShowCommandExecutor(IRegionManager regionManager)
+        public ShowViewToCaptureNewDogShowEntityCommandExecutor(IRegionManager regionManager)
         {
             _regionManager = regionManager;
 
             CommandHandler = new DelegateCommand(ExecuteCommand);
-            NewShowCommands.ShowViewToCaptureNewDogShowCommand.RegisterCommand(CommandHandler);
+            DogShowEntityCRUDCommands.ShowViewToCaptureNewDogShowEntityCommand.RegisterCommand(CommandHandler);
         }
 
         private void ExecuteCommand()

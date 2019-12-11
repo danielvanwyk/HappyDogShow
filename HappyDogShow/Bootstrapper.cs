@@ -18,6 +18,8 @@ using HappyDogShow.Infrastructure.WPF.Infrastructure;
 using System.Windows.Controls.Primitives;
 using HappyDogShow.Modules.Entries;
 using HappyDogShow.Modules.Shows;
+using HappyDogShow.Services.Infrastructure.Services;
+using HappyDogShow.Services;
 
 namespace HappyDogShow
 {
@@ -45,6 +47,8 @@ namespace HappyDogShow
 
             Container.RegisterType<IShellView, ShellView>(new HierarchicalLifetimeManager());
             Container.RegisterType<IShellViewViewModel, ShellViewViewModel>(new HierarchicalLifetimeManager());
+
+            Container.RegisterType<IDogShowService, DogShowService>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

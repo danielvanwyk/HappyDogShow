@@ -1,8 +1,9 @@
-﻿using HappyDogShow.Infrastructure.WPF.Infrastructure;
+﻿using HappyDogShow.Infrastructure.ViewModels;
+using HappyDogShow.Infrastructure.WPF.Infrastructure;
 
 namespace HappyDogShow.Modules.Shows.Infrastructure
 {
-    public interface ICaptureNewDogShowViewViewModel : IViewViewModel
+    public interface ICaptureNewDogShowViewViewModel : IViewViewModel, IEntityAwareViewViewModel
     {
     }
 }

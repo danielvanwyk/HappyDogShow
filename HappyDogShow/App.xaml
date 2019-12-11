@@ -45,6 +45,20 @@
                 <Setter Property="BorderThickness" Value="0,1,0,0" />
             </Style>
 
+            <Style 
+                x:Key="BusyAwareEnabledUserControl"
+                TargetType="UserControl">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsBusy}" Value="True">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding IsBusy}" Value="False">
+                        <Setter Property="IsEnabled" Value="True" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+
 
         </ResourceDictionary>
 

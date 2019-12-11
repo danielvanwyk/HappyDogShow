@@ -16,7 +16,8 @@ namespace HappyDogShow.Modules.Shows
     public class ShowsModule : ModuleBase
     {
         private ShowShowListCommandExecutor _showShowListCommandExecutor;
-        private ShowViewToCaptureNewDogShowCommandExecutor _showViewToCaptureNewDogShowCommandExecutor;
+        private ShowViewToCaptureNewDogShowEntityCommandExecutor _ShowViewToCaptureNewDogShowEntityCommandExecutor;
+        private SaveNewDogShowEntityCommandExecutor _saveNewDogShowEntityCommandExecutor;
 
         public ShowsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -28,7 +29,8 @@ namespace HappyDogShow.Modules.Shows
         {
             RegisterViewWithRegionUsingViewModel<IShowsMainMenuViewViewModel>(RegionNames.MainMenuRegion);
             _showShowListCommandExecutor = Container.Resolve<ShowShowListCommandExecutor>();
-            _showViewToCaptureNewDogShowCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogShowCommandExecutor>();
+            _ShowViewToCaptureNewDogShowEntityCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogShowEntityCommandExecutor>();
+            _saveNewDogShowEntityCommandExecutor = Container.Resolve<SaveNewDogShowEntityCommandExecutor>();
         }
 
         protected override void RegisterTypes()

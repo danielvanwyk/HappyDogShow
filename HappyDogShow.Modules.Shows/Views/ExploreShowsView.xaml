@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
              xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Shows.Commands"
+             Style="{StaticResource BusyAwareEnabledUserControl}"
              >
     <infrastructureControls:BasicContentLayout>
         <infrastructureControls:BasicContentLayout.MainTitleText>View the list of shows</infrastructureControls:BasicContentLayout.MainTitleText>
@@ -30,7 +31,7 @@
         </infrastructureControls:BasicContentLayout.MainContent>
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Add Show" Command="{x:Static localCommands:NewShowCommands.ShowViewToCaptureNewDogShowCommand}"  />
+                <Button Content="Add Show" Command="{x:Static localCommands:DogShowEntityCRUDCommands.ShowViewToCaptureNewDogShowEntityCommand}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>
