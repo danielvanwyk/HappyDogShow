@@ -17,6 +17,7 @@ namespace HappyDogShow.Modules.Shows
     {
         private ShowShowListCommandExecutor _showShowListCommandExecutor;
         private ShowViewToCaptureNewDogShowEntityCommandExecutor _ShowViewToCaptureNewDogShowEntityCommandExecutor;
+        private ShowViewToEditDogShowEntityCommandExecutor _showViewToEditDogShowEntityCommandExecutor;
         private SaveNewDogShowEntityCommandExecutor _saveNewDogShowEntityCommandExecutor;
 
         public ShowsModule(IUnityContainer container, IRegionManager regionManager)
@@ -30,6 +31,7 @@ namespace HappyDogShow.Modules.Shows
             RegisterViewWithRegionUsingViewModel<IShowsMainMenuViewViewModel>(RegionNames.MainMenuRegion);
             _showShowListCommandExecutor = Container.Resolve<ShowShowListCommandExecutor>();
             _ShowViewToCaptureNewDogShowEntityCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogShowEntityCommandExecutor>();
+            _showViewToEditDogShowEntityCommandExecutor = Container.Resolve<ShowViewToEditDogShowEntityCommandExecutor>();
             _saveNewDogShowEntityCommandExecutor = Container.Resolve<SaveNewDogShowEntityCommandExecutor>();
         }
 
@@ -46,6 +48,10 @@ namespace HappyDogShow.Modules.Shows
             // the new form
             Container.RegisterType<object, CaptureNewDogShowViewViewModel>(FormNameConstants.Shows.NewDogShow.ViewName);
             Container.RegisterType<ICaptureNewDogShowView, CaptureNewDogShowView>();
+
+            // the edit form
+            Container.RegisterType<object, EditDogShowViewViewModel>(FormNameConstants.Shows.EditDogShow.ViewName);
+            Container.RegisterType<IEditDogShowView, EditDogShowView>();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace HappyDogShow.Modules.Shows.Commands
     public class DogShowEntityCRUDCommands
     {
         public static CompositeCommand ShowViewToCaptureNewDogShowEntityCommand = new CompositeCommand();
+        public static CompositeCommand ShowViewToEditDogShowEntityCommand = new CompositeCommand();
+
         public static CompositeCommand SaveNewDogShowEntityCommand = new CompositeCommand();
 
     }

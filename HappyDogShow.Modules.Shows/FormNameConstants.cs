@@ -18,6 +18,10 @@ namespace HappyDogShow.Modules.Shows
             {
                 public static string ViewName = "NewDogShow";
             }
+            public static class EditDogShow
+            {
+                public static string ViewName = "EditDogShow";
+            }
         }
     }
 }

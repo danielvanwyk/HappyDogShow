@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\CancelEntityCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\NavigateToEntityViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\NavigateToViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewEntityCommandExecutor.cs" />
     <Compile Include="Commands\NavigationCommands.cs" />

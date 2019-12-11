@@ -23,8 +23,8 @@
                 Style="{StaticResource AzureDataGrid}"
                 AutoGenerateColumns="True"
                 ItemsSource="{Binding ShowList}"
+                          SelectedItem="{Binding SelectedDogShow}"
                 >
-                    <!--<DataGridTextColumn Header="KUSA #" Width="3*" />-->
                 </DataGrid>
 
             </Grid>
@@ -32,6 +32,7 @@
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Add Show" Command="{x:Static localCommands:DogShowEntityCRUDCommands.ShowViewToCaptureNewDogShowEntityCommand}"  />
+                <Button Content="Edit Show" Command="{x:Static localCommands:DogShowEntityCRUDCommands.ShowViewToEditDogShowEntityCommand}" CommandParameter="{Binding SelectedDogShow}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>
