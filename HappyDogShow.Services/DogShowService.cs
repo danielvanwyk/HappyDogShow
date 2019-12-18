@@ -69,5 +69,40 @@ namespace HappyDogShow.Services
                 }
             }
         }
+
+        public Task<List<IDogShowEntity>> GetDogShowListAsync<T>()
+            where T : IDogShowEntity, new()
+        {
+            Task<List<IDogShowEntity>> t = Task<List<IDogShowEntity>>.Run(() =>
+            {
+                List<IDogShowEntity> items = GetDogShowList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IDogShowEntity> GetDogShowList<T>() where T : IDogShowEntity, new()
+        {
+            List<IDogShowEntity> items = new List<IDogShowEntity>();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var shows = from d in ctx.DogShows
+                            select d;
+
+                foreach (DogShow ds in shows)
+                {
+                    items.Add(new T()
+                    {
+                        Id = ds.ID,
+                        DogShowName = ds.Name,
+                        ShowDate = ds.ShowDate
+                    });
+                }
+            }
+
+            return items;
+        }
     }
 }

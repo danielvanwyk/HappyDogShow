@@ -3,6 +3,7 @@ using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Shows.Infrastructure;
 using HappyDogShow.Modules.Shows.Models;
 using HappyDogShow.Services.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Services;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -13,44 +14,24 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public class ExploreShowsViewViewModel : NavigateableBindableViewModelBase, IExploreShowsViewViewModel
+    public class ExploreShowsViewViewModel : ListViewViewModelBase<IDogShowEntity>, IExploreShowsViewViewModel
     {
-        private ObservableCollection<IDogShowEntity> showList;
-        public ObservableCollection<IDogShowEntity> ShowList
+        private IDogShowService _service;
+
+        public ExploreShowsViewViewModel(IExploreShowsView view, IDogShowService service) 
+            : base(view)
         {
-            get { return showList; }
-            set { SetProperty(ref showList, value); }
+            _service = service;
         }
 
-        private IDogShowEntity selectedDogShow;
-        public IDogShowEntity SelectedDogShow 
+        public async override void Prepare()
         {
-            get { return selectedDogShow; }
-            set { SetProperty(ref selectedDogShow, value); }
-        }
-        public ExploreShowsViewViewModel(IExploreShowsView view) : base(view)
-        {
-            ShowList = new ObservableCollection<IDogShowEntity>();
-        }
+            Items.Clear();
 
-        public override void Prepare()
-        {
-            ShowList.Clear();
-            using (var ctx = new HappyDogShowContext())
-            {
-                var shows = from d in ctx.DogShows
-                           select d;
+            List<IDogShowEntity> items = await _service.GetDogShowListAsync<DogShowDetail>();
 
-                foreach (DogShow ds in shows)
-                {
-                    ShowList.Add(new DogShowDetail()
-                    {
-                        Id = ds.ID,
-                        DogShowName = ds.Name,
-                        ShowDate = ds.ShowDate
-                    });
-                }
-            }
+            items.ForEach(i => Items.Add(i));
+
         }
     }
 }

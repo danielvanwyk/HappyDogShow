@@ -22,8 +22,8 @@
                 <DataGrid Grid.Row="0"
                 Style="{StaticResource AzureDataGrid}"
                 AutoGenerateColumns="True"
-                ItemsSource="{Binding ShowList}"
-                          SelectedItem="{Binding SelectedDogShow}"
+                ItemsSource="{Binding Items}"
+                          SelectedItem="{Binding SelectedItem}"
                 >
                 </DataGrid>
 
@@ -32,7 +32,7 @@
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Add Show" Command="{x:Static localCommands:DogShowEntityCRUDCommands.ShowViewToCaptureNewDogShowEntityCommand}"  />
-                <Button Content="Edit Show" Command="{x:Static localCommands:DogShowEntityCRUDCommands.ShowViewToEditDogShowEntityCommand}" CommandParameter="{Binding SelectedDogShow}"  />
+                <Button Content="Edit Show" Command="{x:Static localCommands:DogShowEntityCRUDCommands.ShowViewToEditDogShowEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>
