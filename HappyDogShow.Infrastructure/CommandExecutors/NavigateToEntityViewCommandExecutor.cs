@@ -12,12 +12,12 @@ using System.Windows;
 
 namespace HappyDogShow.Infrastructure.CommandExecutors
 {
-    public class NavigateToEntityViewCommandExecutor<T>
-        //where T:IEntityWithID
+    public abstract class NavigateToEntityViewCommandExecutor<T>
     {
         protected IRegionManager _regionManager;
         private DelegateCommand<T> commandHandler { get; set; }
         private string viewName;
+        protected bool RequireObject { get; set; }
 
         public NavigateToEntityViewCommandExecutor(CompositeCommand command, IRegionManager regionManager, string viewToNavigateToName)
         {
@@ -29,11 +29,14 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
 
         private async void ExecuteCommand(T obj)
         {
-            if (obj == null)
+            if (RequireObject)
             {
-                MetroWindow metroWindow = Application.Current.MainWindow as MetroWindow;
-                await metroWindow.ShowMessageAsync("NO SELECTION MADE", "Please select an item first");
-                return;
+                if (obj == null)
+                {
+                    MetroWindow metroWindow = Application.Current.MainWindow as MetroWindow;
+                    await metroWindow.ShowMessageAsync("NO SELECTION MADE", "Please select an item first");
+                    return;
+                }
             }
 
             _regionManager.RequestNavigate(RegionNames.ContentRegion, viewName,

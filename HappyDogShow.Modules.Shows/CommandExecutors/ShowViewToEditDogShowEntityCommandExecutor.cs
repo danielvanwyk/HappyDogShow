@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.CommandExecutors
 {
-    class ShowViewToEditDogShowEntityCommandExecutor : NavigateToEntityViewCommandExecutor<IDogShowEntity>
+    class ShowViewToEditDogShowEntityCommandExecutor : NavigateToEntityEditViewCommandExecutor<IDogShowEntity>
     {
         public ShowViewToEditDogShowEntityCommandExecutor(IRegionManager regionManager)
             : base(DogShowEntityCRUDCommands.ShowViewToEditDogShowEntityCommand, regionManager, FormNameConstants.Shows.EditDogShow.ViewName)

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.CommandExecutors
 {
-    public class ShowViewToCaptureNewDogShowEntityCommandExecutor : NavigateToEntityViewCommandExecutor<IDogShowEntity>
+    public class ShowViewToCaptureNewDogShowEntityCommandExecutor : NavigateToEntityCreateViewCommandExecutor<IDogShowEntity>
     {
         public ShowViewToCaptureNewDogShowEntityCommandExecutor(IRegionManager regionManager)
             : base (DogShowEntityCRUDCommands.ShowViewToCaptureNewDogShowEntityCommand, regionManager, FormNameConstants.Shows.NewDogShow.ViewName)
