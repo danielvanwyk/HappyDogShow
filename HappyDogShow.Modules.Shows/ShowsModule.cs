@@ -19,6 +19,7 @@ namespace HappyDogShow.Modules.Shows
         private ShowViewToCaptureNewDogShowEntityCommandExecutor _ShowViewToCaptureNewDogShowEntityCommandExecutor;
         private ShowViewToEditDogShowEntityCommandExecutor _showViewToEditDogShowEntityCommandExecutor;
         private SaveNewDogShowEntityCommandExecutor _saveNewDogShowEntityCommandExecutor;
+        private SaveExistingDogShowEntityCommandExecutor _saveExistingDogShowEntityCommandExecutor;
 
         public ShowsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -33,6 +34,7 @@ namespace HappyDogShow.Modules.Shows
             _ShowViewToCaptureNewDogShowEntityCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogShowEntityCommandExecutor>();
             _showViewToEditDogShowEntityCommandExecutor = Container.Resolve<ShowViewToEditDogShowEntityCommandExecutor>();
             _saveNewDogShowEntityCommandExecutor = Container.Resolve<SaveNewDogShowEntityCommandExecutor>();
+            _saveExistingDogShowEntityCommandExecutor = Container.Resolve<SaveExistingDogShowEntityCommandExecutor>();
         }
 
         protected override void RegisterTypes()

@@ -43,5 +43,31 @@ namespace HappyDogShow.Services
 
             return newid;
         }
+
+        public Task UpdateEntityAsync(IDogShowEntity entity)
+        {
+            Task t = Task<int>.Run(() =>
+            {
+                UpdateEntity(entity);
+            });
+
+            return t;
+        }
+
+        private void UpdateEntity(IDogShowEntity entity)
+        {
+            using (var ctx = new HappyDogShowContext())
+            {
+                DogShow foundEntity = ctx.DogShows.Where(d => d.ID == entity.Id).First();
+
+                if (foundEntity != null)
+                {
+                    foundEntity.Name = entity.DogShowName;
+                    foundEntity.ShowDate = entity.ShowDate;
+
+                    ctx.SaveChanges();
+                }
+            }
+        }
     }
 }

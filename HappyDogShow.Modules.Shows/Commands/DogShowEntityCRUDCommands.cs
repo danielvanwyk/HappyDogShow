@@ -13,6 +13,7 @@ namespace HappyDogShow.Modules.Shows.Commands
         public static CompositeCommand ShowViewToEditDogShowEntityCommand = new CompositeCommand();
 
         public static CompositeCommand SaveNewDogShowEntityCommand = new CompositeCommand();
+        public static CompositeCommand SaveExistingDogShowEntityCommand = new CompositeCommand();
 
     }
 }

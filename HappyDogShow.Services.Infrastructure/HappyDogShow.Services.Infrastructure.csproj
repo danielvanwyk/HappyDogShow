@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDogShowService.cs" />
     <Compile Include="Services\IEntityCreateService.cs" />
+    <Compile Include="Services\IEntityUpdateService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

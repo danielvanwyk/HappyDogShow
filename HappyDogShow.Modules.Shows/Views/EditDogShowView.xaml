@@ -52,7 +52,7 @@
         </infrastructureControls:BasicContentLayout.MainContent>
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <!--<Button Content="Save" Command="{x:Static localCommands:DogShowEntityCRUDCommands.SaveNewDogShowEntityCommand}" CommandParameter="{Binding}" />-->
+                <Button Content="Save" Command="{x:Static localCommands:DogShowEntityCRUDCommands.SaveExistingDogShowEntityCommand}" CommandParameter="{Binding}" />
                 <Button Content="Cancel" Command="{x:Static infrastructureCommands:NavigateableViewCommands.CancelEntityCommand}" CommandParameter="{Binding}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>

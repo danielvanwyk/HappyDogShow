@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveExistingDogShowEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewDogShowEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowShowListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewDogShowEntityCommandExecutor.cs" />

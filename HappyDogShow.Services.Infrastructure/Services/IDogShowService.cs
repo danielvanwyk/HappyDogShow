@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Services.Infrastructure.Services
 {
-    public interface IDogShowService : IEntityCreateService<IDogShowEntity>
+    public interface IDogShowService : IEntityCreateService<IDogShowEntity>, IEntityUpdateService<IDogShowEntity>
     {
     }
 }

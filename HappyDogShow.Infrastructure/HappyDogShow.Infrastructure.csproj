@@ -90,9 +90,12 @@
     <Compile Include="CommandExecutors\NavigateToEntityEditViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\NavigateToEntityViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\NavigateToViewCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\SaveExistingEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewEntityCommandExecutor.cs" />
     <Compile Include="Commands\NavigationCommands.cs" />
+    <Compile Include="Events\EntityUpdatedEvent.cs" />
     <Compile Include="Events\NewEntityCreatedEvent.cs" />
+    <Compile Include="Exceptions\CouldNotSaveExistingEntityException.cs" />
     <Compile Include="Exceptions\CouldNotSaveNewEntityException.cs" />
     <Compile Include="Extensions\BusyAwareViewModelExtensions.cs" />
     <Compile Include="Models\IDirtyAwareEntity.cs" />

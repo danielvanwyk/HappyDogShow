@@ -23,7 +23,7 @@ namespace HappyDogShow.Modules.Shows.ViewModels
             set { SetProperty(ref currentEntity, value); }
         }
 
-        public EditDogShowViewViewModel(ICaptureNewDogShowView view, IDogShowService service)
+        public EditDogShowViewViewModel(IEditDogShowView view, IDogShowService service)
             : base(view)
         {
             _service = service;
