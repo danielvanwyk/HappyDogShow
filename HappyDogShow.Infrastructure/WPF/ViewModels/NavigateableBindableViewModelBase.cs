@@ -28,7 +28,7 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            // to do for later:  plug in something here about navigation parameters
+            GetValuesFromNavigationParameters(navigationContext);
             Prepare();
         }
 
@@ -41,6 +41,12 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
             // to do for later:  plug in something here to check if something is dirty and then warn the user
         }
 
-        public abstract void Prepare();
+        public virtual void GetValuesFromNavigationParameters(NavigationContext navigationContext)
+        {
+        }
+
+        public virtual void Prepare()
+        {
+        }
     }
 }

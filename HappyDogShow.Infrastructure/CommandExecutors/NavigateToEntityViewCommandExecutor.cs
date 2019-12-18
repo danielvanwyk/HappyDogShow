@@ -39,13 +39,16 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
                 }
             }
 
+            NavigationParameters parms = new NavigationParameters();
+            parms.Add("entity", obj);
+
             _regionManager.RequestNavigate(RegionNames.ContentRegion, viewName,
                 (NavigationResult nr) =>
                 {
                     var error = nr.Error;
                     var result = nr.Result;
                     // put a breakpoint here and checkout what NavigationResult contains
-                });
+                }, parms);
         }
     }
 }
