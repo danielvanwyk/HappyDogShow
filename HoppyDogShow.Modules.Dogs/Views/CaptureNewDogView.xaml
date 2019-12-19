@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="HappyDogShow.Modules.Dogs.Views.CaptureNewDogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HappyDogShow.Modules.Dogs.Views"
+             mc:Ignorable="d" 
+             xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
+             xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Dogs.Commands"
+             xmlns:infrastructureCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+             Style="{StaticResource BusyAwareEnabledUserControl}"
+             >
+    <infrastructureControls:BasicContentLayout>
+        <infrastructureControls:BasicContentLayout.MainTitleText>Capture dog details</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainContent>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Dog Registration Number</Label>
+                    <TextBox Width="250" Text="{Binding RegistrationNumber}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Sex</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Date of Birth</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Breed</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Registered Name</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Qaulifications</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Chip #/Tattoo</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Sire</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Dam</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Bred By</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Colour</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Registered Owner(s)</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Address</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">KUSA no</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Tel</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Cell</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Fax</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Email</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+                
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.MainContent>
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button Content="Save" Command="{x:Static localCommands:DogEntityCRUDCommands.SaveNewEntityCommand}" CommandParameter="{Binding}" />
+                <Button Content="Cancel" Command="{x:Static infrastructureCommands:NavigateableViewCommands.CancelEntityCommand}" CommandParameter="{Binding}" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
+    </infrastructureControls:BasicContentLayout>
+</UserControl>

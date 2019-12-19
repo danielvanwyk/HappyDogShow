@@ -17,6 +17,9 @@ namespace HappyDogShow.Modules.Dogs
     {
         private ShowDogListCommandExecutor _showDogListCommandExecutor;
         private ShowViewToCaptureNewDogCommandExecutor _showViewToCaptureNewDogCommandExecutor;
+        //private ShowViewToEditDogShowEntityCommandExecutor _showViewToEditDogShowEntityCommandExecutor;
+        private SaveNewDogEntityCommandExecutor _saveNewDogEntityCommandExecutor;
+        //private SaveExistingDogShowEntityCommandExecutor _saveExistingDogShowEntityCommandExecutor;
 
         public DogsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -30,6 +33,9 @@ namespace HappyDogShow.Modules.Dogs
             //RegisterViewWithRegionUsingViewModel<IExploreDogsViewViewModel>(RegionNames.ContentRegion);
             _showDogListCommandExecutor = Container.Resolve<ShowDogListCommandExecutor>();
             _showViewToCaptureNewDogCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogCommandExecutor>();
+            //_showViewToEditDogShowEntityCommandExecutor = Container.Resolve<ShowViewToEditDogShowEntityCommandExecutor>();
+            _saveNewDogEntityCommandExecutor = Container.Resolve<SaveNewDogEntityCommandExecutor>();
+            //_saveExistingDogShowEntityCommandExecutor = Container.Resolve<SaveExistingDogShowEntityCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -42,7 +48,9 @@ namespace HappyDogShow.Modules.Dogs
             Container.RegisterType<object, ExploreDogsViewViewModel>(FormNameConstants.Dogs.DogsList.ViewName);
             Container.RegisterType<IExploreDogsView, ExploreDogsView>();
 
-            Container.RegisterType<ShowDogListCommandExecutor, ShowDogListCommandExecutor>();
+            // the new form
+            Container.RegisterType<object, CaptureNewDogViewViewModel>(FormNameConstants.Dogs.NewDog.ViewName);
+            Container.RegisterType<ICaptureNewDogView, CaptureNewDogView>();
         }
     }
 }

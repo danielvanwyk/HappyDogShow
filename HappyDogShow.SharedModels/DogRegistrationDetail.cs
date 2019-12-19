@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Services.Infrastructure.Models;
+﻿using HappyDogShow.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.SharedModels
 {
-    public class DogRegistrationDetail : IDogRegistration
+    public class DogRegistrationDetail : ValidatableBindableBase, IDogRegistration
     {
         public int Id { get; set; }
         public string RegisrationNumber { get; set; }
