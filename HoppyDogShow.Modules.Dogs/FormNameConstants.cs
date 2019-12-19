@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyDogShow.Infrastructure
+namespace HappyDogShow.Modules.Dogs
 { 
     public class FormNameConstants
     {
@@ -13,6 +13,10 @@ namespace HappyDogShow.Infrastructure
             public static class DogsList
             {
                 public static string ViewName = "DogsList";
+            }
+            public static class NewDog
+            {
+                public static string ViewName = "NewDog";
             }
         }
     }

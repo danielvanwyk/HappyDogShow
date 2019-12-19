@@ -1,4 +1,5 @@
 ﻿using HappyDogShow.Infrastructure;
+using HappyDogShow.Infrastructure.CommandExecutors;
 using HappyDogShow.Modules.Dogs.Commands;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
@@ -10,29 +11,11 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Dogs.CommandExecutors
 {
-    public class ShowDogListCommandExecutor
+    public class ShowDogListCommandExecutor : NavigateToViewCommandExecutor
     {
-        private IRegionManager _regionManager;
-
-        public DelegateCommand CommandHandler { get; set; }
-
         public ShowDogListCommandExecutor(IRegionManager regionManager)
+            : base(DogListCommands.ShowDogListCommand, regionManager, FormNameConstants.Dogs.DogsList.ViewName)
         {
-            _regionManager = regionManager;
-
-            CommandHandler = new DelegateCommand(ExecuteCommand);
-            DogListCommands.ShowDogListCommand.RegisterCommand(CommandHandler);
-        }
-
-        private void ExecuteCommand()
-        {
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, FormNameConstants.Dogs.DogsList.ViewName,
-                (NavigationResult nr) =>
-                {
-                    var error = nr.Error;
-                    var result = nr.Result;
-                    // put a breakpoint here and checkout what NavigationResult contains
-                });
         }
     }
 }

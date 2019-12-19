@@ -16,6 +16,7 @@ namespace HappyDogShow.Modules.Dogs
     public class DogsModule : ModuleBase
     {
         private ShowDogListCommandExecutor _showDogListCommandExecutor;
+        private ShowViewToCaptureNewDogCommandExecutor _showViewToCaptureNewDogCommandExecutor;
 
         public DogsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -28,6 +29,7 @@ namespace HappyDogShow.Modules.Dogs
             RegisterViewWithRegionUsingViewModel<IDogsMainMenuViewViewModel>(RegionNames.MainMenuRegion);
             //RegisterViewWithRegionUsingViewModel<IExploreDogsViewViewModel>(RegionNames.ContentRegion);
             _showDogListCommandExecutor = Container.Resolve<ShowDogListCommandExecutor>();
+            _showViewToCaptureNewDogCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogCommandExecutor>();
         }
 
         protected override void RegisterTypes()

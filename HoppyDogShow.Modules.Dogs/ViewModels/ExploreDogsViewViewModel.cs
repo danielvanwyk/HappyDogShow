@@ -2,6 +2,9 @@
 using HappyDogShow.Infrastructure.WPF;
 using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Dogs.Infrastructure;
+using HappyDogShow.Services.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Services;
+using HappyDogShow.SharedModels;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -11,37 +14,23 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Dogs.ViewModels
 {
-    public class ExploreDogsViewViewModel : BindableViewModelBase, IExploreDogsViewViewModel, INavigationAware
+    public class ExploreDogsViewViewModel : ListViewViewModelBase<IDogRegistration>, IExploreDogsViewViewModel
     {
-        private List<DogRegistration> dogList;
-        public List<DogRegistration> DogList
+        private IDogRegistrationService _service;
+
+        public ExploreDogsViewViewModel(IExploreDogsView view, IDogRegistrationService service)
+            : base(view)
         {
-            get { return dogList; }
-            set { SetProperty(ref dogList, value); }
-        }
-        public ExploreDogsViewViewModel(IExploreDogsView view) : base(view)
-        {
+            _service = service;
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
+        public async override void Prepare()
         {
-            return true;
-        }
+            Items.Clear();
 
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-            
-        }
+            List<IDogRegistration> items = await _service.GetListAsync<DogRegistrationDetail>();
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            using (var ctx = new HappyDogShowContext())
-            {
-                var dogs = from d in ctx.DogRegistrations
-                           select d;
-
-                DogList = dogs.ToList();
-            }
+            items.ForEach(i => Items.Add(i));
         }
     }
 }

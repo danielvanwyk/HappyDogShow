@@ -53,6 +53,7 @@ namespace HappyDogShow
             Container.RegisterType<IShellViewViewModel, ShellViewViewModel>(new HierarchicalLifetimeManager());
 
             Container.RegisterType<IDogShowService, DogShowService>();
+            Container.RegisterType<IDogRegistrationService, DogRegistrationService>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
