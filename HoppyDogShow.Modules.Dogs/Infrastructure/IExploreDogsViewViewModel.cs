@@ -9,5 +9,6 @@ namespace HappyDogShow.Modules.Dogs.Infrastructure
 {
     public interface IExploreDogsViewViewModel : IViewViewModel
     {
+        string RegistrationNumberFilterCriteria { get; set; }
     }
 }

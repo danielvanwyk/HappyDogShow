@@ -9,5 +9,6 @@ namespace HappyDogShow.Modules.Dogs.Infrastructure
 {
     public interface IExploreDogsView : IView
     {
+        void PerformFiltering();
     }
 }

@@ -8,20 +8,36 @@
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
              xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Dogs.Commands"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              >
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="cvsItems" Source="{Binding Items}" Filter="CollectionViewSource_Filter">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="RegisrationNumber" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+    
     <infrastructureControls:BasicContentLayout>
         <infrastructureControls:BasicContentLayout.MainTitleText>View and search the dog list</infrastructureControls:BasicContentLayout.MainTitleText>
         <infrastructureControls:BasicContentLayout.MainContent>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label>Reg # Lookup</Label>
+                    <TextBox Width="100" Text="{Binding RegistrationNumberFilterCriteria}" />
+                    <Button Content="Search" Click="Button_Click" />
+                </StackPanel>
                 
-                <DataGrid Grid.Row="0"
+                <DataGrid Grid.Row="1" x:Uid="dg1"
                           Style="{StaticResource AzureDataGrid}"
                           AutoGenerateColumns="False"
-                          ItemsSource="{Binding Items}"
+                          ItemsSource="{Binding Source={StaticResource cvsItems}}"
                           IsReadOnly="True"
                           >
                     <DataGrid.Columns>

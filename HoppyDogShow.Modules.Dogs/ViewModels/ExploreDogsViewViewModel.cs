@@ -18,10 +18,21 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
     {
         private IDogRegistrationService _service;
 
+        private string registrationNumberFilterCriteria;
+        public string RegistrationNumberFilterCriteria
+        {
+            get { return registrationNumberFilterCriteria; }
+            set 
+            { 
+                SetProperty(ref registrationNumberFilterCriteria, value);
+            }
+        }
+
         public ExploreDogsViewViewModel(IExploreDogsView view, IDogRegistrationService service)
             : base(view)
         {
             _service = service;
+            RegistrationNumberFilterCriteria = "";
         }
 
         public async override void Prepare()
