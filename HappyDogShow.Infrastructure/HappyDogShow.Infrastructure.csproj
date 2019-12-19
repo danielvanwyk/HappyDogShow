@@ -108,7 +108,6 @@
     </Compile>
     <Compile Include="ViewModels\IBusyAwareViewModel.cs" />
     <Compile Include="ViewModels\IEntityAwareViewViewModel.cs" />
-    <Compile Include="WPF\Infrastructure\IBusyAwareViewModel.cs" />
     <Compile Include="WPF\Infrastructure\IView.cs" />
     <Compile Include="WPF\Infrastructure\IViewViewModel.cs" />
     <Compile Include="WPF\ViewModels\BindableViewModelBase.cs" />

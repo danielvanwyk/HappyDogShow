@@ -1,16 +1,10 @@
 ﻿using HappyDogShow.Data;
 using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Shows.Infrastructure;
-using HappyDogShow.Modules.Shows.Models;
 using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
-using Microsoft.Practices.Prism.Regions;
-using System;
+using HappyDogShow.SharedModels;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {

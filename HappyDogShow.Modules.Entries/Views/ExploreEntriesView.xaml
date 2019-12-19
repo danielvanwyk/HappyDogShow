@@ -19,10 +19,11 @@
                 </Grid.RowDefinitions>
 
                 <DataGrid Grid.Row="0"
-                Style="{StaticResource AzureDataGrid}"
-                AutoGenerateColumns="True"
-                ItemsSource="{Binding DogList}"
-                >
+                    Style="{StaticResource AzureDataGrid}"
+                    AutoGenerateColumns="True"
+                    ItemsSource="{Binding Items}"
+                    SelectedItem="{Binding SelectedItem}"
+                    >
                     <!--<DataGridTextColumn Header="KUSA #" Width="3*" />-->
                 </DataGrid>
             </Grid>
@@ -30,7 +31,8 @@
 
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Capture new Entry" Command="{x:Static localCommands:NewEntryCommands.ShowViewToCaptureNewEntryCommand}" />
+                <Button Content="Add Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" />
+                <Button Content="Edit Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
 

@@ -87,8 +87,8 @@
   <ItemGroup>
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />
+    <Compile Include="Commands\BreedEntryCRUDCommands.cs" />
     <Compile Include="Commands\EntryListCommands.cs" />
-    <Compile Include="Commands\NewEntryCommands.cs" />
     <Compile Include="EntriesModule.cs" />
     <Compile Include="FormNameConstants.cs" />
     <Compile Include="Infrastructure\ICaptureNewEntryView.cs" />
@@ -119,6 +119,14 @@
     <ProjectReference Include="..\HappyDogShow.Infrastructure\HappyDogShow.Infrastructure.csproj">
       <Project>{1444f955-65b2-412a-a1be-2511ffe5c2c6}</Project>
       <Name>HappyDogShow.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.Services.Infrastructure\HappyDogShow.Services.Infrastructure.csproj">
+      <Project>{EFC72165-674F-4D99-B464-13E26B9C45FA}</Project>
+      <Name>HappyDogShow.Services.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.SharedModels\HappyDogShow.SharedModels.csproj">
+      <Project>{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}</Project>
+      <Name>HappyDogShow.SharedModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

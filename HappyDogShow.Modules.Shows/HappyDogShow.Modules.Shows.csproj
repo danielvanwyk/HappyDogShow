@@ -101,7 +101,6 @@
     <Compile Include="Infrastructure\IExploreShowsViewViewModel.cs" />
     <Compile Include="Infrastructure\IShowsMainMenuView.cs" />
     <Compile Include="Infrastructure\IShowsMainMenuViewViewModel.cs" />
-    <Compile Include="Models\DogShowDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowsModule.cs" />
     <Compile Include="ViewModels\CaptureNewDogShowViewViewModel.cs" />
@@ -138,8 +137,14 @@
       <Project>{EFC72165-674F-4D99-B464-13E26B9C45FA}</Project>
       <Name>HappyDogShow.Services.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.SharedModels\HappyDogShow.SharedModels.csproj">
+      <Project>{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}</Project>
+      <Name>HappyDogShow.SharedModels</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\CaptureNewDogShowView.xaml">
       <SubType>Designer</SubType>

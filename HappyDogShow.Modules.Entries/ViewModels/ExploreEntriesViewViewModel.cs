@@ -1,5 +1,6 @@
 ﻿using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Entries.Infrastructure;
+using HappyDogShow.Services.Infrastructure.Models;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,16 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Entries.ViewModels
 {
-    public class ExploreEntriesViewViewModel : NavigateableBindableViewModelBase, IExploreEntriesViewViewModel
+    public class ExploreEntriesViewViewModel : ListViewViewModelBase<IBreedEntryEntity>, IExploreEntriesViewViewModel
     {
         public ExploreEntriesViewViewModel(IExploreEntriesView view) 
             : base(view)
         {
+        }
+
+        public override void Prepare()
+        {
+            base.Prepare();
         }
     }
 }

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyDogShow.Services.Infra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyDogShow.Services", "HappyDogShow.Services\HappyDogShow.Services.csproj", "{793F0329-B34D-4F5A-9787-91AFECD2B6AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyDogShow.SharedModels", "HappyDogShow.SharedModels\HappyDogShow.SharedModels.csproj", "{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{793F0329-B34D-4F5A-9787-91AFECD2B6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{793F0329-B34D-4F5A-9787-91AFECD2B6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{793F0329-B34D-4F5A-9787-91AFECD2B6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

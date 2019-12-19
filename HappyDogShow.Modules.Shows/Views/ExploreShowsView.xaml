@@ -20,11 +20,11 @@
                 </Grid.RowDefinitions>
 
                 <DataGrid Grid.Row="0"
-                Style="{StaticResource AzureDataGrid}"
-                AutoGenerateColumns="True"
-                ItemsSource="{Binding Items}"
-                          SelectedItem="{Binding SelectedItem}"
-                >
+                    Style="{StaticResource AzureDataGrid}"
+                    AutoGenerateColumns="True"
+                    ItemsSource="{Binding Items}"
+                    SelectedItem="{Binding SelectedItem}"
+                    >
                 </DataGrid>
 
             </Grid>

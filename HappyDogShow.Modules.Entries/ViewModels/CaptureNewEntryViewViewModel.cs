@@ -1,43 +1,65 @@
 ﻿using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Entries.Infrastructure;
+using HappyDogShow.Services.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Services;
+using HappyDogShow.Infrastructure.Extensions;
+using HappyDogShow.SharedModels;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappyDogShow.Infrastructure.ViewModels;
 
 namespace HappyDogShow.Modules.Entries.ViewModels
 {
-    public class CaptureNewEntryViewViewModel : BindableViewModelBase, ICaptureNewEntryViewViewModel, INavigationAware
+    public class CaptureNewEntryViewViewModel : NavigateableBindableViewModelBase, ICaptureNewEntryViewViewModel, INavigationAware
     {
-        private List<string> testItems;
-        public List<string> TestItems
-        {
-            get { return testItems; }
-            set { SetProperty(ref testItems, value); }
-        }
-        public CaptureNewEntryViewViewModel(ICaptureNewEntryView view) : base(view)
-        {
-            TestItems = new List<string>();
-            TestItems.Add("ZA010784B16");
-            TestItems.Add("ZA010785B16");
-            TestItems.Add("ZA010784B17");
+        private IDogShowService _dogShowService;
 
+        private List<IDogShowEntity> dogShowList;
+        public List<IDogShowEntity> DogShowList 
+        { 
+            get { return dogShowList; }
+            set { SetProperty(ref dogShowList, value); }
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
+        private string registrationNumber;
+        public string RegistrationNumber
         {
-            return true;
+            get { return registrationNumber; }
+            set 
+            { 
+                SetProperty(ref registrationNumber, value);
+                PerformRegistrationNumberLookup();
+            }
         }
 
-        public void OnNavigatedFrom(NavigationContext navigationContext)
+        private bool isSearchingDogRegistration;
+        public bool IsSearchingDogRegistration
         {
-
+            get { return isSearchingDogRegistration; }
+            set { SetProperty(ref isSearchingDogRegistration, value); }
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        private async void PerformRegistrationNumberLookup()
         {
+            IsSearchingDogRegistration = true;
+            await Task.Delay(TimeSpan.FromSeconds(3));
+            IsSearchingDogRegistration = false;
+        }
+
+        public CaptureNewEntryViewViewModel(ICaptureNewEntryView view, IDogShowService dogShowService) 
+            : base(view)
+        {
+            _dogShowService = dogShowService;
+        }
+
+        public async override void Prepare()
+        {
+            DogShowList = await _dogShowService.GetDogShowListAsync<DogShowDetail>();
+
         }
     }
 }

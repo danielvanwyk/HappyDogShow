@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Infrastructure.WPF.Infrastructure;
+﻿using HappyDogShow.Infrastructure.ViewModels;
+using HappyDogShow.Infrastructure.WPF.Infrastructure;
 using Microsoft.Practices.Prism.Mvvm;
 using System;
 using System.Collections.Generic;
