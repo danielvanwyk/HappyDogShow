@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreedDetail.cs" />
     <Compile Include="DogRegistrationDetail.cs" />
     <Compile Include="DogShowDetail.cs" />
+    <Compile Include="GenderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

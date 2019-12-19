@@ -72,6 +72,14 @@
     <Compile Include="Migrations\201909030535505_EntryReferenceTables.Designer.cs">
       <DependentUpon>201909030535505_EntryReferenceTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912191242321_SeedOnly.cs" />
+    <Compile Include="Migrations\201912191242321_SeedOnly.Designer.cs">
+      <DependentUpon>201912191242321_SeedOnly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912191315116_RegisteredOwnerChanges.cs" />
+    <Compile Include="Migrations\201912191315116_RegisteredOwnerChanges.Designer.cs">
+      <DependentUpon>201912191315116_RegisteredOwnerChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909030535505_EntryReferenceTables.resx">
       <DependentUpon>201909030535505_EntryReferenceTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912191242321_SeedOnly.resx">
+      <DependentUpon>201912191242321_SeedOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912191315116_RegisteredOwnerChanges.resx">
+      <DependentUpon>201912191315116_RegisteredOwnerChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

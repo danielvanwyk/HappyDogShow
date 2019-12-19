@@ -48,8 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreedService.cs" />
     <Compile Include="DogRegistrationService.cs" />
     <Compile Include="DogShowService.cs" />
+    <Compile Include="GenderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

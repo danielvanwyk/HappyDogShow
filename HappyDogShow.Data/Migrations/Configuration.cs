@@ -20,6 +20,11 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            context.Genders.AddOrUpdate(x => x.Name,
+                new Gender() { Name = "Male"},
+                new Gender() { Name = "Female"}
+                );
+
             context.BreedGroups.AddOrUpdate(x => x.Name,
                 new BreedGroup() { Name = "Gundog" },
                 new BreedGroup() { Name = "Herding" },
