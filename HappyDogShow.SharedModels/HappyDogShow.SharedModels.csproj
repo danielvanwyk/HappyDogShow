@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="BreedClassEntryEntityWithClassDetailForSelection.cs" />
     <Compile Include="BreedDetail.cs" />
+    <Compile Include="BreedEntry.cs" />
     <Compile Include="DogRegistrationDetail.cs" />
     <Compile Include="DogShowDetail.cs" />
     <Compile Include="GenderDetail.cs" />

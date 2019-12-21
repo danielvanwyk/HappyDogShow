@@ -56,6 +56,7 @@ namespace HappyDogShow
             Container.RegisterType<IDogRegistrationService, DogRegistrationService>();
             Container.RegisterType<IGenderService, GenderService>();
             Container.RegisterType<IBreedService, BreedService>();
+            Container.RegisterType<IBreedEntryService, BreedEntryService>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

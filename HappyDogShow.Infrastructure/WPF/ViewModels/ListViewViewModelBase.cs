@@ -21,13 +21,22 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
         public T SelectedItem
         {
             get { return selectedItem; }
-            set { SetProperty(ref selectedItem, value); }
+            set 
+            { 
+                SetProperty(ref selectedItem, value);
+                OnSelectedItemChanged();
+            }
         }
 
         public ListViewViewModelBase(IView view)
             : base(view)
         {
             Items = new ObservableCollection<T>();
+        }
+
+        public virtual void OnSelectedItemChanged()
+        {
+
         }
 
     }

@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
              xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
-             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Entries.Commands"
+             xmlns:SharedUserControls="clr-namespace:HappyDogShow.SharedUserControls;assembly=HappyDogShow.SharedUserControls"
              >
     <infrastructureControls:BasicContentLayout>
         <infrastructureControls:BasicContentLayout.MainTitleText>Capture a new entry</infrastructureControls:BasicContentLayout.MainTitleText>
@@ -25,11 +26,11 @@
                         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <Label Width="150">Show</Label>
-                                <ComboBox Width="250" ItemsSource="{Binding DogShowList}" SelectedItem="{Binding SelectedDogShow}" DisplayMemberPath="DogShowName"/>
+                                <ComboBox Width="250" ItemsSource="{Binding DogShowList}" SelectedItem="{Binding SelectedDogShow}" DisplayMemberPath="DogShowName" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.ShowId}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Label Width="150">Class(es)</Label>
-                                <ListView ItemsSource="{Binding Classes}">
+                                <ListView ItemsSource="{Binding CurrentEntity.Classes}">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding BreedClassName}" ToolTip="{Binding BreedClassDescription}" />
@@ -48,7 +49,7 @@
 
                 <TabControl Grid.Column="2">
                     <TabItem Header="Dog details">
-                        
+                        <SharedUserControls:ReadOnlyDogRegistrationDetail />
                     </TabItem>
                 </TabControl>
             </Grid>
@@ -56,7 +57,7 @@
 
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Save Entry" />
+                <Button Content="Save" Command="{x:Static localCommands:BreedEntryCRUDCommands.SaveNewEntityCommand}" CommandParameter="{Binding}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>

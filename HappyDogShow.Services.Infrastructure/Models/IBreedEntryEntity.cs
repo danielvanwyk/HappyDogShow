@@ -8,5 +8,8 @@ namespace HappyDogShow.Services.Infrastructure.Models
 {
     public interface IBreedEntryEntity : IEntityWithID
     {
+        int ShowId { get; set; }
+        List<IBreedClassEntryEntityWithClassDetailForSelection> Classes { get; set; }
+        IDogRegistration Dog { get; set; }
     }
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EFC72165-674F-4D99-B464-13E26B9C45FA}</ProjectGuid>
+    <ProjectGuid>{0C52F23D-0440-4F64-9331-C05C7B01AD02}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HappyDogShow.Services.Infrastructure</RootNamespace>
-    <AssemblyName>HappyDogShow.Services.Infrastructure</AssemblyName>
+    <RootNamespace>HappyDogShow.SharedUserControls</RootNamespace>
+    <AssemblyName>HappyDogShow.SharedUserControls</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,33 +31,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\IBreedClassEntity.cs" />
-    <Compile Include="Models\IBreedClassEntryEntityWithClassDetailForSelection.cs" />
-    <Compile Include="Models\IBreedEntity.cs" />
-    <Compile Include="Models\IBreedEntryEntity.cs" />
-    <Compile Include="Models\IDogRegistration.cs" />
-    <Compile Include="Models\IDogShowEntity.cs" />
-    <Compile Include="Models\IEntityWithID.cs" />
-    <Compile Include="Models\IGenderEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IBreedEntryService.cs" />
-    <Compile Include="Services\IBreedService.cs" />
-    <Compile Include="Services\IDogRegistrationService.cs" />
-    <Compile Include="Services\IDogShowService.cs" />
-    <Compile Include="Services\IEntityCreateService.cs" />
-    <Compile Include="Services\IEntityUpdateService.cs" />
-    <Compile Include="Services\IGenderService.cs" />
+    <Compile Include="ReadOnlyDogRegistrationDetail.xaml.cs">
+      <DependentUpon>ReadOnlyDogRegistrationDetail.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="ReadOnlyDogRegistrationDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

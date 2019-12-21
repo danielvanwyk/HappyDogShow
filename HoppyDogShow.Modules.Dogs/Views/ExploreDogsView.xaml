@@ -10,6 +10,7 @@
              xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Dogs.Commands"
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              xmlns:BreedEntryCommands="clr-namespace:HappyDogShow.Modules.Entries.Commands;assembly=HappyDogShow.Modules.Entries"
+             xmlns:SharedUserControls="clr-namespace:HappyDogShow.SharedUserControls;assembly=HappyDogShow.SharedUserControls"
              >
 
     <UserControl.Resources>
@@ -69,116 +70,7 @@
 
                     <TabControl Grid.Column="2">
                         <TabItem Header="Detail">
-                            <ScrollViewer>
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisrationNumber</Label>
-                                        <Label Content="{Binding SelectedItem.RegisrationNumber}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Gender</Label>
-                                        <Label Content="{Binding SelectedItem.GenderName}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">DateOfBirth</Label>
-                                        <Label Content="{Binding SelectedItem.DateOfBirth }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Breed</Label>
-                                        <Label Content="{Binding SelectedItem.BreedName }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredName</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredName }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Qualifications</Label>
-                                        <Label Content="{Binding SelectedItem.Qualifications }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">ChipOrTattooNumber</Label>
-                                        <Label Content="{Binding SelectedItem.ChipOrTattooNumber }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Sire</Label>
-                                        <Label Content="{Binding SelectedItem.Sire }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Dam</Label>
-                                        <Label Content="{Binding SelectedItem.Dam }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">BredBy</Label>
-                                        <Label Content="{Binding SelectedItem.BredBy }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Colour</Label>
-                                        <Label Content="{Binding SelectedItem.Colour }"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerSurname</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerSurname}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerTitle</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerTitle}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerInitials</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerInitials}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerAddress</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerAddress}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerPostalCode</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerPostalCode}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerKUSANo</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerKUSANo}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerTel</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerTel}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerCell</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerCell}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerFax</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerFax}"></Label>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerEmail</Label>
-                                        <Label Content="{Binding SelectedItem.RegisteredOwnerEmail}"></Label>
-                                    </StackPanel>
-
-                                </StackPanel>
-                            </ScrollViewer>
-
+                            <SharedUserControls:ReadOnlyDogRegistrationDetail />
                         </TabItem>
                         <TabItem Header="Entries">
 

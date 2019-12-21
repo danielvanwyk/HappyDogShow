@@ -179,6 +179,10 @@
       <Project>{793f0329-b34d-4f5a-9787-91afecd2b6ad}</Project>
       <Name>HappyDogShow.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.SharedUserControls\HappyDogShow.SharedUserControls.csproj">
+      <Project>{0c52f23d-0440-4f64-9331-c05c7b01ad02}</Project>
+      <Name>HappyDogShow.SharedUserControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HoppyDogShow.Modules.Dogs\HappyDogShow.Modules.Dogs.csproj">
       <Project>{b429d3ca-15c0-4d8d-bd1d-30f1dd3c64cc}</Project>
       <Name>HappyDogShow.Modules.Dogs</Name>

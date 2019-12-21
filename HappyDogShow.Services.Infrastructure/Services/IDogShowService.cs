@@ -10,6 +10,6 @@ namespace HappyDogShow.Services.Infrastructure.Services
     public interface IDogShowService : IEntityCreateService<IDogShowEntity>, IEntityUpdateService<IDogShowEntity>
     {
         Task<List<IDogShowEntity>> GetDogShowListAsync<T>() where T : IDogShowEntity, new();
-        Task<List<IBreedClassEntryEntityWithClassDetail>> GetListOfClassEntriesForNewBreedEntryAsync<T>() where T : IBreedClassEntryEntityWithClassDetail, new();
+        Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> GetListOfClassEntriesForNewBreedEntryAsync<T>() where T : IBreedClassEntryEntityWithClassDetailForSelection, new();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Services.Infrastructure.Models
 {
-    public interface IBreedClassEntryEntityWithClassDetail
+    public interface IBreedClassEntryEntityWithClassDetailForSelection
     {
         int ID { get; set; }
         int BreedClassID { get; set; }
@@ -14,5 +14,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string BreedClassDescription { get; set; }
         int MinAgeInMonths { get; set; }
         int MaxAgeInMonths { get; set; }
+        bool IsSelected { get; set; }
     }
 }

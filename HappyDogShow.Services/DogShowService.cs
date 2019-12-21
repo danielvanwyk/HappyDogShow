@@ -105,20 +105,20 @@ namespace HappyDogShow.Services
             return items;
         }
 
-        public Task<List<IBreedClassEntryEntityWithClassDetail>> GetListOfClassEntriesForNewBreedEntryAsync<T>() where T : IBreedClassEntryEntityWithClassDetail, new()
+        public Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> GetListOfClassEntriesForNewBreedEntryAsync<T>() where T : IBreedClassEntryEntityWithClassDetailForSelection, new()
         {
-            Task<List<IBreedClassEntryEntityWithClassDetail>> t = Task<List<IBreedClassEntryEntityWithClassDetail>>.Run(() =>
+            Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> t = Task<List<IBreedClassEntryEntityWithClassDetailForSelection>>.Run(() =>
             {
-                List<IBreedClassEntryEntityWithClassDetail> items = GetListOfClassEntriesForNewBreedEntry<T>();
+                List<IBreedClassEntryEntityWithClassDetailForSelection> items = GetListOfClassEntriesForNewBreedEntry<T>();
                 return items;
             });
 
             return t;
         }
 
-        private List<IBreedClassEntryEntityWithClassDetail> GetListOfClassEntriesForNewBreedEntry<T>() where T : IBreedClassEntryEntityWithClassDetail, new()
+        private List<IBreedClassEntryEntityWithClassDetailForSelection> GetListOfClassEntriesForNewBreedEntry<T>() where T : IBreedClassEntryEntityWithClassDetailForSelection, new()
         {
-            List<IBreedClassEntryEntityWithClassDetail> items = new List<IBreedClassEntryEntityWithClassDetail>();
+            List<IBreedClassEntryEntityWithClassDetailForSelection> items = new List<IBreedClassEntryEntityWithClassDetailForSelection>();
 
             using (var ctx = new HappyDogShowContext())
             {

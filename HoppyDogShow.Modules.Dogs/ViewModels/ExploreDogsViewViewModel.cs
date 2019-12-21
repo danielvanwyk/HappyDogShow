@@ -18,6 +18,11 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
     {
         private IDogRegistrationService _service;
 
+        public IDogRegistration SelectedDogRegistration
+        {
+            get { return SelectedItem; }
+        }
+
         private string registrationNumberFilterCriteria;
         public string RegistrationNumberFilterCriteria
         {
@@ -42,6 +47,11 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
             List<IDogRegistration> items = await _service.GetListAsync<DogRegistrationDetail>();
 
             items.ForEach(i => Items.Add(i));
+        }
+
+        public override void OnSelectedItemChanged()
+        {
+            OnPropertyChanged("SelectedDogRegistration");
         }
     }
 }

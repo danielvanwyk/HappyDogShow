@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveNewBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />
     <Compile Include="Commands\BreedEntryCRUDCommands.cs" />
@@ -131,6 +132,10 @@
     <ProjectReference Include="..\HappyDogShow.SharedModels\HappyDogShow.SharedModels.csproj">
       <Project>{FC7EFCE2-363D-4E76-8E92-DBDA33884FAB}</Project>
       <Name>HappyDogShow.SharedModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.SharedUserControls\HappyDogShow.SharedUserControls.csproj">
+      <Project>{0c52f23d-0440-4f64-9331-c05c7b01ad02}</Project>
+      <Name>HappyDogShow.SharedUserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

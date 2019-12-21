@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.SharedModels
 {
-    public class BreedClassEntryEntityWithClassDetailForSelection : ValidatableBindableBase, IBreedClassEntryEntityWithClassDetail
+    public class BreedClassEntryEntityWithClassDetailForSelection : ValidatableBindableBase, IBreedClassEntryEntityWithClassDetailForSelection
     {
         public int ID { get; set; }
         public int BreedClassID { get; set; }

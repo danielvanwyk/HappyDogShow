@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HappyDogShow.Infrastructure.ViewModels;
+using HappyDogShow.Infrastructure.Models;
 
 namespace HappyDogShow.Modules.Entries.ViewModels
 {
@@ -18,20 +19,29 @@ namespace HappyDogShow.Modules.Entries.ViewModels
     {
         private IDogShowService _dogShowService;
 
+        private IDogRegistration selectedDogRegistration;
+        public IDogRegistration SelectedDogRegistration
+        {
+            get { return selectedDogRegistration; }
+            set { SetProperty(ref selectedDogRegistration, value); }
+        }
+
+        private ValidatableBindableBase currentEntity;
+        public ValidatableBindableBase CurrentEntity
+        {
+            get { return currentEntity; }
+            set 
+            { 
+                SetProperty(ref currentEntity, value);
+            }
+        }
+
         private List<IDogShowEntity> dogShowList;
+
         public List<IDogShowEntity> DogShowList 
         { 
             get { return dogShowList; }
             set { SetProperty(ref dogShowList, value); }
-        }
-
-
-
-        private List<IBreedClassEntryEntityWithClassDetail> classes;
-        public List<IBreedClassEntryEntityWithClassDetail> Classes
-        {
-            get { return classes; }
-            set { SetProperty(ref classes, value); }
         }
 
         public CaptureNewEntryViewViewModel(ICaptureNewEntryView view, IDogShowService dogShowService) 
@@ -40,11 +50,18 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             _dogShowService = dogShowService;
         }
 
+        public override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
+        {
+            SelectedDogRegistration = navigationContext.Parameters["entity"] as IDogRegistration;
+        }
+
         public async override void Prepare()
         {
             DogShowList = await _dogShowService.GetDogShowListAsync<DogShowDetail>();
 
-            Classes = await _dogShowService.GetListOfClassEntriesForNewBreedEntryAsync<BreedClassEntryEntityWithClassDetailForSelection>();
+            CurrentEntity = new BreedEntry();
+            (CurrentEntity as IBreedEntryEntity).Classes = await _dogShowService.GetListOfClassEntriesForNewBreedEntryAsync<BreedClassEntryEntityWithClassDetailForSelection>();
+            (CurrentEntity as IBreedEntryEntity).Dog = SelectedDogRegistration;
         }
     }
 }
