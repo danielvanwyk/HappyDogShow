@@ -20,6 +20,19 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            context.BreedClasses.AddOrUpdate(x => x.Name,
+                new BreedClass() { Name = "Baby Puppy", MinAgeInMonths = 4, MaxAgeInMonths = 5, Description = "For dogs of four (4) under six (6) months of age on the first day of the show (not eligible for CC or BOB)"},
+                new BreedClass() { Name = "Minor Puppy", MinAgeInMonths = 6, MaxAgeInMonths = 8, Description = "For dogs of six (6) under nine (9) months of age on the first day of the Show." },
+                new BreedClass() { Name = "Puppy", MinAgeInMonths = 9, MaxAgeInMonths = 11, Description = "For dogs of nine (9) under twelve (12) months of age on the first day of the Show." },
+                new BreedClass() { Name = "Junior", MinAgeInMonths = 12, MaxAgeInMonths = 17, Description = "For dogs of twelve (12) under eighteen (18) months of age on the first day of the Show." },
+                new BreedClass() { Name = "Graduate", MinAgeInMonths = 18, MaxAgeInMonths = 23, Description = "For dogs of eighteen (18) under twenty-four (24) months of age on the first day of the Show." },
+                new BreedClass() { Name = "Open", MinAgeInMonths = 0, MaxAgeInMonths = 0, Description = "For dogs of any Breed therein provided for." },
+                new BreedClass() { Name = "Champions", MinAgeInMonths = 0, MaxAgeInMonths = 0, Description = "Officially a KUSA Champion – Does not compete for CC" },
+                new BreedClass() { Name = "SA Bred", MinAgeInMonths = 0, MaxAgeInMonths = 0, Description = "Dogs born in South Africa" },
+                new BreedClass() { Name = "Veterans", MinAgeInMonths = 84, MaxAgeInMonths = 99999, Description = "Over 7 years of age" },
+                new BreedClass() { Name = "Neuter Dog", MinAgeInMonths = 0, MaxAgeInMonths = 0, Description = "For dogs of any age that have been castrated for whatever reason (not eligible for CC or BOB)." }
+                );
+
             context.Genders.AddOrUpdate(x => x.Name,
                 new Gender() { Name = "Male"},
                 new Gender() { Name = "Female"}

@@ -25,29 +25,13 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             set { SetProperty(ref dogShowList, value); }
         }
 
-        private string registrationNumber;
-        public string RegistrationNumber
-        {
-            get { return registrationNumber; }
-            set 
-            { 
-                SetProperty(ref registrationNumber, value);
-                PerformRegistrationNumberLookup();
-            }
-        }
 
-        private bool isSearchingDogRegistration;
-        public bool IsSearchingDogRegistration
-        {
-            get { return isSearchingDogRegistration; }
-            set { SetProperty(ref isSearchingDogRegistration, value); }
-        }
 
-        private async void PerformRegistrationNumberLookup()
+        private List<IBreedClassEntryEntityWithClassDetail> classes;
+        public List<IBreedClassEntryEntityWithClassDetail> Classes
         {
-            IsSearchingDogRegistration = true;
-            await Task.Delay(TimeSpan.FromSeconds(3));
-            IsSearchingDogRegistration = false;
+            get { return classes; }
+            set { SetProperty(ref classes, value); }
         }
 
         public CaptureNewEntryViewViewModel(ICaptureNewEntryView view, IDogShowService dogShowService) 
@@ -60,6 +44,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
         {
             DogShowList = await _dogShowService.GetDogShowListAsync<DogShowDetail>();
 
+            Classes = await _dogShowService.GetListOfClassEntriesForNewBreedEntryAsync<BreedClassEntryEntityWithClassDetailForSelection>();
         }
     }
 }

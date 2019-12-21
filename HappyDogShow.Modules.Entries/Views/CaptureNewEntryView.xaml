@@ -12,30 +12,45 @@
     <infrastructureControls:BasicContentLayout>
         <infrastructureControls:BasicContentLayout.MainTitleText>Capture a new entry</infrastructureControls:BasicContentLayout.MainTitleText>
         <infrastructureControls:BasicContentLayout.MainContent>
-            <Grid>
+            <Grid Grid.Row="1" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Width="150">Show</Label>
-                        <ComboBox Width="250" ItemsSource="{Binding DogShowList}" SelectedItem="{Binding SelectedDogShow}" DisplayMemberPath="DogShowName"/>
-                    </StackPanel>
+                <TabControl Grid.Column="0">
+                    <TabItem Header="Entry details">
+
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="150">Show</Label>
+                                <ComboBox Width="250" ItemsSource="{Binding DogShowList}" SelectedItem="{Binding SelectedDogShow}" DisplayMemberPath="DogShowName"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="150">Class(es)</Label>
+                                <ListView ItemsSource="{Binding Classes}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding BreedClassName}" ToolTip="{Binding BreedClassDescription}" />
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
 
 
-                    
-                </StackPanel>
 
-                <ListView Grid.Column="1">
-                    
-                </ListView>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
 
+                <GridSplitter Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" Foreground="#424242" />
+
+                <TabControl Grid.Column="2">
+                    <TabItem Header="Dog details">
+                        
+                    </TabItem>
+                </TabControl>
             </Grid>
         </infrastructureControls:BasicContentLayout.MainContent>
 

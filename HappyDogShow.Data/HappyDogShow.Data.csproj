@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Breed.cs" />
+    <Compile Include="BreedClass.cs" />
+    <Compile Include="BreedClassEntry.cs" />
+    <Compile Include="BreedEntry.cs" />
     <Compile Include="BreedGroup.cs" />
     <Compile Include="Club.cs" />
     <Compile Include="Discipline.cs" />
@@ -80,6 +83,14 @@
     <Compile Include="Migrations\201912191315116_RegisteredOwnerChanges.Designer.cs">
       <DependentUpon>201912191315116_RegisteredOwnerChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912211826580_BreedClasses.cs" />
+    <Compile Include="Migrations\201912211826580_BreedClasses.Designer.cs">
+      <DependentUpon>201912211826580_BreedClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912211836170_BreedClassesMoreChanges.cs" />
+    <Compile Include="Migrations\201912211836170_BreedClassesMoreChanges.Designer.cs">
+      <DependentUpon>201912211836170_BreedClassesMoreChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912191315116_RegisteredOwnerChanges.resx">
       <DependentUpon>201912191315116_RegisteredOwnerChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912211826580_BreedClasses.resx">
+      <DependentUpon>201912211826580_BreedClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912211836170_BreedClassesMoreChanges.resx">
+      <DependentUpon>201912211836170_BreedClassesMoreChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

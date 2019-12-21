@@ -118,6 +118,10 @@
       <Project>{1444f955-65b2-412a-a1be-2511ffe5c2c6}</Project>
       <Name>HappyDogShow.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.Modules.Entries\HappyDogShow.Modules.Entries.csproj">
+      <Project>{e3e19a85-f4b4-4f30-83a5-aabc7d2e9fca}</Project>
+      <Name>HappyDogShow.Modules.Entries</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HappyDogShow.Services.Infrastructure\HappyDogShow.Services.Infrastructure.csproj">
       <Project>{EFC72165-674F-4D99-B464-13E26B9C45FA}</Project>
       <Name>HappyDogShow.Services.Infrastructure</Name>

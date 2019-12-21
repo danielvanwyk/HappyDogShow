@@ -15,7 +15,7 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
     public abstract class NavigateToEntityViewCommandExecutor<T>
     {
         protected IRegionManager _regionManager;
-        private DelegateCommand<T> commandHandler { get; set; }
+        private DelegateCommand<object> commandHandler { get; set; }
         private string viewName;
         protected bool RequireObject { get; set; }
 
@@ -23,11 +23,11 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
         {
             _regionManager = regionManager;
             viewName = viewToNavigateToName;
-            commandHandler = new DelegateCommand<T>(ExecuteCommand);
+            commandHandler = new DelegateCommand<object>(ExecuteCommand);
             command.RegisterCommand(commandHandler);
         }
 
-        private async void ExecuteCommand(T obj)
+        private async void ExecuteCommand(object obj)
         {
             if (RequireObject)
             {

@@ -14,11 +14,11 @@ namespace HappyDogShow.Data
         }
 
         public DbSet<DogRegistration> DogRegistrations { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        //public DbSet<Address> Addresses { get; set; }
         public DbSet<Breed> Breeds { get; set; }
         public DbSet<Gender> Genders { get; set; }
-        public DbSet<Owner> Owners { get; set; }
-        public DbSet<Title> Titles { get; set; }
+        //public DbSet<Owner> Owners { get; set; }
+        //public DbSet<Title> Titles { get; set; }
         public DbSet<BreedGroup> BreedGroups { get; set; }
 
         public DbSet<Club> Clubs { get; set; }
@@ -27,5 +27,8 @@ namespace HappyDogShow.Data
         public DbSet<DisciplineClass> DisciplineClasses { get; set; }
         public DbSet<DisciplineSize> DisciplineSizes { get; set; }
         public DbSet<DisciplineGrade> DisciplineGrades { get; set; }
+
+        public DbSet<BreedClass> BreedClasses { get; set; }
+        public DbSet<BreedEntry> BreedEntries { get; set; }
     }
 }

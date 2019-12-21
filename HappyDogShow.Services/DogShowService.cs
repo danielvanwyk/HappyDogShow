@@ -104,5 +104,41 @@ namespace HappyDogShow.Services
 
             return items;
         }
+
+        public Task<List<IBreedClassEntryEntityWithClassDetail>> GetListOfClassEntriesForNewBreedEntryAsync<T>() where T : IBreedClassEntryEntityWithClassDetail, new()
+        {
+            Task<List<IBreedClassEntryEntityWithClassDetail>> t = Task<List<IBreedClassEntryEntityWithClassDetail>>.Run(() =>
+            {
+                List<IBreedClassEntryEntityWithClassDetail> items = GetListOfClassEntriesForNewBreedEntry<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedClassEntryEntityWithClassDetail> GetListOfClassEntriesForNewBreedEntry<T>() where T : IBreedClassEntryEntityWithClassDetail, new()
+        {
+            List<IBreedClassEntryEntityWithClassDetail> items = new List<IBreedClassEntryEntityWithClassDetail>();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var data = from d in ctx.BreedClasses
+                            select d;
+
+                foreach (BreedClass i in data)
+                {
+                    items.Add(new T()
+                    {
+                        BreedClassID = i.ID,
+                        BreedClassName = i.Name,
+                        BreedClassDescription = i.Description,
+                        MinAgeInMonths = i.MinAgeInMonths,
+                        MaxAgeInMonths = i.MaxAgeInMonths
+                    });
+                }
+            }
+
+            return items;
+        }
     }
 }

@@ -116,6 +116,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HappyDogShow.Data\HappyDogShow.Data.csproj">
+      <Project>{DC51C5E5-D670-4012-B0B6-D1C2CFB31894}</Project>
+      <Name>HappyDogShow.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HappyDogShow.Infrastructure\HappyDogShow.Infrastructure.csproj">
       <Project>{1444f955-65b2-412a-a1be-2511ffe5c2c6}</Project>
       <Name>HappyDogShow.Infrastructure</Name>
