@@ -17,8 +17,8 @@ namespace HappyDogShow.Modules.Dogs
     {
         private ShowDogListCommandExecutor _showDogListCommandExecutor;
         private ShowViewToCaptureNewDogCommandExecutor _showViewToCaptureNewDogCommandExecutor;
-        //private ShowViewToEditDogShowEntityCommandExecutor _showViewToEditDogShowEntityCommandExecutor;
         private SaveNewDogEntityCommandExecutor _saveNewDogEntityCommandExecutor;
+        private ShowViewToEditDogEntityCommandExecutor _showViewToEditDogEntityCommandExecutor;
         //private SaveExistingDogShowEntityCommandExecutor _saveExistingDogShowEntityCommandExecutor;
 
         public DogsModule(IUnityContainer container, IRegionManager regionManager)
@@ -33,8 +33,8 @@ namespace HappyDogShow.Modules.Dogs
             //RegisterViewWithRegionUsingViewModel<IExploreDogsViewViewModel>(RegionNames.ContentRegion);
             _showDogListCommandExecutor = Container.Resolve<ShowDogListCommandExecutor>();
             _showViewToCaptureNewDogCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogCommandExecutor>();
-            //_showViewToEditDogShowEntityCommandExecutor = Container.Resolve<ShowViewToEditDogShowEntityCommandExecutor>();
             _saveNewDogEntityCommandExecutor = Container.Resolve<SaveNewDogEntityCommandExecutor>();
+            _showViewToEditDogEntityCommandExecutor = Container.Resolve<ShowViewToEditDogEntityCommandExecutor>();
             //_saveExistingDogShowEntityCommandExecutor = Container.Resolve<SaveExistingDogShowEntityCommandExecutor>();
         }
 
@@ -51,6 +51,10 @@ namespace HappyDogShow.Modules.Dogs
             // the new form
             Container.RegisterType<object, CaptureNewDogViewViewModel>(FormNameConstants.Dogs.NewDog.ViewName);
             Container.RegisterType<ICaptureNewDogView, CaptureNewDogView>();
+
+            // the edit form
+            Container.RegisterType<object, EditDogViewViewModel>(FormNameConstants.Dogs.EditDog.ViewName);
+            Container.RegisterType<IEditDogView, EditDogView>();
         }
     }
 }

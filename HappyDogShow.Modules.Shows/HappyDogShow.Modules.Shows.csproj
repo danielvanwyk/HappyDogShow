@@ -116,6 +116,7 @@
     <Compile Include="Views\ExploreShowsView.xaml.cs">
       <DependentUpon>ExploreShowsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\IEditDogView.cs" />
     <Compile Include="Views\ShowsMainMenuView.xaml.cs">
       <DependentUpon>ShowsMainMenuView.xaml</DependentUpon>
     </Compile>
