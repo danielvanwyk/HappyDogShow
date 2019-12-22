@@ -12,9 +12,10 @@
              >
 
     <UserControl.Resources>
-        <CollectionViewSource x:Key="cvsItems" Source="{Binding Items}">
+        <CollectionViewSource x:Key="cvsGroupedItems" Source="{Binding Items}">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription PropertyName="ShowName" />
+                <scm:SortDescription PropertyName="EntryNumber" />
                 <scm:SortDescription PropertyName="BreedGroupName" />
                 <scm:SortDescription PropertyName="BreedName" />
                 <scm:SortDescription PropertyName="GenderName" />
@@ -26,6 +27,15 @@
                 <!--<PropertyGroupDescription PropertyName="GenderName" />-->
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
+        <CollectionViewSource x:Key="cvsItems" Source="{Binding Items}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="ShowName" />
+                <scm:SortDescription PropertyName="EntryNumber" />
+                <scm:SortDescription PropertyName="BreedGroupName" />
+                <scm:SortDescription PropertyName="BreedName" />
+                <scm:SortDescription PropertyName="GenderName" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
     </UserControl.Resources>
 
     <infrastructureControls:BasicContentLayout>
@@ -36,11 +46,12 @@
                     <DataGrid Grid.Row="0"
                     Style="{StaticResource AzureDataGrid}"
                     AutoGenerateColumns="False"
-                    ItemsSource="{Binding Items}"
+                    ItemsSource="{Binding Source={StaticResource cvsItems}}"
                     SelectedItem="{Binding SelectedItem}"
                     >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Show" Width="auto" Binding="{Binding ShowName}" />
+                            <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
                             <DataGridTextColumn Header="Group" Width="auto" Binding="{Binding BreedGroupName}" />
                             <DataGridTextColumn Header="Breed" Width="auto" Binding="{Binding BreedName}" />
                             <DataGridTextColumn Header="Gender" Width="auto" Binding="{Binding GenderName}" />
@@ -54,7 +65,7 @@
                     <DataGrid Grid.Row="0"
                     Style="{StaticResource AzureDataGrid}"
                     AutoGenerateColumns="False"
-                    ItemsSource="{Binding Source={StaticResource cvsItems}}"
+                    ItemsSource="{Binding Source={StaticResource cvsGroupedItems}}"
                     SelectedItem="{Binding SelectedItem}"
                     >
                         <DataGrid.GroupStyle>
@@ -97,6 +108,7 @@
                         </DataGrid.GroupStyle>
 
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
                             <DataGridTextColumn Header="Gender" Width="auto" Binding="{Binding GenderName}" />
                             <DataGridTextColumn Header="Name" Width="auto" Binding="{Binding DogName}" />
                             <DataGridTextColumn Header="Reg #" Width="auto" Binding="{Binding DogRegistrationNumber}" />

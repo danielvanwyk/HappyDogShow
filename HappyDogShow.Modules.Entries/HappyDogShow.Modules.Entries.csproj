@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveExistingBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />

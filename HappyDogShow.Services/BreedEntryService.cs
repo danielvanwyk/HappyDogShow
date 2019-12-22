@@ -58,6 +58,71 @@ namespace HappyDogShow.Services
             return newid;
         }
 
+        public Task UpdateEntityAsync(IBreedEntryEntity entity)
+        {
+            Task t = Task<int>.Run(() =>
+            {
+                UpdateEntity(entity);
+            });
+
+            return t;
+        }
+
+        private void UpdateEntity(IBreedEntryEntity entity)
+        {
+            using (var ctx = new HappyDogShowContext())
+            {
+                DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.ShowId).First();
+
+                BreedEntry foundEntity = ctx.BreedEntries.Where(d => d.ID == entity.Id).Include(b => b.EnteredClasses).First();
+
+                if (foundEntity != null)
+                {
+                    foreach (var i in entity.Classes)
+                    {
+                        // existing class entry
+                        if (i.ID > 0)
+                        {
+                            if (i.IsSelected)
+                            {
+                                // nothing to do, keep it
+                            }
+                            else
+                            {
+                                var foundEntries = ctx.BreedClassEntries.Where(ec => ec.ID == i.ID);
+                                if (foundEntries.Count() == 1)
+                                {
+                                    ctx.BreedClassEntries.Remove(foundEntries.First());
+                                }
+                            }
+                        }
+                        // potential new class entry
+                        else
+                        {
+                            if (i.IsSelected)
+                            {
+                                BreedClass breedClass = ctx.BreedClasses.Where(k => k.ID == i.BreedClassID).First();
+
+                                foundEntity.EnteredClasses.Add(new BreedClassEntry()
+                                {
+                                    Class = breedClass
+                                });
+                            }
+                            else
+                            {
+                                // ignore
+                            }
+                        }
+
+                    }
+
+                    foundEntity.Show = selectedShow;
+
+                    ctx.SaveChanges();
+                }
+            }
+        }
+
         public Task<List<IBreedEntryEntityWithAdditionalData>> GetBreedEntryListAsync<T>() where T : IBreedEntryEntityWithAdditionalData, new()
         {
             Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
