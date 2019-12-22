@@ -62,6 +62,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             CurrentEntity = new BreedEntry();
             (CurrentEntity as IBreedEntryEntity).Classes = await _dogShowService.GetListOfClassEntriesForNewBreedEntryAsync<BreedClassEntryEntityWithClassDetailForSelection>();
             (CurrentEntity as IBreedEntryEntity).Dog = SelectedDogRegistration;
+            CurrentEntity.MarkEntityAsClean();
         }
     }
 }

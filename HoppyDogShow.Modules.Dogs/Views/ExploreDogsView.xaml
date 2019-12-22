@@ -85,7 +85,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Content="Add Dog" Command="{x:Static localCommands:DogEntityCRUDCommands.ShowViewToCaptureNewEntityCommand}" />
                 <Button Content="Edit Dog" Command="{x:Static localCommands:DogEntityCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
-                <Button Content="Add Entry" Command="{x:Static BreedEntryCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <Button Content="Add Show Entry for Selected Dog" Command="{x:Static BreedEntryCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
 
