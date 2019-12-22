@@ -19,7 +19,7 @@ namespace HappyDogShow.Modules.Dogs
         private ShowViewToCaptureNewDogCommandExecutor _showViewToCaptureNewDogCommandExecutor;
         private SaveNewDogEntityCommandExecutor _saveNewDogEntityCommandExecutor;
         private ShowViewToEditDogEntityCommandExecutor _showViewToEditDogEntityCommandExecutor;
-        //private SaveExistingDogShowEntityCommandExecutor _saveExistingDogShowEntityCommandExecutor;
+        private SaveExistingDogEntityCommandExecutor _saveExistingDogEntityCommandExecutor;
 
         public DogsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -30,12 +30,11 @@ namespace HappyDogShow.Modules.Dogs
         protected override void InitializeModule()
         {
             RegisterViewWithRegionUsingViewModel<IDogsMainMenuViewViewModel>(RegionNames.MainMenuRegion);
-            //RegisterViewWithRegionUsingViewModel<IExploreDogsViewViewModel>(RegionNames.ContentRegion);
             _showDogListCommandExecutor = Container.Resolve<ShowDogListCommandExecutor>();
             _showViewToCaptureNewDogCommandExecutor = Container.Resolve<ShowViewToCaptureNewDogCommandExecutor>();
             _saveNewDogEntityCommandExecutor = Container.Resolve<SaveNewDogEntityCommandExecutor>();
             _showViewToEditDogEntityCommandExecutor = Container.Resolve<ShowViewToEditDogEntityCommandExecutor>();
-            //_saveExistingDogShowEntityCommandExecutor = Container.Resolve<SaveExistingDogShowEntityCommandExecutor>();
+            _saveExistingDogEntityCommandExecutor = Container.Resolve<SaveExistingDogEntityCommandExecutor>();
         }
 
         protected override void RegisterTypes()

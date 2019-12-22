@@ -84,6 +84,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveExistingDogEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewDogEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToEditDogEntityCommandExecutor.cs" />
     <Compile Include="FormNameConstants.cs" />

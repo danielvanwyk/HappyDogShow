@@ -67,7 +67,50 @@ namespace HappyDogShow.Services
 
         public Task UpdateEntityAsync(IDogRegistration entity)
         {
-            throw new NotImplementedException();
+            Task t = Task<int>.Run(() =>
+            {
+                UpdateEntity(entity);
+            });
+
+            return t;
+        }
+
+        private void UpdateEntity(IDogRegistration entity)
+        {
+            using (var ctx = new HappyDogShowContext())
+            {
+                DogRegistration foundEntity = ctx.DogRegistrations.Where(d => d.ID == entity.Id).First();
+
+                if (foundEntity != null)
+                {
+                    Gender entityGender = ctx.Genders.Where(g => g.ID == entity.GenderId).First();
+                    Breed entityBreed = ctx.Breeds.Where(g => g.ID == entity.BreedId).First();
+
+                    foundEntity.RegisrationNumber = entity.RegisrationNumber;
+                    foundEntity.Gender = entityGender;
+                    foundEntity.DateOfBirth = entity.DateOfBirth;
+                    foundEntity.Breed = entityBreed;
+                    foundEntity.RegisteredName = entity.RegisteredName;
+                    foundEntity.Qualifications = entity.Qualifications;
+                    foundEntity.ChipOrTattooNumber = entity.ChipOrTattooNumber;
+                    foundEntity.Sire = entity.Sire;
+                    foundEntity.Dam = entity.Dam;
+                    foundEntity.BredBy = entity.BredBy;
+                    foundEntity.Colour = entity.Colour;
+                    foundEntity.RegisteredOwnerSurname = entity.RegisteredOwnerSurname;
+                    foundEntity.RegisteredOwnerTitle = entity.RegisteredOwnerTitle;
+                    foundEntity.RegisteredOwnerInitials = entity.RegisteredOwnerInitials;
+                    foundEntity.RegisteredOwnerAddress = entity.RegisteredOwnerAddress;
+                    foundEntity.RegisteredOwnerPostalCode = entity.RegisteredOwnerPostalCode;
+                    foundEntity.RegisteredOwnerKUSANo = entity.RegisteredOwnerKUSANo;
+                    foundEntity.RegisteredOwnerTel = entity.RegisteredOwnerTel;
+                    foundEntity.RegisteredOwnerCell = entity.RegisteredOwnerCell;
+                    foundEntity.RegisteredOwnerFax = entity.RegisteredOwnerFax;
+                    foundEntity.RegisteredOwnerEmail = entity.RegisteredOwnerEmail;
+
+                    ctx.SaveChanges();
+                }
+            }
         }
 
         public Task<List<IDogRegistration>> GetListAsync<T>() where T : IDogRegistration, new()

@@ -46,17 +46,14 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
             _breedService = breedService;
         }
 
-        public override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
+        public async override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
         {
-            CurrentEntity = navigationContext.Parameters["entity"] as ValidatableBindableBase;
-        }
-
-        public async override void Prepare()
-        {
-            CurrentEntity.MarkEntityAsClean();
-
             GenderList = await _genderService.GetListAsync<GenderDetail>();
             BreedList = await _breedService.GetListAsync<BreedDetail>();
+
+            CurrentEntity = navigationContext.Parameters["entity"] as ValidatableBindableBase;
+
+            CurrentEntity.MarkEntityAsClean();
         }
     }
 }
