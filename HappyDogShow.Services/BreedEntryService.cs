@@ -56,5 +56,61 @@ namespace HappyDogShow.Services
 
             return newid;
         }
+
+        public Task<List<IBreedEntryEntityWithAdditionalData>> GetBreedEntryListAsync<T>() where T : IBreedEntryEntityWithAdditionalData, new()
+        {
+            Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
+            {
+                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedEntryEntityWithAdditionalData> GetBreedEntryList<T>() where T : IBreedEntryEntityWithAdditionalData, new()
+        {
+            List<IBreedEntryEntityWithAdditionalData> items = new List<IBreedEntryEntityWithAdditionalData>();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var data = from d in ctx.BreedEntries
+                           select new T()
+                           {
+                               ShowName = d.Show.Name,
+                               ShowId = d.Show.ID,
+                               BreedGroupName = d.Dog.Breed.BreedGroup.Name,
+                               BreedGroupId = d.Dog.Breed.BreedGroup.ID,
+                               BreedName = d.Dog.Breed.Name,
+                               BreedId = d.Dog.Breed.ID,
+                               GenderName = d.Dog.Gender.Name,
+                               GenderId = d.Dog.Gender.ID,
+                               DogName = d.Dog.RegisteredName,
+                               DogId = d.Dog.ID,
+                               DogRegistrationNumber = d.Dog.RegisrationNumber,
+                               EntryNumber = d.Number,
+                               EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name)
+                           };
+
+                foreach (var item in data)
+                {
+                    item.EnteredClassNames = string.Join(",", item.EnteredClasses);
+                    items.Add(item);
+                }
+
+                //foreach (DogShow ds in shows)
+                //{
+                //    items.Add(new T()
+                //    {
+                //        Id = ds.ID,
+                //        DogShowName = ds.Name,
+                //        ShowDate = ds.ShowDate
+                //    });
+                //}
+            }
+
+            return items;
+        }
     }
+
 }

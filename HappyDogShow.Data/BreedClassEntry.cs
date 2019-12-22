@@ -12,6 +12,8 @@ namespace HappyDogShow.Data
 
         public BreedClass Class { get; set; }
 
+        public BreedEntry Entry { get; set; }
+
         public string Result { get; set; }
     }
 }
