@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Services.Infrastructure.Models
 {
-    public interface IBreedEntryEntityWithAdditionalData
+    public interface IBreedEntryEntityWithAdditionalData : IEntityWithID
     {
         string ShowName { get; set; }
         int ShowId { get; set; }

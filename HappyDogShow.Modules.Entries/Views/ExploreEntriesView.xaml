@@ -101,10 +101,6 @@
                             <DataGridTextColumn Header="Name" Width="auto" Binding="{Binding DogName}" />
                             <DataGridTextColumn Header="Reg #" Width="auto" Binding="{Binding DogRegistrationNumber}" />
                             <DataGridTextColumn Header="Entered Classes" Width="auto" Binding="{Binding EnteredClassNames}" />
-
-                            <!--<DataGridTextColumn Header="Breed" Width="2*" Binding="{Binding BreedName}" />
-                        <DataGridTextColumn Header="Gender" Width="1*" Binding="{Binding GenderName}" />
-                        <DataGridTextColumn Header="DOB" Width="1*" Binding="{Binding DOB}" />-->
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

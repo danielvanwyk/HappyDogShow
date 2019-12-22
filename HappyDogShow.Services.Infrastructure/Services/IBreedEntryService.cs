@@ -10,5 +10,6 @@ namespace HappyDogShow.Services.Infrastructure.Services
     public interface IBreedEntryService : IEntityCreateService<IBreedEntryEntity>
     {
         Task<List<IBreedEntryEntityWithAdditionalData>> GetBreedEntryListAsync<T>() where T : IBreedEntryEntityWithAdditionalData, new();
+        Task<IBreedEntryEntity> GetBreedEntryAsync<T>(int id) where T : IBreedEntryEntity, new();
     }
 }

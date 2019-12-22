@@ -3,6 +3,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -166,6 +167,58 @@ namespace HappyDogShow.Services
             }
 
             return items;
+        }
+
+        public Task<IDogRegistration> GetDogRegistrationAsync<T>(int id) where T : IDogRegistration, new()
+        {
+            Task<IDogRegistration> t = Task<IDogRegistration>.Run(() =>
+            {
+                IDogRegistration item = GetItem<T>(id);
+                return item;
+            });
+
+            return t;
+        }
+
+        private IDogRegistration GetItem<T>(int id) where T : IDogRegistration, new()
+        {
+            IDogRegistration item = null;
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var founddog = ctx.DogRegistrations.Where(d => d.ID == id).Include(b => b.Gender).Include(b => b.Breed).First();
+
+                if (founddog != null)
+                    item = new T()
+                    {
+                        Id = founddog.ID,
+                        RegisrationNumber = founddog.RegisrationNumber,
+                        GenderId = founddog.Gender.ID,
+                        GenderName = founddog.Gender.Name,
+                        DateOfBirth = founddog.DateOfBirth,
+                        BreedId = founddog.Breed.ID,
+                        BreedName = founddog.Breed.Name,
+                        RegisteredName = founddog.RegisteredName,
+                        Qualifications = founddog.Qualifications,
+                        ChipOrTattooNumber = founddog.ChipOrTattooNumber,
+                        Sire = founddog.Sire,
+                        Dam = founddog.Dam,
+                        BredBy = founddog.BredBy,
+                        Colour = founddog.Colour,
+                        RegisteredOwnerSurname = founddog.RegisteredOwnerSurname,
+                        RegisteredOwnerTitle = founddog.RegisteredOwnerTitle,
+                        RegisteredOwnerInitials = founddog.RegisteredOwnerInitials,
+                        RegisteredOwnerAddress = founddog.RegisteredOwnerAddress,
+                        RegisteredOwnerPostalCode = founddog.RegisteredOwnerPostalCode,
+                        RegisteredOwnerKUSANo = founddog.RegisteredOwnerKUSANo,
+                        RegisteredOwnerTel = founddog.RegisteredOwnerTel,
+                        RegisteredOwnerCell = founddog.RegisteredOwnerCell,
+                        RegisteredOwnerFax = founddog.RegisteredOwnerFax,
+                        RegisteredOwnerEmail = founddog.RegisteredOwnerEmail
+                    };
+            }
+
+            return item;
         }
 
     }

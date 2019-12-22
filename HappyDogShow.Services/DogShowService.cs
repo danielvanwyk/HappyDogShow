@@ -3,6 +3,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -135,6 +136,55 @@ namespace HappyDogShow.Services
                         MinAgeInMonths = i.MinAgeInMonths,
                         MaxAgeInMonths = i.MaxAgeInMonths
                     });
+                }
+            }
+
+            return items;
+        }
+
+        public Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> GetListOfClassEntriesForBreedEntryAsync<T>(int id) where T : IBreedClassEntryEntityWithClassDetailForSelection, new()
+        {
+            Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> t = Task<List<IBreedClassEntryEntityWithClassDetailForSelection>>.Run(() =>
+            {
+                List<IBreedClassEntryEntityWithClassDetailForSelection> items = GetListOfClassEntriesForBreedEntry<T>(id);
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedClassEntryEntityWithClassDetailForSelection> GetListOfClassEntriesForBreedEntry<T>(int id) where T : IBreedClassEntryEntityWithClassDetailForSelection, new()
+        {
+            List<IBreedClassEntryEntityWithClassDetailForSelection> items = new List<IBreedClassEntryEntityWithClassDetailForSelection>();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var data = from d in ctx.BreedClasses
+                           select d;
+
+                List<BreedClassEntry> enteredClasses = ctx.BreedClassEntries.Where(i => i.Entry.ID == id).Include(b => b.Class).ToList();
+
+                foreach (BreedClass i in data)
+                {
+                    T itemToAdd = new T()
+                    {
+                        BreedClassID = i.ID,
+                        BreedClassName = i.Name,
+                        BreedClassDescription = i.Description,
+                        MinAgeInMonths = i.MinAgeInMonths,
+                        MaxAgeInMonths = i.MaxAgeInMonths
+                    };
+
+                    List<BreedClassEntry> classEntries = enteredClasses.Where(c => c.Class.ID == itemToAdd.BreedClassID).ToList();
+                    if (classEntries.Count == 1)
+                    {
+                        BreedClassEntry classEntry = classEntries.First();
+
+                        itemToAdd.ID = classEntry.ID;
+                        itemToAdd.IsSelected = true;
+                    }
+
+                    items.Add(itemToAdd);
                 }
             }
 

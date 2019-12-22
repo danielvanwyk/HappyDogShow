@@ -9,6 +9,7 @@ namespace HappyDogShow.SharedModels
 {
     public class BreedEntryEntityWithAdditionalData : IBreedEntryEntityWithAdditionalData
     {
+        public int Id { get; set; }
         public string ShowName { get; set; }
         public int ShowId { get; set; }
         public string BreedGroupName { get; set; }

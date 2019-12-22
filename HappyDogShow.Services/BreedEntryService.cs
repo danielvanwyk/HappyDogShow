@@ -3,6 +3,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,6 +78,7 @@ namespace HappyDogShow.Services
                 var data = from d in ctx.BreedEntries
                            select new T()
                            {
+                               Id = d.ID,
                                ShowName = d.Show.Name,
                                ShowId = d.Show.ID,
                                BreedGroupName = d.Dog.Breed.BreedGroup.Name,
@@ -110,6 +112,37 @@ namespace HappyDogShow.Services
             }
 
             return items;
+        }
+
+        public Task<IBreedEntryEntity> GetBreedEntryAsync<T>(int id)
+            where T : IBreedEntryEntity, new()
+        {
+            Task<IBreedEntryEntity> t = Task<IBreedEntryEntity>.Run(() =>
+            {
+                IBreedEntryEntity entity = GetEntity<T>(id);
+                return entity;
+            });
+
+            return t;
+        }
+
+        private IBreedEntryEntity GetEntity<T>(int id) where T : IBreedEntryEntity, new()
+        {
+            IBreedEntryEntity result = new T();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                BreedEntry foundEntry = ctx.BreedEntries.Where(i => i.ID == id).Include(b => b.Show).First();
+                if (foundEntry != null)
+                {
+                    result.Id = foundEntry.ID;
+                    result.ShowId = foundEntry.Show.ID;
+                    result.Dog = null;
+                    result.Classes = null;
+                }
+            }
+
+            return result;
         }
     }
 

@@ -18,6 +18,7 @@ namespace HappyDogShow.Modules.Entries
         private ShowEntryListCommandExecutor _showEntryListCommandExecutor;
         private ShowViewToCaptureNewEntryCommandExecutor _showViewToCaptureNewEntryCommandExecutor;
         private SaveNewBreedEntryEntityCommandExecutor _saveNewBreedEntryEntityCommandExecutor;
+        private ShowViewToEditEntryCommandExecutor _showViewToEditEntryCommandExecutor;
 
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -28,10 +29,10 @@ namespace HappyDogShow.Modules.Entries
         protected override void InitializeModule()
         {
             RegisterViewWithRegionUsingViewModel<IEntriesMainMenuViewViewModel>(RegionNames.MainMenuRegion);
-            //RegisterViewWithRegionUsingViewModel<IExploreDogsViewViewModel>(RegionNames.ContentRegion);
             _showEntryListCommandExecutor = Container.Resolve<ShowEntryListCommandExecutor>();
             _showViewToCaptureNewEntryCommandExecutor = Container.Resolve<ShowViewToCaptureNewEntryCommandExecutor>();
             _saveNewBreedEntryEntityCommandExecutor = Container.Resolve<SaveNewBreedEntryEntityCommandExecutor>();
+            _showViewToEditEntryCommandExecutor = Container.Resolve<ShowViewToEditEntryCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -47,6 +48,10 @@ namespace HappyDogShow.Modules.Entries
             // the new form
             Container.RegisterType<object, CaptureNewEntryViewViewModel>(FormNameConstants.Entries.NewEntry.ViewName);
             Container.RegisterType<ICaptureNewEntryView, CaptureNewEntryView>();
+
+            // the edit form
+            Container.RegisterType<object, EditEntryViewViewModel>(FormNameConstants.Entries.EditEntry.ViewName);
+            Container.RegisterType<IEditEntryView, EditEntryView>();
         }
     }
 }

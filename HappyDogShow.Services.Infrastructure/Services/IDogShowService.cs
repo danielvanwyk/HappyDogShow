@@ -11,5 +11,6 @@ namespace HappyDogShow.Services.Infrastructure.Services
     {
         Task<List<IDogShowEntity>> GetDogShowListAsync<T>() where T : IDogShowEntity, new();
         Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> GetListOfClassEntriesForNewBreedEntryAsync<T>() where T : IBreedClassEntryEntityWithClassDetailForSelection, new();
+        Task<List<IBreedClassEntryEntityWithClassDetailForSelection>> GetListOfClassEntriesForBreedEntryAsync<T>(int id) where T : IBreedClassEntryEntityWithClassDetailForSelection, new();
     }
 }

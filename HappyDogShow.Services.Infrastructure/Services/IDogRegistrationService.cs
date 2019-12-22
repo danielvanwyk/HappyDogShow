@@ -10,5 +10,6 @@ namespace HappyDogShow.Services.Infrastructure.Services
     public interface IDogRegistrationService : IEntityCreateService<IDogRegistration>, IEntityUpdateService<IDogRegistration>
     {
         Task<List<IDogRegistration>> GetListAsync<T>() where T : IDogRegistration, new();
+        Task<IDogRegistration> GetDogRegistrationAsync<T>(int id) where T : IDogRegistration, new();
     }
 }
