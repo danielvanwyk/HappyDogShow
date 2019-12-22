@@ -46,6 +46,7 @@
     <Compile Include="Models\IBreedEntity.cs" />
     <Compile Include="Models\IBreedEntryEntity.cs" />
     <Compile Include="Models\IBreedEntryEntityWithAdditionalData.cs" />
+    <Compile Include="Models\IClubEntity.cs" />
     <Compile Include="Models\IDogRegistration.cs" />
     <Compile Include="Models\IDogShowEntity.cs" />
     <Compile Include="Models\IEntityWithID.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IBreedEntryService.cs" />
     <Compile Include="Services\IBreedService.cs" />
+    <Compile Include="Services\IClubService.cs" />
     <Compile Include="Services\IDogRegistrationService.cs" />
     <Compile Include="Services\IDogShowService.cs" />
     <Compile Include="Services\IEntityCreateService.cs" />

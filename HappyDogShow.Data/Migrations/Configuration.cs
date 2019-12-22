@@ -5,7 +5,7 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HappyDogShow.Data.HappyDogShowContext>
+    public sealed class Configuration : DbMigrationsConfiguration<HappyDogShow.Data.HappyDogShowContext>
     {
         public Configuration()
         {
@@ -38,6 +38,10 @@
                 new Gender() { Name = "Female"}
                 );
 
+            context.Clubs.AddOrUpdate(x => x.Name,
+                new Club() { Name = "Overberg Kennel Club" }
+                );
+
             context.BreedGroups.AddOrUpdate(x => x.Name,
                 new BreedGroup() { Name = "Gundog" },
                 new BreedGroup() { Name = "Herding" },
@@ -47,6 +51,8 @@
                 new BreedGroup() { Name = "Utility" },
                 new BreedGroup() { Name = "Working"}
                 );
+
+            context.SaveChanges();
 
             var gundogsbg = context.BreedGroups.Where(bg => bg.Name == "Gundog");
             var gundogbg = gundogsbg.First();

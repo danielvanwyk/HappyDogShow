@@ -1,9 +1,12 @@
-﻿using MahApps.Metro.Controls;
+﻿using HappyDogShow.Data;
+using HappyDogShow.Data.Migrations;
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +23,15 @@ namespace HappyDogShow
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<HappyDogShowContext, Configuration>());
+
+            using (var db = new HappyDogShowContext())
+            {
+                var breeds = db.Breeds.Where(b => b.Name == "Great Dane");
+                int count = breeds.Count();
+            }
+
             bootstrapper = new Bootstrapper();
             bootstrapper.Run();
         }
