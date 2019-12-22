@@ -9,121 +9,12 @@
              xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Dogs.Commands"
              xmlns:infrastructureCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
              Style="{StaticResource BusyAwareEnabledUserControl}"
+             xmlns:localUserControls="clr-namespace:HappyDogShow.Modules.Dogs.UserControls"
              >
     <infrastructureControls:BasicContentLayout>
         <infrastructureControls:BasicContentLayout.MainTitleText>Modify dog details</infrastructureControls:BasicContentLayout.MainTitleText>
         <infrastructureControls:BasicContentLayout.MainContent>
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Registration Number</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.RegisrationNumber }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Sex</Label>
-                    <ComboBox Width="250" ItemsSource="{Binding GenderList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.GenderId}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Date Of Birth</Label>
-                    <DatePicker Width="250" SelectedDate="{Binding CurrentEntity.DateOfBirth }"></DatePicker>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Breed</Label>
-                    <ComboBox Width="250" ItemsSource="{Binding BreedList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.BreedId}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Dog's Registered Name</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.RegisteredName }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Qualifications</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.Qualifications }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Chip#/Tattoo</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.ChipOrTattooNumber }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Sire</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.Sire }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Dam</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.Dam }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Bred By</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.BredBy }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Colour</Label>
-                    <TextBox Width="250" Text="{Binding CurrentEntity.Colour }"></TextBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="150">Registered Owner</Label>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal">
-                                <Label>Surname</Label>
-                                <TextBox Width="250" Text="{Binding CurrentEntity.RegisteredOwnerSurname }"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label>Title</Label>
-                                <TextBox Width="50" Text="{Binding CurrentEntity.RegisteredOwnerTitle }"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label>Initials</Label>
-                                <TextBox Width="50" Text="{Binding CurrentEntity.RegisteredOwnerInitials }"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label>KUSA No.</Label>
-                                <TextBox Width="100" Text="{Binding CurrentEntity.RegisteredOwnerKUSANo }"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal">
-                                <Label>Address</Label>
-                                <TextBox Width="250" TextWrapping="Wrap" AcceptsReturn="True" MinLines="5" Text="{Binding CurrentEntity.RegisteredOwnerAddress }"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label>Postal Code</Label>
-                                    <TextBox Width="100" Text="{Binding CurrentEntity.RegisteredOwnerPostalCode }"></TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label>Email</Label>
-                                    <TextBox Width="100" Text="{Binding CurrentEntity.RegisteredOwnerEmail }"></TextBox>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label>Tel</Label>
-                                    <TextBox Width="100" Text="{Binding CurrentEntity.RegisteredOwnerTel }"></TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label>Cell</Label>
-                                    <TextBox Width="100" Text="{Binding CurrentEntity.RegisteredOwnerCell }"></TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label>Fax</Label>
-                                    <TextBox Width="100" Text="{Binding CurrentEntity.RegisteredOwnerFax }"></TextBox>
-                                </StackPanel>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-
-            </StackPanel>
+            <localUserControls:EditableDogRegistrationDetail />
         </infrastructureControls:BasicContentLayout.MainContent>
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Grid.Row="1" Orientation="Horizontal">

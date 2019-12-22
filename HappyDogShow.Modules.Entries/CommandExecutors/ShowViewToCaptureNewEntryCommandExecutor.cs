@@ -12,6 +12,7 @@ namespace HappyDogShow.Modules.Entries.CommandExecutors
         public ShowViewToCaptureNewEntryCommandExecutor(IRegionManager regionManager)
             : base(BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand, regionManager, FormNameConstants.Entries.NewEntry.ViewName)
         {
+            RequireObject = true;
         }
     }
 }
