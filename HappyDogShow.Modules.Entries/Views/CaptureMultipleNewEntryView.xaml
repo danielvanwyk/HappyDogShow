@@ -97,7 +97,7 @@
 
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Save" Command="{x:Static localCommands:BreedEntryCRUDCommands.SaveNewEntityCommand}" CommandParameter="{Binding}" />
+                <Button Content="Save" Command="{x:Static localCommands:BreedEntryCRUDCommands.SaveMultipleNewEntityCommand}" CommandParameter="{Binding}" />
                 <Button Content="Cancel" Command="{x:Static infrastructureCommands:NavigateableViewCommands.CancelEntityCommand}" CommandParameter="{Binding}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>

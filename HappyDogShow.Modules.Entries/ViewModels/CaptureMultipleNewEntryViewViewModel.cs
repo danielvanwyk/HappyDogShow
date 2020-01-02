@@ -85,6 +85,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
                 });
 
                 (CurrentEntity as MultipleBreedEntry).BreedEntries.Add(newEntry);
+                (CurrentEntity as MultipleBreedEntry).NotifyEntriesChanged();
             }
         }
     }

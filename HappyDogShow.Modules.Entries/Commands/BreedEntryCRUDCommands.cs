@@ -14,5 +14,7 @@ namespace HappyDogShow.Modules.Entries.Commands
 
         public static CompositeCommand SaveNewEntityCommand = new CompositeCommand();
         public static CompositeCommand SaveExistingEntityCommand = new CompositeCommand();
+
+        public static CompositeCommand SaveMultipleNewEntityCommand = new CompositeCommand();
     }
 }
