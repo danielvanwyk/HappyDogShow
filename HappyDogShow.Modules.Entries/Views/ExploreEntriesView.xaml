@@ -80,8 +80,8 @@
                                                     <Expander IsExpanded="True" Margin="0" Padding="5,0,0,0" BorderThickness="1">
                                                         <Expander.Header>
                                                             <DockPanel Margin="0">
-                                                                <TextBlock FontWeight="Bold" Text="{Binding Path=Name}" Margin="0,0,0,0"/>
                                                                 <TextBlock DockPanel.Dock="Right" FontWeight="Bold" Text="{Binding Path=ItemCount}" Width="200" TextAlignment="Left"/>
+                                                                <TextBlock DockPanel.Dock="Left" FontWeight="Bold" Text="{Binding Path=Name}" Margin="0,0,0,0"/>
                                                             </DockPanel>
                                                         </Expander.Header>
                                                         <Expander.Content>
