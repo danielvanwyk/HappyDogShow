@@ -52,6 +52,14 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
 
                 if (result == -1)
                     throw new CouldNotSaveNewEntityException(vm.CurrentEntity);
+                else
+                {
+                    IEntityWithID entityWithID = vm.CurrentEntity as IEntityWithID;
+                    if (entityWithID != null)
+                    {
+                        entityWithID.Id = result;
+                    }
+                }
 
                 _eventAggregator.GetEvent<NewEntityCreatedEvent<U>>().Publish(new NewEntityCreatedEventArgument(result));
 

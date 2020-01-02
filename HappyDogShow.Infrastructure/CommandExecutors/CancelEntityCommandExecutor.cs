@@ -18,6 +18,7 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
     {
         private IRegionManager _regionManager;
         private DelegateCommand<IEntityAwareViewViewModel> commandHandler { get; set; }
+        
 
 
         public CancelEntityCommandExecutor (IRegionManager regionManager)
@@ -61,9 +62,17 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
 
         private void NavigateBack(IEntityAwareViewViewModel vm)
         {
-            INavigationAware navigationAwareVm = vm as INavigationAware;
-            if (vm != null)
-                _regionManager.Regions[RegionNames.ContentRegion].NavigationService.Journal.GoBack();
+            ICancelAwareViewViewModel cancelAwareViewViewModel = vm as ICancelAwareViewViewModel;
+            if (cancelAwareViewViewModel != null)
+            {
+                _regionManager.Regions[RegionNames.ContentRegion].RequestNavigate(cancelAwareViewViewModel.CancelNavigateToViewName);
+            }
+            else
+            {
+                INavigationAware navigationAwareVm = vm as INavigationAware;
+                if (vm != null)
+                    _regionManager.Regions[RegionNames.ContentRegion].NavigationService.Journal.GoBack();
+            }
         }
 
     }

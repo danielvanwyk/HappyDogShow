@@ -15,7 +15,7 @@ using HappyDogShow.Infrastructure.Models;
 
 namespace HappyDogShow.Modules.Entries.ViewModels
 {
-    public class CaptureNewEntryViewViewModel : NavigateableBindableViewModelBase, ICaptureNewEntryViewViewModel, INavigationAware
+    public class CaptureNewEntryViewViewModel : NavigateableBindableViewModelBase, ICaptureNewEntryViewViewModel, INavigationAware, ICancelAwareViewViewModel
     {
         private IDogShowService _dogShowService;
 
@@ -43,6 +43,8 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             get { return dogShowList; }
             set { SetProperty(ref dogShowList, value); }
         }
+
+        public string CancelNavigateToViewName { get { return FormNameConstants.Entries.EntriesList.ViewName; } }
 
         public CaptureNewEntryViewViewModel(ICaptureNewEntryView view, IDogShowService dogShowService) 
             : base(view)
