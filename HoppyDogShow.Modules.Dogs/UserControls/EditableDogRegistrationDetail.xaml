@@ -27,6 +27,23 @@
 
                     <StackPanel Orientation="Horizontal">
                         <Label Width="150">Date Of Birth</Label>
+                        
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="50">Year</Label>
+                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBYear}"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="50">Month</Label>
+                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBMonth}"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="50">Day</Label>
+                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBDay}"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!--<TextBox Text="{Binding CurrentEntity.DateOfBirth, Mode=TwoWay,  StringFormat='yyyy-MM-dd'}" Width="250"/>-->
                         <DatePicker Width="250" SelectedDate="{Binding CurrentEntity.DateOfBirth }"></DatePicker>
                     </StackPanel>
 

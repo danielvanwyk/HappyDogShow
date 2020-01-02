@@ -87,9 +87,17 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
 
         protected virtual void HandleSuccessfulSave(T vm, int newId)
         {
-            INavigationAware navigationAwareVm = vm as INavigationAware;
-            if (vm != null)
-                _regionManager.Regions[RegionNames.ContentRegion].NavigationService.Journal.GoBack();
+            ICancelAwareViewViewModel cancelAwareViewViewModel = vm as ICancelAwareViewViewModel;
+            if (cancelAwareViewViewModel != null)
+            {
+                _regionManager.Regions[RegionNames.ContentRegion].RequestNavigate(cancelAwareViewViewModel.CancelNavigateToViewName);
+            }
+            else
+            {
+                INavigationAware navigationAwareVm = vm as INavigationAware;
+                if (vm != null)
+                    _regionManager.Regions[RegionNames.ContentRegion].NavigationService.Journal.GoBack();
+            }
         }
         protected virtual void HandleUnsuccessfulSave(Exception ex)
         {

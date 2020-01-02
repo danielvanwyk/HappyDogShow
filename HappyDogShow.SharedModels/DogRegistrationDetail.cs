@@ -2,6 +2,7 @@
 using HappyDogShow.Services.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace HappyDogShow.SharedModels
         public int Id { get; set; }
 
         private string regisrationnumber;
+        [Required]
         public string RegisrationNumber
         {
             get { return regisrationnumber; }
@@ -32,12 +34,71 @@ namespace HappyDogShow.SharedModels
         public DateTime DateOfBirth
         {
             get { return dateofbirth; }
-            set { SetProperty(ref dateofbirth, value); }
+            set 
+            { 
+                SetProperty(ref dateofbirth, value);
+                OnPropertyChanged("DOBYear");
+                OnPropertyChanged("DOBMonth");
+                OnPropertyChanged("DOBDay");
+            }
         }
 
         public string DOB
         {
             get { return DateOfBirth.ToString("yyyy-MM-dd"); }
+        }
+
+        private string dobYear;
+        [Required]
+        public string DOBYear
+        {
+            get 
+            {
+                if ((dateofbirth.Year > 1) && (dateofbirth.Year.ToString() != dobYear))
+                    dobYear = dateofbirth.Year.ToString();
+
+                return dobYear; 
+            }
+            set
+            {
+                dobYear = value;
+                UpdateDOB();
+            }
+        }
+
+        private string dobMonth;
+        [Required]
+        public string DOBMonth
+        {
+            get
+            {
+                if ((dateofbirth.Month > 1) && (dateofbirth.Month.ToString() != dobMonth))
+                    dobMonth = dateofbirth.Month.ToString();
+
+                return dobMonth;
+            }
+            set
+            {
+                dobMonth = value;
+                UpdateDOB();
+            }
+        }
+        private string dobDay;
+        [Required]
+        public string DOBDay
+        {
+            get
+            {
+                if ((dateofbirth.Day > 1) && (dateofbirth.Day.ToString() != dobDay))
+                    dobDay = dateofbirth.Day.ToString();
+
+                return dobDay;
+            }
+            set
+            {
+                dobDay = value;
+                UpdateDOB();
+            }
         }
 
         private int breedId;
@@ -50,6 +111,7 @@ namespace HappyDogShow.SharedModels
         public string BreedName { get; set; }
 
         private string registeredname;
+        [Required]
         public string RegisteredName
         {
             get { return registeredname; }
@@ -64,6 +126,7 @@ namespace HappyDogShow.SharedModels
         }
 
         private string chiportattoonumber;
+        [Required]
         public string ChipOrTattooNumber
         {
             get { return chiportattoonumber; }
@@ -71,6 +134,7 @@ namespace HappyDogShow.SharedModels
         }
 
         private string sire;
+        [Required]
         public string Sire
         {
             get { return sire; }
@@ -78,6 +142,7 @@ namespace HappyDogShow.SharedModels
         }
 
         private string dam;
+        [Required]
         public string Dam
         {
             get { return dam; }
@@ -85,6 +150,7 @@ namespace HappyDogShow.SharedModels
         }
 
         private string bredby;
+        [Required]
         public string BredBy
         {
             get { return bredby; }
@@ -92,6 +158,7 @@ namespace HappyDogShow.SharedModels
         }
 
         private string colour;
+        [Required]
         public string Colour
         {
             get { return colour; }
@@ -168,6 +235,18 @@ namespace HappyDogShow.SharedModels
             set { SetProperty(ref registeredowneremail, value); }
         }
 
+
+        private void UpdateDOB()
+        {
+            try
+            {
+                DateOfBirth = new DateTime(int.Parse(dobYear), int.Parse(dobMonth), int.Parse(dobDay));
+            }
+            catch
+            {
+
+            }
+        }
 
 
     }
