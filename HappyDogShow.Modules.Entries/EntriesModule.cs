@@ -54,6 +54,10 @@ namespace HappyDogShow.Modules.Entries
             // the edit form
             Container.RegisterType<object, EditEntryViewViewModel>(FormNameConstants.Entries.EditEntry.ViewName);
             Container.RegisterType<IEditEntryView, EditEntryView>();
+
+            // the multiple new form
+            Container.RegisterType<object, CaptureMultipleNewEntryViewViewModel>(FormNameConstants.Entries.MultipleNewEntry.ViewName);
+            Container.RegisterType<ICaptureMultipleNewEntryView, CaptureMultipleNewEntryView>();
         }
     }
 }

@@ -32,5 +32,37 @@ namespace HappyDogShow.SharedModels
             get { return dog; }
             set { SetProperty(ref dog, value); }
         }
+
+        private IDogShowEntity dogShow;
+        public IDogShowEntity DogShow
+        {
+            get { return dogShow; }
+            set { SetProperty(ref dogShow, value); }
+        }
+
+        public int DogAgeInMonthsAtTimeOfShow
+        {
+            get
+            {
+                return Dog.DateOfBirth.DiffMonths(DogShow.ShowDate);
+            }
+        }
+
+    }
+    public static class DateTimeExtensions
+    {
+        public static Int32 DiffMonths(this DateTime start, DateTime end)
+        {
+            Int32 months = 0;
+            DateTime tmp = start;
+
+            while (tmp < end)
+            {
+                months++;
+                tmp = tmp.AddMonths(1);
+            }
+
+            return months;
+        }
     }
 }

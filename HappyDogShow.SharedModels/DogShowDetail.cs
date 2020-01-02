@@ -29,6 +29,11 @@ namespace HappyDogShow.SharedModels
             set { SetProperty(ref showDate, value); }
         }
 
+        public string ShowDateAsString
+        {
+            get { return ShowDate.ToString("yyyy-MM-dd"); }
+        }
+
         public DogShowDetail()
         {
             ShowDate = DateTime.Now;

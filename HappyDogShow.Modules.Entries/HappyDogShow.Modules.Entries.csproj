@@ -94,6 +94,8 @@
     <Compile Include="Commands\EntryListCommands.cs" />
     <Compile Include="EntriesModule.cs" />
     <Compile Include="FormNameConstants.cs" />
+    <Compile Include="Infrastructure\ICaptureMultipleNewEntryView.cs" />
+    <Compile Include="Infrastructure\ICaptureMultipleNewEntryViewViewModel.cs" />
     <Compile Include="Infrastructure\ICaptureNewEntryView.cs" />
     <Compile Include="Infrastructure\ICaptureNewEntryViewViewModel.cs" />
     <Compile Include="Infrastructure\IEditEntryView.cs" />
@@ -102,11 +104,16 @@
     <Compile Include="Infrastructure\IEntriesMainMenuViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreEntriesView.cs" />
     <Compile Include="Infrastructure\IExploreEntriesViewViewModel.cs" />
+    <Compile Include="Models\MultipleBreedEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CaptureMultipleNewEntryViewViewModel.cs" />
     <Compile Include="ViewModels\CaptureNewEntryViewViewModel.cs" />
     <Compile Include="ViewModels\EditEntryViewViewModel.cs" />
     <Compile Include="ViewModels\EntriesMainMenuViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreEntriesViewViewModel.cs" />
+    <Compile Include="Views\CaptureMultipleNewEntryView.xaml.cs">
+      <DependentUpon>CaptureMultipleNewEntryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CaptureNewEntryView.xaml.cs">
       <DependentUpon>CaptureNewEntryView.xaml</DependentUpon>
     </Compile>
@@ -148,6 +155,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Views\CaptureMultipleNewEntryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CaptureNewEntryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

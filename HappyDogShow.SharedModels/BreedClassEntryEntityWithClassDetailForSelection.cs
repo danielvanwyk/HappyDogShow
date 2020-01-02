@@ -23,5 +23,7 @@ namespace HappyDogShow.SharedModels
             get { return isSelected; }
             set { SetProperty(ref isSelected, value); }
         }
+
+        public bool IsOutOfAgeRange { get; set; }
     }
 }

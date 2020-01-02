@@ -18,6 +18,10 @@ namespace HappyDogShow.Modules.Entries
             {
                 public static string ViewName = "NewEntry";
             }
+            public static class MultipleNewEntry
+            {
+                public static string ViewName = "MultipleNewEntry";
+            }
             public static class EditEntry
             {
                 public static string ViewName = "EditEntry";
