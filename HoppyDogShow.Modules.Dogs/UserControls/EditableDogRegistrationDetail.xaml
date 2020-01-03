@@ -30,16 +30,16 @@
                         
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
-                                <Label Width="50">Year</Label>
-                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBYear}"></TextBox>
+                                <Label Width="50">Day</Label>
+                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBDay}"></TextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Label Width="50">Month</Label>
                                 <TextBox Width="50" Text="{Binding CurrentEntity.DOBMonth}"></TextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <Label Width="50">Day</Label>
-                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBDay}"></TextBox>
+                                <Label Width="50">Year</Label>
+                                <TextBox Width="50" Text="{Binding CurrentEntity.DOBYear}"></TextBox>
                             </StackPanel>
                         </StackPanel>
                         
