@@ -38,6 +38,21 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
             set { SetProperty(ref breedList, value); }
         }
 
+        private IBreedEntity selectedBreed;
+        public IBreedEntity SelectedBreed
+        {
+            get { return selectedBreed; }
+            set 
+            { 
+                SetProperty(ref selectedBreed, value);
+                try
+                {
+                    (CurrentEntity as IDogRegistration).BreedName = selectedBreed.Name;
+                }
+                catch { }
+            }
+        }
+
         public CaptureNewDogViewViewModel(ICaptureNewDogView view, IGenderService genderService, IBreedService breedService)
             : base(view)
         {

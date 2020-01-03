@@ -49,7 +49,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <Label Width="150">Breed</Label>
-                        <ComboBox Width="250" ItemsSource="{Binding BreedList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.BreedId}" />
+                        <ComboBox Width="250" ItemsSource="{Binding BreedList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.BreedId}" SelectedItem="{Binding SelectedBreed}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
