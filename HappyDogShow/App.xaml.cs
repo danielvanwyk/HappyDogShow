@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,9 @@ namespace HappyDogShow
         {
             base.OnStartup(e);
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<HappyDogShowContext, Configuration>());
+            PerformBackup();
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<HappyDogShowContext, Data.Migrations.Configuration>());
 
             using (var db = new HappyDogShowContext())
             {
@@ -36,10 +39,40 @@ namespace HappyDogShow
             bootstrapper.Run();
         }
 
+        private static void PerformBackup()
+        {
+            try
+            {
+                var connectionString = ConfigurationManager.ConnectionStrings["HappyDogShowDBConnectionString"].ConnectionString;
+                var sqlConStrBuilder = new SqlConnectionStringBuilder(connectionString);
+                string backupFileName = string.Format("HappyDogShow.Database.Backup.{0}.{1}.bak", sqlConStrBuilder.InitialCatalog, DateTime.Now.ToString("yyyyMMdd.HHmmss"));
+                string query = String.Format("BACKUP DATABASE {0} TO DISK='{1}'", sqlConStrBuilder.InitialCatalog, backupFileName);
+
+                using (var connection = new SqlConnection(sqlConStrBuilder.ConnectionString))
+                {
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
         public App()
     : base()
         {
             this.Dispatcher.UnhandledException += OnDispatcherUnhandledException;
+            this.Exit += App_Exit;
+        }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+            PerformBackup();
         }
 
         private void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
