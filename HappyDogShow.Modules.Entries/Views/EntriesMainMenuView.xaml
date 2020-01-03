@@ -12,4 +12,5 @@
     xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Entries.Commands"
     >
     <MenuItem Header="View List of Breed Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="localCommands:EntryListCommands.ShowEntryListCommand" />
+    <MenuItem Header="View List of Breed Entries by class entered" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="localCommands:EntryListCommands.ShowEntryByClassListCommand" />
 </MenuItem>

@@ -73,20 +73,29 @@ namespace HappyDogShow.Modules.Entries.ViewModels
 
                 newEntry.Classes.ForEach(c =>
                 {
-                    if ((c.MinAgeInMonths == 0) && (c.MaxAgeInMonths == 0))
-                        (c as BreedClassEntryEntityWithClassDetailForSelection).IsOutOfAgeRange = false;
-                    else
-                    {
-                        if ((newEntry.DogAgeInMonthsAtTimeOfShow >= c.MinAgeInMonths) && (newEntry.DogAgeInMonthsAtTimeOfShow <= c.MaxAgeInMonths))
-                            (c as BreedClassEntryEntityWithClassDetailForSelection).IsOutOfAgeRange = false;
-                        else
-                            (c as BreedClassEntryEntityWithClassDetailForSelection).IsOutOfAgeRange = true;
-                    }
+                    (c as BreedClassEntryEntityWithClassDetailForSelection).IsOutOfAgeRange = DetermineIfDogAgeIsOutOfRangeBasedOnClassMinAndMaxDates(newEntry.DogAgeInMonthsAtTimeOfShow, c.MinAgeInMonths, c.MaxAgeInMonths);
                 });
 
                 (CurrentEntity as MultipleBreedEntry).BreedEntries.Add(newEntry);
                 (CurrentEntity as MultipleBreedEntry).NotifyEntriesChanged();
             }
+        }
+
+        public static bool DetermineIfDogAgeIsOutOfRangeBasedOnClassMinAndMaxDates(int dogAgeInMonthsAtTimeOfShow, int minAgeInMonths, int maxAgeInMonths)
+        {
+            bool result = false;
+
+            if ((minAgeInMonths == 0) && (maxAgeInMonths == 0))
+                result = false;
+            else
+            {
+                if ((dogAgeInMonthsAtTimeOfShow >= minAgeInMonths) && (dogAgeInMonthsAtTimeOfShow <= maxAgeInMonths))
+                    result = false;
+                else
+                    result = true;
+            }
+
+            return result;
         }
     }
 }

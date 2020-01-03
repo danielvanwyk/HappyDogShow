@@ -209,6 +209,52 @@ namespace HappyDogShow.Services
 
             return result;
         }
+
+        public Task<List<IBreedEntryClassEntry>> GetBreedEntryClassEntryListAsync<T>() where T : IBreedEntryClassEntry, new()
+        {
+            Task<List<IBreedEntryClassEntry>> t = Task<List<IBreedEntryClassEntry>>.Run(() =>
+            {
+                List<IBreedEntryClassEntry> items = GetBreedEntryClassEntryList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedEntryClassEntry> GetBreedEntryClassEntryList<T>() where T : IBreedEntryClassEntry, new()
+        {
+            List<IBreedEntryClassEntry> items = new List<IBreedEntryClassEntry>();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var data = from c in ctx.BreedClassEntries
+                           select new T()
+                           {
+                               Id = c.ID,
+                               ShowName = c.Entry.Show.Name,
+                               ShowId = c.Entry.Show.ID,
+                               ShowDate = c.Entry.Show.ShowDate,
+                               BreedGroupName = c.Entry.Dog.Breed.BreedGroup.Name,
+                               BreedGroupId = c.Entry.Dog.Breed.BreedGroup.ID,
+                               BreedName = c.Entry.Dog.Breed.Name,
+                               BreedId = c.Entry.Dog.Breed.ID,
+                               GenderName = c.Entry.Dog.Gender.Name,
+                               GenderId = c.Entry.Dog.Gender.ID,
+                               DogName = c.Entry.Dog.RegisteredName,
+                               DogId = c.Entry.Dog.ID,
+                               DogRegistrationNumber = c.Entry.Dog.RegisrationNumber,
+                               DogDOB = c.Entry.Dog.DateOfBirth,
+                               EntryNumber = c.Entry.Number,
+                               EnteredClassName = c.Class.Name,
+                               EnteredClassMaxAgeInMonths = c.Class.MaxAgeInMonths,
+                               EnteredClassMinAgeInMonths = c.Class.MinAgeInMonths,
+                           };
+
+                data.ToList().ForEach(c => items.Add(c));
+            }
+
+            return items;
+        }
     }
 
 }

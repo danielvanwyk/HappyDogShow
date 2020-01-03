@@ -54,7 +54,7 @@ namespace HappyDogShow.SharedModels
         public static Int32 DiffMonths(this DateTime start, DateTime end)
         {
             Int32 months = 0;
-            DateTime tmp = start;
+            DateTime tmp = start.AddMonths(1);
 
             while (tmp < end)
             {

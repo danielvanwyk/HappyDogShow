@@ -54,6 +54,7 @@
     <Compile Include="BreedClassEntryEntityWithClassDetailForSelection.cs" />
     <Compile Include="BreedDetail.cs" />
     <Compile Include="BreedEntry.cs" />
+    <Compile Include="BreedEntryClassEntry.cs" />
     <Compile Include="BreedEntryEntityWithAdditionalData.cs" />
     <Compile Include="ClubDetail.cs" />
     <Compile Include="DogRegistrationDetail.cs" />

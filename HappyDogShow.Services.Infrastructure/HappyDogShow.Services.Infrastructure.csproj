@@ -44,6 +44,7 @@
     <Compile Include="Models\IBreedClassEntity.cs" />
     <Compile Include="Models\IBreedClassEntryEntityWithClassDetailForSelection.cs" />
     <Compile Include="Models\IBreedEntity.cs" />
+    <Compile Include="Models\IBreedEntryClassEntry.cs" />
     <Compile Include="Models\IBreedEntryEntity.cs" />
     <Compile Include="Models\IBreedEntryEntityWithAdditionalData.cs" />
     <Compile Include="Models\IClubEntity.cs" />

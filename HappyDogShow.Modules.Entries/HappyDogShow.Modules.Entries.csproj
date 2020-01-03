@@ -88,6 +88,7 @@
     <Compile Include="CommandExecutors\SaveExistingBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveMultipleNewBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewBreedEntryEntityCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowEntryByClassListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToEditEntryCommandExecutor.cs" />
@@ -103,6 +104,8 @@
     <Compile Include="Infrastructure\IEditEntryViewViewModel.cs" />
     <Compile Include="Infrastructure\IEntriesMainMenuView.cs" />
     <Compile Include="Infrastructure\IEntriesMainMenuViewViewModel.cs" />
+    <Compile Include="Infrastructure\IExploreEntriesByClassView.cs" />
+    <Compile Include="Infrastructure\IExploreEntriesByClassViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreEntriesView.cs" />
     <Compile Include="Infrastructure\IExploreEntriesViewViewModel.cs" />
     <Compile Include="Models\MultipleBreedEntry.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="ViewModels\CaptureNewEntryViewViewModel.cs" />
     <Compile Include="ViewModels\EditEntryViewViewModel.cs" />
     <Compile Include="ViewModels\EntriesMainMenuViewViewModel.cs" />
+    <Compile Include="ViewModels\ExploreEntriesByClassViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreEntriesViewViewModel.cs" />
     <Compile Include="Views\CaptureMultipleNewEntryView.xaml.cs">
       <DependentUpon>CaptureMultipleNewEntryView.xaml</DependentUpon>
@@ -123,6 +127,9 @@
     </Compile>
     <Compile Include="Views\EntriesMainMenuView.xaml.cs">
       <DependentUpon>EntriesMainMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExploreEntriesByClassView.xaml.cs">
+      <DependentUpon>ExploreEntriesByClassView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExploreEntriesView.xaml.cs">
       <DependentUpon>ExploreEntriesView.xaml</DependentUpon>
@@ -169,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EntriesMainMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExploreEntriesByClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
