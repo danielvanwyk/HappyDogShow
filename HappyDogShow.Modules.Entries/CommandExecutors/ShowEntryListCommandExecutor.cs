@@ -1,5 +1,5 @@
 ﻿using HappyDogShow.Infrastructure;
-using HappyDogShow.Modules.Entries.Commands;
+using HappyDogShow.Infrastructure.Commands;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
 

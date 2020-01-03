@@ -1,5 +1,5 @@
 ﻿using HappyDogShow.Infrastructure.CommandExecutors;
-using HappyDogShow.Modules.Entries.Commands;
+using HappyDogShow.Infrastructure.Commands;
 using HappyDogShow.Modules.Entries.Infrastructure;
 using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;

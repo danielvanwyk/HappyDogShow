@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
-             xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Entries.Commands"
+             xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              >
 
@@ -122,7 +122,8 @@
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
                 <!--<Button Content="Add Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" />-->
-                <Button Content="Edit Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <Button Content="Edit Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <Button Content="Add Dog" Command="{x:Static globalCommands:DogEntityCRUDCommands.ShowViewToCaptureNewEntityCommand}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
 

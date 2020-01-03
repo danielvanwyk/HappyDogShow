@@ -9,7 +9,7 @@
     Header="Dogs"
     Background="Transparent" 
     Style="{StaticResource MetroMenuItem}" 
-    xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Dogs.Commands"
+    xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
     >
-    <MenuItem Header="View List of Dogs" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="localCommands:DogListCommands.ShowDogListCommand" />
+    <MenuItem Header="View List of Dogs" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:DogListCommands.ShowDogListCommand" />
 </MenuItem>

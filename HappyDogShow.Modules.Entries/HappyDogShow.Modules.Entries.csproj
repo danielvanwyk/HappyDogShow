@@ -92,8 +92,6 @@
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToEditEntryCommandExecutor.cs" />
-    <Compile Include="Commands\BreedEntryCRUDCommands.cs" />
-    <Compile Include="Commands\EntryListCommands.cs" />
     <Compile Include="EntriesModule.cs" />
     <Compile Include="FormNameConstants.cs" />
     <Compile Include="Infrastructure\ICaptureMultipleNewEntryView.cs" />

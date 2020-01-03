@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:HappyDogShow.Modules.Dogs.Views"
              mc:Ignorable="d" 
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
-             xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Dogs.Commands"
+             xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
              xmlns:infrastructureCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
              Style="{StaticResource BusyAwareEnabledUserControl}"
              xmlns:localUserControls="clr-namespace:HappyDogShow.Modules.Dogs.UserControls"
@@ -18,7 +18,7 @@
         </infrastructureControls:BasicContentLayout.MainContent>
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Button Content="Save" Command="{x:Static localCommands:DogEntityCRUDCommands.SaveNewEntityCommand}" CommandParameter="{Binding}" />
+                <Button Content="Save" Command="{x:Static globalCommands:DogEntityCRUDCommands.SaveNewEntityCommand}" CommandParameter="{Binding}" />
                 <Button Content="Cancel" Command="{x:Static infrastructureCommands:NavigateableViewCommands.CancelEntityCommand}" CommandParameter="{Binding}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>

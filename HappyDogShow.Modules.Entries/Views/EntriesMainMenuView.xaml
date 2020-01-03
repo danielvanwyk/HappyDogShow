@@ -9,8 +9,8 @@
     Header="Entries"
     Background="Transparent" 
     Style="{StaticResource MetroMenuItem}" 
-    xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Entries.Commands"
+    xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
     >
-    <MenuItem Header="View List of Breed Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="localCommands:EntryListCommands.ShowEntryListCommand" />
-    <MenuItem Header="View List of Breed Entries by class entered" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="localCommands:EntryListCommands.ShowEntryByClassListCommand" />
+    <MenuItem Header="View List of Breed Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryListCommand" />
+    <MenuItem Header="View List of Breed Entries by class entered" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryByClassListCommand" />
 </MenuItem>

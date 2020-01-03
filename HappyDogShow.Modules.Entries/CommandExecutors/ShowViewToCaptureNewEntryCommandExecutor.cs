@@ -1,8 +1,6 @@
-﻿using HappyDogShow.Infrastructure;
-using HappyDogShow.Infrastructure.CommandExecutors;
-using HappyDogShow.Modules.Entries.Commands;
+﻿using HappyDogShow.Infrastructure.CommandExecutors;
+using HappyDogShow.Infrastructure.Commands;
 using HappyDogShow.Services.Infrastructure.Models;
-using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
 
 namespace HappyDogShow.Modules.Entries.CommandExecutors

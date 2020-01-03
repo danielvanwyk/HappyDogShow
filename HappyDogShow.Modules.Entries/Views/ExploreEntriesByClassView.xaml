@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
-             xmlns:localCommands="clr-namespace:HappyDogShow.Modules.Entries.Commands"
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              >
 
@@ -161,12 +160,6 @@
                 </TabItem>
             </TabControl>
         </infrastructureControls:BasicContentLayout.MainContent>
-
-        <infrastructureControls:BasicContentLayout.ButtonContent>
-            <StackPanel Orientation="Horizontal">
-                <!--<Button Content="Edit Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />-->
-            </StackPanel>
-        </infrastructureControls:BasicContentLayout.ButtonContent>
 
     </infrastructureControls:BasicContentLayout>
 </UserControl>

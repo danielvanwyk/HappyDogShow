@@ -89,9 +89,7 @@
     <Compile Include="CommandExecutors\ShowViewToEditDogEntityCommandExecutor.cs" />
     <Compile Include="FormNameConstants.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewDogCommandExecutor.cs" />
-    <Compile Include="Commands\DogEntityCRUDCommands.cs" />
     <Compile Include="CommandExecutors\ShowDogListCommandExecutor.cs" />
-    <Compile Include="Commands\DogListCommands.cs" />
     <Compile Include="DogsModule.cs" />
     <Compile Include="Infrastructure\ICaptureNewDogView.cs" />
     <Compile Include="Infrastructure\ICaptureNewDogViewViewModel.cs" />
