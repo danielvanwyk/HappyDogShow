@@ -5,5 +5,6 @@ namespace HappyDogShow.Modules.Dogs.Infrastructure
 {
     public interface ICaptureNewDogViewViewModel : IViewViewModel, IEntityAwareViewViewModel
     {
+        bool RememberRegisteredOwnerDetails { get; set; }
     }
 }

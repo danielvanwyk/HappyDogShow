@@ -16,6 +16,7 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
     {
         private IGenderService _genderService;
         private IBreedService _breedService;
+        private IGlobalContextService _globalContextService;
 
         private ValidatableBindableBase currentEntity;
         public ValidatableBindableBase CurrentEntity
@@ -53,16 +54,39 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
             }
         }
 
-        public CaptureNewDogViewViewModel(ICaptureNewDogView view, IGenderService genderService, IBreedService breedService)
+        private bool rememberRegisteredOwnerDetails;
+        public bool RememberRegisteredOwnerDetails
+        {
+            get { return rememberRegisteredOwnerDetails; }
+            set { SetProperty(ref rememberRegisteredOwnerDetails, value); }
+        }
+
+        public CaptureNewDogViewViewModel(ICaptureNewDogView view, IGenderService genderService, IBreedService breedService, IGlobalContextService globalContextService)
             : base(view)
         {
             _genderService = genderService;
             _breedService = breedService;
+            _globalContextService = globalContextService;
         }
 
         public async override void Prepare()
         {
             CurrentEntity = new DogRegistrationDetail();
+
+            IDogRegistration entity = CurrentEntity as IDogRegistration;
+            if (entity != null)
+            {
+                entity.RegisteredOwnerSurname = _globalContextService.RegisteredOwnerSurname;
+                entity.RegisteredOwnerTitle = _globalContextService.RegisteredOwnerTitle;
+                entity.RegisteredOwnerInitials = _globalContextService.RegisteredOwnerInitials;
+                entity.RegisteredOwnerAddress = _globalContextService.RegisteredOwnerAddress;
+                entity.RegisteredOwnerPostalCode = _globalContextService.RegisteredOwnerPostalCode;
+                entity.RegisteredOwnerKUSANo = _globalContextService.RegisteredOwnerKUSANo;
+                entity.RegisteredOwnerTel = _globalContextService.RegisteredOwnerTel;
+                entity.RegisteredOwnerCell = _globalContextService.RegisteredOwnerCell;
+                entity.RegisteredOwnerFax = _globalContextService.RegisteredOwnerFax;
+                entity.RegisteredOwnerEmail = _globalContextService.RegisteredOwnerEmail;
+            }
 
             GenderList = await _genderService.GetListAsync<GenderDetail>();
             BreedList = await _breedService.GetListAsync<BreedDetail>();

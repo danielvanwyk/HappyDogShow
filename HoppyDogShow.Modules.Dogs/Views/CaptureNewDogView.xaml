@@ -18,6 +18,7 @@
         </infrastructureControls:BasicContentLayout.MainContent>
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding RememberRegisteredOwnerDetails}">Remember Dog Owners Detail</CheckBox>
                 <Button Content="Save" Command="{x:Static globalCommands:DogEntityCRUDCommands.SaveNewEntityCommand}" CommandParameter="{Binding}" />
                 <Button Content="Cancel" Command="{x:Static infrastructureCommands:NavigateableViewCommands.CancelEntityCommand}" CommandParameter="{Binding}" />
             </StackPanel>

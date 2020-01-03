@@ -63,6 +63,7 @@
     <Compile Include="Services\IEntityCreateService.cs" />
     <Compile Include="Services\IEntityUpdateService.cs" />
     <Compile Include="Services\IGenderService.cs" />
+    <Compile Include="Services\IGlobalContextService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

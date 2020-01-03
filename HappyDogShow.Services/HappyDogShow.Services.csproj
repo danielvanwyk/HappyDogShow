@@ -55,6 +55,7 @@
     <Compile Include="DogRegistrationService.cs" />
     <Compile Include="DogShowService.cs" />
     <Compile Include="GenderService.cs" />
+    <Compile Include="GlobalContextService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
