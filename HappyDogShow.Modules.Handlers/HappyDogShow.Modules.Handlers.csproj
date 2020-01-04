@@ -75,6 +75,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\ShowHandlerListCommandExecutor.cs" />
     <Compile Include="HandlersModule.cs" />
     <Compile Include="Infrastructure\IHandlersMainMenuView.cs" />
     <Compile Include="Infrastructure\IHandlersMainMenuViewViewModel.cs" />

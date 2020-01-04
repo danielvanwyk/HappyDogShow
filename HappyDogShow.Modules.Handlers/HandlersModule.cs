@@ -1,4 +1,5 @@
 ﻿using HappyDogShow.Infrastructure;
+using HappyDogShow.Modules.Handlers.CommandExecutors;
 using HappyDogShow.Modules.Handlers.Infrastructure;
 using HappyDogShow.Modules.Handlers.ViewModels;
 using HappyDogShow.Modules.Handlers.Views;
@@ -14,7 +15,7 @@ namespace HappyDogShow.Modules.Handlers
 {
     public class HandlersModule : ModuleBase
     {
-        //private ShowHandlerListCommandExecutor _showHandlerListCommandExecutor;
+        private ShowHandlerListCommandExecutor showHandlerListCommandExecutor;
         //private ShowViewToCaptureNewHandlerCommandExecutor _showViewToCaptureNewHandlerCommandExecutor;
         //private SaveNewHandlerEntityCommandExecutor _saveNewHandlerEntityCommandExecutor;
         //private ShowViewToEditHandlerEntityCommandExecutor _showViewToEditHandlerEntityCommandExecutor;
@@ -29,7 +30,7 @@ namespace HappyDogShow.Modules.Handlers
         protected override void InitializeModule()
         {
             RegisterViewWithRegionUsingViewModel<IHandlersMainMenuViewViewModel>(RegionNames.MainMenuRegion);
-            //_showHandlerListCommandExecutor = Container.Resolve<ShowHandlerListCommandExecutor>();
+            showHandlerListCommandExecutor = Container.Resolve<ShowHandlerListCommandExecutor>();
             //_showViewToCaptureNewHandlerCommandExecutor = Container.Resolve<ShowViewToCaptureNewHandlerCommandExecutor>();
             //_saveNewHandlerEntityCommandExecutor = Container.Resolve<SaveNewHandlerEntityCommandExecutor>();
             //_showViewToEditHandlerEntityCommandExecutor = Container.Resolve<ShowViewToEditHandlerEntityCommandExecutor>();

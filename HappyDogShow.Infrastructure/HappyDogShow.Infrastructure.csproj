@@ -107,6 +107,7 @@
     <Compile Include="Exceptions\CouldNotSaveExistingEntityException.cs" />
     <Compile Include="Exceptions\CouldNotSaveNewEntityException.cs" />
     <Compile Include="Extensions\BusyAwareViewModelExtensions.cs" />
+    <Compile Include="FormNameConstants\HandlerFormNameConstants.cs" />
     <Compile Include="Models\IDirtyAwareEntity.cs" />
     <Compile Include="Models\ValidatableBindableBase.cs" />
     <Compile Include="ModuleBase.cs" />
