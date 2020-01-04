@@ -43,6 +43,11 @@
                 context.SaveChanges();
             }
 
+            context.Sexes.AddOrUpdate(x => x.Name,
+                new Sex() { Name = "Male" },
+                new Sex() { Name = "Female" }
+                );
+
 
 
 

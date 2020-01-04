@@ -31,5 +31,7 @@ namespace HappyDogShow.Data
         public DbSet<BreedClass> BreedClasses { get; set; }
         public DbSet<BreedEntry> BreedEntries { get; set; }
         public DbSet<BreedClassEntry> BreedClassEntries { get; set; }
+        public DbSet<Sex> Sexes { get; set; }
+        public DbSet<HandlerRegistration> HandlerRegistrations { get; set; }
     }
 }
