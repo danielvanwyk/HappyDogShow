@@ -90,6 +90,7 @@ namespace HappyDogShow.Services
             using (var ctx = new HappyDogShowContext())
             {
                 var shows = from d in ctx.DogShows
+                            orderby d.ShowDate descending, d.Name ascending
                             select d;
 
                 foreach (DogShow ds in shows)
@@ -98,7 +99,9 @@ namespace HappyDogShow.Services
                     {
                         Id = ds.ID,
                         DogShowName = ds.Name,
-                        ShowDate = ds.ShowDate
+                        ShowDate = ds.ShowDate,
+                        Venue = ds.Venue,
+
                     });
                 }
             }

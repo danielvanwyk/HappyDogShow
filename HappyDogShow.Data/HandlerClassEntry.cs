@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Data
 {
-    public class Club
+    class HandlerClassEntry
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Region { get; set; }
     }
 }

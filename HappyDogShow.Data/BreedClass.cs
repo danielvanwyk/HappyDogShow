@@ -17,5 +17,7 @@ namespace HappyDogShow.Data
         public int MinAgeInMonths { get; set; }
 
         public int MaxAgeInMonths { get; set; }
+        public bool EligibleForInShow { get; set; }
+
     }
 }

@@ -10,5 +10,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
     {
         string DogShowName { get; set; }
         DateTime ShowDate { get; set; }
+        string Venue { get; set; }
     }
 }
