@@ -34,5 +34,10 @@ namespace HappyDogShow.Modules.Handlers.ViewModels
 
             items.ForEach(i => Items.Add(i));
         }
+
+        public override void OnSelectedItemChanged()
+        {
+            OnPropertyChanged("SelectedHandlerRegistration");
+        }
     }
 }

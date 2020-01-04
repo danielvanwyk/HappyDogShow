@@ -160,6 +160,14 @@ namespace HappyDogShow.SharedModels
             set { SetProperty(ref email, value); }
         }
 
+        public string DisplayName
+        {
+            get
+            {
+                return string.Format("{1}, {0}", firstName, surname);
+            }
+        }
+
 
         private void UpdateDOB()
         {

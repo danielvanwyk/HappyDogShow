@@ -54,6 +54,7 @@
     <Compile Include="Models\IGenderEntity.cs" />
     <Compile Include="Models\IHandlerRegistration.cs" />
     <Compile Include="Models\IMultipleBreedEntry.cs" />
+    <Compile Include="Models\ISexEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IBreedEntryService.cs" />
     <Compile Include="Services\IBreedMultipleEntryService.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Services\IGlobalContextService.cs" />
     <Compile Include="Services\IHandlerRegistrationService.cs" />
     <Compile Include="Services\IReportViewerService.cs" />
+    <Compile Include="Services\ISexService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

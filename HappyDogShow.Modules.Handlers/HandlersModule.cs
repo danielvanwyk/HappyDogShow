@@ -17,8 +17,8 @@ namespace HappyDogShow.Modules.Handlers
     public class HandlersModule : ModuleBase
     {
         private ShowHandlerListCommandExecutor showHandlerListCommandExecutor;
-        //private ShowViewToCaptureNewHandlerCommandExecutor _showViewToCaptureNewHandlerCommandExecutor;
-        //private SaveNewHandlerEntityCommandExecutor _saveNewHandlerEntityCommandExecutor;
+        private ShowViewToCaptureNewHandlerCommandExecutor showViewToCaptureNewHandlerCommandExecutor;
+        private SaveNewHandlerEntityCommandExecutor saveNewHandlerEntityCommandExecutor;
         //private ShowViewToEditHandlerEntityCommandExecutor _showViewToEditHandlerEntityCommandExecutor;
         //private SaveExistingHandlerEntityCommandExecutor _saveExistingHandlerEntityCommandExecutor;
 
@@ -32,8 +32,8 @@ namespace HappyDogShow.Modules.Handlers
         {
             RegisterViewWithRegionUsingViewModel<IHandlersMainMenuViewViewModel>(RegionNames.MainMenuRegion);
             showHandlerListCommandExecutor = Container.Resolve<ShowHandlerListCommandExecutor>();
-            //_showViewToCaptureNewHandlerCommandExecutor = Container.Resolve<ShowViewToCaptureNewHandlerCommandExecutor>();
-            //_saveNewHandlerEntityCommandExecutor = Container.Resolve<SaveNewHandlerEntityCommandExecutor>();
+            showViewToCaptureNewHandlerCommandExecutor = Container.Resolve<ShowViewToCaptureNewHandlerCommandExecutor>();
+            saveNewHandlerEntityCommandExecutor = Container.Resolve<SaveNewHandlerEntityCommandExecutor>();
             //_showViewToEditHandlerEntityCommandExecutor = Container.Resolve<ShowViewToEditHandlerEntityCommandExecutor>();
             //_saveExistingHandlerEntityCommandExecutor = Container.Resolve<SaveExistingHandlerEntityCommandExecutor>();
         }
@@ -49,8 +49,8 @@ namespace HappyDogShow.Modules.Handlers
             Container.RegisterType<IExploreHandlersView, ExploreHandlersView>();
 
             // the new form
-            //Container.RegisterType<object, CaptureNewHandlerViewViewModel>(FormNameConstants.Handlers.NewHandler.ViewName);
-            //Container.RegisterType<ICaptureNewHandlerView, CaptureNewHandlerView>();
+            Container.RegisterType<object, CaptureNewHandlerViewViewModel>(HandlerFormNameConstants.Handlers.NewHandler.ViewName);
+            Container.RegisterType<ICaptureNewHandlerView, CaptureNewHandlerView>();
 
             // the edit form
             //Container.RegisterType<object, EditHandlerViewViewModel>(FormNameConstants.Handlers.EditHandler.ViewName);

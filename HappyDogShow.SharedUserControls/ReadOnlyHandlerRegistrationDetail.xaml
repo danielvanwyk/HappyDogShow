@@ -11,7 +11,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Gender</Label>
-                <Label Content="{Binding SelectedHandlerRegistration.GenderName}"></Label>
+                <Label Content="{Binding SelectedHandlerRegistration.SexName}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">

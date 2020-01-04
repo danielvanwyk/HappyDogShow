@@ -58,6 +58,7 @@
     <Compile Include="GlobalContextService.cs" />
     <Compile Include="HandlerRegistrationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SexService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HappyDogShow.Data\HappyDogShow.Data.csproj">

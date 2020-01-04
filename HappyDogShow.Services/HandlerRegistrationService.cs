@@ -24,38 +24,25 @@ namespace HappyDogShow.Services
 
         private int CreateEntity(IHandlerRegistration entity)
         {
-            throw new NotImplementedException();
-            /*
             int newid = -1;
 
-            using (var ctx = new HappyHandlerShowContext())
+            using (var ctx = new HappyDogShowContext())
             {
-                Gender entityGender = ctx.Genders.Where(g => g.ID == entity.GenderId).First();
-                Breed entityBreed = ctx.Breeds.Where(g => g.ID == entity.BreedId).First();
+                Sex entitySex = ctx.Sexes.Where(g => g.ID == entity.SexId).First();
 
                 HandlerRegistration newEntity = new HandlerRegistration()
                 {
-                    RegisrationNumber = entity.RegisrationNumber,
-                    Gender = entityGender,
+                    Sex = entitySex,
                     DateOfBirth = entity.DateOfBirth,
-                    Breed = entityBreed,
-                    RegisteredName = entity.RegisteredName,
-                    Qualifications = entity.Qualifications,
-                    ChipOrTattooNumber = entity.ChipOrTattooNumber,
-                    Sire = entity.Sire,
-                    Dam = entity.Dam,
-                    BredBy = entity.BredBy,
-                    Colour = entity.Colour,
-                    RegisteredOwnerSurname = entity.RegisteredOwnerSurname,
-                    RegisteredOwnerTitle = entity.RegisteredOwnerTitle,
-                    RegisteredOwnerInitials = entity.RegisteredOwnerInitials,
-                    RegisteredOwnerAddress = entity.RegisteredOwnerAddress,
-                    RegisteredOwnerPostalCode = entity.RegisteredOwnerPostalCode,
-                    RegisteredOwnerKUSANo = entity.RegisteredOwnerKUSANo,
-                    RegisteredOwnerTel = entity.RegisteredOwnerTel,
-                    RegisteredOwnerCell = entity.RegisteredOwnerCell,
-                    RegisteredOwnerFax = entity.RegisteredOwnerFax,
-                    RegisteredOwnerEmail = entity.RegisteredOwnerEmail
+                    Surname = entity.Surname,
+                    Title = entity.Title,
+                    FirstName = entity.FirstName,
+                    Address = entity.Address,
+                    PostalCode = entity.PostalCode,
+                    Tel = entity.Tel,
+                    Cell = entity.Cell,
+                    Fax = entity.Fax,
+                    Email = entity.Email
                 };
 
                 ctx.HandlerRegistrations.Add(newEntity);
@@ -65,7 +52,6 @@ namespace HappyDogShow.Services
             }
 
             return newid;
-            */
         }
 
         public Task UpdateEntityAsync(IHandlerRegistration entity)

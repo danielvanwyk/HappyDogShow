@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="HappyDogShow.Modules.Handlers.UserControls.EditableHandlerRegistrationDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HappyDogShow.Modules.Handlers.UserControls"
+             mc:Ignorable="d" 
+             >
+    <TabControl Grid.Column="0">
+        <TabItem Header="Handler Registration Detail">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Width="150">Surname</Label>
+                    <TextBox Width="250" Text="{Binding CurrentEntity.Surname }"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Width="150">Title</Label>
+                    <TextBox Width="250" Text="{Binding CurrentEntity.Title }"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Width="150">First Name</Label>
+                    <TextBox Width="250" Text="{Binding CurrentEntity.FirstName }"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Width="150">Address</Label>
+                    <TextBox Width="250" TextWrapping="Wrap" AcceptsReturn="True" MinLines="5" Text="{Binding CurrentEntity.Address }"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Width="150">Postal Code</Label>
+                    <TextBox Width="250" Text="{Binding CurrentEntity.PostalCode }"></TextBox>
+                </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Width="150">Tel</Label>
+                        <TextBox Width="250" Text="{Binding CurrentEntity.Tel }"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Width="150">Cell</Label>
+                        <TextBox Width="250" Text="{Binding CurrentEntity.Cell }"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Width="150">Fax</Label>
+                        <TextBox Width="250" Text="{Binding CurrentEntity.Fax }"></TextBox>
+                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Width="150">Email</Label>
+                    <TextBox Width="250" Text="{Binding CurrentEntity.Email }"></TextBox>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Sex</Label>
+                    <ComboBox Width="250" ItemsSource="{Binding SexList}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.SexId}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="150">Date Of Birth</Label>
+
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Width="50">Day</Label>
+                            <TextBox Width="50" Text="{Binding CurrentEntity.DOBDay}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Width="50">Month</Label>
+                            <TextBox Width="50" Text="{Binding CurrentEntity.DOBMonth}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Width="50">Year</Label>
+                            <TextBox Width="50" Text="{Binding CurrentEntity.DOBYear}"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--<TextBox Text="{Binding CurrentEntity.DateOfBirth, Mode=TwoWay,  StringFormat='yyyy-MM-dd'}" Width="250"/>-->
+                    <DatePicker Width="250" SelectedDate="{Binding CurrentEntity.DateOfBirth }"></DatePicker>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+
+</UserControl>
