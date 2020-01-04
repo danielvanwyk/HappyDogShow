@@ -75,12 +75,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\SaveExistingHandlerEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewHandlerEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowHandlerListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewHandlerCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowViewToEditHandlerEntityCommandExecutor.cs" />
     <Compile Include="HandlersModule.cs" />
     <Compile Include="Infrastructure\ICaptureNewHandlerView.cs" />
     <Compile Include="Infrastructure\ICaptureNewHandlerViewViewModel.cs" />
+    <Compile Include="Infrastructure\IEditHandlerView.cs" />
+    <Compile Include="Infrastructure\IEditHandlerViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreHandlersView.cs" />
     <Compile Include="Infrastructure\IExploreHandlersViewViewModel.cs" />
     <Compile Include="Infrastructure\IHandlersMainMenuView.cs" />
@@ -90,10 +94,14 @@
       <DependentUpon>EditableHandlerRegistrationDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CaptureNewHandlerViewViewModel.cs" />
+    <Compile Include="ViewModels\EditHandlerViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreHandlersViewViewModel.cs" />
     <Compile Include="ViewModels\HandlersMainMenuViewViewModel.cs" />
     <Compile Include="Views\CaptureNewHandlerView.xaml.cs">
       <DependentUpon>CaptureNewHandlerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditHandlerView.xaml.cs">
+      <DependentUpon>EditHandlerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExploreHandlersView.xaml.cs">
       <DependentUpon>ExploreHandlersView.xaml</DependentUpon>
@@ -130,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CaptureNewHandlerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditHandlerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
