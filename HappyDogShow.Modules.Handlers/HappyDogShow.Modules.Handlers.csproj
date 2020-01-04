@@ -77,10 +77,16 @@
   <ItemGroup>
     <Compile Include="CommandExecutors\ShowHandlerListCommandExecutor.cs" />
     <Compile Include="HandlersModule.cs" />
+    <Compile Include="Infrastructure\IExploreHandlersView.cs" />
+    <Compile Include="Infrastructure\IExploreHandlersViewViewModel.cs" />
     <Compile Include="Infrastructure\IHandlersMainMenuView.cs" />
     <Compile Include="Infrastructure\IHandlersMainMenuViewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ExploreHandlersViewViewModel.cs" />
     <Compile Include="ViewModels\HandlersMainMenuViewViewModel.cs" />
+    <Compile Include="Views\ExploreHandlersView.xaml.cs">
+      <DependentUpon>ExploreHandlersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HandlersMainMenuView.xaml.cs">
       <DependentUpon>HandlersMainMenuView.xaml</DependentUpon>
     </Compile>
@@ -90,12 +96,28 @@
       <Project>{1444F955-65B2-412A-A1BE-2511FFE5C2C6}</Project>
       <Name>HappyDogShow.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.Services.Infrastructure\HappyDogShow.Services.Infrastructure.csproj">
+      <Project>{EFC72165-674F-4D99-B464-13E26B9C45FA}</Project>
+      <Name>HappyDogShow.Services.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.SharedModels\HappyDogShow.SharedModels.csproj">
+      <Project>{fc7efce2-363d-4e76-8e92-dbda33884fab}</Project>
+      <Name>HappyDogShow.SharedModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.SharedUserControls\HappyDogShow.SharedUserControls.csproj">
+      <Project>{0c52f23d-0440-4f64-9331-c05c7b01ad02}</Project>
+      <Name>HappyDogShow.SharedUserControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ExploreHandlersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HandlersMainMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

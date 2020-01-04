@@ -1,4 +1,5 @@
 ﻿using HappyDogShow.Infrastructure;
+using HappyDogShow.Infrastructure.FormNameConstants;
 using HappyDogShow.Modules.Handlers.CommandExecutors;
 using HappyDogShow.Modules.Handlers.Infrastructure;
 using HappyDogShow.Modules.Handlers.ViewModels;
@@ -44,8 +45,8 @@ namespace HappyDogShow.Modules.Handlers
             Container.RegisterType<IHandlersMainMenuViewViewModel, HandlersMainMenuViewViewModel>();
 
             // the Handlers list
-            //Container.RegisterType<object, ExploreHandlersViewViewModel>(FormNameConstants.Handlers.HandlersList.ViewName);
-            //Container.RegisterType<IExploreHandlersView, ExploreHandlersView>();
+            Container.RegisterType<object, ExploreHandlersViewViewModel>(HandlerFormNameConstants.Handlers.HandlersList.ViewName);
+            Container.RegisterType<IExploreHandlersView, ExploreHandlersView>();
 
             // the new form
             //Container.RegisterType<object, CaptureNewHandlerViewViewModel>(FormNameConstants.Handlers.NewHandler.ViewName);

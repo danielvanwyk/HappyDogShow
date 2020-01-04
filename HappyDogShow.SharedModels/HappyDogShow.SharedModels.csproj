@@ -60,6 +60,7 @@
     <Compile Include="DogRegistrationDetail.cs" />
     <Compile Include="DogShowDetail.cs" />
     <Compile Include="GenderDetail.cs" />
+    <Compile Include="HandlerRegistrationDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

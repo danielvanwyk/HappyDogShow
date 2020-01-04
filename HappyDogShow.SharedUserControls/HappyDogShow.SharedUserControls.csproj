@@ -49,9 +49,16 @@
     <Compile Include="ReadOnlyDogRegistrationDetail.xaml.cs">
       <DependentUpon>ReadOnlyDogRegistrationDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReadOnlyHandlerRegistrationDetail.xaml.cs">
+      <DependentUpon>ReadOnlyHandlerRegistrationDetail.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="ReadOnlyDogRegistrationDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadOnlyHandlerRegistrationDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
