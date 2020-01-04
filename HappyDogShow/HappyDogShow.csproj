@@ -168,6 +168,10 @@
       <Project>{e3e19a85-f4b4-4f30-83a5-aabc7d2e9fca}</Project>
       <Name>HappyDogShow.Modules.Entries</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HappyDogShow.Modules.Handlers\HappyDogShow.Modules.Handlers.csproj">
+      <Project>{2110f6de-ed72-4090-ba99-ee0319325f2b}</Project>
+      <Name>HappyDogShow.Modules.Handlers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HappyDogShow.Modules.Reports\HappyDogShow.Modules.Reports.csproj">
       <Project>{066ab35e-2b41-4511-9b14-c43d526847e6}</Project>
       <Name>HappyDogShow.Modules.Reports</Name>

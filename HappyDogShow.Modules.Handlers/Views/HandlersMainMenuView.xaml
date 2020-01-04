@@ -1,0 +1,15 @@
+﻿<MenuItem 
+    x:Class="HappyDogShow.Modules.Handlers.Views.HandlersMainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:HappyDogShow.Modules.Handlers.Views"
+    mc:Ignorable="d" 
+    Header="Handlers"
+    Background="Transparent" 
+    Style="{StaticResource MetroMenuItem}" 
+    xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+    >
+    <MenuItem Header="View List of Handlers" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:HandlerListCommands.ShowHandlerListCommand" />
+</MenuItem>

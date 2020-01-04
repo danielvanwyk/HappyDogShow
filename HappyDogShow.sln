@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyDogShow.Modules.Report
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyDogShow.Modules.Reports", "HappyDogShow.Modules.Reports\HappyDogShow.Modules.Reports.csproj", "{066AB35E-2B41-4511-9B14-C43D526847E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyDogShow.Modules.Handlers", "HappyDogShow.Modules.Handlers\HappyDogShow.Modules.Handlers.csproj", "{2110F6DE-ED72-4090-BA99-EE0319325F2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{066AB35E-2B41-4511-9B14-C43D526847E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{066AB35E-2B41-4511-9B14-C43D526847E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{066AB35E-2B41-4511-9B14-C43D526847E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2110F6DE-ED72-4090-BA99-EE0319325F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2110F6DE-ED72-4090-BA99-EE0319325F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2110F6DE-ED72-4090-BA99-EE0319325F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2110F6DE-ED72-4090-BA99-EE0319325F2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,6 +23,7 @@ using HappyDogShow.Services;
 using HappyDogShow.Infrastructure.CommandExecutors;
 using HappyDogShow.Modules.ReportViewer;
 using HappyDogShow.Modules.Reports;
+using HappyDogShow.Modules.Handlers;
 
 namespace HappyDogShow
 {
@@ -73,6 +74,7 @@ namespace HappyDogShow
             catalog.AddModule(typeof(EntriesModule));
             catalog.AddModule(typeof(ShowsModule));
             catalog.AddModule(typeof(ReportsModule));
+            catalog.AddModule(typeof(HandlersModule));
 
             return catalog;
         }
