@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Services.Infrastructure.Models;
+﻿using HappyDogShow.Data;
+using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
@@ -132,40 +133,26 @@ namespace HappyDogShow.Services
 
         private List<IHandlerRegistration> GetList<T>() where T : IHandlerRegistration, new()
         {
-            throw new NotImplementedException();
-
-            /*
             List<IHandlerRegistration> items = new List<IHandlerRegistration>();
 
-            using (var ctx = new HappyHandlerShowContext())
+            using (var ctx = new HappyDogShowContext())
             {
                 var Handlers = from d in ctx.HandlerRegistrations
                            select new T()
                            {
                                Id = d.ID,
-                               RegisrationNumber = d.RegisrationNumber,
-                               GenderId = d.Gender.ID,
-                               GenderName = d.Gender.Name,
+                               SexId = d.Sex.ID,
+                               SexName = d.Sex.Name,
                                DateOfBirth = d.DateOfBirth,
-                               BreedId = d.Breed.ID,
-                               BreedName = d.Breed.Name,
-                               RegisteredName = d.RegisteredName,
-                               Qualifications = d.Qualifications,
-                               ChipOrTattooNumber = d.ChipOrTattooNumber,
-                               Sire = d.Sire,
-                               Dam = d.Dam,
-                               BredBy = d.BredBy,
-                               Colour = d.Colour,
-                               RegisteredOwnerSurname = d.RegisteredOwnerSurname,
-                               RegisteredOwnerTitle = d.RegisteredOwnerTitle,
-                               RegisteredOwnerInitials = d.RegisteredOwnerInitials,
-                               RegisteredOwnerAddress = d.RegisteredOwnerAddress,
-                               RegisteredOwnerPostalCode = d.RegisteredOwnerPostalCode,
-                               RegisteredOwnerKUSANo = d.RegisteredOwnerKUSANo,
-                               RegisteredOwnerTel = d.RegisteredOwnerTel,
-                               RegisteredOwnerCell = d.RegisteredOwnerCell,
-                               RegisteredOwnerFax = d.RegisteredOwnerFax,
-                               RegisteredOwnerEmail = d.RegisteredOwnerEmail
+                               Surname = d.Surname,
+                               Title = d.Title,
+                               FirstName = d.FirstName,
+                               Address = d.Address,
+                               PostalCode = d.PostalCode,
+                               Tel = d.Tel,
+                               Cell = d.Cell,
+                               Fax = d.Fax,
+                               Email = d.Email
                            };
 
                 foreach (var d in Handlers)
@@ -175,7 +162,6 @@ namespace HappyDogShow.Services
             }
 
             return items;
-            */
         }
 
         public Task<IHandlerRegistration> GetHandlerRegistrationAsync<T>(int id) where T : IHandlerRegistration, new()

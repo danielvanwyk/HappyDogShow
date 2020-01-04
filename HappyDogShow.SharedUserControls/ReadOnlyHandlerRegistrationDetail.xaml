@@ -8,109 +8,60 @@
              >
     <ScrollViewer>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisrationNumber</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisrationNumber}"></Label>
-            </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Gender</Label>
-                <Label Content="{Binding SelectedDogRegistration.GenderName}"></Label>
+                <Label Content="{Binding SelectedHandlerRegistration.GenderName}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">DateOfBirth</Label>
-                <Label Content="{Binding SelectedDogRegistration.DateOfBirth }"></Label>
+                <Label Content="{Binding SelectedHandlerRegistration.DateOfBirth }"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Breed</Label>
-                <Label Content="{Binding SelectedDogRegistration.BreedName }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Surname</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Surname}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredName</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredName }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Title</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Title}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Qualifications</Label>
-                <Label Content="{Binding SelectedDogRegistration.Qualifications }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">First Name</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.FirstName}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">ChipOrTattooNumber</Label>
-                <Label Content="{Binding SelectedDogRegistration.ChipOrTattooNumber }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Address</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Address}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Sire</Label>
-                <Label Content="{Binding SelectedDogRegistration.Sire }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">PostalCode</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.PostalCode}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Dam</Label>
-                <Label Content="{Binding SelectedDogRegistration.Dam }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Tel</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Tel}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">BredBy</Label>
-                <Label Content="{Binding SelectedDogRegistration.BredBy }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Cell</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Cell}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Colour</Label>
-                <Label Content="{Binding SelectedDogRegistration.Colour }"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Fax</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Fax}"></Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerSurname</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerSurname}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerTitle</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerTitle}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerInitials</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerInitials}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerAddress</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerAddress}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerPostalCode</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerPostalCode}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerKUSANo</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerKUSANo}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerTel</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerTel}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerCell</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerCell}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerFax</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerFax}"></Label>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">RegisteredOwnerEmail</Label>
-                <Label Content="{Binding SelectedDogRegistration.RegisteredOwnerEmail}"></Label>
+                <Label Width="250" FontWeight="Bold" HorizontalContentAlignment="Right">Email</Label>
+                <Label Content="{Binding SelectedHandlerRegistration.Email}"></Label>
             </StackPanel>
 
         </StackPanel>

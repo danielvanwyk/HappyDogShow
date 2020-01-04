@@ -23,7 +23,7 @@
 
                 <TabControl Grid.Column="0">
 
-                    <TabItem Header="Dogs">
+                    <TabItem Header="Handlers">
                         <DataGrid Grid.Column="0"
                           Style="{StaticResource AzureDataGrid}"
                           AutoGenerateColumns="False"
@@ -32,10 +32,7 @@
                           IsReadOnly="True"
                           >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Reg #" Width="2*" Binding="{Binding RegisrationNumber}" />
-                                <DataGridTextColumn Header="Name" Width="3*" Binding="{Binding RegisteredName}" />
-                                <DataGridTextColumn Header="Breed" Width="2*" Binding="{Binding BreedName}" />
-                                <DataGridTextColumn Header="Gender" Width="1*" Binding="{Binding GenderName}" />
+                                <DataGridTextColumn Header="Name" Width="3*" Binding="{Binding DisplayName}" />
                                 <DataGridTextColumn Header="DOB" Width="1*" Binding="{Binding DOB}" />
                             </DataGrid.Columns>
                         </DataGrid>

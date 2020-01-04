@@ -13,22 +13,14 @@ namespace HappyDogShow.SharedModels
     {
         public int Id { get; set; }
 
-        private string regisrationnumber;
-        [Required]
-        public string RegisrationNumber
+        private int sexId;
+        public int SexId
         {
-            get { return regisrationnumber; }
-            set { SetProperty(ref regisrationnumber, value); }
+            get { return sexId; }
+            set { SetProperty(ref sexId, value); }
         }
 
-        private int genderId;
-        public int GenderId
-        {
-            get { return genderId; }
-            set { SetProperty(ref genderId, value); }
-        }
-
-        public string GenderName { get; set; }
+        public string SexName { get; set; }
 
         private DateTime dateofbirth;
         public DateTime DateOfBirth
@@ -101,138 +93,71 @@ namespace HappyDogShow.SharedModels
             }
         }
 
-        private int breedId;
-        public int BreedId
-        {
-            get { return breedId; }
-            set { SetProperty(ref breedId, value); }
-        }
 
-        public string BreedName { get; set; }
-
-        private string registeredname;
+        private string surname;
         [Required]
-        public string RegisteredName
+        public string Surname
         {
-            get { return registeredname; }
-            set { SetProperty(ref registeredname, value); }
+            get { return surname; }
+            set { SetProperty(ref surname, value); }
         }
 
-        private string qualifications;
-        public string Qualifications
-        {
-            get { return qualifications; }
-            set { SetProperty(ref qualifications, value); }
-        }
-
-        private string chiportattoonumber;
+        private string title;
         [Required]
-        public string ChipOrTattooNumber
+        public string Title
         {
-            get { return chiportattoonumber; }
-            set { SetProperty(ref chiportattoonumber, value); }
+            get { return title; }
+            set { SetProperty(ref title, value); }
         }
 
-        private string sire;
+        private string firstName;
         [Required]
-        public string Sire
+        public string FirstName
         {
-            get { return sire; }
-            set { SetProperty(ref sire, value); }
+            get { return firstName; }
+            set { SetProperty(ref firstName, value); }
         }
 
-        private string dam;
-        [Required]
-        public string Dam
+        private string address;
+        public string Address
         {
-            get { return dam; }
-            set { SetProperty(ref dam, value); }
+            get { return address; }
+            set { SetProperty(ref address, value); }
         }
 
-        private string bredby;
-        [Required]
-        public string BredBy
+        private string postalcode;
+        public string PostalCode
         {
-            get { return bredby; }
-            set { SetProperty(ref bredby, value); }
+            get { return postalcode; }
+            set { SetProperty(ref postalcode, value); }
         }
 
-        private string colour;
-        [Required]
-        public string Colour
+        private string tel;
+        public string Tel
         {
-            get { return colour; }
-            set { SetProperty(ref colour, value); }
+            get { return tel; }
+            set { SetProperty(ref tel, value); }
         }
 
-        private string registeredownersurname;
-        public string RegisteredOwnerSurname
+        private string cell;
+        public string Cell
         {
-            get { return registeredownersurname; }
-            set { SetProperty(ref registeredownersurname, value); }
+            get { return cell; }
+            set { SetProperty(ref cell, value); }
         }
 
-        private string registeredownertitle;
-        public string RegisteredOwnerTitle
+        private string fax;
+        public string Fax
         {
-            get { return registeredownertitle; }
-            set { SetProperty(ref registeredownertitle, value); }
+            get { return fax; }
+            set { SetProperty(ref fax, value); }
         }
 
-        private string registeredownerinitials;
-        public string RegisteredOwnerInitials
+        private string email;
+        public string Email
         {
-            get { return registeredownerinitials; }
-            set { SetProperty(ref registeredownerinitials, value); }
-        }
-
-        private string registeredowneraddress;
-        public string RegisteredOwnerAddress
-        {
-            get { return registeredowneraddress; }
-            set { SetProperty(ref registeredowneraddress, value); }
-        }
-
-        private string registeredownerpostalcode;
-        public string RegisteredOwnerPostalCode
-        {
-            get { return registeredownerpostalcode; }
-            set { SetProperty(ref registeredownerpostalcode, value); }
-        }
-
-        private string registeredownerkusano;
-        public string RegisteredOwnerKUSANo
-        {
-            get { return registeredownerkusano; }
-            set { SetProperty(ref registeredownerkusano, value); }
-        }
-
-        private string registeredownertel;
-        public string RegisteredOwnerTel
-        {
-            get { return registeredownertel; }
-            set { SetProperty(ref registeredownertel, value); }
-        }
-
-        private string registeredownercell;
-        public string RegisteredOwnerCell
-        {
-            get { return registeredownercell; }
-            set { SetProperty(ref registeredownercell, value); }
-        }
-
-        private string registeredownerfax;
-        public string RegisteredOwnerFax
-        {
-            get { return registeredownerfax; }
-            set { SetProperty(ref registeredownerfax, value); }
-        }
-
-        private string registeredowneremail;
-        public string RegisteredOwnerEmail
-        {
-            get { return registeredowneremail; }
-            set { SetProperty(ref registeredowneremail, value); }
+            get { return email; }
+            set { SetProperty(ref email, value); }
         }
 
 
