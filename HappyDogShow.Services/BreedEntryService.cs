@@ -141,6 +141,7 @@ namespace HappyDogShow.Services
             using (var ctx = new HappyDogShowContext())
             {
                 var data = from d in ctx.BreedEntries
+                           orderby d.Show.Name, d.Dog.Breed.BreedGroup.Name, d.Dog.Breed.Name, d.Dog.Gender.Name, d.Dog.RegisteredName
                            select new T()
                            {
                                Id = d.ID,
@@ -254,6 +255,32 @@ namespace HappyDogShow.Services
             }
 
             return items;
+        }
+
+        public Task DeleteEntityAsync(IEntityWithID entity)
+        {
+            Task t = Task<int>.Run(() =>
+            {
+                DeleteEntity(entity);
+            });
+
+            return t;
+        }
+
+        private void DeleteEntity(IEntityWithID entity)
+        {
+            using (var ctx = new HappyDogShowContext())
+            {
+                BreedEntry foundEntity = ctx.BreedEntries.Where(d => d.ID == entity.Id).Include(b => b.EnteredClasses).First();
+
+                if (foundEntity != null)
+                {
+                    if (foundEntity.EnteredClasses != null)
+                        foundEntity.EnteredClasses.Clear();
+                    ctx.BreedEntries.Remove(foundEntity);
+                    ctx.SaveChanges();
+                }
+            }
         }
     }
 

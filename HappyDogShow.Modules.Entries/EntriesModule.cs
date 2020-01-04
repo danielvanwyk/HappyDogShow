@@ -22,6 +22,7 @@ namespace HappyDogShow.Modules.Entries
         private SaveExistingBreedEntryEntityCommandExecutor _saveExistingBreedEntryEntityCommandExecutor;
         private SaveMultipleNewBreedEntryEntityCommandExecutor _saveMultipleNewBreedEntryEntityCommandExecutor;
         private ShowEntryByClassListCommandExecutor _showEntryByClassListCommandExecutor;
+        private DeleteExistingBreedEntityCommandExecutor deleteExistingBreedEntityCommandExecutor;
 
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -39,6 +40,7 @@ namespace HappyDogShow.Modules.Entries
             _saveExistingBreedEntryEntityCommandExecutor = Container.Resolve<SaveExistingBreedEntryEntityCommandExecutor>();
             _saveMultipleNewBreedEntryEntityCommandExecutor = Container.Resolve<SaveMultipleNewBreedEntryEntityCommandExecutor>();
             _showEntryByClassListCommandExecutor = Container.Resolve<ShowEntryByClassListCommandExecutor>();
+            deleteExistingBreedEntityCommandExecutor = Container.Resolve<DeleteExistingBreedEntityCommandExecutor>();
         }
 
         protected override void RegisterTypes()

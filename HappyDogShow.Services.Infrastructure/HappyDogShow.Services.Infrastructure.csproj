@@ -61,6 +61,7 @@
     <Compile Include="Services\IDogRegistrationService.cs" />
     <Compile Include="Services\IDogShowService.cs" />
     <Compile Include="Services\IEntityCreateService.cs" />
+    <Compile Include="Services\IEntityDeleteService.cs" />
     <Compile Include="Services\IEntityUpdateService.cs" />
     <Compile Include="Services\IGenderService.cs" />
     <Compile Include="Services\IGlobalContextService.cs" />

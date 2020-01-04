@@ -15,10 +15,9 @@
         <CollectionViewSource x:Key="cvsGroupedItems" Source="{Binding Items}">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription PropertyName="ShowName" />
-                <scm:SortDescription PropertyName="EntryNumber" />
                 <scm:SortDescription PropertyName="BreedGroupName" />
                 <scm:SortDescription PropertyName="BreedName" />
-                <scm:SortDescription PropertyName="GenderName" />
+                <scm:SortDescription PropertyName="GenderName" Direction="Descending" />
             </CollectionViewSource.SortDescriptions>
             <CollectionViewSource.GroupDescriptions>
                 <PropertyGroupDescription PropertyName="ShowName" />
@@ -30,10 +29,9 @@
         <CollectionViewSource x:Key="cvsItems" Source="{Binding Items}">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription PropertyName="ShowName" />
-                <scm:SortDescription PropertyName="EntryNumber" />
                 <scm:SortDescription PropertyName="BreedGroupName" />
                 <scm:SortDescription PropertyName="BreedName" />
-                <scm:SortDescription PropertyName="GenderName" />
+                <scm:SortDescription PropertyName="GenderName" Direction="Descending" />
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
@@ -123,6 +121,7 @@
             <StackPanel Orientation="Horizontal">
                 <!--<Button Content="Add Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" />-->
                 <Button Content="Edit Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <Button Content="Delete Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.DeleteExistingEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
                 <Button Content="Add Dog" Command="{x:Static globalCommands:DogEntityCRUDCommands.ShowViewToCaptureNewEntityCommand}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>

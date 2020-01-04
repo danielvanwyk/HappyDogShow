@@ -9,6 +9,7 @@ namespace HappyDogShow.Infrastructure.Commands
 
         public static CompositeCommand SaveNewEntityCommand = new CompositeCommand();
         public static CompositeCommand SaveExistingEntityCommand = new CompositeCommand();
+        public static CompositeCommand DeleteExistingEntityCommand = new CompositeCommand();
 
         public static CompositeCommand SaveMultipleNewEntityCommand = new CompositeCommand();
     }

@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\CancelEntityCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\DeleteExistingEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\NavigateToEntityCreateViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\NavigateToEntityEditViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\NavigateToEntityViewCommandExecutor.cs" />
@@ -98,8 +99,10 @@
     <Compile Include="Commands\DogShowReportCommands.cs" />
     <Compile Include="Commands\EntryListCommands.cs" />
     <Compile Include="Commands\NavigationCommands.cs" />
+    <Compile Include="Events\EntityDeletedEvent.cs" />
     <Compile Include="Events\EntityUpdatedEvent.cs" />
     <Compile Include="Events\NewEntityCreatedEvent.cs" />
+    <Compile Include="Exceptions\CouldNotDeleteExistingEntityException.cs" />
     <Compile Include="Exceptions\CouldNotSaveExistingEntityException.cs" />
     <Compile Include="Exceptions\CouldNotSaveNewEntityException.cs" />
     <Compile Include="Extensions\BusyAwareViewModelExtensions.cs" />
