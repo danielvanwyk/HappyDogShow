@@ -64,6 +64,7 @@
     <Compile Include="Services\IEntityUpdateService.cs" />
     <Compile Include="Services\IGenderService.cs" />
     <Compile Include="Services\IGlobalContextService.cs" />
+    <Compile Include="Services\IReportViewerService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

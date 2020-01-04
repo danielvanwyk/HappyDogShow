@@ -21,6 +21,8 @@ using HappyDogShow.Modules.Shows;
 using HappyDogShow.Services.Infrastructure.Services;
 using HappyDogShow.Services;
 using HappyDogShow.Infrastructure.CommandExecutors;
+using HappyDogShow.Modules.ReportViewer;
+using HappyDogShow.Modules.Reports;
 
 namespace HappyDogShow
 {
@@ -60,6 +62,7 @@ namespace HappyDogShow
             Container.RegisterType<IClubService, ClubService>();
             Container.RegisterType<IBreedMultipleEntryService, BreedMultipleEntryService>();
             Container.RegisterType<IGlobalContextService, GlobalContextService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IReportViewerService, ReportViewerService>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
@@ -69,6 +72,7 @@ namespace HappyDogShow
             catalog.AddModule(typeof(DogsModule));
             catalog.AddModule(typeof(EntriesModule));
             catalog.AddModule(typeof(ShowsModule));
+            catalog.AddModule(typeof(ReportsModule));
 
             return catalog;
         }

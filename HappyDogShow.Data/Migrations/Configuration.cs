@@ -20,6 +20,38 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            var maleGenders = context.Genders.Where(g => g.Name == "Male");
+            if (maleGenders.Count() == 1)
+            {
+                maleGenders.First().Name = "Dog";
+                context.SaveChanges();
+            }
+
+            var femaleGenders = context.Genders.Where(g => g.Name == "Female");
+            if (femaleGenders.Count() == 1)
+            {
+                femaleGenders.First().Name = "Bitch";
+                context.SaveChanges();
+            }
+
+
+            var breedGSDs = context.Breeds.Where(b => b.Name == "Belgian Shepherd Dog");
+
+            if (breedGSDs.Count() == 1)
+            {
+                breedGSDs.First().Name = "Belgian Shepherd Dog (Groenendael)";
+                context.SaveChanges();
+            }
+
+
+
+
+
+
+
+
+
+
             context.BreedClasses.AddOrUpdate(x => x.Name,
                 new BreedClass() { Name = "Baby Puppy", MinAgeInMonths = 4, MaxAgeInMonths = 5, Description = "For dogs of four (4) under six (6) months of age on the first day of the show (not eligible for CC or BOB)"},
                 new BreedClass() { Name = "Minor Puppy", MinAgeInMonths = 6, MaxAgeInMonths = 8, Description = "For dogs of six (6) under nine (9) months of age on the first day of the Show." },
@@ -34,8 +66,8 @@
                 );
 
             context.Genders.AddOrUpdate(x => x.Name,
-                new Gender() { Name = "Male"},
-                new Gender() { Name = "Female"}
+                new Gender() { Name = "Dog" },
+                new Gender() { Name = "Bitch" }
                 );
 
             context.Clubs.AddOrUpdate(x => x.Name,
@@ -116,7 +148,10 @@
                 new Breed() { Name = "Australian Shepherd", BreedGroup = herdingbg },
                 new Breed() { Name = "Bearded Collie", BreedGroup = herdingbg },
                 new Breed() { Name = "Beauce Sheep Dog", BreedGroup = herdingbg },
-                new Breed() { Name = "Belgian Shepherd Dog", BreedGroup = herdingbg },
+                new Breed() { Name = "Belgian Shepherd Dog (Groenendael)", BreedGroup = herdingbg },
+                new Breed() { Name = "Belgian Shepherd Dog (Tervueren)", BreedGroup = herdingbg },
+                new Breed() { Name = "Belgian Shepherd Dog (Malinois)", BreedGroup = herdingbg },
+                new Breed() { Name = "Belgian Shepherd Dog (Laekenois)", BreedGroup = herdingbg },
                 new Breed() { Name = "Border Collie", BreedGroup = herdingbg },
                 new Breed() { Name = "Bouvier des Flandres", BreedGroup = herdingbg },
                 new Breed() { Name = "Briard", BreedGroup = herdingbg },
