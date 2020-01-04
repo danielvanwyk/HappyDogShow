@@ -29,6 +29,14 @@ namespace HappyDogShow.SharedModels
             set { SetProperty(ref showDate, value); }
         }
 
+        private string venue;
+        [Required()]
+        public string Venue
+        {
+            get { return venue; }
+            set { SetProperty(ref venue, value); }
+        }
+
         public string ShowDateAsString
         {
             get { return ShowDate.ToString("yyyy-MM-dd"); }
