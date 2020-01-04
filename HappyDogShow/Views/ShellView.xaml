@@ -10,7 +10,7 @@
     xmlns:inf="clr-namespace:HappyDogShow.Infrastructure;assembly=HappyDogShow.Infrastructure"
     mc:Ignorable="d" 
     d:DesignHeight="450" d:DesignWidth="800"
-    Title="Happy Dog Show 1.4"
+    Title="Happy Dog Show 1.5"
     >
     <Grid>
         <Grid.RowDefinitions>
