@@ -99,9 +99,7 @@ namespace HappyDogShow.Services
                     {
                         Id = ds.ID,
                         DogShowName = ds.Name,
-                        ShowDate = ds.ShowDate,
-                        Venue = ds.Venue,
-
+                        ShowDate = ds.ShowDate
                     });
                 }
             }

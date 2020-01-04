@@ -62,9 +62,6 @@
     <Compile Include="DogRegistration.cs" />
     <Compile Include="DogShow.cs" />
     <Compile Include="Gender.cs" />
-    <Compile Include="HandlerClass.cs" />
-    <Compile Include="HandlerClassEntry.cs" />
-    <Compile Include="HandlerRegistration.cs" />
     <Compile Include="HappyDogShowContext.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.Designer.cs">

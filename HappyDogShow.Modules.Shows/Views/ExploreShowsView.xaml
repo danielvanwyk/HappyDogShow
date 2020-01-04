@@ -31,10 +31,14 @@
 
                             <DataGrid Grid.Row="0"
                     Style="{StaticResource AzureDataGrid}"
-                    AutoGenerateColumns="True"
+                    AutoGenerateColumns="False"
                     ItemsSource="{Binding Items}"
                     SelectedItem="{Binding SelectedItem}"
                     >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Date" Width="auto" Binding="{Binding ShowDate, StringFormat=\{0:yyyy-MM-dd\}}" />
+                                    <DataGridTextColumn Header="Show" Width="auto" Binding="{Binding DogShowName}" />
+                                </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
                     </TabItem>
