@@ -23,5 +23,21 @@ namespace HappyDogShow.Infrastructure.FormNameConstants
                 public static string ViewName = "EditHandler";
             }
         }
+
+        public static class HandlerEntries
+        {
+            public static class EntriesList
+            {
+                public static string ViewName = "HandlerEntriesList";
+            }
+            public static class MultipleNewEntry
+            {
+                public static string ViewName = "MultipleNewHandlerEntry";
+            }
+            public static class EditEntry
+            {
+                public static string ViewName = "EditHandlerEntry";
+            }
+        }
     }
 }

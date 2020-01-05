@@ -59,7 +59,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Content="Add Handler" Command="{x:Static globalCommands:HandlerEntityCRUDCommands.ShowViewToCaptureNewEntityCommand}" />
                 <Button Content="Edit Handler" Command="{x:Static globalCommands:HandlerEntityCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
-                <Button Content="Add Show Entry for Selected Handler" Command="{x:Static globalCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <Button Content="Add Show Entry for Selected Handler" Command="{x:Static globalCommands:HandlerEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
 

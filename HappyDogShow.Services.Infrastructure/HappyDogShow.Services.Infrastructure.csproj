@@ -52,6 +52,9 @@
     <Compile Include="Models\IDogShowEntity.cs" />
     <Compile Include="Models\IEntityWithID.cs" />
     <Compile Include="Models\IGenderEntity.cs" />
+    <Compile Include="Models\IHandlerEntryClassEntry.cs" />
+    <Compile Include="Models\IHandlerEntryEntity.cs" />
+    <Compile Include="Models\IHandlerEntryEntityWithAdditionalData.cs" />
     <Compile Include="Models\IHandlerRegistration.cs" />
     <Compile Include="Models\IMultipleBreedEntry.cs" />
     <Compile Include="Models\ISexEntity.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Services\IEntityUpdateService.cs" />
     <Compile Include="Services\IGenderService.cs" />
     <Compile Include="Services\IGlobalContextService.cs" />
+    <Compile Include="Services\IHandlerEntryService.cs" />
     <Compile Include="Services\IHandlerRegistrationService.cs" />
     <Compile Include="Services\IReportViewerService.cs" />
     <Compile Include="Services\ISexService.cs" />

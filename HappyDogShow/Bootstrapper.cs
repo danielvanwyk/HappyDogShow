@@ -65,6 +65,7 @@ namespace HappyDogShow
             Container.RegisterType<IGlobalContextService, GlobalContextService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IReportViewerService, ReportViewerService>();
             Container.RegisterType<IHandlerRegistrationService, HandlerRegistrationService>();
+            Container.RegisterType<IHandlerEntryService, HandlerEntryService>();
             Container.RegisterType<ISexService, SexService>();
         }
 

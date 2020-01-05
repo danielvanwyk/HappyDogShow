@@ -1,4 +1,5 @@
 ﻿using HappyDogShow.Infrastructure;
+using HappyDogShow.Infrastructure.FormNameConstants;
 using HappyDogShow.Modules.Entries.CommandExecutors;
 using HappyDogShow.Modules.Entries.Infrastructure;
 using HappyDogShow.Modules.Entries.ViewModels;
@@ -24,6 +25,9 @@ namespace HappyDogShow.Modules.Entries
         private ShowEntryByClassListCommandExecutor _showEntryByClassListCommandExecutor;
         private DeleteExistingBreedEntityCommandExecutor deleteExistingBreedEntityCommandExecutor;
 
+        private ShowHandlerEntryListCommandExecutor showHandlerEntryListCommandExecutor;
+        private ShowViewToCaptureNewHandlerEntryCommandExecutor showViewToCaptureNewHandlerEntryCommandExecutor;
+
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
         {
@@ -41,6 +45,9 @@ namespace HappyDogShow.Modules.Entries
             _saveMultipleNewBreedEntryEntityCommandExecutor = Container.Resolve<SaveMultipleNewBreedEntryEntityCommandExecutor>();
             _showEntryByClassListCommandExecutor = Container.Resolve<ShowEntryByClassListCommandExecutor>();
             deleteExistingBreedEntityCommandExecutor = Container.Resolve<DeleteExistingBreedEntityCommandExecutor>();
+
+            showHandlerEntryListCommandExecutor = Container.Resolve<ShowHandlerEntryListCommandExecutor>();
+            showViewToCaptureNewHandlerEntryCommandExecutor = Container.Resolve<ShowViewToCaptureNewHandlerEntryCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -49,6 +56,13 @@ namespace HappyDogShow.Modules.Entries
             Container.RegisterType<IEntriesMainMenuView, EntriesMainMenuView>();
             Container.RegisterType<IEntriesMainMenuViewViewModel, EntriesMainMenuViewViewModel>();
 
+            RegisterBreedEntryForms();
+
+            RegisterHandlerEntryForms();
+        }
+
+        private void RegisterBreedEntryForms()
+        {
             // the entries list
             Container.RegisterType<object, ExploreEntriesViewViewModel>(FormNameConstants.Entries.EntriesList.ViewName);
             Container.RegisterType<IExploreEntriesView, ExploreEntriesView>();
@@ -69,5 +83,21 @@ namespace HappyDogShow.Modules.Entries
             Container.RegisterType<object, ExploreEntriesByClassViewViewModel>(FormNameConstants.Entries.EntriesByClassList.ViewName);
             Container.RegisterType<IExploreEntriesByClassView, ExploreEntriesByClassView>();
         }
+
+        private void RegisterHandlerEntryForms()
+        {
+            // the entries list
+            Container.RegisterType<object, ExploreHandlerEntriesViewViewModel>(HandlerFormNameConstants.HandlerEntries.EntriesList.ViewName);
+            Container.RegisterType<IExploreHandlerEntriesView, ExploreHandlerEntriesView>();
+
+            //// the edit form
+            //Container.RegisterType<object, EditEntryViewViewModel>(FormNameConstants.Entries.EditEntry.ViewName);
+            //Container.RegisterType<IEditEntryView, EditEntryView>();
+
+            // the multiple new form
+            //Container.RegisterType<object, CaptureMultipleNewEntryViewViewModel>(FormNameConstants.Entries.MultipleNewEntry.ViewName);
+            //Container.RegisterType<ICaptureMultipleNewEntryView, CaptureMultipleNewEntryView>();
+        }
+
     }
 }

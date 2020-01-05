@@ -99,6 +99,8 @@
     <Compile Include="Commands\DogShowReportCommands.cs" />
     <Compile Include="Commands\EntryListCommands.cs" />
     <Compile Include="Commands\HandlerEntityCRUDCommands.cs" />
+    <Compile Include="Commands\HandlerEntryCRUDCommands.cs" />
+    <Compile Include="Commands\HandlerEntryListCommands.cs" />
     <Compile Include="Commands\HandlerListCommands.cs" />
     <Compile Include="Commands\NavigationCommands.cs" />
     <Compile Include="Events\EntityDeletedEvent.cs" />
