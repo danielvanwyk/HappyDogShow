@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Entries.ViewModels
 {
-    public class CaptureMultipleNewHandlerEntryViewViewModel : NavigateableBindableViewModelBase, ICaptureMultipleNewHandlerEntryViewViewModel, INavigationAware, ICancelAwareViewViewModel
+    public class CaptureMultipleNewHandlerEntryViewViewModel : NavigateableBindableViewModelBase, ICaptureMultipleNewHandlerEntryViewViewModel, INavigationAware
     {
         private IDogShowService _dogShowService;
         private IDogRegistrationService _dogRegistrationService;
@@ -58,8 +58,6 @@ namespace HappyDogShow.Modules.Entries.ViewModels
                 SetProperty(ref currentEntity, value);
             }
         }
-
-        public string CancelNavigateToViewName { get { return FormNameConstants.Entries.EntriesList.ViewName; } }
 
         public CaptureMultipleNewHandlerEntryViewViewModel(ICaptureMultipleNewHandlerEntryView view, IDogShowService dogShowService, IDogRegistrationService dogRegistrationService, IHandlerEntryService handlerEntryService)
             : base(view)

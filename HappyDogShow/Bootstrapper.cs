@@ -66,6 +66,7 @@ namespace HappyDogShow
             Container.RegisterType<IReportViewerService, ReportViewerService>();
             Container.RegisterType<IHandlerRegistrationService, HandlerRegistrationService>();
             Container.RegisterType<IHandlerEntryService, HandlerEntryService>();
+            Container.RegisterType<IHandlerMultipleEntryService, HandlerMultipleEntryService>();
             Container.RegisterType<ISexService, SexService>();
         }
 

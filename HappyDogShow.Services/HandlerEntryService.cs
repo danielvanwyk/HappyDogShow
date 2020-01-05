@@ -24,40 +24,30 @@ namespace HappyDogShow.Services
 
         private int CreateEntity(IHandlerEntryEntity entity)
         {
-            throw new NotImplementedException();
-            /*
             int newid = -1;
 
             using (var ctx = new HappyDogShowContext())
             {
                 DogRegistration selectedDog = ctx.DogRegistrations.Where(i => i.ID == entity.Dog.Id).First();
-                DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.ShowId).First();
-                List<BreedClassEntry> enteredClasses = new List<BreedClassEntry>();
-                foreach (var i in entity.Classes.Where(j => j.IsSelected))
-                {
-                    BreedClass breedClass = ctx.BreedClasses.Where(k => k.ID == i.BreedClassID).First();
+                DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.DogShow.Id).First();
+                HandlerClass selectedClass = ctx.HandlerClasses.Where(i => i.ID == entity.Class.Id).First();
+                HandlerRegistration selectedHander = ctx.HandlerRegistrations.Where(i => i.ID == entity.Handler.Id).First();
 
-                    enteredClasses.Add(new BreedClassEntry()
-                    {
-                        Class = breedClass
-                    }); ;
-                }
-
-                BreedEntry newEntity = new BreedEntry()
+                HandlerEntry newEntity = new HandlerEntry()
                 {
                     Dog = selectedDog,
-                    EnteredClasses = enteredClasses,
-                    Show = selectedShow
+                    Show = selectedShow,
+                    EnteredClass = selectedClass,
+                    Handler = selectedHander
                 };
 
-                ctx.BreedEntries.Add(newEntity);
+                ctx.HandlerEntries.Add(newEntity);
                 ctx.SaveChanges();
 
                 newid = newEntity.ID;
             }
 
             return newid;
-            */
         }
 
         public Task UpdateEntityAsync(IHandlerEntryEntity entity)
