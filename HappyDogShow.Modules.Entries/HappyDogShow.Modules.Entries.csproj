@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\DeleteExistingBreedEntityCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\DeleteExistingHandlerEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveExistingBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveMultipleNewBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveMultipleNewHandlerEntryEntityCommandExecutor.cs" />

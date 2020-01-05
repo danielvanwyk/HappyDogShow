@@ -257,21 +257,16 @@ namespace HappyDogShow.Services
 
         private void DeleteEntity(IEntityWithID entity)
         {
-            throw new NotImplementedException();
-            /*
             using (var ctx = new HappyDogShowContext())
             {
-                BreedEntry foundEntity = ctx.BreedEntries.Where(d => d.ID == entity.Id).Include(b => b.EnteredClasses).First();
+                HandlerEntry foundEntity = ctx.HandlerEntries.Where(d => d.ID == entity.Id).First();
 
                 if (foundEntity != null)
                 {
-                    if (foundEntity.EnteredClasses != null)
-                        foundEntity.EnteredClasses.Clear();
-                    ctx.BreedEntries.Remove(foundEntity);
+                    ctx.HandlerEntries.Remove(foundEntity);
                     ctx.SaveChanges();
                 }
             }
-            */
         }
 
         public Task<List<IHandlerClassEntity>> GetHandlerClassListAsync<T>() where T : IHandlerClassEntity, new()

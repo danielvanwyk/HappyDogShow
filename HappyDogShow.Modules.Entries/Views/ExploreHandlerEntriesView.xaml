@@ -107,7 +107,7 @@
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
                 <!--<Button Content="Add Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" />-->
-                <Button Content="Edit Entry" Command="{x:Static globalCommands:HandlerEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <!--<Button Content="Edit Entry" Command="{x:Static globalCommands:HandlerEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />-->
                 <Button Content="Delete Entry" Command="{x:Static globalCommands:HandlerEntryCRUDCommands.DeleteExistingEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
