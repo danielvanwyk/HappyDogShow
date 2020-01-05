@@ -97,6 +97,7 @@
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewHandlerEntryCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToEditEntryCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowViewToEditHandlerEntryCommandExecutor.cs" />
     <Compile Include="EntriesModule.cs" />
     <Compile Include="FormNameConstants.cs" />
     <Compile Include="Infrastructure\ICaptureMultipleNewEntryView.cs" />
@@ -107,6 +108,8 @@
     <Compile Include="Infrastructure\ICaptureNewEntryViewViewModel.cs" />
     <Compile Include="Infrastructure\IEditEntryView.cs" />
     <Compile Include="Infrastructure\IEditEntryViewViewModel.cs" />
+    <Compile Include="Infrastructure\IEditHandlerEntryView.cs" />
+    <Compile Include="Infrastructure\IEditHandlerEntryViewViewModel.cs" />
     <Compile Include="Infrastructure\IEntriesMainMenuView.cs" />
     <Compile Include="Infrastructure\IEntriesMainMenuViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreEntriesByClassView.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="ViewModels\CaptureMultipleNewHandlerEntryViewViewModel.cs" />
     <Compile Include="ViewModels\CaptureNewEntryViewViewModel.cs" />
     <Compile Include="ViewModels\EditEntryViewViewModel.cs" />
+    <Compile Include="ViewModels\EditHandlerEntryViewViewModel.cs" />
     <Compile Include="ViewModels\EntriesMainMenuViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreEntriesByClassViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreEntriesViewViewModel.cs" />
@@ -137,6 +141,9 @@
     </Compile>
     <Compile Include="Views\EditEntryView.xaml.cs">
       <DependentUpon>EditEntryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditHandlerEntryView.xaml.cs">
+      <DependentUpon>EditHandlerEntryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EntriesMainMenuView.xaml.cs">
       <DependentUpon>EntriesMainMenuView.xaml</DependentUpon>
@@ -192,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditEntryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditHandlerEntryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

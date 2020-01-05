@@ -20,7 +20,6 @@ namespace HappyDogShow.SharedModels
         public string DogName { get; set; }
         public string DogRegistrationNumber { get; set; }
         public string EntryNumber { get; set; }
-        public IEnumerable<string> EnteredClasses { get; set; }
         public string EnteredClassName { get; set; }
         public int Id { get; set; }
     }

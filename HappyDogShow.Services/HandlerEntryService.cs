@@ -146,6 +146,7 @@ namespace HappyDogShow.Services
                                SexId = d.Handler.Sex.ID,
                                HandlerSurname = d.Handler.Surname,
                                HandlerFirstName = d.Handler.FirstName,
+                               HandlerId = d.Handler.ID,
                                DogName = d.Dog.RegisteredName,
                                DogId = d.Dog.ID,
                                DogRegistrationNumber = d.Dog.RegisrationNumber,

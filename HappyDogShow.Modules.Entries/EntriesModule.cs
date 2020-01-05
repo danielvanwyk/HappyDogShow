@@ -29,6 +29,7 @@ namespace HappyDogShow.Modules.Entries
         private ShowViewToCaptureNewHandlerEntryCommandExecutor showViewToCaptureNewHandlerEntryCommandExecutor;
         private SaveMultipleNewHandlerEntryEntityCommandExecutor saveMultipleNewHandlerEntryEntityCommandExecutor;
         private DeleteExistingHandlerEntityCommandExecutor deleteExistingHandlerEntityCommandExecutor;
+        private ShowViewToEditHandlerEntryCommandExecutor showViewToEditHandlerEntryCommandExecutor;
 
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -52,6 +53,7 @@ namespace HappyDogShow.Modules.Entries
             showViewToCaptureNewHandlerEntryCommandExecutor = Container.Resolve<ShowViewToCaptureNewHandlerEntryCommandExecutor>();
             saveMultipleNewHandlerEntryEntityCommandExecutor = Container.Resolve<SaveMultipleNewHandlerEntryEntityCommandExecutor>();
             deleteExistingHandlerEntityCommandExecutor = Container.Resolve<DeleteExistingHandlerEntityCommandExecutor>();
+            showViewToEditHandlerEntryCommandExecutor = Container.Resolve<ShowViewToEditHandlerEntryCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -94,9 +96,9 @@ namespace HappyDogShow.Modules.Entries
             Container.RegisterType<object, ExploreHandlerEntriesViewViewModel>(HandlerFormNameConstants.HandlerEntries.EntriesList.ViewName);
             Container.RegisterType<IExploreHandlerEntriesView, ExploreHandlerEntriesView>();
 
-            //// the edit form
-            //Container.RegisterType<object, EditEntryViewViewModel>(FormNameConstants.Entries.EditEntry.ViewName);
-            //Container.RegisterType<IEditEntryView, EditEntryView>();
+            // the edit form
+            Container.RegisterType<object, EditHandlerEntryViewViewModel>(HandlerFormNameConstants.HandlerEntries.EditEntry.ViewName);
+            Container.RegisterType<IEditHandlerEntryView, EditHandlerEntryView>();
 
             // the multiple new form
             Container.RegisterType<object, CaptureMultipleNewHandlerEntryViewViewModel>(HandlerFormNameConstants.HandlerEntries.MultipleNewEntry.ViewName);

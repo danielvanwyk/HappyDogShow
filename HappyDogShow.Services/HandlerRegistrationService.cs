@@ -3,6 +3,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -148,46 +149,32 @@ namespace HappyDogShow.Services
 
         private IHandlerRegistration GetItem<T>(int id) where T : IHandlerRegistration, new()
         {
-            throw new NotImplementedException();
-/*
             IHandlerRegistration item = null;
 
-            using (var ctx = new HappyHandlerShowContext())
+            using (var ctx = new HappyDogShowContext())
             {
-                var foundHandler = ctx.HandlerRegistrations.Where(d => d.ID == id).Include(b => b.Gender).Include(b => b.Breed).First();
+                var foundHandler = ctx.HandlerRegistrations.Where(d => d.ID == id).Include(b => b.Sex) .First();
 
                 if (foundHandler != null)
                     item = new T()
                     {
                         Id = foundHandler.ID,
-                        RegisrationNumber = foundHandler.RegisrationNumber,
-                        GenderId = foundHandler.Gender.ID,
-                        GenderName = foundHandler.Gender.Name,
+                        SexId = foundHandler.Sex.ID,
+                        SexName = foundHandler.Sex.Name,
                         DateOfBirth = foundHandler.DateOfBirth,
-                        BreedId = foundHandler.Breed.ID,
-                        BreedName = foundHandler.Breed.Name,
-                        RegisteredName = foundHandler.RegisteredName,
-                        Qualifications = foundHandler.Qualifications,
-                        ChipOrTattooNumber = foundHandler.ChipOrTattooNumber,
-                        Sire = foundHandler.Sire,
-                        Dam = foundHandler.Dam,
-                        BredBy = foundHandler.BredBy,
-                        Colour = foundHandler.Colour,
-                        RegisteredOwnerSurname = foundHandler.RegisteredOwnerSurname,
-                        RegisteredOwnerTitle = foundHandler.RegisteredOwnerTitle,
-                        RegisteredOwnerInitials = foundHandler.RegisteredOwnerInitials,
-                        RegisteredOwnerAddress = foundHandler.RegisteredOwnerAddress,
-                        RegisteredOwnerPostalCode = foundHandler.RegisteredOwnerPostalCode,
-                        RegisteredOwnerKUSANo = foundHandler.RegisteredOwnerKUSANo,
-                        RegisteredOwnerTel = foundHandler.RegisteredOwnerTel,
-                        RegisteredOwnerCell = foundHandler.RegisteredOwnerCell,
-                        RegisteredOwnerFax = foundHandler.RegisteredOwnerFax,
-                        RegisteredOwnerEmail = foundHandler.RegisteredOwnerEmail
+                        Surname = foundHandler.Surname,
+                        Title = foundHandler.Title,
+                        FirstName = foundHandler.FirstName,
+                        Address = foundHandler.Address,
+                        PostalCode = foundHandler.PostalCode,
+                        Tel = foundHandler.Tel,
+                        Cell = foundHandler.Cell,
+                        Fax = foundHandler.Fax,
+                        Email = foundHandler.Email
                     };
             }
 
             return item;
-            */
         }
 
     }

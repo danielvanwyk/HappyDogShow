@@ -20,7 +20,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string DogName { get; set; }
         string DogRegistrationNumber { get; set; }
         string EntryNumber { get; set; }
-        IEnumerable<string> EnteredClasses { get; set; }
         string EnteredClassName { get; set; }
     }
 }
