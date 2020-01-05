@@ -62,60 +62,23 @@ namespace HappyDogShow.Services
 
         private void UpdateEntity(IHandlerEntryEntity entity)
         {
-            throw new NotImplementedException();
-            /*
             using (var ctx = new HappyDogShowContext())
             {
-                DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.ShowId).First();
-
-                BreedEntry foundEntity = ctx.BreedEntries.Where(d => d.ID == entity.Id).Include(b => b.EnteredClasses).First();
+                HandlerEntry foundEntity = ctx.HandlerEntries.Where(d => d.ID == entity.Id).First();
 
                 if (foundEntity != null)
                 {
-                    foreach (var i in entity.Classes)
-                    {
-                        // existing class entry
-                        if (i.ID > 0)
-                        {
-                            if (i.IsSelected)
-                            {
-                                // nothing to do, keep it
-                            }
-                            else
-                            {
-                                var foundEntries = ctx.BreedClassEntries.Where(ec => ec.ID == i.ID);
-                                if (foundEntries.Count() == 1)
-                                {
-                                    ctx.BreedClassEntries.Remove(foundEntries.First());
-                                }
-                            }
-                        }
-                        // potential new class entry
-                        else
-                        {
-                            if (i.IsSelected)
-                            {
-                                BreedClass breedClass = ctx.BreedClasses.Where(k => k.ID == i.BreedClassID).First();
+                    DogRegistration selectedDog = ctx.DogRegistrations.Where(i => i.ID == entity.Dog.Id).First();
+                    DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.DogShow.Id).First();
+                    HandlerClass selectedClass = ctx.HandlerClasses.Where(i => i.ID == entity.Class.Id).First();
 
-                                foundEntity.EnteredClasses.Add(new BreedClassEntry()
-                                {
-                                    Class = breedClass
-                                });
-                            }
-                            else
-                            {
-                                // ignore
-                            }
-                        }
-
-                    }
-
+                    foundEntity.Dog = selectedDog;
                     foundEntity.Show = selectedShow;
+                    foundEntity.EnteredClass = selectedClass;
 
                     ctx.SaveChanges();
                 }
             }
-            */
         }
 
         public Task<List<IHandlerEntryEntityWithAdditionalData>> GetHandlerEntryListAsync<T>() where T : IHandlerEntryEntityWithAdditionalData, new()

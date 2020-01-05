@@ -30,6 +30,7 @@ namespace HappyDogShow.Modules.Entries
         private SaveMultipleNewHandlerEntryEntityCommandExecutor saveMultipleNewHandlerEntryEntityCommandExecutor;
         private DeleteExistingHandlerEntityCommandExecutor deleteExistingHandlerEntityCommandExecutor;
         private ShowViewToEditHandlerEntryCommandExecutor showViewToEditHandlerEntryCommandExecutor;
+        private SaveExistingHandlerEntryEntityCommandExecutor saveExistingHandlerEntryEntityCommandExecutor;
 
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -54,6 +55,7 @@ namespace HappyDogShow.Modules.Entries
             saveMultipleNewHandlerEntryEntityCommandExecutor = Container.Resolve<SaveMultipleNewHandlerEntryEntityCommandExecutor>();
             deleteExistingHandlerEntityCommandExecutor = Container.Resolve<DeleteExistingHandlerEntityCommandExecutor>();
             showViewToEditHandlerEntryCommandExecutor = Container.Resolve<ShowViewToEditHandlerEntryCommandExecutor>();
+            saveExistingHandlerEntryEntityCommandExecutor = Container.Resolve<SaveExistingHandlerEntryEntityCommandExecutor>();
         }
 
         protected override void RegisterTypes()
