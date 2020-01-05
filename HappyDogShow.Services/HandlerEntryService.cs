@@ -141,41 +141,35 @@ namespace HappyDogShow.Services
 
         private List<IHandlerEntryEntityWithAdditionalData> GetHandlerEntryList<T>() where T : IHandlerEntryEntityWithAdditionalData, new()
         {
-            throw new NotImplementedException();
-            /*
             List<IHandlerEntryEntityWithAdditionalData> items = new List<IHandlerEntryEntityWithAdditionalData>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var data = from d in ctx.BreedEntries
+                var data = from d in ctx.HandlerEntries
                            orderby d.Show.Name, d.Dog.Breed.BreedGroup.Name, d.Dog.Breed.Name, d.Dog.Gender.Name, d.Dog.RegisteredName
                            select new T()
                            {
                                Id = d.ID,
                                ShowName = d.Show.Name,
                                ShowId = d.Show.ID,
-                               BreedGroupName = d.Dog.Breed.BreedGroup.Name,
-                               BreedGroupId = d.Dog.Breed.BreedGroup.ID,
-                               BreedName = d.Dog.Breed.Name,
-                               BreedId = d.Dog.Breed.ID,
-                               GenderName = d.Dog.Gender.Name,
-                               GenderId = d.Dog.Gender.ID,
+                               SexName = d.Handler.Sex.Name,
+                               SexId = d.Handler.Sex.ID,
+                               HandlerSurname = d.Handler.Surname,
+                               HandlerFirstName = d.Handler.FirstName,
                                DogName = d.Dog.RegisteredName,
                                DogId = d.Dog.ID,
                                DogRegistrationNumber = d.Dog.RegisrationNumber,
                                EntryNumber = d.Number,
-                               EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name)
+                               EnteredClassName = d.EnteredClass.Name
                            };
 
                 foreach (var item in data)
                 {
-                    item.EnteredClassNames = string.Join(",", item.EnteredClasses);
                     items.Add(item);
                 }
             }
 
             return items;
-            */
         }
 
         public Task<IHandlerEntryEntity> GetHandlerEntryAsync<T>(int id)
@@ -288,6 +282,40 @@ namespace HappyDogShow.Services
                 }
             }
             */
+        }
+
+        public Task<List<IHandlerClassEntity>> GetHandlerClassListAsync<T>() where T : IHandlerClassEntity, new()
+        {
+            Task<List<IHandlerClassEntity>> t = Task<List<IHandlerClassEntity>>.Run(() =>
+            {
+                List<IHandlerClassEntity> items = GetHandlerClassList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IHandlerClassEntity> GetHandlerClassList<T>() where T : IHandlerClassEntity, new()
+        {
+            List<IHandlerClassEntity> items = new List<IHandlerClassEntity>();
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var data = from d in ctx.HandlerClasses
+                           select new T()
+                           {
+                               Id = d.ID,
+                               Description = d.Description,
+                               Name = d.Name
+                           };
+
+                foreach (var item in data)
+                {
+                    items.Add(item);
+                }
+            }
+
+            return items;
         }
     }
 

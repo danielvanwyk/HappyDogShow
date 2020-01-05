@@ -51,6 +51,11 @@
 
 
 
+            context.HandlerClasses.AddOrUpdate(x => x.Name,
+                new HandlerClass() { Name = "Child", MinAgeInYears = 8, MaxAgeInYears = 10, Description = "Child Handler"},
+                new HandlerClass() { Name = "Junior", MinAgeInYears = 11, MaxAgeInYears = 17, Description = "Junior Handler" },
+                new HandlerClass() { Name = "Adult", MinAgeInYears = 18, MaxAgeInYears = 999, Description = "Adult Handler" }
+                );
 
 
 

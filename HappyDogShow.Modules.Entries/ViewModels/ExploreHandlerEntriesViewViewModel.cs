@@ -15,7 +15,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
     {
         private IHandlerEntryService _service;
 
-        public ExploreHandlerEntriesViewViewModel(IExploreEntriesView view, IHandlerEntryService service)
+        public ExploreHandlerEntriesViewViewModel(IExploreHandlerEntriesView view, IHandlerEntryService service)
             : base(view)
         {
             _service = service;

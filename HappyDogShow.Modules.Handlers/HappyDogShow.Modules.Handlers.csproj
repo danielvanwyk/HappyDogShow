@@ -78,7 +78,7 @@
     <Compile Include="CommandExecutors\SaveExistingHandlerEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewHandlerEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowHandlerListCommandExecutor.cs" />
-    <Compile Include="CommandExecutors\ShowViewToCaptureNewHandlerCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowViewToCaptureNewHandlerEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToEditHandlerEntityCommandExecutor.cs" />
     <Compile Include="HandlersModule.cs" />
     <Compile Include="Infrastructure\ICaptureNewHandlerView.cs" />

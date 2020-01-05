@@ -14,7 +14,7 @@ namespace HappyDogShow.Modules.Entries.CommandExecutors
     public class ShowViewToCaptureNewHandlerEntryCommandExecutor : NavigateToEntityCreateViewCommandExecutor<IHandlerEntryEntity>
     {
         public ShowViewToCaptureNewHandlerEntryCommandExecutor(IRegionManager regionManager)
-            : base(HandlerEntryCRUDCommands.ShowViewToCaptureNewEntityCommand, regionManager, HandlerFormNameConstants.Handlers.NewHandler.ViewName)
+            : base(HandlerEntryCRUDCommands.ShowViewToCaptureNewEntityCommand, regionManager, HandlerFormNameConstants.HandlerEntries.MultipleNewEntry.ViewName)
         {
             RequireObject = true;
         }

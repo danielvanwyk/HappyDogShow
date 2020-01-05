@@ -11,6 +11,10 @@ namespace HappyDogShow.SharedModels
 {
     public class DogRegistrationDetail : ValidatableBindableBase, IDogRegistration
     {
+        public string DisplayName
+        {
+            get { return string.Format("{0} - {1}", RegisrationNumber, RegisteredName); }
+        }
         public int Id { get; set; }
 
         private string regisrationnumber;

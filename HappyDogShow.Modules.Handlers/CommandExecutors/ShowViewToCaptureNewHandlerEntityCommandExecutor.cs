@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Handlers.CommandExecutors
 {
-    public class ShowViewToCaptureNewHandlerCommandExecutor : NavigateToEntityCreateViewCommandExecutor<IHandlerRegistration>
+    public class ShowViewToCaptureNewHandlerEntityCommandExecutor : NavigateToEntityCreateViewCommandExecutor<IHandlerRegistration>
     {
-        public ShowViewToCaptureNewHandlerCommandExecutor(IRegionManager regionManager)
+        public ShowViewToCaptureNewHandlerEntityCommandExecutor(IRegionManager regionManager)
             : base(HandlerEntityCRUDCommands.ShowViewToCaptureNewEntityCommand, regionManager, HandlerFormNameConstants.Handlers.NewHandler.ViewName)
         {
         }

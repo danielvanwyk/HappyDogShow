@@ -43,7 +43,7 @@
                             <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
                             <DataGridTextColumn Header="Handler" Width="auto" Binding="{Binding HandlerDisplayName}" />
                             <DataGridTextColumn Header="Dog" Width="auto" Binding="{Binding DogName}" />
-                            <DataGridTextColumn Header="Entered Classes" Width="auto" Binding="{Binding EnteredClassNames}" />
+                            <DataGridTextColumn Header="Class" Width="auto" Binding="{Binding EnteredClassName}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -107,9 +107,8 @@
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
                 <!--<Button Content="Add Entry" Command="{x:Static localCommands:BreedEntryCRUDCommands.ShowViewToCaptureNewEntityCommand}" />-->
-                <Button Content="Edit Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
-                <Button Content="Delete Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.DeleteExistingEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
-                <Button Content="Add Dog" Command="{x:Static globalCommands:DogEntityCRUDCommands.ShowViewToCaptureNewEntityCommand}" />
+                <Button Content="Edit Entry" Command="{x:Static globalCommands:HandlerEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
+                <Button Content="Delete Entry" Command="{x:Static globalCommands:HandlerEntryCRUDCommands.DeleteExistingEntityCommand}" CommandParameter="{Binding SelectedItem}"  />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
 

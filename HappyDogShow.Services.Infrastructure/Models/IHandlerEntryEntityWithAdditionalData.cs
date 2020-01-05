@@ -12,11 +12,15 @@ namespace HappyDogShow.Services.Infrastructure.Models
         int ShowId { get; set; }
         string SexName { get; set; }
         int SexId { get; set; }
-        string HandlerName { get; set; }
+        string HandlerSurname { get; set; }
+        string HandlerFirstName { get; set; }
+        string HandlerDisplayName { get; }
         int HandlerId { get; set; }
+        int DogId { get; set; }
         string DogName { get; set; }
+        string DogRegistrationNumber { get; set; }
         string EntryNumber { get; set; }
         IEnumerable<string> EnteredClasses { get; set; }
-        string EnteredClassNames { get; set; }
+        string EnteredClassName { get; set; }
     }
 }
