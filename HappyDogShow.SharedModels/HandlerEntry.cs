@@ -38,5 +38,23 @@ namespace HappyDogShow.SharedModels
             get { return handlerClass; }
             set { SetProperty(ref handlerClass, value); }
         }
+        private string number;
+        public string Number
+        {
+            get
+            {
+                if (number == null)
+                    return "";
+                else
+                    return number;
+            }
+            set
+            {
+                if (value == null)
+                    SetProperty(ref number, "");
+                else
+                    SetProperty(ref number, value);
+            }
+        }
     }
 }

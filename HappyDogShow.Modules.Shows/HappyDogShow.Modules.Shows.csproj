@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\ClearNumbersCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\GenerateHandlerNumbersCommandExecutor.cs" />
     <Compile Include="CommandExecutors\GenerateNumbersCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveExistingDogShowEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewDogShowEntityCommandExecutor.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Infrastructure\IEditDogShowViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreShowsView.cs" />
     <Compile Include="Infrastructure\IExploreShowsViewViewModel.cs" />
+    <Compile Include="Infrastructure\IMassUpdateHandlerNumbersView.cs" />
     <Compile Include="Infrastructure\IMassUpdateNumbersView.cs" />
     <Compile Include="Infrastructure\IMassUpdateNumbersViewViewModel.cs" />
     <Compile Include="Infrastructure\IShowsMainMenuView.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="ViewModels\ExploreShowsViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateBreedEntryNumbersBaseViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateNumbersBaseViewViewModel.cs" />
+    <Compile Include="ViewModels\MassUpdateHandlerEntryNumbersViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateNumbersGenerateNumbersViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateNumbersRemoveNumbersViewViewModel.cs" />
     <Compile Include="ViewModels\ShowsMainMenuViewViewModel.cs" />
@@ -131,6 +134,9 @@
       <DependentUpon>ExploreShowsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IEditDogView.cs" />
+    <Compile Include="Views\MassUpdateHandlerNumbersView.xaml.cs">
+      <DependentUpon>MassUpdateHandlerNumbersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MassUpdateNumbersView.xaml.cs">
       <DependentUpon>MassUpdateNumbersView.xaml</DependentUpon>
     </Compile>
@@ -173,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExploreShowsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MassUpdateHandlerNumbersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,6 +3,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,13 +69,25 @@ namespace HappyDogShow.Services
 
                 if (foundEntity != null)
                 {
-                    DogRegistration selectedDog = ctx.DogRegistrations.Where(i => i.ID == entity.Dog.Id).First();
-                    DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.DogShow.Id).First();
-                    HandlerClass selectedClass = ctx.HandlerClasses.Where(i => i.ID == entity.Class.Id).First();
+                    if (entity.Dog != null)
+                    {
+                        DogRegistration selectedDog = ctx.DogRegistrations.Where(i => i.ID == entity.Dog.Id).First();
+                        foundEntity.Dog = selectedDog;
+                    }
 
-                    foundEntity.Dog = selectedDog;
-                    foundEntity.Show = selectedShow;
-                    foundEntity.EnteredClass = selectedClass;
+                    if (entity.DogShow != null)
+                    {
+                        DogShow selectedShow = ctx.DogShows.Where(i => i.ID == entity.DogShow.Id).First();
+                        foundEntity.Show = selectedShow;
+                    }
+
+                    if (entity.Class != null)
+                    {
+                        HandlerClass selectedClass = ctx.HandlerClasses.Where(i => i.ID == entity.Class.Id).First();
+                        foundEntity.EnteredClass = selectedClass;
+                    }
+
+                    foundEntity.Number = entity.Number;
 
                     ctx.SaveChanges();
                 }
@@ -85,20 +98,37 @@ namespace HappyDogShow.Services
         {
             Task<List<IHandlerEntryEntityWithAdditionalData>> t = Task<List<IHandlerEntryEntityWithAdditionalData>>.Run(() =>
             {
-                List<IHandlerEntryEntityWithAdditionalData> items = GetHandlerEntryList<T>();
+                List<IHandlerEntryEntityWithAdditionalData> items = GetHandlerEntryList<T>(-1);
                 return items;
             });
 
             return t;
         }
 
-        private List<IHandlerEntryEntityWithAdditionalData> GetHandlerEntryList<T>() where T : IHandlerEntryEntityWithAdditionalData, new()
+        public Task<List<IHandlerEntryEntityWithAdditionalData>> GetHandlerEntryListAsync<T>(int dogShowId) where T : IHandlerEntryEntityWithAdditionalData, new()
+        {
+            Task<List<IHandlerEntryEntityWithAdditionalData>> t = Task<List<IHandlerEntryEntityWithAdditionalData>>.Run(() =>
+            {
+                List<IHandlerEntryEntityWithAdditionalData> items = GetHandlerEntryList<T>(dogShowId);
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IHandlerEntryEntityWithAdditionalData> GetHandlerEntryList<T>(int dogShowId) where T : IHandlerEntryEntityWithAdditionalData, new()
         {
             List<IHandlerEntryEntityWithAdditionalData> items = new List<IHandlerEntryEntityWithAdditionalData>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var data = from d in ctx.HandlerEntries
+                var rawdata = from d in ctx.HandlerEntries
+                              select d;
+
+                if (dogShowId > 0)
+                    rawdata = rawdata.Where(d => d.Show.ID == dogShowId);
+
+                var data = from d in rawdata
                            orderby d.Show.Name, d.Dog.Breed.BreedGroup.Name, d.Dog.Breed.Name, d.Dog.Gender.Name, d.Dog.RegisteredName
                            select new T()
                            {
@@ -140,24 +170,19 @@ namespace HappyDogShow.Services
 
         private IHandlerEntryEntity GetEntity<T>(int id) where T : IHandlerEntryEntity, new()
         {
-            throw new NotImplementedException();
-            /*
             IHandlerEntryEntity result = new T();
 
             using (var ctx = new HappyDogShowContext())
             {
-                BreedEntry foundEntry = ctx.BreedEntries.Where(i => i.ID == id).Include(b => b.Show).First();
+                HandlerEntry foundEntry = ctx.HandlerEntries.Where(i => i.ID == id).Include(b => b.Show).First();
                 if (foundEntry != null)
                 {
                     result.Id = foundEntry.ID;
-                    result.ShowId = foundEntry.Show.ID;
-                    result.Dog = null;
-                    result.Classes = null;
+                    result.Number = foundEntry.Number;
                 }
             }
 
             return result;
-            */
         }
 
         public Task<List<IHandlerEntryClassEntry>> GetHandlerEntryClassEntryListAsync<T>() where T : IHandlerEntryClassEntry, new()

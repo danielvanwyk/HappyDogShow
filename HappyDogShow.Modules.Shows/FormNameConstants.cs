@@ -30,6 +30,10 @@ namespace HappyDogShow.Modules.Shows
             {
                 public static string ViewName = "RemoveNumbers";
             }
+            public static class GenerateHandlerNumbers
+            {
+                public static string ViewName = "GenerateHandlerNumbers";
+            }
         }
     }
 }

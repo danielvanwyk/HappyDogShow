@@ -22,6 +22,7 @@ namespace HappyDogShow.Modules.Shows
         private SaveExistingDogShowEntityCommandExecutor _saveExistingDogShowEntityCommandExecutor;
         private GenerateNumbersCommandExecutor generateNumbersCommandExecutor;
         private ClearNumbersCommandExecutor clearNumbersCommandExecutor;
+        private GenerateHandlerNumbersCommandExecutor generateHandlerNumbersCommandExecutor;
 
         public ShowsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -39,6 +40,7 @@ namespace HappyDogShow.Modules.Shows
             _saveExistingDogShowEntityCommandExecutor = Container.Resolve<SaveExistingDogShowEntityCommandExecutor>();
             generateNumbersCommandExecutor = Container.Resolve<GenerateNumbersCommandExecutor>();
             clearNumbersCommandExecutor = Container.Resolve<ClearNumbersCommandExecutor>();
+            generateHandlerNumbersCommandExecutor = Container.Resolve<GenerateHandlerNumbersCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -63,6 +65,8 @@ namespace HappyDogShow.Modules.Shows
             Container.RegisterType<object, MassUpdateNumbersGenerateNumbersViewViewModel>(FormNameConstants.Shows.GenerateNumbers.ViewName);
             Container.RegisterType<object, MassUpdateNumbersRemoveNumbersViewViewModel>(FormNameConstants.Shows.RemoveNumbers.ViewName);
             Container.RegisterType<IMassUpdateNumbersView, MassUpdateNumbersView>();
+            Container.RegisterType<object, MassUpdateHandlerEntryNumbersViewViewModel>(FormNameConstants.Shows.GenerateHandlerNumbers.ViewName);
+            Container.RegisterType<IMassUpdateHandlerNumbersView, MassUpdateHandlerNumbersView>();
         }
     }
 }
