@@ -96,6 +96,7 @@
     <Compile Include="Commands\BreedEntryCRUDCommands.cs" />
     <Compile Include="Commands\DogEntityCRUDCommands.cs" />
     <Compile Include="Commands\DogListCommands.cs" />
+    <Compile Include="Commands\DogShowAdminCommands.cs" />
     <Compile Include="Commands\DogShowReportCommands.cs" />
     <Compile Include="Commands\EntryListCommands.cs" />
     <Compile Include="Commands\HandlerEntityCRUDCommands.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="ViewModels\IBusyAwareViewModel.cs" />
     <Compile Include="ViewModels\ICancelAwareViewViewModel.cs" />
     <Compile Include="ViewModels\IEntityAwareViewViewModel.cs" />
+    <Compile Include="WPF\Extensions\ScrollIntoViewBehavior.cs" />
     <Compile Include="WPF\Infrastructure\IView.cs" />
     <Compile Include="WPF\Infrastructure\IViewViewModel.cs" />
     <Compile Include="WPF\ViewModels\BindableViewModelBase.cs" />

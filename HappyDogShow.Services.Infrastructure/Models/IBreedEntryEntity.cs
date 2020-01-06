@@ -12,5 +12,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         List<IBreedClassEntryEntityWithClassDetailForSelection> Classes { get; set; }
         IDogRegistration Dog { get; set; }
         IDogShowEntity DogShow { get; set; }
+        string Number { get; set; }
     }
 }

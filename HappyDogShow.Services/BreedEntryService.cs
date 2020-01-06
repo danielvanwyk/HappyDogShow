@@ -46,7 +46,8 @@ namespace HappyDogShow.Services
                 {
                     Dog = selectedDog,
                     EnteredClasses = enteredClasses,
-                    Show = selectedShow
+                    Show = selectedShow,
+                    Number = entity.Number
                 };
 
                 ctx.BreedEntries.Add(newEntity);
@@ -78,45 +79,49 @@ namespace HappyDogShow.Services
 
                 if (foundEntity != null)
                 {
-                    foreach (var i in entity.Classes)
+                    if (entity.Classes != null)
                     {
-                        // existing class entry
-                        if (i.ID > 0)
+                        foreach (var i in entity.Classes)
                         {
-                            if (i.IsSelected)
+                            // existing class entry
+                            if (i.ID > 0)
                             {
-                                // nothing to do, keep it
-                            }
-                            else
-                            {
-                                var foundEntries = ctx.BreedClassEntries.Where(ec => ec.ID == i.ID);
-                                if (foundEntries.Count() == 1)
+                                if (i.IsSelected)
                                 {
-                                    ctx.BreedClassEntries.Remove(foundEntries.First());
+                                    // nothing to do, keep it
+                                }
+                                else
+                                {
+                                    var foundEntries = ctx.BreedClassEntries.Where(ec => ec.ID == i.ID);
+                                    if (foundEntries.Count() == 1)
+                                    {
+                                        ctx.BreedClassEntries.Remove(foundEntries.First());
+                                    }
                                 }
                             }
-                        }
-                        // potential new class entry
-                        else
-                        {
-                            if (i.IsSelected)
-                            {
-                                BreedClass breedClass = ctx.BreedClasses.Where(k => k.ID == i.BreedClassID).First();
-
-                                foundEntity.EnteredClasses.Add(new BreedClassEntry()
-                                {
-                                    Class = breedClass
-                                });
-                            }
+                            // potential new class entry
                             else
                             {
-                                // ignore
-                            }
-                        }
+                                if (i.IsSelected)
+                                {
+                                    BreedClass breedClass = ctx.BreedClasses.Where(k => k.ID == i.BreedClassID).First();
 
+                                    foundEntity.EnteredClasses.Add(new BreedClassEntry()
+                                    {
+                                        Class = breedClass
+                                    });
+                                }
+                                else
+                                {
+                                    // ignore
+                                }
+                            }
+
+                        }
                     }
 
                     foundEntity.Show = selectedShow;
+                    foundEntity.Number = entity.Number;
 
                     ctx.SaveChanges();
                 }
@@ -127,21 +132,45 @@ namespace HappyDogShow.Services
         {
             Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
             {
-                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>();
+                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(-1);
                 return items;
             });
 
             return t;
         }
 
-        private List<IBreedEntryEntityWithAdditionalData> GetBreedEntryList<T>() where T : IBreedEntryEntityWithAdditionalData, new()
+        public Task<List<IBreedEntryEntityWithAdditionalData>> GetBreedEntryListAsync<T>(int dogShowId) where T : IBreedEntryEntityWithAdditionalData, new()
+        {
+            Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
+            {
+                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(dogShowId);
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedEntryEntityWithAdditionalData> GetBreedEntryList<T>(int dogShowId) where T : IBreedEntryEntityWithAdditionalData, new()
         {
             List<IBreedEntryEntityWithAdditionalData> items = new List<IBreedEntryEntityWithAdditionalData>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var data = from d in ctx.BreedEntries
-                           orderby d.Show.Name, d.Dog.Breed.BreedGroup.Name, d.Dog.Breed.Name, d.Dog.Gender.Name, d.Dog.RegisteredName
+                var rawdata = from d in ctx.BreedEntries
+                              select d;
+
+                if (dogShowId > 0)
+                    rawdata = rawdata.Where(d => d.Show.ID == dogShowId);
+
+                var data = from d in rawdata
+                           orderby 
+                                d.Show.Name, 
+                                d.Dog.Breed.BreedGroup.Name, 
+                                d.Dog.Breed.Name, 
+                                d.Dog.RegisteredOwnerSurname, 
+                                d.Dog.Gender.Name descending, 
+                                d.Dog.RegisrationNumber,
+                                d.Dog.RegisteredName
                            select new T()
                            {
                                Id = d.ID,
@@ -157,7 +186,8 @@ namespace HappyDogShow.Services
                                DogId = d.Dog.ID,
                                DogRegistrationNumber = d.Dog.RegisrationNumber,
                                EntryNumber = d.Number,
-                               EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name)
+                               EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name),
+                               RegisteredOwnerSurname = d.Dog.RegisteredOwnerSurname
                            };
 
                 foreach (var item in data)
@@ -165,16 +195,6 @@ namespace HappyDogShow.Services
                     item.EnteredClassNames = string.Join(",", item.EnteredClasses);
                     items.Add(item);
                 }
-
-                //foreach (DogShow ds in shows)
-                //{
-                //    items.Add(new T()
-                //    {
-                //        Id = ds.ID,
-                //        DogShowName = ds.Name,
-                //        ShowDate = ds.ShowDate
-                //    });
-                //}
             }
 
             return items;

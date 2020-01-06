@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -72,6 +75,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,6 +91,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecutors\ClearNumbersCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\GenerateNumbersCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveExistingDogShowEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewDogShowEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowShowListCommandExecutor.cs" />
@@ -99,6 +107,8 @@
     <Compile Include="Infrastructure\IEditDogShowViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreShowsView.cs" />
     <Compile Include="Infrastructure\IExploreShowsViewViewModel.cs" />
+    <Compile Include="Infrastructure\IMassUpdateNumbersView.cs" />
+    <Compile Include="Infrastructure\IMassUpdateNumbersViewViewModel.cs" />
     <Compile Include="Infrastructure\IShowsMainMenuView.cs" />
     <Compile Include="Infrastructure\IShowsMainMenuViewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +116,9 @@
     <Compile Include="ViewModels\CaptureNewDogShowViewViewModel.cs" />
     <Compile Include="ViewModels\EditDogShowViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreShowsViewViewModel.cs" />
+    <Compile Include="ViewModels\MassUpdateNumbersBaseViewViewModel.cs" />
+    <Compile Include="ViewModels\MassUpdateNumbersGenerateNumbersViewViewModel.cs" />
+    <Compile Include="ViewModels\MassUpdateNumbersRemoveNumbersViewViewModel.cs" />
     <Compile Include="ViewModels\ShowsMainMenuViewViewModel.cs" />
     <Compile Include="Views\CaptureNewDogShowView.xaml.cs">
       <DependentUpon>CaptureNewDogShowView.xaml</DependentUpon>
@@ -117,6 +130,9 @@
       <DependentUpon>ExploreShowsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IEditDogView.cs" />
+    <Compile Include="Views\MassUpdateNumbersView.xaml.cs">
+      <DependentUpon>MassUpdateNumbersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShowsMainMenuView.xaml.cs">
       <DependentUpon>ShowsMainMenuView.xaml</DependentUpon>
     </Compile>
@@ -156,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExploreShowsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MassUpdateNumbersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,5 +22,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string EntryNumber { get; set; }
         IEnumerable<string> EnteredClasses { get; set; }
         string EnteredClassNames { get; set; }
+        string RegisteredOwnerSurname { get; set; }
     }
 }

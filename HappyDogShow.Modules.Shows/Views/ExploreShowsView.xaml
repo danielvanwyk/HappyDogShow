@@ -77,6 +77,36 @@
 
                         </Grid>
                     </TabItem>
+                    <TabItem Header="Admin">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" Content="Generate Numbers" Command="{x:Static globalCommands:DogShowAdminCommands.GenerateNumbersCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="0" Grid.Column="1" >Generate the numbers for the breed and handler entries</Label>
+
+                            <Button Grid.Row="1" Grid.Column="0" Content="Clear Numbers" Command="{x:Static globalCommands:DogShowAdminCommands.ClearNumbersCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="1" Grid.Column="1" >Clear the numbers for the breed and handler entries</Label>
+
+                        </Grid>
+                    </TabItem>
                 </TabControl>
 
 

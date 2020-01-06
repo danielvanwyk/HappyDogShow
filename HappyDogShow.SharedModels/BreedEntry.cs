@@ -40,6 +40,13 @@ namespace HappyDogShow.SharedModels
             set { SetProperty(ref dogShow, value); }
         }
 
+        private string number;
+        public string Number
+        {
+            get { return number; }
+            set { SetProperty(ref number, value); }
+        }
+
         public int DogAgeInMonthsAtTimeOfShow
         {
             get

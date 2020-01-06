@@ -20,6 +20,8 @@ namespace HappyDogShow.Modules.Shows
         private ShowViewToEditDogShowEntityCommandExecutor _showViewToEditDogShowEntityCommandExecutor;
         private SaveNewDogShowEntityCommandExecutor _saveNewDogShowEntityCommandExecutor;
         private SaveExistingDogShowEntityCommandExecutor _saveExistingDogShowEntityCommandExecutor;
+        private GenerateNumbersCommandExecutor generateNumbersCommandExecutor;
+        private ClearNumbersCommandExecutor clearNumbersCommandExecutor;
 
         public ShowsModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -35,6 +37,8 @@ namespace HappyDogShow.Modules.Shows
             _showViewToEditDogShowEntityCommandExecutor = Container.Resolve<ShowViewToEditDogShowEntityCommandExecutor>();
             _saveNewDogShowEntityCommandExecutor = Container.Resolve<SaveNewDogShowEntityCommandExecutor>();
             _saveExistingDogShowEntityCommandExecutor = Container.Resolve<SaveExistingDogShowEntityCommandExecutor>();
+            generateNumbersCommandExecutor = Container.Resolve<GenerateNumbersCommandExecutor>();
+            clearNumbersCommandExecutor = Container.Resolve<ClearNumbersCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -54,6 +58,11 @@ namespace HappyDogShow.Modules.Shows
             // the edit form
             Container.RegisterType<object, EditDogShowViewViewModel>(FormNameConstants.Shows.EditDogShow.ViewName);
             Container.RegisterType<IEditDogShowView, EditDogShowView>();
+
+            // the generate and clear numbers forms
+            Container.RegisterType<object, MassUpdateNumbersGenerateNumbersViewViewModel>(FormNameConstants.Shows.GenerateNumbers.ViewName);
+            Container.RegisterType<object, MassUpdateNumbersRemoveNumbersViewViewModel>(FormNameConstants.Shows.RemoveNumbers.ViewName);
+            Container.RegisterType<IMassUpdateNumbersView, MassUpdateNumbersView>();
         }
     }
 }

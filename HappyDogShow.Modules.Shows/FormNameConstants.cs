@@ -22,6 +22,14 @@ namespace HappyDogShow.Modules.Shows
             {
                 public static string ViewName = "EditDogShow";
             }
+            public static class GenerateNumbers
+            {
+                public static string ViewName = "GenerateNumbers";
+            }
+            public static class RemoveNumbers
+            {
+                public static string ViewName = "RemoveNumbers";
+            }
         }
     }
 }

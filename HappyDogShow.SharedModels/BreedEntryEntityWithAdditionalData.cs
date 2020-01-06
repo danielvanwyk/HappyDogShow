@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Services.Infrastructure.Models;
+﻿using HappyDogShow.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.SharedModels
 {
-    public class BreedEntryEntityWithAdditionalData : IBreedEntryEntityWithAdditionalData
+    public class BreedEntryEntityWithAdditionalData : ValidatableBindableBase, IBreedEntryEntityWithAdditionalData
     {
         public int Id { get; set; }
         public string ShowName { get; set; }
@@ -21,8 +22,14 @@ namespace HappyDogShow.SharedModels
         public string DogName { get; set; }
         public int DogId { get; set; }
         public string DogRegistrationNumber { get; set; }
-        public string EntryNumber { get; set; }
+        private string entryNumber;
+        public string EntryNumber 
+        { 
+            get { return entryNumber; }
+            set { SetProperty(ref entryNumber, value); }
+        }
         public IEnumerable<string> EnteredClasses { get; set; }
         public string EnteredClassNames { get; set; }
+        public string RegisteredOwnerSurname { get; set; }
     }
 }
