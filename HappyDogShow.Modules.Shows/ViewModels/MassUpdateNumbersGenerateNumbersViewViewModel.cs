@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public class MassUpdateNumbersGenerateNumbersViewViewModel : MassUpdateNumbersBaseViewViewModel
+    public class MassUpdateNumbersGenerateNumbersViewViewModel : MassUpdateBreedEntryNumbersBaseViewViewModel
     {
         public MassUpdateNumbersGenerateNumbersViewViewModel(IMassUpdateNumbersView view, IBreedEntryService service)
             : base(view, service)

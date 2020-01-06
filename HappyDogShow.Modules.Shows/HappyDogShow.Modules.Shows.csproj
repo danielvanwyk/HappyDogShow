@@ -116,6 +116,7 @@
     <Compile Include="ViewModels\CaptureNewDogShowViewViewModel.cs" />
     <Compile Include="ViewModels\EditDogShowViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreShowsViewViewModel.cs" />
+    <Compile Include="ViewModels\MassUpdateBreedEntryNumbersBaseViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateNumbersBaseViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateNumbersGenerateNumbersViewViewModel.cs" />
     <Compile Include="ViewModels\MassUpdateNumbersRemoveNumbersViewViewModel.cs" />

@@ -12,47 +12,39 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public abstract class MassUpdateNumbersBaseViewViewModel : ListViewViewModelBase<IBreedEntryEntityWithAdditionalData>, IMassUpdateNumbersViewViewModel
+    public abstract class MassUpdateNumbersBaseViewViewModel<T> : ListViewViewModelBase<T>, IMassUpdateNumbersViewViewModel
     {
-        private IBreedEntryService _service;
-        private IDogShowEntity selectedDogShow;
-
-        public MassUpdateNumbersBaseViewViewModel(IMassUpdateNumbersView view, IBreedEntryService service)
-            : base(view)
+        private string statusText;
+        public string StatusText
         {
-            _service = service;
+            get { return statusText; }
+            set { SetProperty(ref statusText, value); }
         }
 
-        public override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
+        public MassUpdateNumbersBaseViewViewModel(IMassUpdateNumbersView view)
+            : base(view)
         {
-            selectedDogShow = navigationContext.Parameters["entity"] as IDogShowEntity;
         }
 
         public async override void Prepare()
         {
-            Items.Clear();
+            StatusText = "Loading data ...";
+            await LoadData();
 
-            List<IBreedEntryEntityWithAdditionalData> items = await _service.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(selectedDogShow.Id);
-
-            items.ForEach(i => Items.Add(i));
-
+            StatusText = "Generating Numbers ...";
             await GenerateNumbers();
 
+            StatusText = "Saving ...";
             await UpdateEntries();
+
+            StatusText = "Done ...";
+            await Task.Delay(TimeSpan.FromSeconds(2));
         }
 
-        private async Task UpdateEntries()
-        {
-            foreach (IBreedEntryEntityWithAdditionalData entry in Items)
-            {
-                SelectedItem = entry;
-                await Task.Delay(TimeSpan.FromMilliseconds(20));
-                IBreedEntryEntity actualentry = await _service.GetBreedEntryAsync<BreedEntry>(entry.Id);
-                actualentry.Number = entry.EntryNumber;
-                await _service.UpdateEntityAsync(actualentry);
-            }
-        }
+        public abstract Task LoadData();
 
         public abstract Task GenerateNumbers();
+
+        public abstract Task UpdateEntries();
     }
 }

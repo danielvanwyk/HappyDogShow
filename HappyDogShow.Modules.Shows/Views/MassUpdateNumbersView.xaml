@@ -14,29 +14,38 @@
              >
 
     <infrastructureControls:BasicContentLayout>
-        <infrastructureControls:BasicContentLayout.MainTitleText>Entries and numbers ...</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainTitleText>Handler entries and numbers ...</infrastructureControls:BasicContentLayout.MainTitleText>
         <infrastructureControls:BasicContentLayout.MainContent>
-            <DataGrid Grid.Row="0"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                
+                <DataGrid Grid.Row="0"
                     Style="{StaticResource AzureDataGrid}"
                     AutoGenerateColumns="False"
                     ItemsSource="{Binding Items}"
                     SelectedItem="{Binding SelectedItem}"
                     >
-                <i:Interaction.Behaviors>
-                    <infrastructureWPFExtensions:ScrollIntoViewBehavior />
-                </i:Interaction.Behaviors>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Show" Width="auto" Binding="{Binding ShowName}" />
-                    <DataGridTextColumn Header="Group" Width="auto" Binding="{Binding BreedGroupName}" />
-                    <DataGridTextColumn Header="Breed" Width="auto" Binding="{Binding BreedName}" />
-                    <DataGridTextColumn Header="Registered Owner(s)" Width="auto" Binding="{Binding RegisteredOwnerSurname}" />
-                    <DataGridTextColumn Header="Gender" Width="auto" Binding="{Binding GenderName}" />
-                    <DataGridTextColumn Header="Dog" Width="auto" Binding="{Binding DogName}" />
-                    <DataGridTextColumn Header="Reg #" Width="auto" Binding="{Binding DogRegistrationNumber}" />
-                    <DataGridTextColumn Header="Entered Classes" Width="auto" Binding="{Binding EnteredClassNames}" />
-                    <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
-                </DataGrid.Columns>
-            </DataGrid>
+                    <i:Interaction.Behaviors>
+                        <infrastructureWPFExtensions:ScrollIntoViewBehavior />
+                    </i:Interaction.Behaviors>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Show" Width="auto" Binding="{Binding ShowName}" />
+                        <DataGridTextColumn Header="Group" Width="auto" Binding="{Binding BreedGroupName}" />
+                        <DataGridTextColumn Header="Breed" Width="auto" Binding="{Binding BreedName}" />
+                        <DataGridTextColumn Header="Registered Owner(s)" Width="auto" Binding="{Binding RegisteredOwnerSurname}" />
+                        <DataGridTextColumn Header="Gender" Width="auto" Binding="{Binding GenderName}" />
+                        <DataGridTextColumn Header="Dog" Width="auto" Binding="{Binding DogName}" />
+                        <DataGridTextColumn Header="Reg #" Width="auto" Binding="{Binding DogRegistrationNumber}" />
+                        <DataGridTextColumn Header="Entered Classes" Width="auto" Binding="{Binding EnteredClassNames}" />
+                        <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Label Grid.Row="1" Content="{Binding StatusText}" />
+            </Grid>
         </infrastructureControls:BasicContentLayout.MainContent>
 
     </infrastructureControls:BasicContentLayout>
