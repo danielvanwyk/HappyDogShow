@@ -11,11 +11,8 @@
     Style="{StaticResource MetroMenuItem}" 
     xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
     >
-    <MenuItem Header="Breed Entries">
-        <MenuItem Header="View List of Breed Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryListCommand" />
-        <MenuItem Header="View List of Breed Entries by class entered" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryByClassListCommand" />
-    </MenuItem>
-    <MenuItem Header="Handler Entries">
-        <MenuItem Header="View List of Handler Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:HandlerEntryListCommands.ShowHandlerEntryListCommand" />
-    </MenuItem>
+    <MenuItem Header="View List of Breed Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryListCommand" />
+    <MenuItem Header="View List of Breed Entries by class entered" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryByClassListCommand" />
+    <Separator />
+    <MenuItem Header="View List of Handler Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:HandlerEntryListCommands.ShowHandlerEntryListCommand" />
 </MenuItem>
