@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Services.Infrastructure.Models;
+﻿using HappyDogShow.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.SharedModels
 {
-    public class BreedEntryClassEntry : IBreedEntryClassEntry
+    public class BreedEntryClassEntry : ValidatableBindableBase, IBreedEntryClassEntry
     {
         public int Id { get; set; }
         public string ShowName { get; set; }
@@ -60,5 +61,11 @@ namespace HappyDogShow.SharedModels
             return result;
         }
 
+        private string result;
+        public string Result
+        {
+            get { return result; }
+            set { SetProperty(ref result, value); }
+        }
     }
 }

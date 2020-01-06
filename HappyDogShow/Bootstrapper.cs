@@ -59,6 +59,7 @@ namespace HappyDogShow
             Container.RegisterType<IDogRegistrationService, DogRegistrationService>();
             Container.RegisterType<IGenderService, GenderService>();
             Container.RegisterType<IBreedService, BreedService>();
+            Container.RegisterType<IBreedGroupService, BreedGroupService>();
             Container.RegisterType<IBreedEntryService, BreedEntryService>();
             Container.RegisterType<IClubService, ClubService>();
             Container.RegisterType<IBreedMultipleEntryService, BreedMultipleEntryService>();

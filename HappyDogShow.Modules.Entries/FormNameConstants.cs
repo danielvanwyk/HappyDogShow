@@ -31,5 +31,13 @@ namespace HappyDogShow.Modules.Entries
                 public static string ViewName = "EditEntry";
             }
         }
+
+        public static class BreedEntryResults
+        {
+            public static class CaptureResults
+            {
+                public static string ViewName = "CaptureBreedEntryResults";
+            }
+        }
     }
 }

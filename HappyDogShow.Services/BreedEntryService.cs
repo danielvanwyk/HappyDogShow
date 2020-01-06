@@ -235,20 +235,44 @@ namespace HappyDogShow.Services
         {
             Task<List<IBreedEntryClassEntry>> t = Task<List<IBreedEntryClassEntry>>.Run(() =>
             {
-                List<IBreedEntryClassEntry> items = GetBreedEntryClassEntryList<T>();
+                List<IBreedEntryClassEntry> items = GetBreedEntryClassEntryList<T>(-1, -1);
                 return items;
             });
 
             return t;
         }
 
-        private List<IBreedEntryClassEntry> GetBreedEntryClassEntryList<T>() where T : IBreedEntryClassEntry, new()
+        public Task<List<IBreedEntryClassEntry>> GetBreedEntryClassEntryListAsync<T>(int dogShowId, int breedId) where T : IBreedEntryClassEntry, new()
+        {
+            Task<List<IBreedEntryClassEntry>> t = Task<List<IBreedEntryClassEntry>>.Run(() =>
+            {
+                List<IBreedEntryClassEntry> items = GetBreedEntryClassEntryList<T>(dogShowId, breedId);
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedEntryClassEntry> GetBreedEntryClassEntryList<T>(int dogShowId, int breedId) where T : IBreedEntryClassEntry, new()
         {
             List<IBreedEntryClassEntry> items = new List<IBreedEntryClassEntry>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var data = from c in ctx.BreedClassEntries
+                var rawData = from c in ctx.BreedClassEntries
+                              select c;
+
+                if (dogShowId > 0)
+                {
+                    rawData = rawData.Where(c => c.Entry.Show.ID == dogShowId);
+                }
+
+                if (breedId > 0)
+                {
+                    rawData = rawData.Where(c => c.Entry.Dog.Breed.ID == breedId);
+                }
+
+                var data = from c in rawData
                            select new T()
                            {
                                Id = c.ID,
@@ -269,6 +293,7 @@ namespace HappyDogShow.Services
                                EnteredClassName = c.Class.Name,
                                EnteredClassMaxAgeInMonths = c.Class.MaxAgeInMonths,
                                EnteredClassMinAgeInMonths = c.Class.MinAgeInMonths,
+                               Result = c.Result
                            };
 
                 data.ToList().ForEach(c => items.Add(c));
@@ -300,6 +325,31 @@ namespace HappyDogShow.Services
                     ctx.BreedEntries.Remove(foundEntity);
                     ctx.SaveChanges();
                 }
+            }
+        }
+
+        public Task UpdateEntityAsync(IMultipleBreedEntryClassEntry entity)
+        {
+            Task t = Task<int>.Run(() =>
+            {
+                UpdateEntity(entity);
+            });
+
+            return t;
+        }
+
+        private void UpdateEntity(IMultipleBreedEntryClassEntry entity)
+        {
+            using (var ctx = new HappyDogShowContext())
+            {
+                foreach (IBreedEntryClassEntry classEntry in entity.BreedClassEntries)
+                {
+                    BreedClassEntry foundEntry = ctx.BreedClassEntries.Where(i => i.ID == classEntry.Id).First();
+
+                    foundEntry.Result = classEntry.Result;
+                }
+
+                ctx.SaveChanges();
             }
         }
     }

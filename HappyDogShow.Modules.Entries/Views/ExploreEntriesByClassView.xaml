@@ -155,6 +155,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Result" Width="auto" Binding="{Binding Result}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

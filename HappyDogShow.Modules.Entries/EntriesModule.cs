@@ -32,6 +32,9 @@ namespace HappyDogShow.Modules.Entries
         private ShowViewToEditHandlerEntryCommandExecutor showViewToEditHandlerEntryCommandExecutor;
         private SaveExistingHandlerEntryEntityCommandExecutor saveExistingHandlerEntryEntityCommandExecutor;
 
+        private ShowBreedEntryResultsCaptureViewCommandExecutor showBreedEntryResultsCaptureViewCommandExecutor;
+        private SaveBreedEntryClassEntryListCommandExecutor saveBreedEntryClassEntryListCommandExecutor;
+
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
         {
@@ -56,6 +59,9 @@ namespace HappyDogShow.Modules.Entries
             deleteExistingHandlerEntityCommandExecutor = Container.Resolve<DeleteExistingHandlerEntityCommandExecutor>();
             showViewToEditHandlerEntryCommandExecutor = Container.Resolve<ShowViewToEditHandlerEntryCommandExecutor>();
             saveExistingHandlerEntryEntityCommandExecutor = Container.Resolve<SaveExistingHandlerEntryEntityCommandExecutor>();
+
+            showBreedEntryResultsCaptureViewCommandExecutor = Container.Resolve<ShowBreedEntryResultsCaptureViewCommandExecutor>();
+            saveBreedEntryClassEntryListCommandExecutor = Container.Resolve<SaveBreedEntryClassEntryListCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -67,6 +73,8 @@ namespace HappyDogShow.Modules.Entries
             RegisterBreedEntryForms();
 
             RegisterHandlerEntryForms();
+
+            RegisterResultsForms();
         }
 
         private void RegisterBreedEntryForms()
@@ -105,6 +113,14 @@ namespace HappyDogShow.Modules.Entries
             // the multiple new form
             Container.RegisterType<object, CaptureMultipleNewHandlerEntryViewViewModel>(HandlerFormNameConstants.HandlerEntries.MultipleNewEntry.ViewName);
             Container.RegisterType<ICaptureMultipleNewHandlerEntryView, CaptureMultipleNewHandlerEntryView>();
+        }
+
+        private void RegisterResultsForms()
+        {
+            // the results form
+            Container.RegisterType<object, BreedEntryResultsViewViewModel>(FormNameConstants.BreedEntryResults.CaptureResults.ViewName);
+            Container.RegisterType<IBreedEntryResultsView, BreedEntryResultsView>();
+
         }
 
     }

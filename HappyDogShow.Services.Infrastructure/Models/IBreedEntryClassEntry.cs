@@ -25,5 +25,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string EnteredClassName { get; set; }
         int EnteredClassMaxAgeInMonths { get; set; }
         int EnteredClassMinAgeInMonths { get; set; }
+        string Result { get; set; }
     }
 }

@@ -15,4 +15,6 @@
     <MenuItem Header="View List of Breed Entries by class entered" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:EntryListCommands.ShowEntryByClassListCommand" />
     <Separator />
     <MenuItem Header="View List of Handler Entries" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:HandlerEntryListCommands.ShowHandlerEntryListCommand" />
+    <Separator />
+    <MenuItem Header="View and Capture Breed Entry Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:BreedEntryResultsCommands.ShowBreedEntryResultsCaptureViewCommand" />
 </MenuItem>

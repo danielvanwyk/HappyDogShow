@@ -93,7 +93,9 @@
     <Compile Include="CommandExecutors\NavigateToViewCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveExistingEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewEntityCommandExecutor.cs" />
+    <Compile Include="Commands\BreedEntryClassEntryListCommands.cs" />
     <Compile Include="Commands\BreedEntryCRUDCommands.cs" />
+    <Compile Include="Commands\BreedEntryResultsCommands.cs" />
     <Compile Include="Commands\DogEntityCRUDCommands.cs" />
     <Compile Include="Commands\DogListCommands.cs" />
     <Compile Include="Commands\DogShowAdminCommands.cs" />
