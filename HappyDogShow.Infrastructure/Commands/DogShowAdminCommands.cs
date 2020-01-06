@@ -6,5 +6,6 @@ namespace HappyDogShow.Infrastructure.Commands
     {
         public static CompositeCommand GenerateNumbersCommand = new CompositeCommand();
         public static CompositeCommand ClearNumbersCommand = new CompositeCommand();
+        public static CompositeCommand GenerateHandlerNumbersCommand = new CompositeCommand();
     }
 }

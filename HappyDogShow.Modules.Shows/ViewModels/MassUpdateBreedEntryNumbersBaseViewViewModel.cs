@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Shows.ViewModels
 {
-    public class MassUpdateBreedEntryNumbersBaseViewViewModel : MassUpdateNumbersBaseViewViewModel<IBreedEntryEntityWithAdditionalData>
+    public abstract class MassUpdateBreedEntryNumbersBaseViewViewModel : MassUpdateNumbersBaseViewViewModel<IBreedEntryEntityWithAdditionalData>
     {
         private IBreedEntryService _service;
-        private IDogShowEntity selectedDogShow;
+
+        public IDogShowEntity SelectedDogShow;
 
         public MassUpdateBreedEntryNumbersBaseViewViewModel(IMassUpdateNumbersView view, IBreedEntryService service)
             : base(view)
@@ -24,21 +25,16 @@ namespace HappyDogShow.Modules.Shows.ViewModels
 
         public override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
         {
-            selectedDogShow = navigationContext.Parameters["entity"] as IDogShowEntity;
+            SelectedDogShow = navigationContext.Parameters["entity"] as IDogShowEntity;
         }
 
         public override async Task LoadData()
         {
             Items.Clear();
 
-            List<IBreedEntryEntityWithAdditionalData> items = await _service.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(selectedDogShow.Id);
+            List<IBreedEntryEntityWithAdditionalData> items = await _service.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(SelectedDogShow.Id);
 
             items.ForEach(i => Items.Add(i));
-        }
-
-        public override Task GenerateNumbers()
-        {
-            throw new NotImplementedException();
         }
 
         public override async Task UpdateEntries()

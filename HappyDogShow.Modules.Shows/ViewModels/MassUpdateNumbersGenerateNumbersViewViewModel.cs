@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Modules.Shows.Infrastructure;
+﻿using HappyDogShow.Infrastructure.Commands;
+using HappyDogShow.Modules.Shows.Infrastructure;
 using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using System;
@@ -26,6 +27,11 @@ namespace HappyDogShow.Modules.Shows.ViewModels
                 number++;
                 entry.EntryNumber = number.ToString();
             }
+        }
+
+        public override void NavigateAway()
+        {
+            DogShowAdminCommands.GenerateHandlerNumbersCommand.Execute(SelectedDogShow);
         }
     }
 }

@@ -39,7 +39,11 @@ namespace HappyDogShow.Modules.Shows.ViewModels
 
             StatusText = "Done ...";
             await Task.Delay(TimeSpan.FromSeconds(2));
+
+            NavigateAway();
         }
+
+        public abstract void NavigateAway();
 
         public abstract Task LoadData();
 
