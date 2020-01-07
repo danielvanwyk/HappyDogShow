@@ -31,5 +31,7 @@ namespace HappyDogShow.SharedModels
         public IEnumerable<string> EnteredClasses { get; set; }
         public string EnteredClassNames { get; set; }
         public string RegisteredOwnerSurname { get; set; }
+        public string BreedGroupJudgeName { get; set; }
+        public int BreedGroupJudgeId { get; set; }
     }
 }

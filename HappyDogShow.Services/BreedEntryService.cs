@@ -215,7 +215,9 @@ namespace HappyDogShow.Services
                                DogRegistrationNumber = d.Dog.RegisrationNumber,
                                EntryNumber = d.Number,
                                EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name),
-                               RegisteredOwnerSurname = d.Dog.RegisteredOwnerSurname
+                               RegisteredOwnerSurname = d.Dog.RegisteredOwnerSurname,
+                               BreedGroupJudgeName = d.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == d.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.Name,
+                               BreedGroupJudgeId = d.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == d.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.ID
                            };
 
                 foreach (var item in data)

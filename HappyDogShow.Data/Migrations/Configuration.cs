@@ -349,6 +349,58 @@
                 new Breed() { Name = "Siberian Husky", BreedGroup = workingbg },
                 new Breed() { Name = "Tosa", BreedGroup = workingbg }
             );
+
+            context.Judges.AddOrUpdate(x => x.Name,
+                new Judge() { Name = "Liz Raubenheimer"},
+                new Judge() { Name = "Nicky Robertson" },
+                new Judge() { Name = "Sue Carter" },
+                new Judge() { Name = "Bianca Teixeira (Brazil)"},
+                new Judge() { Name = "Leoni Kroff" },
+                new Judge() { Name = "Dale Fabian" },
+                new Judge() { Name = "Ian Holdsworth" },
+                new Judge() { Name = "Vanessa Nicolau" }
+                );
+
+            context.DogShows.AddOrUpdate(x => x.Name,
+                new DogShow() { Name = "Overberg Kennel Club Show 1", ShowDate = new DateTime(2020, 1, 11) },
+                new DogShow() { Name = "Overberg Kennel Club Show 2", ShowDate = new DateTime(2020, 1, 11) }
+                );
+
+            context.SaveChanges();
+
+            var firstShow = context.DogShows.Where(bg => bg.Name == "Overberg Kennel Club Show 1").First();
+            var secondShow = context.DogShows.Where(bg => bg.Name == "Overberg Kennel Club Show 2").First();
+
+            var lizRaubenheimer = context.Judges.Where(c => c.Name == "Liz Raubenheimer").First();
+            var nickyRobertson = context.Judges.Where(c => c.Name == "Nicky Robertson").First();
+            var sueCarter = context.Judges.Where(c => c.Name == "Sue Carter").First();
+            var bianca = context.Judges.Where(c => c.Name == "Bianca Teixeira (Brazil)").First();
+            var leoni = context.Judges.Where(c => c.Name == "Leoni Kroff").First();
+            var dale = context.Judges.Where(c => c.Name == "Dale Fabian").First();
+            var ian = context.Judges.Where(c => c.Name == "Ian Holdsworth").First();
+            var vanessa = context.Judges.Where(c => c.Name == "Vanessa Nicolau").First();
+
+            context.ShowGroupJudges.AddOrUpdate(x => x.ID,
+                new ShowGroupJudge() { ID = 1, DogShow = firstShow, BreedGroup = gundogbg, Judge = sueCarter },
+                new ShowGroupJudge() { ID = 2, DogShow = firstShow, BreedGroup = herdingbg, Judge = ian },
+                new ShowGroupJudge() { ID = 3, DogShow = firstShow, BreedGroup = terrierbg, Judge = bianca },
+                new ShowGroupJudge() { ID = 4, DogShow = firstShow, BreedGroup = houndbg, Judge = dale },
+                new ShowGroupJudge() { ID = 5, DogShow = firstShow, BreedGroup = toybg, Judge = lizRaubenheimer },
+                new ShowGroupJudge() { ID = 6, DogShow = firstShow, BreedGroup = utilitybg, Judge = vanessa },
+                new ShowGroupJudge() { ID = 7, DogShow = firstShow, BreedGroup = workingbg, Judge = nickyRobertson }
+                );
+
+            context.ShowGroupJudges.AddOrUpdate(x => x.ID,
+                new ShowGroupJudge() { ID = 8, DogShow = secondShow, BreedGroup = gundogbg, Judge = lizRaubenheimer },
+                new ShowGroupJudge() { ID = 9, DogShow = secondShow, BreedGroup = herdingbg, Judge = nickyRobertson },
+                new ShowGroupJudge() { ID = 10, DogShow = secondShow, BreedGroup = terrierbg, Judge = leoni },
+                new ShowGroupJudge() { ID = 11, DogShow = secondShow, BreedGroup = houndbg, Judge = sueCarter },
+                new ShowGroupJudge() { ID = 12, DogShow = secondShow, BreedGroup = toybg, Judge = dale },
+                new ShowGroupJudge() { ID = 13, DogShow = secondShow, BreedGroup = utilitybg, Judge = bianca },
+                new ShowGroupJudge() { ID = 14, DogShow = secondShow, BreedGroup = workingbg, Judge = ian }
+                );
+
+            context.SaveChanges();
         }
     }
 }

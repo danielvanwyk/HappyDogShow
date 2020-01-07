@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Data
 {
-    public class DogShow
+    public class Judge
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public DateTime ShowDate { get; set; }
-        public List<ShowGroupJudge> ShowGroupJudges { get; set; }
     }
 }

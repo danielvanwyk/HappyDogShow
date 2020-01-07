@@ -66,6 +66,7 @@
     <Compile Include="HandlerEntry.cs" />
     <Compile Include="HandlerRegistration.cs" />
     <Compile Include="HappyDogShowContext.cs" />
+    <Compile Include="Judge.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.Designer.cs">
       <DependentUpon>201908270444420_InitialCreate.cs</DependentUpon>
@@ -106,10 +107,15 @@
     <Compile Include="Migrations\202001050934472_HandlerEntries.Designer.cs">
       <DependentUpon>202001050934472_HandlerEntries.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001070948230_ShowBreedGroupJudges.cs" />
+    <Compile Include="Migrations\202001070948230_ShowBreedGroupJudges.Designer.cs">
+      <DependentUpon>202001070948230_ShowBreedGroupJudges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sex.cs" />
+    <Compile Include="ShowGroupJudge.cs" />
     <Compile Include="Title.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001050934472_HandlerEntries.resx">
       <DependentUpon>202001050934472_HandlerEntries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001070948230_ShowBreedGroupJudges.resx">
+      <DependentUpon>202001070948230_ShowBreedGroupJudges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
