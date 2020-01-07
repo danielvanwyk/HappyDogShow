@@ -230,7 +230,14 @@ namespace HappyDogShow.Services
                                EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name),
                                RegisteredOwnerSurname = d.Dog.RegisteredOwnerSurname,
                                BreedGroupJudgeName = d.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == d.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.Name,
-                               BreedJudgeName = d.Show.ShowBreedJudges.Where(i => i.Breed.ID == d.Dog.Breed.ID).FirstOrDefault().Judge.Name
+                               BreedJudgeName = d.Show.ShowBreedJudges.Where(i => i.Breed.ID == d.Dog.Breed.ID).FirstOrDefault().Judge.Name,
+                               Sire = d.Dog.Sire,
+                               Dam = d.Dog.Dam,
+                               Breeder = d.Dog.BredBy,
+                               DOB = d.Dog.DateOfBirth,
+                               IDNumber = d.Dog.ChipOrTattooNumber,
+                               RegisteredOwnerEmail = d.Dog.RegisteredOwnerEmail,
+                               RegisteredOwnerTel = d.Dog.RegisteredOwnerCell
                            };
 
                 foreach (var item in data)

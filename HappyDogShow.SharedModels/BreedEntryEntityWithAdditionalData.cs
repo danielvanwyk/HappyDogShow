@@ -31,6 +31,8 @@ namespace HappyDogShow.SharedModels
         public IEnumerable<string> EnteredClasses { get; set; }
         public string EnteredClassNames { get; set; }
         public string RegisteredOwnerSurname { get; set; }
+        public string RegisteredOwnerTel { get; set; }
+        public string RegisteredOwnerEmail { get; set; }
         public string BreedGroupJudgeName { get; set; }
         public string BreedJudgeName { get; set; }
         public string ActualJudgeName
@@ -43,5 +45,12 @@ namespace HappyDogShow.SharedModels
                 return BreedJudgeName;
             }
         }
+
+        public string Sire { get; set; }
+        public string Dam { get; set; }
+        public string Breeder { get; set; }
+        public DateTime DOB { get; set; }
+        public string IDNumber { get; set; }
+
     }
 }

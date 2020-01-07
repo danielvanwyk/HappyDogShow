@@ -30,7 +30,14 @@ namespace HappyDogShow.Modules.ReportViewer
             {
                 foreach (KeyValuePair<string, string> keyValuePair in parms)
                 {
-                    viewReport.reportViewer.LocalReport.SetParameters(new ReportParameter(keyValuePair.Key, keyValuePair.Value.ToString()));
+                    try
+                    {
+                        viewReport.reportViewer.LocalReport.SetParameters(new ReportParameter(keyValuePair.Key, keyValuePair.Value.ToString()));
+                    }
+                    catch 
+                    { 
+                        // do nothing 
+                    }
                 }
             }
 

@@ -12,5 +12,6 @@ namespace HappyDogShow.Infrastructure.Commands
         public static CompositeCommand ShowBreedBreakdownReportCommand = new CompositeCommand();
         public static CompositeCommand ShowEntryNumberLabelsReportCommand = new CompositeCommand();
         public static CompositeCommand ShowBreedSplashReportCommand = new CompositeCommand();
+        public static CompositeCommand ShowCatalogReportCommand = new CompositeCommand();
     }
 }
