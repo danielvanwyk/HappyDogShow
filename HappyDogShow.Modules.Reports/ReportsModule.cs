@@ -9,6 +9,7 @@ namespace HappyDogShow.Modules.Reports
     public class ReportsModule : ModuleBase
     {
         private ShowBreedBreakdownReportCommandExecutor showBreedBreakdownReportCommandExecutor;
+        private ShowEntryNumberLabelsReportCommandExecutor showEntryNumberLabelsReportCommandExecutor;
 
         public ReportsModule(IUnityContainer container, IRegionManager regionManager)
             : base(container, regionManager)
@@ -19,6 +20,7 @@ namespace HappyDogShow.Modules.Reports
         protected override void InitializeModule()
         {
             showBreedBreakdownReportCommandExecutor = Container.Resolve<ShowBreedBreakdownReportCommandExecutor>();
+            showEntryNumberLabelsReportCommandExecutor = Container.Resolve<ShowEntryNumberLabelsReportCommandExecutor>();
         }
 
         protected override void RegisterTypes()
