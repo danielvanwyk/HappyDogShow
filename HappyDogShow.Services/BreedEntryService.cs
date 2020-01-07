@@ -42,6 +42,17 @@ namespace HappyDogShow.Services
                     }); ;
                 }
 
+                if (string.IsNullOrEmpty(entity.Number))
+                {
+                    var usednumbers = ctx.BreedEntries.Where(be => be.Show.ID == entity.ShowId).Select(be => be.Number).ToList().Distinct().ToList();
+
+                    int temp;
+                    int max = usednumbers.Select(n => int.TryParse(n, out temp) ? temp : 0).Max();
+
+                    if (max > 0)
+                        entity.Number = (max + 1).ToString();
+                }
+
                 BreedEntry newEntity = new BreedEntry()
                 {
                     Dog = selectedDog,
