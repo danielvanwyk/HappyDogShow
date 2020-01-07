@@ -23,11 +23,11 @@ namespace HappyDogShow.Modules.ReportViewer
         public ViewReport()
         {
             InitializeComponent();
+            reportViewer.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
         }
 
         private void reportViewer_RenderingComplete(object sender, Microsoft.Reporting.WinForms.RenderingCompleteEventArgs e)
         {
-
         }
     }
 }

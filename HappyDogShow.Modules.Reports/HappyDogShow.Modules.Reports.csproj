@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\ShowBreedBreakdownReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportsModule.cs" />
@@ -98,6 +99,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Reports\BreedSplash.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BreedBreakdownForShow.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

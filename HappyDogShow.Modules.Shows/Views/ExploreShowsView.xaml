@@ -75,8 +75,11 @@
                             <Button Grid.Row="0" Grid.Column="0" Content="Breed Breakdown" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedBreakdownReportCommand}"  CommandParameter="{Binding SelectedItem}" />
                             <Label Grid.Row="0" Grid.Column="1" >View the breakdown of the entries per breed per group</Label>
 
-                            <Button Grid.Row="1" Grid.Column="0" Content="Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="1" Grid.Column="1" >View the labels of the entries</Label>
+                            <Button Grid.Row="1" Grid.Column="0" Content="Breed Splash" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedSplashReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="1" Grid.Column="1" >The "notice" for each ring</Label>
+
+                            <Button Grid.Row="2" Grid.Column="0" Content="Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="2" Grid.Column="1" >View the labels of the entries</Label>
 
                         </Grid>
                     </TabItem>
