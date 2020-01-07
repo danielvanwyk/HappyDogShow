@@ -143,7 +143,7 @@ namespace HappyDogShow.Services
         {
             Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
             {
-                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(-1);
+                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(-1, -1);
                 return items;
             });
 
@@ -154,14 +154,28 @@ namespace HappyDogShow.Services
         {
             Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
             {
-                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(dogShowId);
+                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(dogShowId, -1);
                 return items;
             });
 
             return t;
         }
 
-        private List<IBreedEntryEntityWithAdditionalData> GetBreedEntryList<T>(int dogShowId) where T : IBreedEntryEntityWithAdditionalData, new()
+        public Task<List<IBreedEntryEntityWithAdditionalData>> GetBreedEntryListAsync<T>(IDogRegistration dogRegistration) where T : IBreedEntryEntityWithAdditionalData, new()
+        {
+            Task<List<IBreedEntryEntityWithAdditionalData>> t = Task<List<IBreedEntryEntityWithAdditionalData>>.Run(() =>
+            {
+                if (dogRegistration == null)
+                    return new List<IBreedEntryEntityWithAdditionalData>();
+
+                List<IBreedEntryEntityWithAdditionalData> items = GetBreedEntryList<T>(-1, dogRegistration.Id);
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedEntryEntityWithAdditionalData> GetBreedEntryList<T>(int dogShowId, int dogRegistrationId) where T : IBreedEntryEntityWithAdditionalData, new()
         {
             List<IBreedEntryEntityWithAdditionalData> items = new List<IBreedEntryEntityWithAdditionalData>();
 
@@ -172,6 +186,9 @@ namespace HappyDogShow.Services
 
                 if (dogShowId > 0)
                     rawdata = rawdata.Where(d => d.Show.ID == dogShowId);
+
+                if (dogRegistrationId > 0)
+                    rawdata = rawdata.Where(d => d.Dog.ID == dogRegistrationId);
 
                 var data = from d in rawdata
                            orderby 

@@ -45,21 +45,21 @@
                     <TabControl Grid.Column="0">
 
                         <TabItem Header="Dogs">
-                            <DataGrid Grid.Column="0"
+                                <DataGrid Grid.Row="0"
                           Style="{StaticResource AzureDataGrid}"
                           AutoGenerateColumns="False"
-                          ItemsSource="{Binding Source={StaticResource cvsItems}}"
-                                      SelectedItem="{Binding SelectedItem}"
+                          ItemsSource="{Binding Items}"
+                                      SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           IsReadOnly="True"
                           >
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Reg #" Width="2*" Binding="{Binding RegisrationNumber}" />
-                                    <DataGridTextColumn Header="Name" Width="3*" Binding="{Binding RegisteredName}" />
-                                    <DataGridTextColumn Header="Breed" Width="2*" Binding="{Binding BreedName}" />
-                                    <DataGridTextColumn Header="Gender" Width="1*" Binding="{Binding GenderName}" />
-                                    <DataGridTextColumn Header="DOB" Width="1*" Binding="{Binding DOB}" />
-                                </DataGrid.Columns>
-                            </DataGrid>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Reg #" Width="2*" Binding="{Binding RegisrationNumber}" />
+                                        <DataGridTextColumn Header="Name" Width="3*" Binding="{Binding RegisteredName}" />
+                                        <DataGridTextColumn Header="Breed" Width="2*" Binding="{Binding BreedName}" />
+                                        <DataGridTextColumn Header="Gender" Width="1*" Binding="{Binding GenderName}" />
+                                        <DataGridTextColumn Header="DOB" Width="1*" Binding="{Binding DOB}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
                         </TabItem>
 
                     </TabControl>
@@ -72,6 +72,31 @@
                             <SharedUserControls:ReadOnlyDogRegistrationDetail />
                         </TabItem>
                         <TabItem Header="Entries">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <DataGrid Grid.Row="0"
+                    Style="{StaticResource AzureDataGrid}"
+                    AutoGenerateColumns="False"
+                    ItemsSource="{Binding BreedEntries}"
+                                      SelectedItem="{Binding SelectedBreedEntry}"
+                    >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Show" Width="auto" Binding="{Binding ShowName}" />
+                                    <DataGridTextColumn Header="Entered Classes" Width="auto" Binding="{Binding EnteredClassNames}" />
+                                    <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <Button Content="Edit Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.ShowViewToEditEntityCommand}" CommandParameter="{Binding SelectedBreedEntry}"  />
+                                    <Button Content="Delete Entry" Command="{x:Static globalCommands:BreedEntryCRUDCommands.DeleteExistingEntityCommand}" CommandParameter="{Binding SelectedBreedEntry}"  />
+                                </StackPanel>
+                            </Grid>
+
 
                         </TabItem>
                     </TabControl>

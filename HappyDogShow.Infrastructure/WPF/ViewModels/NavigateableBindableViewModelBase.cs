@@ -23,13 +23,14 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-
+            SaveStateBeforeNavigatingAway();
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             GetValuesFromNavigationParameters(navigationContext);
             Prepare();
+            RestoreStateAfterNavigatingTo();
         }
 
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
@@ -47,6 +48,16 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
 
         public virtual void Prepare()
         {
+        }
+
+        public virtual void SaveStateBeforeNavigatingAway()
+        {
+
+        }
+
+        public virtual void RestoreStateAfterNavigatingTo()
+        {
+
         }
     }
 }

@@ -28,6 +28,8 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
             }
         }
 
+        private T previousSelectedItem;
+
         public ListViewViewModelBase(IView view)
             : base(view)
         {
@@ -39,5 +41,14 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
 
         }
 
+        public override void SaveStateBeforeNavigatingAway()
+        {
+            previousSelectedItem = SelectedItem;
+        }
+
+        public override void RestoreStateAfterNavigatingTo()
+        {
+            SelectedItem = previousSelectedItem;
+        }
     }
 }
