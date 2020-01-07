@@ -25,6 +25,8 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string RegisteredOwnerSurname { get; set; }
         string RegisteredOwnerTel { get; set; }
         string RegisteredOwnerEmail { get; set; }
+        string RegisteredOwnerInitials { get; set; }
+        string RegisteredOwnerTitle { get; set; }
         string BreedGroupJudgeName { get; set; }
         string BreedJudgeName { get; set; }
         string Sire { get; set; }

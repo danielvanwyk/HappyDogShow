@@ -17,9 +17,21 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="ActualJudgeName">
+          <DataField>ActualJudgeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Breeder">
+          <DataField>Breeder</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="BreedGroupId">
           <DataField>BreedGroupId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreedGroupJudgeName">
+          <DataField>BreedGroupJudgeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BreedGroupName">
           <DataField>BreedGroupName</DataField>
@@ -29,9 +41,21 @@
           <DataField>BreedId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="BreedJudgeName">
+          <DataField>BreedJudgeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="BreedName">
           <DataField>BreedName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Dam">
+          <DataField>Dam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DOB">
+          <DataField>DOB</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="DogId">
           <DataField>DogId</DataField>
@@ -73,12 +97,36 @@
           <DataField>Id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="IDNumber">
+          <DataField>IDNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="IsDirty">
           <DataField>IsDirty</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="RegisteredOwner">
+          <DataField>RegisteredOwner</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RegisteredOwnerEmail">
+          <DataField>RegisteredOwnerEmail</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RegisteredOwnerInitials">
+          <DataField>RegisteredOwnerInitials</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="RegisteredOwnerSurname">
           <DataField>RegisteredOwnerSurname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RegisteredOwnerTel">
+          <DataField>RegisteredOwnerTel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RegisteredOwnerTitle">
+          <DataField>RegisteredOwnerTitle</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ShowId">
@@ -87,6 +135,10 @@
         </Field>
         <Field Name="ShowName">
           <DataField>ShowName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sire">
+          <DataField>Sire</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -244,13 +296,13 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="RegisteredOwnerSurname">
+                            <Textbox Name="RegisteredOwner">
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!RegisteredOwnerSurname.Value</Value>
+                                      <Value>=Fields!RegisteredOwner.Value</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
                                       </Style>
@@ -259,7 +311,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>RegisteredOwnerSurname</rd:DefaultName>
+                              <rd:DefaultName>RegisteredOwner</rd:DefaultName>
                               <Top>28.35mm</Top>
                               <Left>5mm</Left>
                               <Height>5mm</Height>

@@ -209,6 +209,8 @@ namespace HappyDogShow.Services
                                 d.Dog.Breed.BreedGroup.Name, 
                                 d.Dog.Breed.Name, 
                                 d.Dog.RegisteredOwnerSurname, 
+                                d.Dog.RegisteredOwnerTitle,
+                                d.Dog.RegisteredOwnerInitials,
                                 d.Dog.Gender.Name descending, 
                                 d.Dog.RegisrationNumber,
                                 d.Dog.RegisteredName
@@ -229,6 +231,8 @@ namespace HappyDogShow.Services
                                EntryNumber = d.Number,
                                EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name),
                                RegisteredOwnerSurname = d.Dog.RegisteredOwnerSurname,
+                               RegisteredOwnerInitials = d.Dog.RegisteredOwnerInitials,
+                               RegisteredOwnerTitle = d.Dog.RegisteredOwnerTitle,
                                BreedGroupJudgeName = d.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == d.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.Name,
                                BreedJudgeName = d.Show.ShowBreedJudges.Where(i => i.Breed.ID == d.Dog.Breed.ID).FirstOrDefault().Judge.Name,
                                Sire = d.Dog.Sire,

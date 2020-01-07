@@ -30,9 +30,41 @@ namespace HappyDogShow.SharedModels
         }
         public IEnumerable<string> EnteredClasses { get; set; }
         public string EnteredClassNames { get; set; }
-        public string RegisteredOwnerSurname { get; set; }
+        private string registeredOwnerSurname;
+        public string RegisteredOwnerSurname 
+        { 
+            get { return registeredOwnerSurname; }
+            set { SetProperty(ref registeredOwnerSurname, value.Trim()); }
+        }
         public string RegisteredOwnerTel { get; set; }
         public string RegisteredOwnerEmail { get; set; }
+
+        private string registeredOwnerInitials;
+        public string RegisteredOwnerInitials
+        {
+            get { return registeredOwnerInitials; }
+            set
+            {
+                if (value == null)
+                    value = "";
+                SetProperty(ref registeredOwnerInitials, value.Trim());
+            }
+        }
+        private string registeredOwnerTitle;
+        public string RegisteredOwnerTitle
+        {
+            get { return registeredOwnerTitle; }
+            set 
+            {
+                if (value == null)
+                    value = "";
+                SetProperty(ref registeredOwnerTitle, value.Trim()); 
+            }
+        }
+        public string RegisteredOwner
+        {
+            get { return string.Format("{0}, {1} {2}", registeredOwnerSurname, RegisteredOwnerTitle, RegisteredOwnerInitials); }
+        }
         public string BreedGroupJudgeName { get; set; }
         public string BreedJudgeName { get; set; }
         public string ActualJudgeName

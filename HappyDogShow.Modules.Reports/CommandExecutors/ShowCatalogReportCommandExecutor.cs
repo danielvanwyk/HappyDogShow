@@ -15,12 +15,15 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
     {
         private IBreedEntryService _breedEntryService;
         private IReportViewerService _reportViewerService;
+        private IHandlerEntryService _handlerEntryService;
+
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService)
+        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
+            _handlerEntryService = handlerEntryService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
             DogShowReportCommands.ShowCatalogReportCommand.RegisterCommand(commandHandler);
@@ -31,8 +34,12 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             List<IBreedEntryEntityWithAdditionalData> items = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>();
             var data = items.Where(i => i.ShowId == obj.Id).ToList();
 
+            List<IHandlerEntryEntityWithAdditionalData> handleritems = await _handlerEntryService.GetHandlerEntryListAsync<HandlerEntryEntityWithAdditionalData>();
+            var handlerdata = handleritems.Where(i => i.ShowId == obj.Id).ToList();
+
             Dictionary<string, object> datasources = new Dictionary<string, object>();
             datasources.Add("DSBreedEntriesForShow", data);
+            datasources.Add("DSHandlerEntriesForShow", handlerdata);
 
             var ds = new List<IDogShowEntity>();
             ds.Add(obj); 

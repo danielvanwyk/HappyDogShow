@@ -37,7 +37,7 @@
                             <DataGridTextColumn Header="Show" Width="auto" Binding="{Binding ShowName}" />
                             <DataGridTextColumn Header="Group" Width="auto" Binding="{Binding BreedGroupName}" />
                             <DataGridTextColumn Header="Breed" Width="auto" Binding="{Binding BreedName}" />
-                            <DataGridTextColumn Header="Registered Owner(s)" Width="auto" Binding="{Binding RegisteredOwnerSurname}" />
+                            <DataGridTextColumn Header="Registered Owner(s)" Width="auto" Binding="{Binding RegisteredOwner}" />
                             <DataGridTextColumn Header="Gender" Width="auto" Binding="{Binding GenderName}" />
                             <DataGridTextColumn Header="Dog" Width="auto" Binding="{Binding DogName}" />
                             <DataGridTextColumn Header="Reg #" Width="auto" Binding="{Binding DogRegistrationNumber}" />

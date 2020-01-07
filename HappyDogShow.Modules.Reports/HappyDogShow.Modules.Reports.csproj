@@ -83,6 +83,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryEntityWithAdditionalData.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.DogShowDetail.datasource" />
+    <None Include="Properties\DataSources\HappyDogShow.SharedModels.HandlerEntryEntityWithAdditionalData.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HappyDogShow.Infrastructure\HappyDogShow.Infrastructure.csproj">

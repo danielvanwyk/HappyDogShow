@@ -1,5 +1,6 @@
 ﻿using HappyDogShow.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Models;
+using System;
 using System.Collections.Generic;
 
 namespace HappyDogShow.SharedModels
@@ -40,5 +41,9 @@ namespace HappyDogShow.SharedModels
         }
         public string EnteredClassName { get; set; }
         public int Id { get; set; }
+        public string DogBreed { get; set; }
+        public DateTime DOB { get; set; }
+        public string Email { get; set; }
+        public string Tel { get; set; }
     }
 }

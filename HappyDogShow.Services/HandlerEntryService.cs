@@ -144,7 +144,12 @@ namespace HappyDogShow.Services
                                DogId = d.Dog.ID,
                                DogRegistrationNumber = d.Dog.RegisrationNumber,
                                EntryNumber = d.Number,
-                               EnteredClassName = d.EnteredClass.Name
+                               EnteredClassName = d.EnteredClass.Name,
+                               DogBreed = d.Dog.Breed.Name,
+                               DOB = d.Handler.DateOfBirth,
+                               Email = d.Handler.Email,
+                               Tel = d.Handler.Tel
+
                            };
 
                 foreach (var item in data)

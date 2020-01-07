@@ -21,5 +21,9 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string DogRegistrationNumber { get; set; }
         string EntryNumber { get; set; }
         string EnteredClassName { get; set; }
+        string DogBreed { get; set; }
+        DateTime DOB { get; set; }
+        string Email { get; set; }
+        string Tel { get; set; }
     }
 }
