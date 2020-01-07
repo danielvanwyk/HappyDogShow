@@ -290,6 +290,7 @@ namespace HappyDogShow.Services
             using (var ctx = new HappyDogShowContext())
             {
                 var rawData = from c in ctx.BreedClassEntries
+                              where c.Entry.Show != null
                               select c;
 
                 if (dogShowId > 0)
