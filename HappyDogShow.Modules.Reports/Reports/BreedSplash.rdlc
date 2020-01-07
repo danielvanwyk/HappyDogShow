@@ -24,9 +24,17 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="ActualJudgeName">
+          <DataField>ActualJudgeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="BreedGroupId">
           <DataField>BreedGroupId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreedGroupJudgeName">
+          <DataField>BreedGroupJudgeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BreedGroupName">
           <DataField>BreedGroupName</DataField>
@@ -35,6 +43,10 @@
         <Field Name="BreedId">
           <DataField>BreedId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreedJudgeName">
+          <DataField>BreedJudgeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BreedName">
           <DataField>BreedName</DataField>
@@ -72,9 +84,21 @@
           <DataField>GenderName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="HasErrors">
+          <DataField>HasErrors</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
         <Field Name="Id">
           <DataField>Id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IsDirty">
+          <DataField>IsDirty</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="RegisteredOwnerSurname">
+          <DataField>RegisteredOwnerSurname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ShowId">
           <DataField>ShowId</DataField>
@@ -103,7 +127,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>6.72126cm</Height>
+                  <Height>7.32126cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -146,7 +170,7 @@
                                   <TablixCornerRow>
                                     <TablixCornerCell>
                                       <CellContents>
-                                        <Textbox Name="Textbox6">
+                                        <Textbox Name="Textbox11">
                                           <CanGrow>true</CanGrow>
                                           <KeepTogether>true</KeepTogether>
                                           <Paragraphs>
@@ -160,7 +184,37 @@
                                               <Style />
                                             </Paragraph>
                                           </Paragraphs>
-                                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                                          <Style>
+                                            <Border>
+                                              <Color>LightGrey</Color>
+                                              <Style>None</Style>
+                                            </Border>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                            <PaddingTop>2pt</PaddingTop>
+                                            <PaddingBottom>2pt</PaddingBottom>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixCornerCell>
+                                    <TablixCornerCell>
+                                      <CellContents>
+                                        <Textbox Name="Textbox34">
+                                          <CanGrow>true</CanGrow>
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value />
+                                                  <Style />
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style />
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>Textbox34</rd:DefaultName>
                                           <Style>
                                             <Border>
                                               <Color>LightGrey</Color>
@@ -326,7 +380,7 @@
                                       </SortExpression>
                                     </SortExpressions>
                                     <TablixHeader>
-                                      <Size>11.25771cm</Size>
+                                      <Size>10.06708cm</Size>
                                       <CellContents>
                                         <Textbox Name="BreedName">
                                           <CanGrow>true</CanGrow>
@@ -359,12 +413,47 @@
                                       </CellContents>
                                     </TablixHeader>
                                     <TablixMembers>
-                                      <TablixMember />
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>2.76458cm</Size>
+                                          <CellContents>
+                                            <Textbox Name="BreedJudgeName">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>=Fields!BreedJudgeName.Value</Value>
+                                                      <Style />
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style />
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>BreedJudgeName</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Color>LightGrey</Color>
+                                                  <Style>None</Style>
+                                                </Border>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                                <PaddingTop>2pt</PaddingTop>
+                                                <PaddingBottom>2pt</PaddingBottom>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                        <TablixMembers>
+                                          <TablixMember />
+                                        </TablixMembers>
+                                      </TablixMember>
                                     </TablixMembers>
                                   </TablixMember>
                                   <TablixMember>
                                     <TablixHeader>
-                                      <Size>11.25771cm</Size>
+                                      <Size>10.06708cm</Size>
                                       <CellContents>
                                         <Textbox Name="Textbox9">
                                           <CanGrow>true</CanGrow>
@@ -399,7 +488,46 @@
                                       </CellContents>
                                     </TablixHeader>
                                     <TablixMembers>
-                                      <TablixMember />
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>2.76458cm</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox33">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value />
+                                                      <Style>
+                                                        <FontSize>20pt</FontSize>
+                                                      </Style>
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style />
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox33</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>None</Style>
+                                                </Border>
+                                                <RightBorder>
+                                                  <Style>None</Style>
+                                                </RightBorder>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                                <PaddingTop>2pt</PaddingTop>
+                                                <PaddingBottom>2pt</PaddingBottom>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                        <TablixMembers>
+                                          <TablixMember />
+                                        </TablixMembers>
+                                      </TablixMember>
                                     </TablixMembers>
                                     <KeepWithGroup>Before</KeepWithGroup>
                                   </TablixMember>
@@ -408,7 +536,7 @@
                               <DataSetName>DSBreedEntriesForShow</DataSetName>
                               <Top>3.75709cm</Top>
                               <Height>2.96417cm</Height>
-                              <Width>13.06979cm</Width>
+                              <Width>14.64375cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -423,7 +551,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>="Judge: " &amp; Fields!ShowName.Value</Value>
+                                      <Value>="Judge: " &amp; Fields!BreedGroupJudgeName.Value</Value>
                                       <Style>
                                         <FontSize>20pt</FontSize>
                                       </Style>
@@ -483,7 +611,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DSBreedEntriesForShow</DataSetName>
-            <Height>6.72126cm</Height>
+            <Height>7.32126cm</Height>
             <Width>18.50667cm</Width>
             <Style>
               <Border>
@@ -492,7 +620,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.64616in</Height>
+        <Height>2.88239in</Height>
         <Style />
       </Body>
       <Width>19.00154cm</Width>
