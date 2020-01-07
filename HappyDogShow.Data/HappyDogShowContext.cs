@@ -37,5 +37,6 @@ namespace HappyDogShow.Data
         public DbSet<HandlerEntry> HandlerEntries { get; set; }
         public DbSet<Judge> Judges { get; set; }
         public DbSet<ShowGroupJudge> ShowGroupJudges { get; set; }
+        public DbSet<ShowBreedJudge> ShowBreedJudges { get; set; }
     }
 }

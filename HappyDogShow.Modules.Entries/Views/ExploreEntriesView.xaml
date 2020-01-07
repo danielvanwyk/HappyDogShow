@@ -44,6 +44,8 @@
                             <DataGridTextColumn Header="Entered Classes" Width="auto" Binding="{Binding EnteredClassNames}" />
                             <DataGridTextColumn Header="Number" Width="auto" Binding="{Binding EntryNumber}" />
                             <DataGridTextColumn Header="Group Judge" Width="auto" Binding="{Binding BreedGroupJudgeName}" />
+                            <DataGridTextColumn Header="Breed Judge" Width="auto" Binding="{Binding BreedJudgeName}" />
+                            <DataGridTextColumn Header="Actual Judge" Width="auto" Binding="{Binding ActualJudgeName}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

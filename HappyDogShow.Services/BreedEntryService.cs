@@ -181,6 +181,19 @@ namespace HappyDogShow.Services
 
             using (var ctx = new HappyDogShowContext())
             {
+                ShowBreedJudge defaultShowBreedJudge = new ShowBreedJudge()
+                {
+                    Breed = new Breed()
+                    {
+                        ID = 0
+                    },
+                    Judge = new Judge()
+                    {
+                        ID = 0,
+                        Name = "n/a"
+                    }
+                };
+
                 var rawdata = from d in ctx.BreedEntries
                               select d;
 
@@ -217,7 +230,7 @@ namespace HappyDogShow.Services
                                EnteredClasses = d.EnteredClasses.Select(i => i.Class.Name),
                                RegisteredOwnerSurname = d.Dog.RegisteredOwnerSurname,
                                BreedGroupJudgeName = d.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == d.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.Name,
-                               BreedGroupJudgeId = d.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == d.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.ID
+                               BreedJudgeName = d.Show.ShowBreedJudges.Where(i => i.Breed.ID == d.Dog.Breed.ID).FirstOrDefault().Judge.Name
                            };
 
                 foreach (var item in data)

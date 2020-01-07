@@ -401,6 +401,16 @@
                 );
 
             context.SaveChanges();
+
+            var bassethound = context.Breeds.Where(c => c.Name == "Basset Hound").First();
+            var shiba = context.Breeds.Where(c => c.Name == "Shiba").First();
+
+            context.ShowBreedJudges.AddOrUpdate(x => x.ID,
+                new ShowBreedJudge() { ID = 1, DogShow = secondShow, Breed = bassethound, Judge = bianca},
+                new ShowBreedJudge() { ID = 2, DogShow = secondShow, Breed = shiba, Judge = nickyRobertson }
+                );
+
+            context.SaveChanges();
         }
     }
 }

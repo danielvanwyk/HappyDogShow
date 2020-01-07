@@ -111,10 +111,15 @@
     <Compile Include="Migrations\202001070948230_ShowBreedGroupJudges.Designer.cs">
       <DependentUpon>202001070948230_ShowBreedGroupJudges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001071130313_ShowBreedJudges.cs" />
+    <Compile Include="Migrations\202001071130313_ShowBreedJudges.Designer.cs">
+      <DependentUpon>202001071130313_ShowBreedJudges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sex.cs" />
+    <Compile Include="ShowBreedJudge.cs" />
     <Compile Include="ShowGroupJudge.cs" />
     <Compile Include="Title.cs" />
   </ItemGroup>
@@ -155,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001070948230_ShowBreedGroupJudges.resx">
       <DependentUpon>202001070948230_ShowBreedGroupJudges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001071130313_ShowBreedJudges.resx">
+      <DependentUpon>202001071130313_ShowBreedJudges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
