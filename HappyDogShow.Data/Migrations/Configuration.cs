@@ -52,7 +52,7 @@
 
 
             context.HandlerClasses.AddOrUpdate(x => x.Name,
-                new HandlerClass() { Name = "Child", MinAgeInYears = 8, MaxAgeInYears = 10, Description = "Child Handler"},
+                new HandlerClass() { Name = "Child", MinAgeInYears = 8, MaxAgeInYears = 10, Description = "Child Handler" },
                 new HandlerClass() { Name = "Junior", MinAgeInYears = 11, MaxAgeInYears = 17, Description = "Junior Handler" },
                 new HandlerClass() { Name = "Adult", MinAgeInYears = 18, MaxAgeInYears = 999, Description = "Adult Handler" }
                 );
@@ -63,7 +63,7 @@
 
 
             context.BreedClasses.AddOrUpdate(x => x.Name,
-                new BreedClass() { JudgingOrder = 1, Name = "Baby Puppy", MinAgeInMonths = 4, MaxAgeInMonths = 5, Description = "For dogs of four (4) under six (6) months of age on the first day of the show (not eligible for CC or BOB)"},
+                new BreedClass() { JudgingOrder = 1, Name = "Baby Puppy", MinAgeInMonths = 4, MaxAgeInMonths = 5, Description = "For dogs of four (4) under six (6) months of age on the first day of the show (not eligible for CC or BOB)" },
                 new BreedClass() { JudgingOrder = 2, Name = "Minor Puppy", MinAgeInMonths = 6, MaxAgeInMonths = 8, Description = "For dogs of six (6) under nine (9) months of age on the first day of the Show." },
                 new BreedClass() { JudgingOrder = 3, Name = "Puppy", MinAgeInMonths = 9, MaxAgeInMonths = 11, Description = "For dogs of nine (9) under twelve (12) months of age on the first day of the Show." },
                 new BreedClass() { JudgingOrder = 4, Name = "Junior", MinAgeInMonths = 12, MaxAgeInMonths = 17, Description = "For dogs of twelve (12) under eighteen (18) months of age on the first day of the Show." },
@@ -91,7 +91,7 @@
                 new BreedGroup() { Name = "Terrier" },
                 new BreedGroup() { Name = "Toy" },
                 new BreedGroup() { Name = "Utility" },
-                new BreedGroup() { Name = "Working"}
+                new BreedGroup() { Name = "Working" }
                 );
 
             context.SaveChanges();
@@ -351,10 +351,10 @@
             );
 
             context.Judges.AddOrUpdate(x => x.Name,
-                new Judge() { Name = "Liz Raubenheimer"},
+                new Judge() { Name = "Liz Raubenheimer" },
                 new Judge() { Name = "Nicky Robertson" },
                 new Judge() { Name = "Sue Carter" },
-                new Judge() { Name = "Bianca Teixeira (Brazil)"},
+                new Judge() { Name = "Bianca Teixeira (Brazil)" },
                 new Judge() { Name = "Leoni Kroff" },
                 new Judge() { Name = "Dale Fabian" },
                 new Judge() { Name = "Ian Holdsworth" },
@@ -406,11 +406,64 @@
             var shiba = context.Breeds.Where(c => c.Name == "Shiba").First();
 
             context.ShowBreedJudges.AddOrUpdate(x => x.ID,
-                new ShowBreedJudge() { ID = 1, DogShow = secondShow, Breed = bassethound, Judge = bianca},
+                new ShowBreedJudge() { ID = 1, DogShow = secondShow, Breed = bassethound, Judge = bianca },
                 new ShowBreedJudge() { ID = 2, DogShow = secondShow, Breed = shiba, Judge = nickyRobertson }
                 );
 
             context.SaveChanges();
+
+            context.ShowChallenges.AddOrUpdate(x => x.Name,
+                new ShowChallenge() { JudgingOrder = 1, Name = "Best in Show", Abbreviation = "BIS" },
+                new ShowChallenge() { JudgingOrder = 2, Name = "Best Puppy in Show", Abbreviation = "BPIS" },
+                new ShowChallenge() { JudgingOrder = 3, Name = "Best Junior in Show", Abbreviation = "BJIS" },
+                new ShowChallenge() { JudgingOrder = 4, Name = "Best Veteran in Show", Abbreviation = "BVIS" },
+                new ShowChallenge() { JudgingOrder = 5, Name = "Best Baby Puppy in Show", Abbreviation = "BBPIS" },
+                new ShowChallenge() { JudgingOrder = 6, Name = "Best Neuter in Show", Abbreviation = "BNIS" }
+                );
+
+            context.SaveChanges();
+
+            ShowChallenge bis = context.ShowChallenges.Where(c => c.Abbreviation == "BIS").First();
+            ShowChallenge bpis = context.ShowChallenges.Where(c => c.Abbreviation == "BPIS").First();
+            ShowChallenge bjis = context.ShowChallenges.Where(c => c.Abbreviation == "BJIS").First();
+            ShowChallenge bvis = context.ShowChallenges.Where(c => c.Abbreviation == "BVIS").First();
+            ShowChallenge bbpis = context.ShowChallenges.Where(c => c.Abbreviation == "BBPIS").First();
+            ShowChallenge bnis = context.ShowChallenges.Where(c => c.Abbreviation == "BNIS").First();
+
+            context.BreedGroupChallenges.AddOrUpdate(x => x.Name,
+                new BreedGroupChallenge() { JudgingOrder = 1, Name = "Best in Group", Abbreviation = "BIG", ShowChallenge = bis },
+                new BreedGroupChallenge() { JudgingOrder = 2, Name = "Best Puppy in Group", Abbreviation = "BPIG", ShowChallenge = bpis },
+                new BreedGroupChallenge() { JudgingOrder = 3, Name = "Best Junior in Group", Abbreviation = "BJIG", ShowChallenge = bjis },
+                new BreedGroupChallenge() { JudgingOrder = 4, Name = "Best Veteran in Group", Abbreviation = "BVIG", ShowChallenge = bvis },
+                new BreedGroupChallenge() { JudgingOrder = 5, Name = "Best Baby Puppy in Group", Abbreviation = "BBPIG", ShowChallenge = bbpis },
+                new BreedGroupChallenge() { JudgingOrder = 6, Name = "Best Neuter in Group", Abbreviation = "BNIG", ShowChallenge = bnis }
+                );
+
+            context.SaveChanges();
+
+            BreedGroupChallenge big = context.BreedGroupChallenges.Where(c => c.Abbreviation == "BIG").First();
+            BreedGroupChallenge bpig = context.BreedGroupChallenges.Where(c => c.Abbreviation == "BPIG").First();
+            BreedGroupChallenge bjig = context.BreedGroupChallenges.Where(c => c.Abbreviation == "BJIG").First();
+            BreedGroupChallenge bvig = context.BreedGroupChallenges.Where(c => c.Abbreviation == "BVIG").First();
+            BreedGroupChallenge bbpig = context.BreedGroupChallenges.Where(c => c.Abbreviation == "BBPIG").First();
+            BreedGroupChallenge bnig = context.BreedGroupChallenges.Where(c => c.Abbreviation == "BNIG").First();
+
+            context.BreedChallenges.AddOrUpdate(x => x.Name,
+    new BreedChallenge() { JudgingOrder = 1, Abbreviation = "", Name = "Dog CC (2 points)", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 2, Abbreviation = "", Name = "Dog CC (1 point)", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 3, Abbreviation = "", Name = "Dog RCC", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 4, Abbreviation = "", Name = "Bitch CC (2 points)", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 5, Abbreviation = "", Name = "Bitch CC (1 point)", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 6, Abbreviation = "", Name = "Bitch RCC", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 7, Abbreviation = "BOB", Name = "Best of Breed", BreedGroupChallenge = big },
+    new BreedChallenge() { JudgingOrder = 8, Abbreviation = "RBOB", Name = "Reserve Best of Breed", BreedGroupChallenge = null },
+    new BreedChallenge() { JudgingOrder = 9, Abbreviation = "BPIB", Name = "Best Puppy", BreedGroupChallenge = bpig },
+    new BreedChallenge() { JudgingOrder = 10, Abbreviation = "BJIB", Name = "Best Junior", BreedGroupChallenge = bjig },
+    new BreedChallenge() { JudgingOrder = 11, Abbreviation = "BVIB", Name = "Best Veteran", BreedGroupChallenge = bvig },
+    new BreedChallenge() { JudgingOrder = 12, Abbreviation = "BBPIB", Name = "Best Baby Puppy", BreedGroupChallenge = bbpig },
+    new BreedChallenge() { JudgingOrder = 13, Abbreviation = "BNIB", Name = "Best Neuter", BreedGroupChallenge = bnig }
+    );
+
         }
     }
 }

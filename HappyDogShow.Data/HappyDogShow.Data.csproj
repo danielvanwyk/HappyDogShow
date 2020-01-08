@@ -50,10 +50,12 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Breed.cs" />
+    <Compile Include="BreedChallenge.cs" />
     <Compile Include="BreedClass.cs" />
     <Compile Include="BreedClassEntry.cs" />
     <Compile Include="BreedEntry.cs" />
     <Compile Include="BreedGroup.cs" />
+    <Compile Include="BreedGroupChallenge.cs" />
     <Compile Include="Club.cs" />
     <Compile Include="Discipline.cs" />
     <Compile Include="DisciplineClass.cs" />
@@ -119,11 +121,16 @@
     <Compile Include="Migrations\202001080828021_BreedClassOrderOfJudging.Designer.cs">
       <DependentUpon>202001080828021_BreedClassOrderOfJudging.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001081039037_AdditionalChallenges.cs" />
+    <Compile Include="Migrations\202001081039037_AdditionalChallenges.Designer.cs">
+      <DependentUpon>202001081039037_AdditionalChallenges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sex.cs" />
     <Compile Include="ShowBreedJudge.cs" />
+    <Compile Include="ShowChallenge.cs" />
     <Compile Include="ShowGroupJudge.cs" />
     <Compile Include="Title.cs" />
   </ItemGroup>
@@ -170,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001080828021_BreedClassOrderOfJudging.resx">
       <DependentUpon>202001080828021_BreedClassOrderOfJudging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081039037_AdditionalChallenges.resx">
+      <DependentUpon>202001081039037_AdditionalChallenges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
