@@ -10,6 +10,7 @@ namespace HappyDogShow.SharedModels
 {
     public class BreedEntryClassEntry : ValidatableBindableBase, IBreedEntryClassEntry
     {
+        public static int colsperrow = 5;
         public int Id { get; set; }
         public string ShowName { get; set; }
         public int ShowId { get; set; }
@@ -66,6 +67,41 @@ namespace HappyDogShow.SharedModels
         {
             get { return result; }
             set { SetProperty(ref result, value); }
+        }
+
+
+
+        public string ReportGroupingKey
+        {
+            get { return string.Format("{0}.{1}.{2}.{3}.{4}", ShowName, BreedGroupName, BreedName, GenderName, EnteredClassName); }
+        }
+
+        public string ReportSortingKey
+        {
+            get { return string.Format("{0}.{1}.{2}.{3}.{4}.{5}", ShowName, BreedGroupName, BreedName, GenderName, EnteredClassName, EntryNumber.PadLeft(4, '0')); }
+        }
+
+        public int ReportingRank { get; set; }
+
+        public int ReportingRankRow
+        {
+            get
+            {
+                return ReportingRank / colsperrow;
+            }
+        }
+
+        public int ReportingRankColumn
+        {
+            get
+            {
+                int result = ReportingRank % colsperrow;
+
+                if (ReportingRankRow == 0)
+                    result--;
+
+                return result;
+            }
         }
     }
 }

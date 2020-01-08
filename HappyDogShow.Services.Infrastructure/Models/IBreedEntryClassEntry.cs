@@ -26,5 +26,11 @@ namespace HappyDogShow.Services.Infrastructure.Models
         int EnteredClassMaxAgeInMonths { get; set; }
         int EnteredClassMinAgeInMonths { get; set; }
         string Result { get; set; }
+
+        string ReportGroupingKey { get; }
+        string ReportSortingKey { get; }
+        int ReportingRank { get; set; }
+        int ReportingRankRow { get; }
+        int ReportingRankColumn { get; }
     }
 }

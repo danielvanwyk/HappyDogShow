@@ -1,0 +1,1356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="listByBreedGroup">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>18cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.41958cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox153">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Breed group begin</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox151</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>1.79917cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox149">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!BreedGroupName.Value &amp; " Group"</Value>
+                              <Style>
+                                <FontSize>20pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox149</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>10.42266cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="listByBreedGroupContent">
+                      <ReportItems>
+                        <Tablix Name="listByBreed">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>18cm</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.67938cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox158">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>**************** Breed begin</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox158</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>1cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox150">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!BreedGroupName.Value &amp; " Group"</Value>
+                                                <Style>
+                                                  <FontSize>20pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox149</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.8cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="BreedName2">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!BreedName.Value</Value>
+                                                <Style>
+                                                  <FontSize>16pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>BreedName2</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.5cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox200">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>CLASS ENTRIES AND RESULTS</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox200</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <BackgroundColor>Silver</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>4.59162cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Rectangle Name="listByBreedContent">
+                                        <ReportItems>
+                                          <Tablix Name="listByGender">
+                                            <TablixBody>
+                                              <TablixColumns>
+                                                <TablixColumn>
+                                                  <Width>18cm</Width>
+                                                </TablixColumn>
+                                              </TablixColumns>
+                                              <TablixRows>
+                                                <TablixRow>
+                                                  <Height>0.6cm</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox204">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>----------- Gender begin</Value>
+                                                                  <Style />
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox204</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                                <TablixRow>
+                                                  <Height>0.6cm</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="GenderName">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!GenderName.Value</Value>
+                                                                  <Style />
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>GenderName</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <BottomBorder>
+                                                              <Style>Solid</Style>
+                                                            </BottomBorder>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                                <TablixRow>
+                                                  <Height>2.7175cm</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Rectangle Name="listByGenderContent">
+                                                          <ReportItems>
+                                                            <Tablix Name="Tablix2">
+                                                              <TablixCorner>
+                                                                <TablixCornerRows>
+                                                                  <TablixCornerRow>
+                                                                    <TablixCornerCell>
+                                                                      <CellContents>
+                                                                        <Textbox Name="Textbox223">
+                                                                          <CanGrow>true</CanGrow>
+                                                                          <KeepTogether>true</KeepTogether>
+                                                                          <Paragraphs>
+                                                                            <Paragraph>
+                                                                              <TextRuns>
+                                                                                <TextRun>
+                                                                                  <Value />
+                                                                                  <Style />
+                                                                                </TextRun>
+                                                                              </TextRuns>
+                                                                              <Style />
+                                                                            </Paragraph>
+                                                                          </Paragraphs>
+                                                                          <rd:DefaultName>Textbox223</rd:DefaultName>
+                                                                          <Style>
+                                                                            <Border>
+                                                                              <Color>LightGrey</Color>
+                                                                              <Style>None</Style>
+                                                                            </Border>
+                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                          </Style>
+                                                                        </Textbox>
+                                                                      </CellContents>
+                                                                    </TablixCornerCell>
+                                                                    <TablixCornerCell>
+                                                                      <CellContents>
+                                                                        <Textbox Name="Textbox224">
+                                                                          <CanGrow>true</CanGrow>
+                                                                          <KeepTogether>true</KeepTogether>
+                                                                          <Paragraphs>
+                                                                            <Paragraph>
+                                                                              <TextRuns>
+                                                                                <TextRun>
+                                                                                  <Value />
+                                                                                  <Style />
+                                                                                </TextRun>
+                                                                              </TextRuns>
+                                                                              <Style />
+                                                                            </Paragraph>
+                                                                          </Paragraphs>
+                                                                          <rd:DefaultName>Textbox224</rd:DefaultName>
+                                                                          <Style>
+                                                                            <Border>
+                                                                              <Color>LightGrey</Color>
+                                                                              <Style>None</Style>
+                                                                            </Border>
+                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                          </Style>
+                                                                        </Textbox>
+                                                                      </CellContents>
+                                                                    </TablixCornerCell>
+                                                                  </TablixCornerRow>
+                                                                </TablixCornerRows>
+                                                              </TablixCorner>
+                                                              <TablixBody>
+                                                                <TablixColumns>
+                                                                  <TablixColumn>
+                                                                    <Width>1.28292cm</Width>
+                                                                  </TablixColumn>
+                                                                </TablixColumns>
+                                                                <TablixRows>
+                                                                  <TablixRow>
+                                                                    <Height>0.6cm</Height>
+                                                                    <TablixCells>
+                                                                      <TablixCell>
+                                                                        <CellContents>
+                                                                          <Textbox Name="Textbox143">
+                                                                            <CanGrow>true</CanGrow>
+                                                                            <KeepTogether>true</KeepTogether>
+                                                                            <Paragraphs>
+                                                                              <Paragraph>
+                                                                                <TextRuns>
+                                                                                  <TextRun>
+                                                                                    <Value />
+                                                                                    <Style />
+                                                                                  </TextRun>
+                                                                                </TextRuns>
+                                                                                <Style />
+                                                                              </Paragraph>
+                                                                            </Paragraphs>
+                                                                            <rd:DefaultName>Textbox143</rd:DefaultName>
+                                                                            <Style>
+                                                                              <Border>
+                                                                                <Color>LightGrey</Color>
+                                                                                <Style>None</Style>
+                                                                              </Border>
+                                                                              <PaddingLeft>2pt</PaddingLeft>
+                                                                              <PaddingRight>2pt</PaddingRight>
+                                                                              <PaddingTop>2pt</PaddingTop>
+                                                                              <PaddingBottom>2pt</PaddingBottom>
+                                                                            </Style>
+                                                                          </Textbox>
+                                                                        </CellContents>
+                                                                      </TablixCell>
+                                                                    </TablixCells>
+                                                                  </TablixRow>
+                                                                  <TablixRow>
+                                                                    <Height>0.6cm</Height>
+                                                                    <TablixCells>
+                                                                      <TablixCell>
+                                                                        <CellContents>
+                                                                          <Textbox Name="Textbox144">
+                                                                            <CanGrow>true</CanGrow>
+                                                                            <KeepTogether>true</KeepTogether>
+                                                                            <Paragraphs>
+                                                                              <Paragraph>
+                                                                                <TextRuns>
+                                                                                  <TextRun>
+                                                                                    <Value />
+                                                                                    <Style />
+                                                                                  </TextRun>
+                                                                                </TextRuns>
+                                                                                <Style />
+                                                                              </Paragraph>
+                                                                            </Paragraphs>
+                                                                            <rd:DefaultName>Textbox144</rd:DefaultName>
+                                                                            <Style>
+                                                                              <Border>
+                                                                                <Color>LightGrey</Color>
+                                                                                <Style>None</Style>
+                                                                              </Border>
+                                                                              <PaddingLeft>2pt</PaddingLeft>
+                                                                              <PaddingRight>2pt</PaddingRight>
+                                                                              <PaddingTop>2pt</PaddingTop>
+                                                                              <PaddingBottom>2pt</PaddingBottom>
+                                                                            </Style>
+                                                                          </Textbox>
+                                                                        </CellContents>
+                                                                      </TablixCell>
+                                                                    </TablixCells>
+                                                                  </TablixRow>
+                                                                  <TablixRow>
+                                                                    <Height>0.6cm</Height>
+                                                                    <TablixCells>
+                                                                      <TablixCell>
+                                                                        <CellContents>
+                                                                          <Textbox Name="EntryNumber2">
+                                                                            <CanGrow>true</CanGrow>
+                                                                            <KeepTogether>true</KeepTogether>
+                                                                            <Paragraphs>
+                                                                              <Paragraph>
+                                                                                <TextRuns>
+                                                                                  <TextRun>
+                                                                                    <Value>=Fields!EntryNumber.Value</Value>
+                                                                                    <Style />
+                                                                                  </TextRun>
+                                                                                </TextRuns>
+                                                                                <Style />
+                                                                              </Paragraph>
+                                                                            </Paragraphs>
+                                                                            <rd:DefaultName>EntryNumber2</rd:DefaultName>
+                                                                            <Style>
+                                                                              <Border>
+                                                                                <Color>LightGrey</Color>
+                                                                                <Style>None</Style>
+                                                                              </Border>
+                                                                              <PaddingLeft>2pt</PaddingLeft>
+                                                                              <PaddingRight>2pt</PaddingRight>
+                                                                              <PaddingTop>2pt</PaddingTop>
+                                                                              <PaddingBottom>2pt</PaddingBottom>
+                                                                            </Style>
+                                                                          </Textbox>
+                                                                        </CellContents>
+                                                                      </TablixCell>
+                                                                    </TablixCells>
+                                                                  </TablixRow>
+                                                                </TablixRows>
+                                                              </TablixBody>
+                                                              <TablixColumnHierarchy>
+                                                                <TablixMembers>
+                                                                  <TablixMember>
+                                                                    <Group Name="ReportingRankColumn1">
+                                                                      <GroupExpressions>
+                                                                        <GroupExpression>=Fields!ReportingRankColumn.Value</GroupExpression>
+                                                                      </GroupExpressions>
+                                                                    </Group>
+                                                                    <SortExpressions>
+                                                                      <SortExpression>
+                                                                        <Value>=Fields!ReportingRankColumn.Value</Value>
+                                                                      </SortExpression>
+                                                                    </SortExpressions>
+                                                                    <TablixHeader>
+                                                                      <Size>0.6cm</Size>
+                                                                      <CellContents>
+                                                                        <Textbox Name="Textbox225">
+                                                                          <CanGrow>true</CanGrow>
+                                                                          <KeepTogether>true</KeepTogether>
+                                                                          <Paragraphs>
+                                                                            <Paragraph>
+                                                                              <TextRuns>
+                                                                                <TextRun>
+                                                                                  <Value />
+                                                                                  <Style />
+                                                                                </TextRun>
+                                                                              </TextRuns>
+                                                                              <Style />
+                                                                            </Paragraph>
+                                                                          </Paragraphs>
+                                                                          <rd:DefaultName>Textbox225</rd:DefaultName>
+                                                                          <Style>
+                                                                            <Border>
+                                                                              <Color>LightGrey</Color>
+                                                                              <Style>None</Style>
+                                                                            </Border>
+                                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                                            <PaddingRight>2pt</PaddingRight>
+                                                                            <PaddingTop>2pt</PaddingTop>
+                                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                                          </Style>
+                                                                        </Textbox>
+                                                                      </CellContents>
+                                                                    </TablixHeader>
+                                                                  </TablixMember>
+                                                                </TablixMembers>
+                                                              </TablixColumnHierarchy>
+                                                              <TablixRowHierarchy>
+                                                                <TablixMembers>
+                                                                  <TablixMember>
+                                                                    <Group Name="BreedName1">
+                                                                      <GroupExpressions>
+                                                                        <GroupExpression>=Fields!BreedName.Value</GroupExpression>
+                                                                      </GroupExpressions>
+                                                                    </Group>
+                                                                    <SortExpressions>
+                                                                      <SortExpression>
+                                                                        <Value>=Fields!BreedName.Value</Value>
+                                                                      </SortExpression>
+                                                                    </SortExpressions>
+                                                                    <TablixMembers>
+                                                                      <TablixMember>
+                                                                        <TablixHeader>
+                                                                          <Size>2.5cm</Size>
+                                                                          <CellContents>
+                                                                            <Textbox Name="Textbox136">
+                                                                              <CanGrow>true</CanGrow>
+                                                                              <KeepTogether>true</KeepTogether>
+                                                                              <Paragraphs>
+                                                                                <Paragraph>
+                                                                                  <TextRuns>
+                                                                                    <TextRun>
+                                                                                      <Value />
+                                                                                      <Style />
+                                                                                    </TextRun>
+                                                                                  </TextRuns>
+                                                                                  <Style />
+                                                                                </Paragraph>
+                                                                              </Paragraphs>
+                                                                              <rd:DefaultName>Textbox136</rd:DefaultName>
+                                                                              <Style>
+                                                                                <Border>
+                                                                                  <Color>LightGrey</Color>
+                                                                                  <Style>None</Style>
+                                                                                </Border>
+                                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                                <PaddingRight>2pt</PaddingRight>
+                                                                                <PaddingTop>2pt</PaddingTop>
+                                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                                              </Style>
+                                                                            </Textbox>
+                                                                          </CellContents>
+                                                                        </TablixHeader>
+                                                                        <TablixMembers>
+                                                                          <TablixMember>
+                                                                            <TablixHeader>
+                                                                              <Size>2.5cm</Size>
+                                                                              <CellContents>
+                                                                                <Textbox Name="Textbox139">
+                                                                                  <CanGrow>true</CanGrow>
+                                                                                  <KeepTogether>true</KeepTogether>
+                                                                                  <Paragraphs>
+                                                                                    <Paragraph>
+                                                                                      <TextRuns>
+                                                                                        <TextRun>
+                                                                                          <Value />
+                                                                                          <Style />
+                                                                                        </TextRun>
+                                                                                      </TextRuns>
+                                                                                      <Style />
+                                                                                    </Paragraph>
+                                                                                  </Paragraphs>
+                                                                                  <rd:DefaultName>Textbox139</rd:DefaultName>
+                                                                                  <Style>
+                                                                                    <Border>
+                                                                                      <Color>LightGrey</Color>
+                                                                                      <Style>None</Style>
+                                                                                    </Border>
+                                                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                                                    <PaddingRight>2pt</PaddingRight>
+                                                                                    <PaddingTop>2pt</PaddingTop>
+                                                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                                                  </Style>
+                                                                                </Textbox>
+                                                                              </CellContents>
+                                                                            </TablixHeader>
+                                                                          </TablixMember>
+                                                                        </TablixMembers>
+                                                                        <Visibility>
+                                                                          <Hidden>true</Hidden>
+                                                                        </Visibility>
+                                                                      </TablixMember>
+                                                                      <TablixMember>
+                                                                        <Group Name="GenderName1">
+                                                                          <GroupExpressions>
+                                                                            <GroupExpression>=Fields!GenderName.Value</GroupExpression>
+                                                                          </GroupExpressions>
+                                                                        </Group>
+                                                                        <SortExpressions>
+                                                                          <SortExpression>
+                                                                            <Value>=Fields!GenderName.Value</Value>
+                                                                          </SortExpression>
+                                                                        </SortExpressions>
+                                                                        <TablixMembers>
+                                                                          <TablixMember>
+                                                                            <TablixHeader>
+                                                                              <Size>2.5cm</Size>
+                                                                              <CellContents>
+                                                                                <Textbox Name="GenderName2">
+                                                                                  <CanGrow>true</CanGrow>
+                                                                                  <KeepTogether>true</KeepTogether>
+                                                                                  <Paragraphs>
+                                                                                    <Paragraph>
+                                                                                      <TextRuns>
+                                                                                        <TextRun>
+                                                                                          <Value>=Fields!GenderName.Value</Value>
+                                                                                          <Style />
+                                                                                        </TextRun>
+                                                                                      </TextRuns>
+                                                                                      <Style />
+                                                                                    </Paragraph>
+                                                                                  </Paragraphs>
+                                                                                  <rd:DefaultName>GenderName2</rd:DefaultName>
+                                                                                  <Style>
+                                                                                    <Border>
+                                                                                      <Color>LightGrey</Color>
+                                                                                      <Style>None</Style>
+                                                                                    </Border>
+                                                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                                                    <PaddingRight>2pt</PaddingRight>
+                                                                                    <PaddingTop>2pt</PaddingTop>
+                                                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                                                  </Style>
+                                                                                </Textbox>
+                                                                              </CellContents>
+                                                                            </TablixHeader>
+                                                                            <TablixMembers>
+                                                                              <TablixMember>
+                                                                                <TablixHeader>
+                                                                                  <Size>2.5cm</Size>
+                                                                                  <CellContents>
+                                                                                    <Textbox Name="Textbox140">
+                                                                                      <CanGrow>true</CanGrow>
+                                                                                      <KeepTogether>true</KeepTogether>
+                                                                                      <Paragraphs>
+                                                                                        <Paragraph>
+                                                                                          <TextRuns>
+                                                                                            <TextRun>
+                                                                                              <Value />
+                                                                                              <Style />
+                                                                                            </TextRun>
+                                                                                          </TextRuns>
+                                                                                          <Style />
+                                                                                        </Paragraph>
+                                                                                      </Paragraphs>
+                                                                                      <rd:DefaultName>Textbox140</rd:DefaultName>
+                                                                                      <Style>
+                                                                                        <Border>
+                                                                                          <Color>LightGrey</Color>
+                                                                                          <Style>None</Style>
+                                                                                        </Border>
+                                                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                                                        <PaddingRight>2pt</PaddingRight>
+                                                                                        <PaddingTop>2pt</PaddingTop>
+                                                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                                                      </Style>
+                                                                                    </Textbox>
+                                                                                  </CellContents>
+                                                                                </TablixHeader>
+                                                                              </TablixMember>
+                                                                            </TablixMembers>
+                                                                            <Visibility>
+                                                                              <Hidden>true</Hidden>
+                                                                            </Visibility>
+                                                                            <KeepWithGroup>After</KeepWithGroup>
+                                                                          </TablixMember>
+                                                                          <TablixMember>
+                                                                            <Group Name="EnteredClassName1">
+                                                                              <GroupExpressions>
+                                                                                <GroupExpression>=Fields!EnteredClassName.Value</GroupExpression>
+                                                                              </GroupExpressions>
+                                                                            </Group>
+                                                                            <SortExpressions>
+                                                                              <SortExpression>
+                                                                                <Value>=Fields!EnteredClassName.Value</Value>
+                                                                              </SortExpression>
+                                                                            </SortExpressions>
+                                                                            <TablixHeader>
+                                                                              <Size>2.5cm</Size>
+                                                                              <CellContents>
+                                                                                <Textbox Name="EnteredClassName1">
+                                                                                  <CanGrow>true</CanGrow>
+                                                                                  <KeepTogether>true</KeepTogether>
+                                                                                  <Paragraphs>
+                                                                                    <Paragraph>
+                                                                                      <TextRuns>
+                                                                                        <TextRun>
+                                                                                          <Value>=Fields!EnteredClassName.Value</Value>
+                                                                                          <Style />
+                                                                                        </TextRun>
+                                                                                      </TextRuns>
+                                                                                      <Style />
+                                                                                    </Paragraph>
+                                                                                  </Paragraphs>
+                                                                                  <rd:DefaultName>EnteredClassName1</rd:DefaultName>
+                                                                                  <Style>
+                                                                                    <Border>
+                                                                                      <Color>LightGrey</Color>
+                                                                                      <Style>None</Style>
+                                                                                    </Border>
+                                                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                                                    <PaddingRight>2pt</PaddingRight>
+                                                                                    <PaddingTop>2pt</PaddingTop>
+                                                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                                                  </Style>
+                                                                                </Textbox>
+                                                                              </CellContents>
+                                                                            </TablixHeader>
+                                                                            <TablixMembers>
+                                                                              <TablixMember>
+                                                                                <Group Name="ReportingRankRow1">
+                                                                                  <GroupExpressions>
+                                                                                    <GroupExpression>=Fields!ReportingRankRow.Value</GroupExpression>
+                                                                                  </GroupExpressions>
+                                                                                </Group>
+                                                                                <SortExpressions>
+                                                                                  <SortExpression>
+                                                                                    <Value>=Fields!ReportingRankRow.Value</Value>
+                                                                                  </SortExpression>
+                                                                                </SortExpressions>
+                                                                                <TablixHeader>
+                                                                                  <Size>2.5cm</Size>
+                                                                                  <CellContents>
+                                                                                    <Textbox Name="ReportingRankRow1">
+                                                                                      <CanGrow>true</CanGrow>
+                                                                                      <KeepTogether>true</KeepTogether>
+                                                                                      <Paragraphs>
+                                                                                        <Paragraph>
+                                                                                          <TextRuns>
+                                                                                            <TextRun>
+                                                                                              <Value>=Fields!ReportingRankRow.Value</Value>
+                                                                                              <Style />
+                                                                                            </TextRun>
+                                                                                          </TextRuns>
+                                                                                          <Style />
+                                                                                        </Paragraph>
+                                                                                      </Paragraphs>
+                                                                                      <rd:DefaultName>ReportingRankRow1</rd:DefaultName>
+                                                                                      <Style>
+                                                                                        <Border>
+                                                                                          <Color>LightGrey</Color>
+                                                                                          <Style>None</Style>
+                                                                                        </Border>
+                                                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                                                        <PaddingRight>2pt</PaddingRight>
+                                                                                        <PaddingTop>2pt</PaddingTop>
+                                                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                                                      </Style>
+                                                                                    </Textbox>
+                                                                                  </CellContents>
+                                                                                </TablixHeader>
+                                                                              </TablixMember>
+                                                                            </TablixMembers>
+                                                                          </TablixMember>
+                                                                        </TablixMembers>
+                                                                      </TablixMember>
+                                                                    </TablixMembers>
+                                                                  </TablixMember>
+                                                                </TablixMembers>
+                                                              </TablixRowHierarchy>
+                                                              <DataSetName>DSBreedEntryClassEntriesForShow</DataSetName>
+                                                              <Height>2.4cm</Height>
+                                                              <Width>6.28292cm</Width>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Style>None</Style>
+                                                                </Border>
+                                                              </Style>
+                                                            </Tablix>
+                                                          </ReportItems>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Style>
+                                                            <Border>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                          </Style>
+                                                        </Rectangle>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                                <TablixRow>
+                                                  <Height>0.6cm</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox203">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>----------- Gender end</Value>
+                                                                  <Style />
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox203</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                              </TablixRows>
+                                            </TablixBody>
+                                            <TablixColumnHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember />
+                                              </TablixMembers>
+                                            </TablixColumnHierarchy>
+                                            <TablixRowHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember>
+                                                  <Group Name="Details">
+                                                    <GroupExpressions>
+                                                      <GroupExpression>=Fields!GenderName.Value</GroupExpression>
+                                                    </GroupExpressions>
+                                                  </Group>
+                                                  <TablixMembers>
+                                                    <TablixMember>
+                                                      <Visibility>
+                                                        <Hidden>true</Hidden>
+                                                      </Visibility>
+                                                    </TablixMember>
+                                                    <TablixMember />
+                                                    <TablixMember />
+                                                    <TablixMember>
+                                                      <Visibility>
+                                                        <Hidden>true</Hidden>
+                                                      </Visibility>
+                                                    </TablixMember>
+                                                  </TablixMembers>
+                                                </TablixMember>
+                                              </TablixMembers>
+                                            </TablixRowHierarchy>
+                                            <DataSetName>DSBreedEntryClassEntriesForShow</DataSetName>
+                                            <Height>4.5175cm</Height>
+                                            <Width>18cm</Width>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                            </Style>
+                                          </Tablix>
+                                        </ReportItems>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                        </Style>
+                                      </Rectangle>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.6cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox201">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>BREED RESULTS</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox201</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <BackgroundColor>Silver</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.6cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox202">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox202</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.6cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox159">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>**************** Breed end</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox158</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <Group Name="groupByBreed">
+                                  <GroupExpressions>
+                                    <GroupExpression>=Fields!BreedName.Value</GroupExpression>
+                                  </GroupExpressions>
+                                  <PageBreak>
+                                    <BreakLocation>Between</BreakLocation>
+                                  </PageBreak>
+                                </Group>
+                                <SortExpressions>
+                                  <SortExpression>
+                                    <Value>=Fields!BreedName.Value</Value>
+                                  </SortExpression>
+                                </SortExpressions>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <Visibility>
+                                      <Hidden>true</Hidden>
+                                    </Visibility>
+                                  </TablixMember>
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember>
+                                    <Visibility>
+                                      <Hidden>true</Hidden>
+                                    </Visibility>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <KeepTogether>true</KeepTogether>
+                          <DataSetName>DSBreedEntryClassEntriesForShow</DataSetName>
+                          <PageBreak>
+                            <BreakLocation>Start</BreakLocation>
+                          </PageBreak>
+                          <Height>9.37099cm</Height>
+                          <Width>18cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                      </ReportItems>
+                      <PageBreak>
+                        <BreakLocation>Start</BreakLocation>
+                      </PageBreak>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>2.63729cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox152">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Breed group end</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox151</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="GroupByBreedGroup">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!BreedGroupName.Value</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!BreedGroupName.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>DSBreedEntryClassEntriesForShow</DataSetName>
+        <PageBreak>
+          <BreakLocation>Between</BreakLocation>
+        </PageBreak>
+        <Height>15.2787cm</Height>
+        <Width>18cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>6.68863in</Height>
+    <Style />
+  </Body>
+  <Width>7.08661in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>1.5cm</LeftMargin>
+    <RightMargin>1.5cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="HappyDogShowSharedModels">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>01d88428-caa3-41e9-88df-4af0b88d2d37</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DSBreedEntryClassEntriesForShow">
+      <Query>
+        <DataSourceName>HappyDogShowSharedModels</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="BreedGroupId">
+          <DataField>BreedGroupId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreedGroupName">
+          <DataField>BreedGroupName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BreedId">
+          <DataField>BreedId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreedName">
+          <DataField>BreedName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DogAgeInMonthsAtTimeOfShow">
+          <DataField>DogAgeInMonthsAtTimeOfShow</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DogDOB">
+          <DataField>DogDOB</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DogId">
+          <DataField>DogId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DogName">
+          <DataField>DogName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DogRegistrationNumber">
+          <DataField>DogRegistrationNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EnteredClassMaxAgeInMonths">
+          <DataField>EnteredClassMaxAgeInMonths</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EnteredClassMinAgeInMonths">
+          <DataField>EnteredClassMinAgeInMonths</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EnteredClassName">
+          <DataField>EnteredClassName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EntryNumber">
+          <DataField>EntryNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GenderId">
+          <DataField>GenderId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="GenderName">
+          <DataField>GenderName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HasErrors">
+          <DataField>HasErrors</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IsDirty">
+          <DataField>IsDirty</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsOutOfAgeRange">
+          <DataField>IsOutOfAgeRange</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ReportGroupingKey">
+          <DataField>ReportGroupingKey</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportingRank">
+          <DataField>ReportingRank</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ReportingRankColumn">
+          <DataField>ReportingRankColumn</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ReportingRankRow">
+          <DataField>ReportingRankRow</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Result">
+          <DataField>Result</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowDate">
+          <DataField>ShowDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ShowId">
+          <DataField>ShowId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ShowName">
+          <DataField>ShowName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>HappyDogShow.SharedModels</rd:DataSetName>
+        <rd:TableName>BreedEntryClassEntry</rd:TableName>
+        <rd:ObjectDataSourceType>HappyDogShow.SharedModels.BreedEntryClassEntry, HappyDogShow.SharedModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>11d7dd5c-19a9-40bc-8914-2a8d8be3a784</rd:ReportID>
+</Report>

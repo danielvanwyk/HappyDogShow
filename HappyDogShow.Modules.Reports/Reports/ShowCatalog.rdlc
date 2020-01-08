@@ -1752,7 +1752,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.03188cm</Height>
+              <Height>1cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1786,6 +1786,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -3964,7 +3965,7 @@
           <BreakLocation>Start</BreakLocation>
         </PageBreak>
         <Top>31.94291cm</Top>
-        <Height>10.77098cm</Height>
+        <Height>10.73911cm</Height>
         <Width>18cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
