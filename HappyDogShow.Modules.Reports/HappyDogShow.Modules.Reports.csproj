@@ -80,6 +80,7 @@
     <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowCatalogReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowRegisteredOwnerLabelsReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowResultsSheetReportCommandExecutor.cs" />
     <Compile Include="Models\ReportExecutionProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,6 +120,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\BreedBreakdownForShow.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RegisteredOwnerLabelsForShow.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\EntryNumberLabelsForShow.rdlc">
