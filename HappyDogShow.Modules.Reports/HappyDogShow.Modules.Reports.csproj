@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\ShowBreedBreakdownReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedGroupResultsSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowCatalogReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />
@@ -82,6 +83,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\HappyDogShow.Modules.Reports.CommandExecutors.DataForThisReport.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedChallengeEntity.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryClassEntry.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryEntityWithAdditionalData.datasource" />
@@ -104,6 +106,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Reports\BreedGroupResultsSheet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BreedSplash.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

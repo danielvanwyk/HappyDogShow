@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BreedChallengeService.cs" />
     <Compile Include="BreedEntryService.cs" />
+    <Compile Include="BreedGroupChallengeService.cs" />
     <Compile Include="BreedGroupService.cs" />
     <Compile Include="BreedMultipleEntryService.cs" />
     <Compile Include="BreedService.cs" />

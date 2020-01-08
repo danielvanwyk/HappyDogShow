@@ -84,9 +84,11 @@
                             <Button Grid.Row="3" Grid.Column="0" Content="Catalog" Command="{x:Static globalCommands:DogShowReportCommands.ShowCatalogReportCommand}"  CommandParameter="{Binding SelectedItem}" />
                             <Label Grid.Row="3" Grid.Column="1" >View the catalog for the show</Label>
 
-                            <Button Grid.Row="4" Grid.Column="0" Content="Results Sheets" Command="{x:Static globalCommands:DogShowReportCommands.ShowResultsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="4" Grid.Column="1" >View the results sheets for the show</Label>
+                            <Button Grid.Row="4" Grid.Column="0" Content="Breed Results Sheets" Command="{x:Static globalCommands:DogShowReportCommands.ShowResultsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="4" Grid.Column="1" >View the sheets to capture breed results for the show</Label>
 
+                            <Button Grid.Row="5" Grid.Column="0" Content="Group Results Sheets" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedGroupResultsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="5" Grid.Column="1" >View the sheets to capture group results for the show</Label>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Admin">
