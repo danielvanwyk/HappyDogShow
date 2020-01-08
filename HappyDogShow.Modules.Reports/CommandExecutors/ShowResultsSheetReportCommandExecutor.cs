@@ -97,7 +97,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             //parms.Add("parmDogShowDate", obj.ShowDate.ToString("yyyy-MM-dd"));
 
 
-            _reportViewerService.ShowReport(@"C:\Work\Personal\HappyDogShow\HappyDogShow.Modules.Reports\Reports\ResultsSheet.rdlc", datasources, null);
+            _reportViewerService.ShowReport(@"Reports\ResultsSheet.rdlc", datasources, null);
         }
     }
 }
