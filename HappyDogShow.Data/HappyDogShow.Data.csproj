@@ -115,6 +115,10 @@
     <Compile Include="Migrations\202001071130313_ShowBreedJudges.Designer.cs">
       <DependentUpon>202001071130313_ShowBreedJudges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001080828021_BreedClassOrderOfJudging.cs" />
+    <Compile Include="Migrations\202001080828021_BreedClassOrderOfJudging.Designer.cs">
+      <DependentUpon>202001080828021_BreedClassOrderOfJudging.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001071130313_ShowBreedJudges.resx">
       <DependentUpon>202001071130313_ShowBreedJudges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001080828021_BreedClassOrderOfJudging.resx">
+      <DependentUpon>202001080828021_BreedClassOrderOfJudging.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

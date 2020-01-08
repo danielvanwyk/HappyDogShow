@@ -32,5 +32,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         int ReportingRank { get; set; }
         int ReportingRankRow { get; }
         int ReportingRankColumn { get; }
+        int JudgingOrder { get; set; }
     }
 }

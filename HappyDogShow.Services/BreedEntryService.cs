@@ -348,7 +348,8 @@ namespace HappyDogShow.Services
                                EnteredClassName = c.Class.Name,
                                EnteredClassMaxAgeInMonths = c.Class.MaxAgeInMonths,
                                EnteredClassMinAgeInMonths = c.Class.MinAgeInMonths,
-                               Result = c.Result
+                               Result = c.Result,
+                               JudgingOrder = c.Class.JudgingOrder
                            };
 
                 data.ToList().ForEach(c => items.Add(c));

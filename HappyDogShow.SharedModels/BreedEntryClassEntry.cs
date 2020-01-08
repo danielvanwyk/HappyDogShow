@@ -103,5 +103,7 @@ namespace HappyDogShow.SharedModels
                 return result;
             }
         }
+
+        public int JudgingOrder { get; set; }
     }
 }

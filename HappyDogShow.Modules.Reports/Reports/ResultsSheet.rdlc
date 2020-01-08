@@ -666,7 +666,7 @@
                                                       </Group>
                                                       <SortExpressions>
                                                         <SortExpression>
-                                                          <Value>=Fields!EnteredClassName.Value</Value>
+                                                          <Value>=Fields!JudgingOrder.Value</Value>
                                                         </SortExpression>
                                                       </SortExpressions>
                                                       <TablixHeader>
@@ -935,7 +935,7 @@
                                                       </Group>
                                                       <SortExpressions>
                                                         <SortExpression>
-                                                          <Value>=Fields!EnteredClassName.Value</Value>
+                                                          <Value>=Fields!JudgingOrder.Value</Value>
                                                         </SortExpression>
                                                       </SortExpressions>
                                                       <TablixHeader>
@@ -1263,7 +1263,7 @@
         <PageBreak>
           <BreakLocation>Start</BreakLocation>
         </PageBreak>
-        <Height>8.62058cm</Height>
+        <Height>8.62057cm</Height>
         <Width>18cm</Width>
         <Style>
           <Border>
@@ -1379,6 +1379,10 @@
           <DataField>IsOutOfAgeRange</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="JudgingOrder">
+          <DataField>JudgingOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="ReportGroupingKey">
           <DataField>ReportGroupingKey</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1394,6 +1398,10 @@
         <Field Name="ReportingRankRow">
           <DataField>ReportingRankRow</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ReportSortingKey">
+          <DataField>ReportSortingKey</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Result">
           <DataField>Result</DataField>
