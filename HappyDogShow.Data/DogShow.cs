@@ -14,5 +14,6 @@ namespace HappyDogShow.Data
         public List<ShowGroupJudge> ShowGroupJudges { get; set; }
         public List<ShowBreedJudge> ShowBreedJudges { get; set; }
         public List<ShowInShowChallengeJudge> ShowInShowChallengeJudges { get; set; }
+        public List<ShowHandlerClassJudge> ShowHandlerClassJudges { get; set; }
     }
 }

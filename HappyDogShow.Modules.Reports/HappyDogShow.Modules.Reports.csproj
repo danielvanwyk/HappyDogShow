@@ -80,6 +80,9 @@
     <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowCatalogReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowHandlerResultsJudgesSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowHandlerResultsSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowHandlerResultsStewardsSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowInShowResultsJudgesSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowInShowResultsSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowInShowResultsStewardsSheetReportCommandExecutor.cs" />
@@ -135,6 +138,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\EntryNumberLabelsForShow.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HandlerResultsSheet.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ResultsSheet.rdlc">

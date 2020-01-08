@@ -23,6 +23,9 @@ namespace HappyDogShow.Modules.Reports
         private ShowInShowResultsStewardsSheetReportCommandExecutor showInShowResultsStewardsSheetReportCommandExecutor;
         private ShowInShowResultsJudgesSheetReportCommandExecutor showInShowResultsJudgesSheetReportCommandExecutor;
 
+        private ShowHandlerResultsStewardsSheetReportCommandExecutor showHandlerResultsStewardsSheetReportCommandExecutor;
+        private ShowHandlerResultsJudgesSheetReportCommandExecutor showHandlerResultsJudgesSheetReportCommandExecutor;
+
         public ReportsModule(IUnityContainer container, IRegionManager regionManager)
             : base(container, regionManager)
         {
@@ -45,6 +48,9 @@ namespace HappyDogShow.Modules.Reports
 
             showInShowResultsStewardsSheetReportCommandExecutor = Container.Resolve<ShowInShowResultsStewardsSheetReportCommandExecutor>();
             showInShowResultsJudgesSheetReportCommandExecutor = Container.Resolve<ShowInShowResultsJudgesSheetReportCommandExecutor>();
+
+            showHandlerResultsStewardsSheetReportCommandExecutor = Container.Resolve<ShowHandlerResultsStewardsSheetReportCommandExecutor>();
+            showHandlerResultsJudgesSheetReportCommandExecutor = Container.Resolve<ShowHandlerResultsJudgesSheetReportCommandExecutor>();
         }
 
         protected override void RegisterTypes()

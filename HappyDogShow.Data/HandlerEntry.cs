@@ -19,5 +19,7 @@ namespace HappyDogShow.Data
         public DogRegistration Dog { get; set; }
 
         public string Number { get; set; }
+
+        public ShowHandlerClassJudge ShowHandlerClassJudge { get; set; }
     }
 }

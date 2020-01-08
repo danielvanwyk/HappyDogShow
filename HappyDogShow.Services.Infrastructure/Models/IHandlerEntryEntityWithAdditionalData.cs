@@ -25,5 +25,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         DateTime DOB { get; set; }
         string Email { get; set; }
         string Tel { get; set; }
+        string JudgeName { get; set; }
     }
 }

@@ -23,5 +23,8 @@ namespace HappyDogShow.Infrastructure.Commands
 
         public static CompositeCommand ShowInShowResultsStewardsSheetReportCommand = new CompositeCommand();
         public static CompositeCommand ShowInShowResultsJudgesSheetReportCommand = new CompositeCommand();
+
+        public static CompositeCommand ShowHandlerResultsStewardsSheetReportCommand = new CompositeCommand();
+        public static CompositeCommand ShowHandlerResultsJudgesSheetReportCommand = new CompositeCommand();
     }
 }

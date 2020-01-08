@@ -133,6 +133,10 @@
     <Compile Include="Migrations\202001082043206_ShowHandlerJudges.Designer.cs">
       <DependentUpon>202001082043206_ShowHandlerJudges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001082203100_ShowHandlerJudges2.cs" />
+    <Compile Include="Migrations\202001082203100_ShowHandlerJudges2.Designer.cs">
+      <DependentUpon>202001082203100_ShowHandlerJudges2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001082043206_ShowHandlerJudges.resx">
       <DependentUpon>202001082043206_ShowHandlerJudges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001082203100_ShowHandlerJudges2.resx">
+      <DependentUpon>202001082203100_ShowHandlerJudges2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

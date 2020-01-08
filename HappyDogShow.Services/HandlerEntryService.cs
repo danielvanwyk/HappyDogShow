@@ -122,11 +122,21 @@ namespace HappyDogShow.Services
 
             using (var ctx = new HappyDogShowContext())
             {
-                var rawdata = from d in ctx.HandlerEntries
+                var rawdata = from d in ctx.HandlerEntries.Include("ShowHandlerClassJudge").Include("ShowHandlerClassJudge.Judge")
                               select d;
 
                 if (dogShowId > 0)
                     rawdata = rawdata.Where(d => d.Show.ID == dogShowId);
+
+                var magic = from x in ctx.ShowHandlerClassJudges
+                            select new
+                            {
+                                showname = x.DogShow.Name,
+                                classname = x.HandlerClass.Name,
+                                judgename = x.Judge.Name
+                            };
+
+                var res = magic.ToList();
 
                 var data = from d in rawdata
                            orderby d.Show.Name, d.Dog.Breed.BreedGroup.Name, d.Dog.Breed.Name, d.Dog.Gender.Name, d.Dog.RegisteredName
@@ -149,11 +159,16 @@ namespace HappyDogShow.Services
                                DOB = d.Handler.DateOfBirth,
                                Email = d.Handler.Email,
                                Tel = d.Handler.Tel
-
                            };
 
-                foreach (var item in data)
+                var magic2 = data.ToList();
+
+                foreach (var item in magic2)
                 {
+                    var foundjudge = magic.Where(i => i.showname == item.ShowName && i.classname == item.EnteredClassName).ToList();
+                    if (foundjudge.Count == 1)
+                        item.JudgeName = foundjudge.First().judgename;
+
                     items.Add(item);
                 }
             }
