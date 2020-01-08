@@ -105,5 +105,18 @@ namespace HappyDogShow.SharedModels
         }
 
         public int JudgingOrder { get; set; }
+
+        public string BreedGroupJudgeName { get; set; }
+        public string BreedJudgeName { get; set; }
+        public string ActualJudgeName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(BreedJudgeName))
+                    return BreedGroupJudgeName;
+
+                return BreedJudgeName;
+            }
+        }
     }
 }

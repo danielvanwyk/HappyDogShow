@@ -349,6 +349,8 @@ namespace HappyDogShow.Services
                                EnteredClassMaxAgeInMonths = c.Class.MaxAgeInMonths,
                                EnteredClassMinAgeInMonths = c.Class.MinAgeInMonths,
                                Result = c.Result,
+                               BreedGroupJudgeName = c.Entry.Show.ShowGroupJudges.Where(i => i.BreedGroup.ID == c.Entry.Dog.Breed.BreedGroup.ID).FirstOrDefault().Judge.Name,
+                               BreedJudgeName = c.Entry.Show.ShowBreedJudges.Where(i => i.Breed.ID == c.Entry.Dog.Breed.ID).FirstOrDefault().Judge.Name,
                                JudgingOrder = c.Class.JudgingOrder
                            };
 
