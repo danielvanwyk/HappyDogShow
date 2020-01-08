@@ -98,6 +98,12 @@
                                 <Button Content="Group Results Sheets (Judge)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedGroupResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
                             </StackPanel>
                             <Label Grid.Row="6" Grid.Column="1" >View the sheets to capture group results for the show</Label>
+
+                            <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Vertical">
+                                <Button Content="In Show Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowInShowResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Button Content="In Show Results Sheets (Judge)"   Command="{x:Static globalCommands:DogShowReportCommands.ShowInShowResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            </StackPanel>
+                            <Label Grid.Row="7" Grid.Column="1" >View the sheets to capture in show results for the show</Label>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Admin">

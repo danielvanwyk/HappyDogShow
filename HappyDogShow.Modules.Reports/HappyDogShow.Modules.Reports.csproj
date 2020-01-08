@@ -80,6 +80,9 @@
     <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowCatalogReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowInShowResultsJudgesSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowInShowResultsSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowInShowResultsStewardsSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowRegisteredOwnerLabelsReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowResultsSheetReportCommandExecutor.cs" />
     <Compile Include="Models\ReportExecutionProperties.cs" />
@@ -89,6 +92,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\HappyDogShow.Modules.Reports.CommandExecutors.DataForThisInShowReport.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.Modules.Reports.CommandExecutors.DataForThisReport.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.Modules.Reports.Models.ReportExecutionProperties.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedChallengeEntity.datasource" />
@@ -113,6 +117,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Reports\InShowResultsSheet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BreedGroupResultsSheet.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
