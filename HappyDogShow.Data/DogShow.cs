@@ -13,5 +13,6 @@ namespace HappyDogShow.Data
         public DateTime ShowDate { get; set; }
         public List<ShowGroupJudge> ShowGroupJudges { get; set; }
         public List<ShowBreedJudge> ShowBreedJudges { get; set; }
+        public List<ShowInShowChallengeJudge> ShowInShowChallengeJudges { get; set; }
     }
 }

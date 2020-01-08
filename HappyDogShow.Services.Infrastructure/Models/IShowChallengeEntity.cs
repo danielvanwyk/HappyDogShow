@@ -12,5 +12,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string Abbreviation { get; set; }
         int JudginOrder { get; set; }
         string RelatedBreedGroupChallengeName { get; set; }
+        string ChallengeJudgeName { get; set; }
     }
 }

@@ -11,18 +11,18 @@ namespace HappyDogShow.Services
 {
     public class ShowChallengeService : IShowChallengeService
     {
-        public Task<List<IShowChallengeEntity>> GetListAsync<T>() where T : IShowChallengeEntity, new()
+        public Task<List<IShowChallengeEntity>> GetListAsync<T>(int dogShowId) where T : IShowChallengeEntity, new()
         {
             Task<List<IShowChallengeEntity>> t = Task<List<IShowChallengeEntity>>.Run(() =>
             {
-                List<IShowChallengeEntity> items = GetList<T>();
+                List<IShowChallengeEntity> items = GetList<T>(dogShowId);
                 return items;
             });
 
             return t;
         }
 
-        private List<IShowChallengeEntity> GetList<T>() where T : IShowChallengeEntity, new()
+        private List<IShowChallengeEntity> GetList<T>(int dogShowId) where T : IShowChallengeEntity, new()
         {
             BreedGroupChallenge defaultBGC = new BreedGroupChallenge()
             {
@@ -33,18 +33,20 @@ namespace HappyDogShow.Services
 
             using (var ctx = new HappyDogShowContext())
             {
-                var data = from d in ctx.ShowChallenges.Include("BreedGroupChallenges")
-                           select d;
+                var data = from sisj in ctx.ShowInShowChallengeJudges.Include("Judge").Include("ShowChallenge").Include("DogShow").Include("ShowChallenge.BreedGroupChallenges")
+                           where sisj.DogShow.ID == dogShowId
+                           select sisj;
 
-                foreach (ShowChallenge d in data)
+                foreach (ShowInShowChallengeJudge d in data)
                 {
                     items.Add(new T()
                     {
                         Id = d.ID,
-                        Abbreviation = d.Abbreviation,
-                        JudginOrder = d.JudgingOrder,
-                        RelatedBreedGroupChallengeName = GetTheBreedGroupChallengeName(d), //d.BreedChallenges.FirstOrDefault() != null ? d.BreedChallenges.First().Abbreviation : "",
-                        Name = d.Name
+                        Abbreviation = d.ShowChallenge.Abbreviation,
+                        JudginOrder = d.ShowChallenge.JudgingOrder,
+                        RelatedBreedGroupChallengeName = GetTheBreedGroupChallengeName(d.ShowChallenge), //d.BreedChallenges.FirstOrDefault() != null ? d.BreedChallenges.First().Abbreviation : "",
+                        Name = d.ShowChallenge.Name,
+                        ChallengeJudgeName = d.Judge.Name
                     });
                 }
             }
@@ -54,6 +56,9 @@ namespace HappyDogShow.Services
 
         private string GetTheBreedGroupChallengeName(ShowChallenge d)
         {
+            if (d == null)
+                return "n/a";
+
             if (d.BreedGroupChallenges == null)
                 return "not specified";
 

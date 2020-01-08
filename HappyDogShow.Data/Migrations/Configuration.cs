@@ -464,6 +464,20 @@
     new BreedChallenge() { JudgingOrder = 13, Abbreviation = "BNIB", Name = "Best Neuter", BreedGroupChallenge = bnig }
     );
 
+            context.ShowInShowChallengeJudges.AddOrUpdate(x => x.ID,
+                new ShowInShowChallengeJudge() { ID = 1, DogShow = firstShow, ShowChallenge = bis, Judge = dale},
+                new ShowInShowChallengeJudge() { ID = 2, DogShow = firstShow, ShowChallenge = bpis, Judge = dale },
+                new ShowInShowChallengeJudge() { ID = 3, DogShow = firstShow, ShowChallenge = bjis, Judge = dale },
+                new ShowInShowChallengeJudge() { ID = 4, DogShow = firstShow, ShowChallenge = bvis, Judge = dale },
+                new ShowInShowChallengeJudge() { ID = 5, DogShow = firstShow, ShowChallenge = bbpis, Judge = dale },
+                new ShowInShowChallengeJudge() { ID = 6, DogShow = firstShow, ShowChallenge = bnis, Judge = dale },
+                new ShowInShowChallengeJudge() { ID = 7, DogShow = secondShow, ShowChallenge = bis, Judge = nickyRobertson },
+                new ShowInShowChallengeJudge() { ID = 8, DogShow = secondShow, ShowChallenge = bpis, Judge = nickyRobertson },
+                new ShowInShowChallengeJudge() { ID = 9, DogShow = secondShow, ShowChallenge = bjis, Judge = nickyRobertson },
+                new ShowInShowChallengeJudge() { ID = 10, DogShow = secondShow, ShowChallenge = bvis, Judge = nickyRobertson },
+                new ShowInShowChallengeJudge() { ID = 11, DogShow = secondShow, ShowChallenge = bbpis, Judge = nickyRobertson },
+                new ShowInShowChallengeJudge() { ID = 12, DogShow = secondShow, ShowChallenge = bnis, Judge = nickyRobertson }
+            );
         }
     }
 }

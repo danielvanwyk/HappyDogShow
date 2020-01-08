@@ -9,6 +9,6 @@ namespace HappyDogShow.Services.Infrastructure.Services
 {
     public interface IShowChallengeService
     {
-        Task<List<IShowChallengeEntity>> GetListAsync<T>() where T : IShowChallengeEntity, new();
+        Task<List<IShowChallengeEntity>> GetListAsync<T>(int dogShowId) where T : IShowChallengeEntity, new();
     }
 }

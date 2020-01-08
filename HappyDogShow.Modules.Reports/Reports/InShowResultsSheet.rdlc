@@ -174,7 +174,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.50813cm</Height>
+              <Height>1.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -233,7 +233,7 @@
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>0.6cm</Height>
+                                    <Height>1cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -257,6 +257,7 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>None</Style>
                                               </Border>
+                                              <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -515,6 +516,7 @@
                                               <Color>LightGrey</Color>
                                               <Style>None</Style>
                                             </Border>
+                                            <VerticalAlign>Bottom</VerticalAlign>
                                             <PaddingLeft>2pt</PaddingLeft>
                                             <PaddingRight>2pt</PaddingRight>
                                             <PaddingTop>2pt</PaddingTop>
@@ -527,7 +529,7 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>dsMagic</DataSetName>
-                              <Height>1.2cm</Height>
+                              <Height>1.6cm</Height>
                               <Width>15.97464cm</Width>
                               <Style>
                                 <Border>
@@ -537,7 +539,7 @@
                             </Tablix>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Height>1.33583cm</Height>
+                          <Height>1.6cm</Height>
                           <Width>18cm</Width>
                           <Style>
                             <Border>
@@ -796,7 +798,7 @@
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>0.6cm</Height>
+                                    <Height>1cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -912,6 +914,7 @@
                                               <Color>LightGrey</Color>
                                               <Style>None</Style>
                                             </Border>
+                                            <VerticalAlign>Bottom</VerticalAlign>
                                             <PaddingLeft>2pt</PaddingLeft>
                                             <PaddingRight>2pt</PaddingRight>
                                             <PaddingTop>2pt</PaddingTop>
@@ -947,6 +950,7 @@
                                                   <Color>LightGrey</Color>
                                                   <Style>None</Style>
                                                 </Border>
+                                                <VerticalAlign>Bottom</VerticalAlign>
                                                 <PaddingLeft>2pt</PaddingLeft>
                                                 <PaddingRight>2pt</PaddingRight>
                                                 <PaddingTop>2pt</PaddingTop>
@@ -1017,6 +1021,7 @@
                                                           <Color>LightGrey</Color>
                                                           <Style>None</Style>
                                                         </Border>
+                                                        <VerticalAlign>Bottom</VerticalAlign>
                                                         <PaddingLeft>2pt</PaddingLeft>
                                                         <PaddingRight>2pt</PaddingRight>
                                                         <PaddingTop>2pt</PaddingTop>
@@ -1035,7 +1040,7 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>dsMagic</DataSetName>
-                              <Height>1.2cm</Height>
+                              <Height>1.6cm</Height>
                               <Width>15.97464cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
@@ -1321,7 +1326,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsMagic</DataSetName>
-        <Height>10.3612cm</Height>
+        <Height>10.45307cm</Height>
         <Width>18cm</Width>
         <Style>
           <Border>
@@ -1330,7 +1335,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.07921in</Height>
+    <Height>4.11538in</Height>
     <Style />
   </Body>
   <Width>18cm</Width>
@@ -1428,7 +1433,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.32699cm</Top>
+          <Top>0.32698cm</Top>
           <Height>0.6cm</Height>
           <Width>4cm</Width>
           <Style>
@@ -1457,7 +1462,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.32699cm</Top>
+          <Top>0.32698cm</Top>
           <Left>10.53521cm</Left>
           <Height>0.6cm</Height>
           <Width>7cm</Width>
@@ -1489,7 +1494,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox206</rd:DefaultName>
-          <Top>0.32699cm</Top>
+          <Top>0.32698cm</Top>
           <Height>0.6cm</Height>
           <Width>18cm</Width>
           <ZIndex>2</ZIndex>

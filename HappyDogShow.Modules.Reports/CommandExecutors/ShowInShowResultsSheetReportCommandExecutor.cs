@@ -54,7 +54,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             List<IBreedEntryEntityWithAdditionalData> items = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>();
             var data = items.Where(i => i.ShowId == obj.Id).ToList();
 
-            List<IShowChallengeEntity> showChallenges = await _showChallengeService.GetListAsync<ShowChallengeEntity>();
+            List<IShowChallengeEntity> showChallenges = await _showChallengeService.GetListAsync<ShowChallengeEntity>(obj.Id);
 
             var listOfGroups = items.Select(i => i.BreedGroupName).Distinct();
 
@@ -83,7 +83,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
                             {
                                 BreedName = breedEntry.BreedName,
                                 BreedGroupName = breedEntry.BreedGroupName,
-                                ShowJudgeName = "O KRIEK", // breedEntry.BreedGroupJudgeName,
+                                ShowJudgeName = challenge.ChallengeJudgeName,
                                 ShowChallengeName = challenge.Name,
                                 BreedGroupChallengeAbbreviation = challenge.RelatedBreedGroupChallengeName,
                                 EntryCount = position == "1st" ? 1 : 0,
