@@ -118,5 +118,14 @@ namespace HappyDogShow.SharedModels
                 return BreedJudgeName;
             }
         }
+
+        public List<string> Namesss { get; set; }
+
+        public BreedEntryClassEntry()
+        {
+            Namesss = new List<string>();
+            Namesss.Add("Gracie");
+            Namesss.Add("Gaia");
+        }
     }
 }

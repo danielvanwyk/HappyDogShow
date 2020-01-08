@@ -16,14 +16,16 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         private IBreedEntryService _breedEntryService;
         private IReportViewerService _reportViewerService;
         private IHandlerEntryService _handlerEntryService;
+        private IBreedChallengeService _breedChallengeService;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowResultsSheetReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService)
+        public ShowResultsSheetReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IBreedChallengeService breedChallengeService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
             _handlerEntryService = handlerEntryService;
+            _breedChallengeService = breedChallengeService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
             DogShowReportCommands.ShowResultsSheetReportCommand.RegisterCommand(commandHandler);
@@ -46,7 +48,33 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
                 i.Item.ReportingRank = i.Rank;
             }
 
+            var tempData = from c in classEntryData
+                           select new
+                           {
+                               TempShowName = c.ShowName,
+                               TempBreedGroupName = c.BreedGroupName,
+                               TempBreedName = c.BreedName
+                           };
 
+            var moreTempData = tempData.Distinct().ToList();
+
+            List < IBreedChallengeEntity > breedChallenges = await _breedChallengeService.GetListAsync<BreedChallengeEntity>();
+            foreach (IBreedChallengeEntity breedChallenge in breedChallenges)
+            {
+                foreach (var tempydatay in moreTempData)
+                {
+                    classEntryData.Add(new BreedEntryClassEntry()
+                    {
+                        ShowName = tempydatay.TempShowName,
+                        BreedGroupName = tempydatay.TempBreedGroupName,
+                        BreedName = tempydatay.TempBreedName,
+                        GenderName = "ALL",
+                        EntryNumber = "",
+                        EnteredClassName = breedChallenge.Name,
+                        JudgingOrder = breedChallenge.JudginOrder
+                    });
+                }
+            }
 
 
 
@@ -57,6 +85,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             //datasources.Add("DSBreedEntriesForShow", data);
             //datasources.Add("DSHandlerEntriesForShow", handlerdata);
             datasources.Add("DSBreedEntryClassEntriesForShow", classEntryData);
+
 
             var ds = new List<IDogShowEntity>();
             ds.Add(obj);

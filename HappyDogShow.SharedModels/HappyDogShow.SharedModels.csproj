@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreedChallengeEntity.cs" />
     <Compile Include="BreedClassEntryEntityWithClassDetailForSelection.cs" />
     <Compile Include="BreedDetail.cs" />
     <Compile Include="BreedEntry.cs" />

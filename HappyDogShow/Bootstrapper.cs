@@ -69,6 +69,7 @@ namespace HappyDogShow
             Container.RegisterType<IHandlerEntryService, HandlerEntryService>();
             Container.RegisterType<IHandlerMultipleEntryService, HandlerMultipleEntryService>();
             Container.RegisterType<ISexService, SexService>();
+            Container.RegisterType<IBreedChallengeService, BreedChallengeService>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
