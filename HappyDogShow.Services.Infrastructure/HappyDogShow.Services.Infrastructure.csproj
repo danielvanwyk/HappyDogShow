@@ -60,6 +60,7 @@
     <Compile Include="Models\IHandlerEntryEntity.cs" />
     <Compile Include="Models\IHandlerEntryEntityWithAdditionalData.cs" />
     <Compile Include="Models\IHandlerRegistration.cs" />
+    <Compile Include="Models\IJudgeAssignmentInformation.cs" />
     <Compile Include="Models\IMultipleBreedEntry.cs" />
     <Compile Include="Models\IMultipleBreedEntryClassEntry.cs" />
     <Compile Include="Models\IMultipleHandlerEntry.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Services\IHandlerEntryService.cs" />
     <Compile Include="Services\IHandlerMultipleEntryService.cs" />
     <Compile Include="Services\IHandlerRegistrationService.cs" />
+    <Compile Include="Services\IJudgesService.cs" />
     <Compile Include="Services\IReportViewerService.cs" />
     <Compile Include="Services\ISexService.cs" />
     <Compile Include="Services\IShowChallengeService.cs" />

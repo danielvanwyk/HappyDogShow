@@ -478,6 +478,16 @@
                 new ShowInShowChallengeJudge() { ID = 11, DogShow = secondShow, ShowChallenge = bbpis, Judge = nickyRobertson },
                 new ShowInShowChallengeJudge() { ID = 12, DogShow = secondShow, ShowChallenge = bnis, Judge = nickyRobertson }
             );
+
+            var childHandlerClass = context.HandlerClasses.Where(c => c.Name == "Child").First();
+            var juniorHandlerClass = context.HandlerClasses.Where(c => c.Name == "Junior").First();
+
+            context.ShowHandlerClassJudges.AddOrUpdate(x => x.ID,
+                new ShowHandlerClassJudge() { ID = 1, DogShow = firstShow, HandlerClass = childHandlerClass, Judge = lizRaubenheimer },
+                new ShowHandlerClassJudge() { ID = 2, DogShow = firstShow, HandlerClass = juniorHandlerClass, Judge = lizRaubenheimer },
+                new ShowHandlerClassJudge() { ID = 3, DogShow = secondShow, HandlerClass = childHandlerClass, Judge = ian },
+                new ShowHandlerClassJudge() { ID = 4, DogShow = secondShow, HandlerClass = juniorHandlerClass, Judge = ian }
+                );
         }
     }
 }
