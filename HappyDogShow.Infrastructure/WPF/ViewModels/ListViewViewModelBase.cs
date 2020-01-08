@@ -24,6 +24,7 @@ namespace HappyDogShow.Infrastructure.WPF.ViewModels
             set 
             { 
                 SetProperty(ref selectedItem, value);
+                OnPropertyChanged("SelectedItem");
                 OnSelectedItemChanged();
             }
         }

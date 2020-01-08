@@ -70,7 +70,7 @@ namespace HappyDogShow.Modules.Dogs.ViewModels
 
         public override void OnSelectedItemChanged()
         {
-            //OnPropertyChanged("SelectedDogRegistration");
+            OnPropertyChanged("SelectedDogRegistration");
             LoadEntriesForDog();
         }
 
