@@ -22,6 +22,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         public string BreedGroupChallengeName { get; set; }
         public string PositionText { get; set; }
         public int EntryCount { get; set; }
+        public int JudgingOrder { get; set; }
 
     }
     public abstract class ShowBreedGroupResultsSheetReportCommandExecutor
@@ -96,7 +97,8 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
                                 BreedGroupChallengeName = challenge.Name,
                                 BreedChallengeAbbreviation = challenge.RelatedBreedChallengeName,
                                 EntryCount = position == "1st" ? 1 : 0,
-                                PositionText = position
+                                PositionText = position,
+                                JudgingOrder = challenge.JudginOrder
                             };
 
             var moremagic = magicdata.Where(i => i.BreedName == "Great Dane" && i.BreedChallengeAbbreviation == "BOB");

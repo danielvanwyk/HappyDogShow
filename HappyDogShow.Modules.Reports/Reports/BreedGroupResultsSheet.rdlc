@@ -1218,6 +1218,14 @@
                   <BreakLocation>Between</BreakLocation>
                 </PageBreak>
               </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!BreedGroupName.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!JudgingOrder.Value</Value>
+                </SortExpression>
+              </SortExpressions>
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
@@ -1527,6 +1535,10 @@
         </Field>
         <Field Name="EntryCount">
           <DataField>EntryCount</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="JudgingOrder">
+          <DataField>JudgingOrder</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="PositionText">
