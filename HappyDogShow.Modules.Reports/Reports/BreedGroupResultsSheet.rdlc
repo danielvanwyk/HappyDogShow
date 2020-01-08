@@ -954,7 +954,7 @@
                               </TablixRowHierarchy>
                               <DataSetName>dsMagic</DataSetName>
                               <Height>1.2cm</Height>
-                              <Width>15.97463cm</Width>
+                              <Width>15.97464cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -1271,12 +1271,44 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DogShowName</rd:DefaultName>
-          <Height>0.6cm</Height>
+          <Height>5mm</Height>
           <Width>18cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox5">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Mode.Value, "DSExecutionProperties")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox5</rd:DefaultName>
+          <Top>5mm</Top>
+          <Height>5mm</Height>
+          <Width>18cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>LightGrey</BackgroundColor>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1310,8 +1342,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.327cm</Top>
-          <Left>0cm</Left>
+          <Top>0.32699cm</Top>
           <Height>0.6cm</Height>
           <Width>4cm</Width>
           <Style>
@@ -1340,7 +1371,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.327cm</Top>
+          <Top>0.32699cm</Top>
           <Left>10.53521cm</Left>
           <Height>0.6cm</Height>
           <Width>7cm</Width>
@@ -1372,8 +1403,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox206</rd:DefaultName>
-          <Top>0.327cm</Top>
-          <Left>0cm</Left>
+          <Top>0.32699cm</Top>
           <Height>0.6cm</Height>
           <Width>18cm</Width>
           <ZIndex>2</ZIndex>
@@ -1418,6 +1448,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>4b6a71c3-5475-43f7-bd88-59eaf3b0b76a</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="HappyDogShowModulesReportsModels">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>0dc1d81f-9a02-4155-8ad9-7720876cd59f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1505,6 +1542,23 @@
         <rd:DataSetName>HappyDogShow.Modules.Reports.CommandExecutors</rd:DataSetName>
         <rd:TableName>DataForThisReport</rd:TableName>
         <rd:ObjectDataSourceType>HappyDogShow.Modules.Reports.CommandExecutors.DataForThisReport, HappyDogShow.Modules.Reports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DSExecutionProperties">
+      <Query>
+        <DataSourceName>HappyDogShowModulesReportsModels</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Mode">
+          <DataField>Mode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>HappyDogShow.Modules.Reports.Models</rd:DataSetName>
+        <rd:TableName>ReportExecutionProperties</rd:TableName>
+        <rd:ObjectDataSourceType>HappyDogShow.Modules.Reports.Models.ReportExecutionProperties, HappyDogShow.Modules.Reports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

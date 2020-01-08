@@ -1,4 +1,5 @@
 ﻿using HappyDogShow.Infrastructure.Commands;
+using HappyDogShow.Modules.Reports.Models;
 using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using HappyDogShow.SharedModels;
@@ -90,6 +91,14 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             var ds = new List<IDogShowEntity>();
             ds.Add(obj);
             datasources.Add("DSShowInfo", ds);
+
+            var ds2 = new List<ReportExecutionProperties>();
+            ds2.Add(new ReportExecutionProperties()
+            {
+                Mode = "STEWARD SHEET"
+            });
+            datasources.Add("DSExecutionProperties", ds2);
+
 
             //Dictionary<string, string> parms = new Dictionary<string, string>();
             //parms.Add("parmClubName", "Overberg Kennel Club");
