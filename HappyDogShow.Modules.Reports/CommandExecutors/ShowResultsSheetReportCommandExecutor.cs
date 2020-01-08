@@ -12,24 +12,26 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Reports.CommandExecutors
 {
-    public class ShowResultsSheetReportCommandExecutor
+    public abstract class ShowResultsSheetReportCommandExecutor
     {
         private IBreedEntryService _breedEntryService;
         private IReportViewerService _reportViewerService;
         private IHandlerEntryService _handlerEntryService;
         private IBreedChallengeService _breedChallengeService;
+        private string _mode;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowResultsSheetReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IBreedChallengeService breedChallengeService)
+        public ShowResultsSheetReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IBreedChallengeService breedChallengeService, string mode, CompositeCommand command)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
             _handlerEntryService = handlerEntryService;
             _breedChallengeService = breedChallengeService;
+            _mode = mode;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
-            DogShowReportCommands.ShowResultsSheetReportCommand.RegisterCommand(commandHandler);
+            command.RegisterCommand(commandHandler);
         }
 
         private async void ExecuteCommand(IDogShowEntity obj)
@@ -95,7 +97,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             var ds2 = new List<ReportExecutionProperties>();
             ds2.Add(new ReportExecutionProperties()
             {
-                Mode = "STEWARD SHEET"
+                Mode = _mode
             });
             datasources.Add("DSExecutionProperties", ds2);
 

@@ -12,8 +12,10 @@ namespace HappyDogShow.Modules.Reports
         private ShowEntryNumberLabelsReportCommandExecutor showEntryNumberLabelsReportCommandExecutor;
         private ShowBreedSplashReportCommandExecutor showBreedSplashReportCommandExecutor;
         private ShowCatalogReportCommandExecutor showCatalogReportCommandExecutor;
-        private ShowResultsSheetReportCommandExecutor showResultsSheetReportCommandExecutor;
-        private ShowBreedGroupResultsSheetReportCommandExecutor showBreedGroupResultsSheetReportCommandExecutor;
+        private ShowBreedResultsStewardsSheetReportCommandExecutor showBreedResultsStewardsSheetReportCommandExecutor;
+        private ShowBreedResultsJudgesSheetReportCommandExecutor showBreedResultsJudgesSheetReportCommandExecutor;
+        private ShowBreedGroupResultsStewardsSheetReportCommandExecutor showBreedGroupResultsStewardsSheetReportCommandExecutor;
+        private ShowBreedGroupResultsJudgesSheetReportCommandExecutor showBreedGroupResultsJudgesSheetReportCommandExecutor;
         public ReportsModule(IUnityContainer container, IRegionManager regionManager)
             : base(container, regionManager)
         {
@@ -26,8 +28,10 @@ namespace HappyDogShow.Modules.Reports
             showEntryNumberLabelsReportCommandExecutor = Container.Resolve<ShowEntryNumberLabelsReportCommandExecutor>();
             showBreedSplashReportCommandExecutor = Container.Resolve<ShowBreedSplashReportCommandExecutor>();
             showCatalogReportCommandExecutor = Container.Resolve<ShowCatalogReportCommandExecutor>();
-            showResultsSheetReportCommandExecutor = Container.Resolve<ShowResultsSheetReportCommandExecutor>();
-            showBreedGroupResultsSheetReportCommandExecutor = Container.Resolve<ShowBreedGroupResultsSheetReportCommandExecutor>();
+            showBreedResultsStewardsSheetReportCommandExecutor = Container.Resolve<ShowBreedResultsStewardsSheetReportCommandExecutor>();
+            showBreedResultsJudgesSheetReportCommandExecutor = Container.Resolve<ShowBreedResultsJudgesSheetReportCommandExecutor>();
+            showBreedGroupResultsStewardsSheetReportCommandExecutor = Container.Resolve<ShowBreedGroupResultsStewardsSheetReportCommandExecutor>();
+            showBreedGroupResultsJudgesSheetReportCommandExecutor = Container.Resolve<ShowBreedGroupResultsJudgesSheetReportCommandExecutor>();
         }
 
         protected override void RegisterTypes()

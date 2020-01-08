@@ -72,7 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\ShowBreedBreakdownReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedGroupResultsJudgesSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedGroupResultsSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedGroupResultsStewardsSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedResultsJudgesSheetReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedResultsStewardsSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowCatalogReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />

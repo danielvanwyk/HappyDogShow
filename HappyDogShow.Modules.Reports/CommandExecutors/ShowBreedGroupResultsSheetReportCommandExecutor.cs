@@ -24,26 +24,28 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         public int EntryCount { get; set; }
 
     }
-    public class ShowBreedGroupResultsSheetReportCommandExecutor
+    public abstract class ShowBreedGroupResultsSheetReportCommandExecutor
     {
         private IBreedEntryService _breedEntryService;
         private IReportViewerService _reportViewerService;
         private IHandlerEntryService _handlerEntryService;
         private IBreedChallengeService _breedChallengeService;
         private IBreedGroupChallengeService _breedGroupChallengeService;
+        private string _mode;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowBreedGroupResultsSheetReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IBreedChallengeService breedChallengeService, IBreedGroupChallengeService breedGroupChallengeService)
+        public ShowBreedGroupResultsSheetReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IBreedChallengeService breedChallengeService, IBreedGroupChallengeService breedGroupChallengeService, string mode, CompositeCommand command)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
             _handlerEntryService = handlerEntryService;
             _breedChallengeService = breedChallengeService;
             _breedGroupChallengeService = breedGroupChallengeService;
+            _mode = mode;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
-            DogShowReportCommands.ShowBreedGroupResultsSheetReportCommand.RegisterCommand(commandHandler);
+            command.RegisterCommand(commandHandler);
         }
 
         private async void ExecuteCommand(IDogShowEntity obj)
@@ -118,7 +120,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             var ds2 = new List<ReportExecutionProperties>();
             ds2.Add(new ReportExecutionProperties()
             {
-                Mode = "STEWARD SHEET"
+                Mode = _mode
             });
             datasources.Add("DSExecutionProperties", ds2);
 
