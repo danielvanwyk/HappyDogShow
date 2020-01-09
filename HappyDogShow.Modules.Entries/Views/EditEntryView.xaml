@@ -26,6 +26,10 @@
 
                         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
+                                <Label Width="150">Entry Number</Label>
+                                <TextBox Width="250" Text="{Binding CurrentEntity.Number }"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
                                 <Label Width="150">Show</Label>
                                 <ComboBox Width="250" ItemsSource="{Binding DogShowList}" SelectedItem="{Binding SelectedDogShow}" DisplayMemberPath="DogShowName" SelectedValuePath="Id" SelectedValue="{Binding CurrentEntity.ShowId}" />
                             </StackPanel>

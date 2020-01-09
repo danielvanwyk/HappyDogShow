@@ -279,6 +279,7 @@ namespace HappyDogShow.Services
                     result.ShowId = foundEntry.Show.ID;
                     result.Dog = null;
                     result.Classes = null;
+                    result.Number = foundEntry.Number;
                 }
             }
 
