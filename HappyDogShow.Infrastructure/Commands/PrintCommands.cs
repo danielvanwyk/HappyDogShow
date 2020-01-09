@@ -9,6 +9,6 @@ namespace HappyDogShow.Infrastructure.Commands
 {
     public class PrintCommands
     {
-        public static CompositeCommand PrintCertificatesCommand = new CompositeCommand();
+        public static CompositeCommand PrintCertificatesForDogRelatedChallengeResults = new CompositeCommand();
     }
 }

@@ -6,5 +6,6 @@
         string Placing { get; set; }
         string EntryNumber { get; set; }
         bool Print { get; set; }
+        int ShowId { get; set; }
     }
 }

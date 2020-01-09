@@ -34,5 +34,7 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string Breeder { get; set; }
         DateTime DOB { get; set; }
         string IDNumber { get; set; }
+        string ActualJudgeName { get; }
+        string RegisteredOwner { get; }
     }
 }

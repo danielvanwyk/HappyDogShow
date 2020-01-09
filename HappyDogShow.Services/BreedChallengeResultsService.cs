@@ -104,6 +104,7 @@ namespace HappyDogShow.Services
                                     select new T
                                     {
                                         Id = r.ID,
+                                        ShowId = r.DogShow.ID,
                                         Challenge = r.BreedChallenge.Name,
                                         EntryNumber = r.EntryNumber,
                                         Placing = r.Placing,

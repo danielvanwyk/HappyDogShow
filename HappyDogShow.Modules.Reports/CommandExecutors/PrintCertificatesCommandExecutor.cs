@@ -14,57 +14,53 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
     public class PrintCertificatesCommandExecutor
     {
         private IReportViewerService _reportViewerService;
-        private DelegateCommand<object> commandHandler { get; set; }
+        private IBreedEntryService _breedEntryService;
 
-        public PrintCertificatesCommandExecutor(IReportViewerService reportViewerService)
+        private DelegateCommand<IChallengeResultCollection<IChallengeResult>> commandHandler { get; set; }
+
+        public PrintCertificatesCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService)
         {
             _reportViewerService = reportViewerService;
+            _breedEntryService = breedEntryService;
 
-            commandHandler = new DelegateCommand<object>(ExecuteCommand);
-            PrintCommands.PrintCertificatesCommand.RegisterCommand(commandHandler);
+            commandHandler = new DelegateCommand<IChallengeResultCollection<IChallengeResult>>(ExecuteCommand);
+            PrintCommands.PrintCertificatesForDogRelatedChallengeResults.RegisterCommand(commandHandler);
         }
 
-        private void ExecuteCommand(object obj)
+        private async void ExecuteCommand(IChallengeResultCollection<IChallengeResult> obj)
         {
             Dictionary<string, object> datasources = new Dictionary<string, object>();
             List<ICertficateDetail> certs = new List<ICertficateDetail>();
 
-            certs.Add(new CertificateDetail()
+            List<IChallengeResult> resultstoprint = obj.Results.Where(i => i.Print && !String.IsNullOrEmpty(i.EntryNumber)).ToList();
+
+            foreach (IChallengeResult result in obj.Results)
             {
-                RegionName = "Western Cape",
-                DateAsString = "11 January 2020",
-                SecretaryName = "Some poor person doing lots of work",
-                VenueName = "venue name",
+                var entries = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(result.ShowId, result.EntryNumber);
+                if (entries.Count == 1)
+                {
+                    IBreedEntryEntityWithAdditionalData entryData = entries.First();
+                    certs.Add(new CertificateDetail()
+                    {
+                        RegionName = "Western Cape",
+                        DateAsString = "11 January 2020",
+                        SecretaryName = "Dr Annemari Groenewald",
+                        VenueName = "Kleinmond Primary School",
 
-                ShowName = "show name",
+                        ShowName = entryData.ShowName,
 
-                BreedName = "Breed Name goes here",
-                DogName = "My Silly Dog Name That Takes up a loooooooooooot of space",
-                EntryNumber = "111",
-                JudgeName = "Mr Fancy Pants Judge (USA)",
-                OwnerName = "A very proud owner, title inits, and some more",
-                RegistrationNumber = "ZA123456789012345",
-                SexName = "Bitch"
+                        BreedName = entryData.BreedName,
+                        DogName = entryData.DogName,
+                        EntryNumber = entryData.EntryNumber,
+                        JudgeName = entryData.ActualJudgeName,
+                        OwnerName = entryData.RegisteredOwner,
+                        RegistrationNumber = entryData.DogRegistrationNumber,
+                        SexName = entryData.GenderName
 
-            });
-            certs.Add(new CertificateDetail()
-            {
-                RegionName = "Western Cape",
-                DateAsString = "11 January 2020",
-                SecretaryName = "Some poor person doing lots of work",
-                VenueName = "venue name",
+                    });
+                };
+            };
 
-                ShowName = "show name",
-
-                BreedName = "Another Breed Name goes here",
-                DogName = "YOUR Silly Dog Name That Takes up a loooooooooooot of space",
-                EntryNumber = "222",
-                JudgeName = "Mrs Fancy Pants Judge (USA)",
-                OwnerName = "A very proud owner, title inits, and some more",
-                RegistrationNumber = "ZA123456789012345",
-                SexName = "Dog"
-
-            });
             datasources.Add("dsCertificateDetail", certs);
 
             _reportViewerService.ShowReport(@"Reports\Certificate.rdlc", datasources, null);
