@@ -110,6 +110,9 @@
                                 <Button Content="Handler Results Sheets (Judge)"   Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
                             </StackPanel>
                             <Label Grid.Row="8" Grid.Column="1" >View the sheets to capture Handler results for the show</Label>
+
+                            <Button Grid.Row="9" Grid.Column="0" Content="Handler Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                            <Label Grid.Row="9" Grid.Column="1" >View the labels of the handler entries</Label>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Admin">

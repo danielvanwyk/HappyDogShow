@@ -81,6 +81,7 @@
     <Compile Include="CommandExecutors\ShowBreedResultsStewardsSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedSplashReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowCatalogReportCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowHandlerEntryNumberLabelsReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryNumberLabelsReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowHandlerResultsJudgesSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowHandlerResultsSheetReportCommandExecutor.cs" />
@@ -125,6 +126,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Reports\HandlerEntryNumberLabelsForShow.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\HandlerCertificate.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

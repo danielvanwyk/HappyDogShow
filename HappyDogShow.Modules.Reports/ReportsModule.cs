@@ -10,6 +10,7 @@ namespace HappyDogShow.Modules.Reports
     {
         private ShowBreedBreakdownReportCommandExecutor showBreedBreakdownReportCommandExecutor;
         private ShowEntryNumberLabelsReportCommandExecutor showEntryNumberLabelsReportCommandExecutor;
+        private ShowHandlerEntryNumberLabelsReportCommandExecutor showHandlerEntryNumberLabelsReportCommandExecutor;
         private ShowRegisteredOwnerLabelsReportCommandExecutor showRegisteredOwnerLabelsReportCommandExecutor;
         private ShowBreedSplashReportCommandExecutor showBreedSplashReportCommandExecutor;
         private ShowCatalogReportCommandExecutor showCatalogReportCommandExecutor;
@@ -39,6 +40,7 @@ namespace HappyDogShow.Modules.Reports
         {
             showBreedBreakdownReportCommandExecutor = Container.Resolve<ShowBreedBreakdownReportCommandExecutor>();
             showEntryNumberLabelsReportCommandExecutor = Container.Resolve<ShowEntryNumberLabelsReportCommandExecutor>();
+            showHandlerEntryNumberLabelsReportCommandExecutor = Container.Resolve<ShowHandlerEntryNumberLabelsReportCommandExecutor>();
             showRegisteredOwnerLabelsReportCommandExecutor = Container.Resolve<ShowRegisteredOwnerLabelsReportCommandExecutor>();
             showBreedSplashReportCommandExecutor = Container.Resolve<ShowBreedSplashReportCommandExecutor>();
             showCatalogReportCommandExecutor = Container.Resolve<ShowCatalogReportCommandExecutor>();
