@@ -45,6 +45,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChallengeResultsList.xaml.cs">
+      <DependentUpon>ChallengeResultsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadOnlyDogRegistrationDetail.xaml.cs">
       <DependentUpon>ReadOnlyDogRegistrationDetail.xaml</DependentUpon>
@@ -54,6 +57,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ChallengeResultsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReadOnlyDogRegistrationDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

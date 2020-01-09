@@ -94,6 +94,7 @@
     <Compile Include="CommandExecutors\SaveMultipleNewHandlerEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedEntryResultsCaptureViewCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowBreedResultsCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryByClassListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowHandlerEntryListCommandExecutor.cs" />
@@ -105,6 +106,8 @@
     <Compile Include="FormNameConstants.cs" />
     <Compile Include="Infrastructure\IBreedEntryResultsView.cs" />
     <Compile Include="Infrastructure\IBreedEntryResultsViewViewModel.cs" />
+    <Compile Include="Infrastructure\IBreedResultsView.cs" />
+    <Compile Include="Infrastructure\IBreedResultsViewViewModel.cs" />
     <Compile Include="Infrastructure\ICaptureMultipleNewEntryView.cs" />
     <Compile Include="Infrastructure\ICaptureMultipleNewEntryViewViewModel.cs" />
     <Compile Include="Infrastructure\ICaptureMultipleNewHandlerEntryView.cs" />
@@ -128,6 +131,7 @@
     <Compile Include="Models\MultipleHandlerEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BreedEntryResultsViewViewModel.cs" />
+    <Compile Include="ViewModels\BreedResultsViewViewModel.cs" />
     <Compile Include="ViewModels\CaptureMultipleNewEntryViewViewModel.cs" />
     <Compile Include="ViewModels\CaptureMultipleNewHandlerEntryViewViewModel.cs" />
     <Compile Include="ViewModels\CaptureNewEntryViewViewModel.cs" />
@@ -139,6 +143,9 @@
     <Compile Include="ViewModels\ExploreHandlerEntriesViewViewModel.cs" />
     <Compile Include="Views\BreedEntryResultsView.xaml.cs">
       <DependentUpon>BreedEntryResultsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BreedResultsView.xaml.cs">
+      <DependentUpon>BreedResultsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CaptureMultipleNewEntryView.xaml.cs">
       <DependentUpon>CaptureMultipleNewEntryView.xaml</DependentUpon>
@@ -197,6 +204,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\BreedEntryResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BreedResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

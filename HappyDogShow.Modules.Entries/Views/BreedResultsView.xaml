@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="HappyDogShow.Modules.Entries.Views.BreedResultsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HappyDogShow.Modules.Entries.Views"
+             mc:Ignorable="d"
+             xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
+             xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+             xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+             xmlns:SharedUserControls="clr-namespace:HappyDogShow.SharedUserControls;assembly=HappyDogShow.SharedUserControls"
+             xmlns:infrastructureCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+             >
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="cvsGroupedItems" Source="{Binding CurrentEntity.BreedClassEntries}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="GenderName" />
+                <PropertyGroupDescription PropertyName="EnteredClassName" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+
+    <infrastructureControls:BasicContentLayout>
+        <infrastructureControls:BasicContentLayout.MainTitleText>Capture and/or view breed results</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Show</Label>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Width="200" ItemsSource="{Binding DogShowList}" DisplayMemberPath="DogShowName" SelectedItem="{Binding SelectedDogShow}"></ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Group</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Width="200" ItemsSource="{Binding BreedGroupList}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedBreedGroup}"></ComboBox>
+
+                    <Label Grid.Row="2" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Breed</Label>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Width="200" ItemsSource="{Binding BreedList}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedBreed}"></ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+
+                    <SharedUserControls:ChallengeResultsList Margin="10" />
+
+                </Grid>
+            </Grid>
+        </infrastructureControls:BasicContentLayout.MainContent>
+
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save" Command="{x:Static globalCommands:BreedEntryClassEntryListCommands.SaveBreedEntryClassEntryListCommand}" CommandParameter="{Binding}" />
+                <Button Content="Print certificates for selected breed results" Command="{x:Static globalCommands:PrintCommands.PrintCertificatesCommand }" CommandParameter="{Binding}" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
+    </infrastructureControls:BasicContentLayout>
+</UserControl>

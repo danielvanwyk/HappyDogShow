@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BreedChallengeEntity.cs" />
+    <Compile Include="BreedChallengeResult.cs" />
     <Compile Include="BreedClassEntryEntityWithClassDetailForSelection.cs" />
     <Compile Include="BreedDetail.cs" />
     <Compile Include="BreedEntry.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="BreedGroupChallengeEntity.cs" />
     <Compile Include="BreedGroupDetail.cs" />
     <Compile Include="CertificateDetail.cs" />
+    <Compile Include="ChallengeResultCollection.cs" />
     <Compile Include="ClubDetail.cs" />
     <Compile Include="DogRegistrationDetail.cs" />
     <Compile Include="DogShowDetail.cs" />

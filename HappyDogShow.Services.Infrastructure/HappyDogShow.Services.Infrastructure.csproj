@@ -51,6 +51,8 @@
     <Compile Include="Models\IBreedGroupChallengeEntity.cs" />
     <Compile Include="Models\IBreedGroupEntity.cs" />
     <Compile Include="Models\ICertficateDetail.cs" />
+    <Compile Include="Models\IChallengeResult.cs" />
+    <Compile Include="Models\IChallengeResultCollection.cs" />
     <Compile Include="Models\IClubEntity.cs" />
     <Compile Include="Models\IDogRegistration.cs" />
     <Compile Include="Models\IDogShowEntity.cs" />
