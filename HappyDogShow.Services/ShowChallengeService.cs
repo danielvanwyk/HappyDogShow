@@ -46,7 +46,8 @@ namespace HappyDogShow.Services
                         JudginOrder = d.ShowChallenge.JudgingOrder,
                         RelatedBreedGroupChallengeName = GetTheBreedGroupChallengeName(d.ShowChallenge), //d.BreedChallenges.FirstOrDefault() != null ? d.BreedChallenges.First().Abbreviation : "",
                         Name = d.ShowChallenge.Name,
-                        ChallengeJudgeName = d.Judge.Name
+                        ChallengeJudgeName = d.Judge.Name,
+                        ChallengeId = d.ShowChallenge.ID
                     });
                 }
             }

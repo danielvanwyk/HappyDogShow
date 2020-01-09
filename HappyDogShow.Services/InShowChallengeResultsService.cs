@@ -15,22 +15,22 @@ namespace HappyDogShow.Services
         {
             Task<List<IChallengeResult>> t = Task<List<IChallengeResult>>.Run(() =>
             {
-                //List<IChallengeResult> items = GetList<T>(dogShowId, challengeId);
-                List<IChallengeResult> items = GetTempList<T>();
+                List<IChallengeResult> items = GetList<T>(dogShowId, challengeId);
+                //List<IChallengeResult> items = GetTempList<T>();
                 return items;
             });
 
             return t;
         }
 
-        private List<IChallengeResult> GetList<T>(int dogShowId, int breedGroupId, int challengeId) where T : IChallengeResult, new()
+        private List<IChallengeResult> GetList<T>(int dogShowId, int challengeId) where T : IChallengeResult, new()
         {
             List<IChallengeResult> items = new List<IChallengeResult>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var existingData = from r in ctx.BreedGroupChallengeResults
-                                   where r.DogShow.ID == dogShowId && r.BreedGroup.ID == breedGroupId && r.BreedGroupChallenge.ID == challengeId
+                var existingData = from r in ctx.InShowChallengeResults
+                                   where r.DogShow.ID == dogShowId && r.ShowChallenge.ID == challengeId
                                    select r;
 
                 if (existingData.Count() == 0)
@@ -42,41 +42,38 @@ namespace HappyDogShow.Services
                     placings.Add("4th");
 
                     var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
-                                     from bg in ctx.BreedGroups.Where(d => d.ID == breedGroupId)
-                                     from bgc in ctx.BreedGroupChallenges.Where(d => d.ID == challengeId)
+                                     from scc in ctx.ShowChallenges.Where(d => d.ID == challengeId)
                                      from p in placings
                                      select new
                                      {
                                          DogShow = ds,
-                                         BreedGroup = bg,
-                                         BreedGroupChallenge = bgc,
+                                         ShowChallenge = scc,
                                          Placing = p
                                      };
 
                     foreach (var newEntry in newEntries)
                     {
-                        BreedGroupChallengeResult realEntry = new BreedGroupChallengeResult()
+                        InShowChallengeResult realEntry = new InShowChallengeResult()
                         {
                             DogShow = newEntry.DogShow,
-                            BreedGroup = newEntry.BreedGroup,
-                            BreedGroupChallenge = newEntry.BreedGroupChallenge,
+                            ShowChallenge = newEntry.ShowChallenge,
                             Placing = newEntry.Placing,
                             EntryNumber = ""
                         };
 
-                        ctx.BreedGroupChallengeResults.Add(realEntry);
+                        ctx.InShowChallengeResults.Add(realEntry);
                     }
                     ctx.SaveChanges();
                 }
 
-                var actualEntries = from r in ctx.BreedGroupChallengeResults
-                                    where r.DogShow.ID == dogShowId && r.BreedGroup.ID == breedGroupId && r.BreedGroupChallenge.ID == challengeId
+                var actualEntries = from r in ctx.InShowChallengeResults
+                                    where r.DogShow.ID == dogShowId && r.ShowChallenge.ID == challengeId
                                     orderby r.Placing
                                     select new T
                                     {
                                         Id = r.ID,
                                         ShowId = r.DogShow.ID,
-                                        Challenge = r.BreedGroupChallenge.Name,
+                                        Challenge = r.ShowChallenge.Name,
                                         EntryNumber = r.EntryNumber,
                                         Placing = r.Placing,
                                         Print = false
@@ -134,20 +131,20 @@ namespace HappyDogShow.Services
 
         private void UpdateEntity(IChallengeResultCollection<IChallengeResult> entity)
         {
-            //using (var ctx = new HappyDogShowContext())
-            //{
-            //    foreach (IChallengeResult result in entity.Results)
-            //    {
-            //        var foundResults = ctx.InShowChallengeResults.Where(i => i.ID == result.Id);
-            //        if (foundResults.Count() == 1)
-            //        {
-            //            InShowChallengeResult foundResult = foundResults.First();
-            //            foundResult.EntryNumber = result.EntryNumber;
-            //        }
-            //    }
+            using (var ctx = new HappyDogShowContext())
+            {
+                foreach (IChallengeResult result in entity.Results)
+                {
+                    var foundResults = ctx.InShowChallengeResults.Where(i => i.ID == result.Id);
+                    if (foundResults.Count() == 1)
+                    {
+                        InShowChallengeResult foundResult = foundResults.First();
+                        foundResult.EntryNumber = result.EntryNumber;
+                    }
+                }
 
-            //    ctx.SaveChanges();
-            //}
+                ctx.SaveChanges();
+            }
         }
 
     }

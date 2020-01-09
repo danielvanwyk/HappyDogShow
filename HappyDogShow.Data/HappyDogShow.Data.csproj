@@ -70,6 +70,7 @@
     <Compile Include="HandlerEntry.cs" />
     <Compile Include="HandlerRegistration.cs" />
     <Compile Include="HappyDogShowContext.cs" />
+    <Compile Include="InShowChallengeResult.cs" />
     <Compile Include="Judge.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.cs" />
     <Compile Include="Migrations\201908270444420_InitialCreate.Designer.cs">
@@ -147,6 +148,10 @@
     <Compile Include="Migrations\202001091418180_BreedGroupChallengeResults.Designer.cs">
       <DependentUpon>202001091418180_BreedGroupChallengeResults.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001091513463_InShowChallengeResults.cs" />
+    <Compile Include="Migrations\202001091513463_InShowChallengeResults.Designer.cs">
+      <DependentUpon>202001091513463_InShowChallengeResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001091418180_BreedGroupChallengeResults.resx">
       <DependentUpon>202001091418180_BreedGroupChallengeResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001091513463_InShowChallengeResults.resx">
+      <DependentUpon>202001091513463_InShowChallengeResults.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
