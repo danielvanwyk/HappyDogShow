@@ -110,7 +110,8 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             CurrentEntity = new HandlerEntry()
             {
                 Id = data.Id,
-                Handler = SelectedHandlerRegistration
+                Handler = SelectedHandlerRegistration,
+                Number = data.EntryNumber
             };
 
             SelectedHandlerRegistration = await _handlerRegistrationService.GetHandlerRegistrationAsync<HandlerRegistrationDetail>(data.HandlerId);

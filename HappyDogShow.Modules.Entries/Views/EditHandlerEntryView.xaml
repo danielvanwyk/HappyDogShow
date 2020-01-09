@@ -37,6 +37,10 @@
                                 <Label Width="150">Dog</Label>
                                 <ComboBox Width="250" ItemsSource="{Binding DogRegistrations}" SelectedItem="{Binding SelectedDogRegistration}" DisplayMemberPath="DisplayName" />
                             </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="150">Entry Number</Label>
+                                <TextBox Width="250" Text="{Binding CurrentEntity.Number }"></TextBox>
+                            </StackPanel>
 
 
 
