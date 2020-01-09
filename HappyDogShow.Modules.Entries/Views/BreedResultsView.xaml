@@ -39,6 +39,7 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Show</Label>
@@ -50,6 +51,7 @@
                     <Label Grid.Row="2" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Breed</Label>
                     <ComboBox Grid.Row="2" Grid.Column="1" Width="200" ItemsSource="{Binding BreedList}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedBreed}"></ComboBox>
 
+                    <Label Grid.Row="3" Grid.ColumnSpan="2" Background="Red">You can print without saving so please remember to save if you should save :)</Label>
                 </Grid>
 
                 <Grid Grid.Row="1" >
