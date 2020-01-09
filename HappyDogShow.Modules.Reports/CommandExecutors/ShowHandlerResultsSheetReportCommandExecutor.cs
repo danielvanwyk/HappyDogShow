@@ -49,7 +49,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             datasources.Add("DSExecutionProperties", ds2);
 
 
-            _reportViewerService.ShowReport(@"C:\Work\Personal\HappyDogShow\HappyDogShow.Modules.Reports\Reports\HandlerResultsSheet.rdlc", datasources, null);
+            _reportViewerService.ShowReport(@"Reports\HandlerResultsSheet.rdlc", datasources, null);
         }
     }
 }
