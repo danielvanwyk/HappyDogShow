@@ -73,6 +73,7 @@
     <Compile Include="Services\IBreedChallengeResultsService.cs" />
     <Compile Include="Services\IBreedChallengeService.cs" />
     <Compile Include="Services\IBreedEntryService.cs" />
+    <Compile Include="Services\IBreedGroupChallengeResultsService.cs" />
     <Compile Include="Services\IBreedGroupChallengeService.cs" />
     <Compile Include="Services\IBreedGroupService.cs" />
     <Compile Include="Services\IBreedMultipleEntryService.cs" />

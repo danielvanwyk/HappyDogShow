@@ -46,6 +46,10 @@ namespace HappyDogShow.Modules.Entries
             {
                 public static string ViewName = "ViewOrCaptureBreedResults";
             }
+            public static class BreedGroup
+            {
+                public static string ViewName = "ViewOrCaptureBreedGroupResults";
+            }
         }
     }
 }

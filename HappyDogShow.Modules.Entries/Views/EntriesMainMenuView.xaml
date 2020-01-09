@@ -19,7 +19,7 @@
     <MenuItem Header="View and Capture Breed Entry Attendance" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:BreedEntryResultsCommands.ShowBreedEntryResultsCaptureViewCommand" />
     <Separator />
     <MenuItem Header="View or Capture Breed Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:ResultsCommands.ShowBreedResultsCommand" />
-    <MenuItem Header="View or Capture Group Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:BreedEntryResultsCommands.ShowBreedEntryResultsCaptureViewCommand" />
-    <MenuItem Header="View or Capture In Show Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:BreedEntryResultsCommands.ShowBreedEntryResultsCaptureViewCommand" />
-    <MenuItem Header="View or Capture Handler Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:BreedEntryResultsCommands.ShowBreedEntryResultsCaptureViewCommand" />
+    <MenuItem Header="View or Capture Group Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:ResultsCommands.ShowBreedGroupResultsCommand" />
+    <!--<MenuItem Header="View or Capture In Show Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:ResultsCommands.ShowInShowResultsCommand" />
+    <MenuItem Header="View or Capture Handler Results" Background="Transparent" Style="{StaticResource MetroMenuItem}" Command="globalCommands:BreedEntryResultsCommands.ShowBreedEntryResultsCaptureViewCommand" />-->
 </MenuItem>

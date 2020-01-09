@@ -5,11 +5,11 @@ using System.Windows.Controls;
 namespace HappyDogShow.Modules.Entries.Views
 {
     /// <summary>
-    /// Interaction logic for BreedResultsView.xaml
+    /// Interaction logic for BreedGroupResultsView.xaml
     /// </summary>
-    public partial class BreedResultsView : UserControl, IBreedResultsView
+    public partial class BreedGroupResultsView : UserControl, IBreedGroupResultsView
     {
-        public BreedResultsView()
+        public BreedGroupResultsView()
         {
             InitializeComponent();
         }
@@ -18,7 +18,7 @@ namespace HappyDogShow.Modules.Entries.Views
         {
             get
             {
-                return (IBreedResultsViewViewModel)DataContext;
+                return (IBreedGroupResultsViewViewModel)DataContext;
             }
             set
             {

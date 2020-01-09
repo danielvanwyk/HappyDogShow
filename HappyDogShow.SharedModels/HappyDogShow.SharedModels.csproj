@@ -59,6 +59,7 @@
     <Compile Include="BreedEntryClassEntry.cs" />
     <Compile Include="BreedEntryEntityWithAdditionalData.cs" />
     <Compile Include="BreedGroupChallengeEntity.cs" />
+    <Compile Include="BreedGroupChallengeResult.cs" />
     <Compile Include="BreedGroupDetail.cs" />
     <Compile Include="CertificateDetail.cs" />
     <Compile Include="ChallengeResultCollection.cs" />

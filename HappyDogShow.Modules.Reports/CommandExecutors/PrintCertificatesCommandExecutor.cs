@@ -36,6 +36,9 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
 
             foreach (IChallengeResult result in obj.Results)
             {
+                if (result.ShowId <= 0)
+                    throw new Exception("The Show ID is not set");
+
                 var entries = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(result.ShowId, result.EntryNumber);
                 if (entries.Count == 1)
                 {

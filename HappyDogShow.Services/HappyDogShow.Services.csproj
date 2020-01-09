@@ -51,6 +51,7 @@
     <Compile Include="BreedChallengeResultsService.cs" />
     <Compile Include="BreedChallengeService.cs" />
     <Compile Include="BreedEntryService.cs" />
+    <Compile Include="BreedGroupChallengeResultsService.cs" />
     <Compile Include="BreedGroupChallengeService.cs" />
     <Compile Include="BreedGroupService.cs" />
     <Compile Include="BreedMultipleEntryService.cs" />
