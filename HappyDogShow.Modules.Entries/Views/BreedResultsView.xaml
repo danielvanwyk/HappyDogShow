@@ -10,6 +10,7 @@
              xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
              xmlns:SharedUserControls="clr-namespace:HappyDogShow.SharedUserControls;assembly=HappyDogShow.SharedUserControls"
              xmlns:infrastructureCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+             Style="{StaticResource BusyAwareEnabledUserControl}"
              >
 
     <UserControl.Resources>
@@ -66,8 +67,9 @@
 
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Save" Command="{x:Static globalCommands:BreedEntryClassEntryListCommands.SaveBreedEntryClassEntryListCommand}" CommandParameter="{Binding}" />
+                <Button Content="Save" Command="{x:Static globalCommands:ResultsCommands.SaveBreedResultsCommand}" CommandParameter="{Binding}" />
                 <Button Content="Print certificates for selected results" Command="{x:Static globalCommands:PrintCommands.PrintCertificatesForDogRelatedChallengeResults }" CommandParameter="{Binding ChallengeResults}" />
+                <Label Content="{Binding CRUDActionMessage}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>

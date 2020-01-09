@@ -1,4 +1,5 @@
 ﻿using HappyDogShow.Infrastructure.Models;
+using HappyDogShow.Infrastructure.ViewModels;
 using HappyDogShow.Infrastructure.WPF.Infrastructure;
 using HappyDogShow.Infrastructure.WPF.ViewModels;
 using HappyDogShow.Modules.Entries.Infrastructure;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Entries.ViewModels
 {
-    public class BreedResultsViewViewModel : NavigateableBindableViewModelBase, IBreedResultsViewViewModel
+    public class BreedResultsViewViewModel : NavigateableBindableViewModelBase, IBreedResultsViewViewModel, ICRUDActionAwareViewViewModel
     {
         private IDogShowService _dogShowService;
         private IBreedGroupService _breedGroupService;
@@ -28,6 +29,14 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             _breedService = breedService;
             _breedChallengeResultsService = breedChallengeResultsService;
         }
+
+        private string cRUDActionMessage;
+        public string CRUDActionMessage 
+        {
+            get { return cRUDActionMessage; }
+            set { SetProperty(ref cRUDActionMessage, value); }
+        }
+
 
         private IChallengeResultCollection<IChallengeResult> challengeResults;
         public IChallengeResultCollection<IChallengeResult> ChallengeResults

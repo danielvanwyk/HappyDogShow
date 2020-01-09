@@ -47,5 +47,33 @@ namespace HappyDogShow.Services
             return items;
         }
 
+        public Task UpdateEntityAsync(IChallengeResultCollection<IChallengeResult> entity)
+        {
+            Task t = Task<int>.Run(() =>
+            {
+                UpdateEntity(entity);
+            });
+
+            return t;
+        }
+
+        private void UpdateEntity(IChallengeResultCollection<IChallengeResult> entity)
+        {
+            using (var ctx = new HappyDogShowContext())
+            {
+                foreach(IChallengeResult result in entity.Results)
+                {
+                    var foundResults = ctx.BreedChallengeResults.Where(i => i.ID == result.Id);
+                    if (foundResults.Count() == 1)
+                    {
+                        BreedChallengeResult foundResult = foundResults.First();
+                        foundResult.EntryNumber = result.EntryNumber;
+                    }
+                }
+
+                ctx.SaveChanges();
+            }
+        }
+
     }
 }

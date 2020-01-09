@@ -63,7 +63,7 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
                 if (entityWithID != null)
                     _eventAggregator.GetEvent<EntityUpdatedEvent<U>>().Publish(new EntityUpdatedEventArgument(entityWithID.Id));
 
-                HandleSuccessfulSave(vm);
+                await HandleSuccessfulSave(vm);
             }
             catch (Exception ex)
             {
@@ -81,12 +81,27 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
             await _entityUpdateService.UpdateEntityAsync(entity);
         }
 
-        protected virtual void HandleSuccessfulSave(T vm)
+        protected async virtual Task HandleSuccessfulSave(T vm)
         {
+            await NotifyUserThatSaveWentWell(vm);
+
             INavigationAware navigationAwareVm = vm as INavigationAware;
             if (vm != null)
                 _regionManager.Regions[RegionNames.ContentRegion].NavigationService.Journal.GoBack();
         }
+
+        private async Task NotifyUserThatSaveWentWell(T vm)
+        {
+            ICRUDActionAwareViewViewModel crudactionawarevm = vm as ICRUDActionAwareViewViewModel;
+            if (crudactionawarevm == null)
+                return;
+
+            crudactionawarevm.CRUDActionMessage = "Save OK!";
+            await Task.Delay(TimeSpan.FromSeconds(2));
+
+            crudactionawarevm.CRUDActionMessage = "";
+        }
+
         protected virtual void HandleUnsuccessfulSave(Exception ex)
         {
             throw ex;

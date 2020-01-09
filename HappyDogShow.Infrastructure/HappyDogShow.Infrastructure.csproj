@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="ViewModels\IBusyAwareViewModel.cs" />
     <Compile Include="ViewModels\ICancelAwareViewViewModel.cs" />
+    <Compile Include="ViewModels\ICRUDActionAwareViewViewModel.cs" />
     <Compile Include="ViewModels\IEntityAwareViewViewModel.cs" />
     <Compile Include="WPF\Extensions\ScrollIntoViewBehavior.cs" />
     <Compile Include="WPF\Infrastructure\IView.cs" />

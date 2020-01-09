@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Services.Infrastructure.Models
 {
-    public interface IChallengeResultCollection<T> where T : IChallengeResult
+    public interface IChallengeResultCollection<T> : IEntityWithID
+        where T : IChallengeResult
     {
         ObservableCollection<T> Results { get; set; }
     }

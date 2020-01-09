@@ -36,6 +36,7 @@ namespace HappyDogShow.Modules.Entries
         private SaveBreedEntryClassEntryListCommandExecutor saveBreedEntryClassEntryListCommandExecutor;
 
         private ShowBreedResultsCommandExecutor showBreedResultsCommandExecutor;
+        private SaveBreedResultsCommandExecutor saveBreedResultsCommandExecutor;
 
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
@@ -66,6 +67,7 @@ namespace HappyDogShow.Modules.Entries
             saveBreedEntryClassEntryListCommandExecutor = Container.Resolve<SaveBreedEntryClassEntryListCommandExecutor>();
 
             showBreedResultsCommandExecutor = Container.Resolve<ShowBreedResultsCommandExecutor>();
+            saveBreedResultsCommandExecutor = Container.Resolve<SaveBreedResultsCommandExecutor>();
         }
 
         protected override void RegisterTypes()

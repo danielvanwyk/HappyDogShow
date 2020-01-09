@@ -12,6 +12,7 @@ namespace HappyDogShow.SharedModels
     public class ChallengeResultCollection<T> : ValidatableBindableBase, IChallengeResultCollection<T> where T : IChallengeResult
     {
         public ObservableCollection<T> Results { get; set; }
+        public int Id { get; set; }
 
         public ChallengeResultCollection()
         {
