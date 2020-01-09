@@ -73,6 +73,7 @@ namespace HappyDogShow
             Container.RegisterType<IBreedGroupChallengeService, BreedGroupChallengeService>();
             Container.RegisterType<IShowChallengeService, ShowChallengeService>();
             Container.RegisterType<IJudgesService, JudgesService>();
+            Container.RegisterType<IBreedChallengeResultsService, BreedChallengeResultsService>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

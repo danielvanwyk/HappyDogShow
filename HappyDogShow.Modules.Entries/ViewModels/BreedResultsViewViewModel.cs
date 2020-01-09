@@ -18,13 +18,15 @@ namespace HappyDogShow.Modules.Entries.ViewModels
         private IDogShowService _dogShowService;
         private IBreedGroupService _breedGroupService;
         private IBreedService _breedService;
+        private IBreedChallengeResultsService _breedChallengeResultsService;
 
-        public BreedResultsViewViewModel(IBreedResultsView view, IDogShowService dogShowService, IBreedService breedService, IBreedGroupService breedGroupService) 
+        public BreedResultsViewViewModel(IBreedResultsView view, IDogShowService dogShowService, IBreedService breedService, IBreedGroupService breedGroupService, IBreedChallengeResultsService breedChallengeResultsService) 
             : base(view)
         {
             _dogShowService = dogShowService;
             _breedGroupService = breedGroupService;
             _breedService = breedService;
+            _breedChallengeResultsService = breedChallengeResultsService;
         }
 
         private IChallengeResultCollection<IChallengeResult> challengeResults;
@@ -118,7 +120,17 @@ namespace HappyDogShow.Modules.Entries.ViewModels
 
         private async void LoadResultsList()
         {
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            ChallengeResults.Results.Clear();
+
+            if (selectedDogShow == null)
+                return;
+
+            if (selectedBreed == null)
+                return;
+
+            List<IChallengeResult> challengeResults = await _breedChallengeResultsService.GetListAsync<BreedChallengeResult>(selectedDogShow.Id, selectedBreed.Id);
+
+            challengeResults.ForEach(result => ChallengeResults.Results.Add(result));
         }
 
         public async override void Prepare()
@@ -127,31 +139,9 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             BreedGroupList = await _breedGroupService.GetListAsync<BreedGroupDetail>();
             BreedList = new List<IBreedEntity>();
 
-            IChallengeResultCollection<IChallengeResult> temp = new ChallengeResultCollection<IChallengeResult>();
-            ChallengeResults = temp;
+            ChallengeResults = new ChallengeResultCollection<IChallengeResult>();
 
-            IChallengeResult t = new BreedChallengeResult();
-            t.Challenge = "CC Dog (2 points)";
-            t.Placing = "";
-            t.EntryNumber = "";
-            t.Print = true;
-            temp.Results.Add(t);
-
-            IChallengeResult t2 = new BreedChallengeResult();
-            t2.Challenge = "BOB";
-            t2.Placing = "";
-            t2.EntryNumber = "";
-            t2.Print = true;
-            temp.Results.Add(t2);
-
-            IChallengeResult t3 = new BreedChallengeResult();
-            t3.Challenge = "RBOB";
-            t3.Placing = "";
-            t3.EntryNumber = "";
-            t3.Print = false;
-            temp.Results.Add(t3);
-
-            CurrentEntity = temp as ValidatableBindableBase;
+            CurrentEntity = ChallengeResults as ValidatableBindableBase;
         }
 
 
