@@ -15,7 +15,7 @@ namespace HappyDogShow.Modules.Entries.CommandExecutors
 {
     public class SaveBreedResultsCommandExecutor : SaveExistingEntityCommandExecutor<IBreedResultsViewViewModel, IChallengeResultCollection<IChallengeResult>>
     {
-        public SaveBreedResultsCommandExecutor(IRegionManager regionManager, IEventAggregator eventAggregator, IBreedChallengeService service)
+        public SaveBreedResultsCommandExecutor(IRegionManager regionManager, IEventAggregator eventAggregator, IBreedChallengeResultsService service)
             : base(ResultsCommands.SaveBreedResultsCommand, regionManager, eventAggregator, service)
         {
         }

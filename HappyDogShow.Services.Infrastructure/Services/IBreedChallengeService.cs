@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Services.Infrastructure.Services
 {
-    public interface IBreedChallengeService : IEntityUpdateService<IChallengeResultCollection<IChallengeResult>>
+    public interface IBreedChallengeService
     {
         Task<List<IBreedChallengeEntity>> GetListAsync<T>() where T : IBreedChallengeEntity, new();
     }
