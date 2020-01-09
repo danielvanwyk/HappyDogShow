@@ -20,6 +20,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
         private IDogShowService _dogShowService;
         private IDogRegistrationService _dogRegistrationService;
         private IHandlerEntryService _handlerEntryService;
+        private IHandlerClassService _handlerClassService;
 
         private IHandlerRegistration selectedHandlerRegistration;
         public IHandlerRegistration SelectedHandlerRegistration
@@ -59,12 +60,13 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             }
         }
 
-        public CaptureMultipleNewHandlerEntryViewViewModel(ICaptureMultipleNewHandlerEntryView view, IDogShowService dogShowService, IDogRegistrationService dogRegistrationService, IHandlerEntryService handlerEntryService)
+        public CaptureMultipleNewHandlerEntryViewViewModel(ICaptureMultipleNewHandlerEntryView view, IDogShowService dogShowService, IDogRegistrationService dogRegistrationService, IHandlerEntryService handlerEntryService, IHandlerClassService handlerClassService)
             : base(view)
         {
             _dogShowService = dogShowService;
             _dogRegistrationService = dogRegistrationService;
             _handlerEntryService = handlerEntryService;
+            _handlerClassService = handlerClassService;
         }
 
         public override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
@@ -82,7 +84,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
                                select d;
             DogRegistrations = orderedData.ToList();
 
-            HandlerClasses = await _handlerEntryService.GetHandlerClassListAsync<HandlerClassEntity>();
+            HandlerClasses = await _handlerClassService.GetHandlerClassListAsync<HandlerClassEntity>();
 
             CurrentEntity = new MultipleHandlerEntry();
             foreach (IDogShowEntity dogShow in DogShowList)

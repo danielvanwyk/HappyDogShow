@@ -44,6 +44,9 @@ namespace HappyDogShow.Modules.Entries
         private ShowInShowResultsCommandExecutor showInShowResultsCommandExecutor;
         private SaveInShowResultsCommandExecutor saveInShowResultsCommandExecutor;
 
+        private ShowHandlerResultsCommandExecutor showHandlerResultsCommandExecutor;
+        private SaveHandlerResultsCommandExecutor saveHandlerResultsCommandExecutor;
+
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
         {
@@ -80,6 +83,9 @@ namespace HappyDogShow.Modules.Entries
 
             showInShowResultsCommandExecutor = Container.Resolve<ShowInShowResultsCommandExecutor>();
             saveInShowResultsCommandExecutor = Container.Resolve<SaveInShowResultsCommandExecutor>();
+
+            showHandlerResultsCommandExecutor = Container.Resolve<ShowHandlerResultsCommandExecutor>();
+            saveHandlerResultsCommandExecutor = Container.Resolve<SaveHandlerResultsCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -150,6 +156,10 @@ namespace HappyDogShow.Modules.Entries
             // the in show results form
             Container.RegisterType<object, InShowResultsViewViewModel>(FormNameConstants.Results.InShow.ViewName);
             Container.RegisterType<IInShowResultsView, InShowResultsView>();
+
+            // the handler results form
+            Container.RegisterType<object, HandlerResultsViewViewModel>(FormNameConstants.Results.Handler.ViewName);
+            Container.RegisterType<IHandlerResultsView, HandlerResultsView>();
         }
 
     }

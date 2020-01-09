@@ -67,6 +67,7 @@
     <Compile Include="DogRegistrationDetail.cs" />
     <Compile Include="DogShowDetail.cs" />
     <Compile Include="GenderDetail.cs" />
+    <Compile Include="HandlerChallengeResult.cs" />
     <Compile Include="HandlerClassEntity.cs" />
     <Compile Include="HandlerEntry.cs" />
     <Compile Include="HandlerEntryEntityWithAdditionalData.cs" />

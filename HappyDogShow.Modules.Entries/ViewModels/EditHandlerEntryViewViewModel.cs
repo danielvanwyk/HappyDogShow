@@ -20,6 +20,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
         private IDogRegistrationService _dogRegistrationService;
         private IHandlerRegistrationService _handlerRegistrationService;
         private IHandlerEntryEntityWithAdditionalData data;
+        private IHandlerClassService _handlerClassService;
 
         private ValidatableBindableBase currentEntity;
         public ValidatableBindableBase CurrentEntity
@@ -87,13 +88,14 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             }
         }
 
-        public EditHandlerEntryViewViewModel(IEditHandlerEntryView view, IDogShowService dogShowService, IHandlerRegistrationService handlerRegistrationService, IHandlerEntryService handlerEntryService, IDogRegistrationService dogRegistrationService)
+        public EditHandlerEntryViewViewModel(IEditHandlerEntryView view, IDogShowService dogShowService, IHandlerRegistrationService handlerRegistrationService, IHandlerEntryService handlerEntryService, IDogRegistrationService dogRegistrationService, IHandlerClassService handlerClassService)
             : base(view)
         {
             _dogShowService = dogShowService;
             _handlerEntryService = handlerEntryService;
             _dogRegistrationService = dogRegistrationService;
             _handlerRegistrationService = handlerRegistrationService;
+            _handlerClassService = handlerClassService;
         }
 
         public override void GetValuesFromNavigationParameters(NavigationContext navigationContext)
@@ -124,7 +126,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
                               select d;
             DogRegistrations = orderedData.ToList();
 
-            HandlerClasses = await _handlerEntryService.GetHandlerClassListAsync<HandlerClassEntity>();
+            HandlerClasses = await _handlerClassService.GetHandlerClassListAsync<HandlerClassEntity>();
 
             SelectedDogShow = DogShowList.Where(d => d.Id == data.ShowId).First();
             SelectedDogRegistration = DogRegistrations.Where(d => d.Id == data.DogId).First();

@@ -54,6 +54,10 @@ namespace HappyDogShow.Modules.Entries
             {
                 public static string ViewName = "ViewOrCaptureInShowResults";
             }
+            public static class Handler
+            {
+                public static string ViewName = "ViewOrCaptureHandlerResults";
+            }
         }
     }
 }

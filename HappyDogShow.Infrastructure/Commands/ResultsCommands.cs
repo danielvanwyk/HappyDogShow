@@ -18,6 +18,9 @@ namespace HappyDogShow.Infrastructure.Commands
         public static CompositeCommand ShowInShowResultsCommand = new CompositeCommand();
         public static CompositeCommand SaveInShowResultsCommand = new CompositeCommand();
 
+        public static CompositeCommand ShowHandlerResultsCommand = new CompositeCommand();
+        public static CompositeCommand SaveHandlerResultsCommand = new CompositeCommand();
+
         public static CompositeCommand PrintCertificatesForDogRelatedChallengeResults = new CompositeCommand();
     }
 }

@@ -86,6 +86,8 @@
     <Compile Include="Services\IEntityUpdateService.cs" />
     <Compile Include="Services\IGenderService.cs" />
     <Compile Include="Services\IGlobalContextService.cs" />
+    <Compile Include="Services\IHandlerChallengeResultsService.cs" />
+    <Compile Include="Services\IHandlerClassService.cs" />
     <Compile Include="Services\IHandlerEntryService.cs" />
     <Compile Include="Services\IHandlerMultipleEntryService.cs" />
     <Compile Include="Services\IHandlerRegistrationService.cs" />

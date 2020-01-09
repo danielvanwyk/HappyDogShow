@@ -278,39 +278,6 @@ namespace HappyDogShow.Services
             }
         }
 
-        public Task<List<IHandlerClassEntity>> GetHandlerClassListAsync<T>() where T : IHandlerClassEntity, new()
-        {
-            Task<List<IHandlerClassEntity>> t = Task<List<IHandlerClassEntity>>.Run(() =>
-            {
-                List<IHandlerClassEntity> items = GetHandlerClassList<T>();
-                return items;
-            });
-
-            return t;
-        }
-
-        private List<IHandlerClassEntity> GetHandlerClassList<T>() where T : IHandlerClassEntity, new()
-        {
-            List<IHandlerClassEntity> items = new List<IHandlerClassEntity>();
-
-            using (var ctx = new HappyDogShowContext())
-            {
-                var data = from d in ctx.HandlerClasses
-                           select new T()
-                           {
-                               Id = d.ID,
-                               Description = d.Description,
-                               Name = d.Name
-                           };
-
-                foreach (var item in data)
-                {
-                    items.Add(item);
-                }
-            }
-
-            return items;
-        }
     }
 
 }

@@ -61,6 +61,8 @@
     <Compile Include="DogShowService.cs" />
     <Compile Include="GenderService.cs" />
     <Compile Include="GlobalContextService.cs" />
+    <Compile Include="HandlerChallengeResultsService.cs" />
+    <Compile Include="HandlerClassService.cs" />
     <Compile Include="HandlerEntryService.cs" />
     <Compile Include="HandlerMultipleEntryService.cs" />
     <Compile Include="HandlerRegistrationService.cs" />
