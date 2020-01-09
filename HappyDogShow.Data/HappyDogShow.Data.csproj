@@ -66,6 +66,7 @@
     <Compile Include="DogRegistration.cs" />
     <Compile Include="DogShow.cs" />
     <Compile Include="Gender.cs" />
+    <Compile Include="HandlerChallengeResult.cs" />
     <Compile Include="HandlerClass.cs" />
     <Compile Include="HandlerEntry.cs" />
     <Compile Include="HandlerRegistration.cs" />
@@ -152,6 +153,10 @@
     <Compile Include="Migrations\202001091513463_InShowChallengeResults.Designer.cs">
       <DependentUpon>202001091513463_InShowChallengeResults.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001091658332_HandlerChallengeResults.cs" />
+    <Compile Include="Migrations\202001091658332_HandlerChallengeResults.Designer.cs">
+      <DependentUpon>202001091658332_HandlerChallengeResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001091513463_InShowChallengeResults.resx">
       <DependentUpon>202001091513463_InShowChallengeResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001091658332_HandlerChallengeResults.resx">
+      <DependentUpon>202001091658332_HandlerChallengeResults.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

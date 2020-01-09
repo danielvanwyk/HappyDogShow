@@ -47,5 +47,6 @@ namespace HappyDogShow.Data
         public DbSet<BreedChallengeResult> BreedChallengeResults { get; set; }
         public DbSet<BreedGroupChallengeResult> BreedGroupChallengeResults { get; set; }
         public DbSet<InShowChallengeResult> InShowChallengeResults { get; set; }
+        public DbSet<HandlerChallengeResult> HandlerChallengeResults { get; set; }
     }
 }
