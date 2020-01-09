@@ -21,5 +21,8 @@ namespace HappyDogShow.SharedModels
         public string OwnerName { get; set; }
         public string JudgeName { get; set; }
         public string SecretaryName { get; set; }
+        public string ClubName { get; set; }
+        public string DateOfBirth { get; set; }
+        public string ChallengeName { get; set; }
     }
 }

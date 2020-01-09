@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandExecutors\PrintCertificatesCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\PrintCertificatesForHandlerRelatedChallengeResultsExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedBreakdownReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedGroupResultsJudgesSheetReportCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowBreedGroupResultsSheetReportCommandExecutor.cs" />
@@ -124,6 +125,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Reports\HandlerCertificate.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Certificate.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

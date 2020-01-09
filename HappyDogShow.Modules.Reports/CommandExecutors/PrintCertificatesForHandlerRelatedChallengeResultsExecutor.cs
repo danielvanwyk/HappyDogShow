@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Reports.CommandExecutors
 {
-    public class PrintCertificatesCommandExecutor
+    public class PrintCertificatesForHandlerRelatedChallengeResultsExecutor
     {
         private IReportViewerService _reportViewerService;
-        private IBreedEntryService _breedEntryService;
+        private IHandlerEntryService _handlerEntryService;
 
         private DelegateCommand<IChallengeResultCollection<IChallengeResult>> commandHandler { get; set; }
 
-        public PrintCertificatesCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService)
+        public PrintCertificatesForHandlerRelatedChallengeResultsExecutor(IReportViewerService reportViewerService, IHandlerEntryService handlerEntryService)
         {
             _reportViewerService = reportViewerService;
-            _breedEntryService = breedEntryService;
+            _handlerEntryService = handlerEntryService;
 
             commandHandler = new DelegateCommand<IChallengeResultCollection<IChallengeResult>>(ExecuteCommand);
-            PrintCommands.PrintCertificatesForDogRelatedChallengeResults.RegisterCommand(commandHandler);
+            PrintCommands.PrintCertificatesForHandlerRelatedChallengeResults.RegisterCommand(commandHandler);
         }
 
         private async void ExecuteCommand(IChallengeResultCollection<IChallengeResult> obj)
@@ -44,7 +44,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
 
             datasources.Add("dsCertificateDetail", certs);
 
-            _reportViewerService.ShowReport(@"Reports\Certificate.rdlc", datasources, null);
+            _reportViewerService.ShowReport(@"Reports\HandlerCertificate.rdlc", datasources, null);
         }
 
         private async Task AddDataForCertificate(List<ICertficateDetail> certs, IChallengeResult result)
@@ -58,10 +58,11 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             if (result.ShowId <= 0)
                 return;
 
-            var entries = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(result.ShowId, result.EntryNumber);
+            var allentries = await _handlerEntryService.GetHandlerEntryListAsync<HandlerEntryEntityWithAdditionalData>();
+            var entries = allentries.Where(e => e.ShowId == result.ShowId && e.EntryNumber == result.EntryNumber).ToList();
             if (entries.Count == 1)
             {
-                IBreedEntryEntityWithAdditionalData entryData = entries.First();
+                IHandlerEntryEntityWithAdditionalData entryData = entries.First();
                 certs.Add(new CertificateDetail()
                 {
                     RegionName = "Western Cape",
@@ -72,14 +73,14 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
                     ShowName = entryData.ShowName,
 
                     DateOfBirth = entryData.DOB.ToString("yyyy-MM-dd"),
-                    ChallengeName = result.Challenge,
-                    BreedName = entryData.BreedName,
-                    DogName = entryData.DogName,
+                    ChallengeName = entryData.EnteredClassName,
+                    BreedName = entryData.DogBreed,
+                    DogName = entryData.HandlerDisplayName,
                     EntryNumber = entryData.EntryNumber,
-                    JudgeName = entryData.ActualJudgeName,
-                    OwnerName = entryData.RegisteredOwner,
+                    JudgeName = entryData.JudgeName,
+                    OwnerName = "",
                     RegistrationNumber = entryData.DogRegistrationNumber,
-                    SexName = entryData.GenderName
+                    SexName = entryData.SexName
 
                 });
             };
