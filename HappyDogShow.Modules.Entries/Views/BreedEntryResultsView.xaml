@@ -116,7 +116,7 @@
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Save" Command="{x:Static globalCommands:BreedEntryClassEntryListCommands.SaveBreedEntryClassEntryListCommand}" CommandParameter="{Binding}" />
-                <Button Content="Print certificates for selected breed results" Command="{x:Static infrastructureCommands:NavigateableViewCommands.CancelEntityCommand}" CommandParameter="{Binding}" />
+                <Button Content="Print certificates for selected breed results" Command="{x:Static globalCommands:PrintCommands.PrintCertificatesCommand }" CommandParameter="{Binding}" />
             </StackPanel>
         </infrastructureControls:BasicContentLayout.ButtonContent>
     </infrastructureControls:BasicContentLayout>

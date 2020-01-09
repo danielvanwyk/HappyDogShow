@@ -106,6 +106,7 @@
     <Compile Include="Commands\HandlerEntryListCommands.cs" />
     <Compile Include="Commands\HandlerListCommands.cs" />
     <Compile Include="Commands\NavigationCommands.cs" />
+    <Compile Include="Commands\PrintCommands.cs" />
     <Compile Include="Events\EntityDeletedEvent.cs" />
     <Compile Include="Events\EntityUpdatedEvent.cs" />
     <Compile Include="Events\NewEntityCreatedEvent.cs" />
