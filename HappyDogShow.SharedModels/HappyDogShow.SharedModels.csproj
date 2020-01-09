@@ -59,6 +59,7 @@
     <Compile Include="BreedEntryEntityWithAdditionalData.cs" />
     <Compile Include="BreedGroupChallengeEntity.cs" />
     <Compile Include="BreedGroupDetail.cs" />
+    <Compile Include="CertificateDetail.cs" />
     <Compile Include="ClubDetail.cs" />
     <Compile Include="DogRegistrationDetail.cs" />
     <Compile Include="DogShowDetail.cs" />
