@@ -61,10 +61,57 @@ namespace HappyDogShow.Services
 
             using (var ctx = new HappyDogShowContext())
             {
+                var existingData = from r in ctx.BreedChallengeResults
+                                   where r.DogShow.ID == dogShowId && r.Breed.ID == breedId
+                                   select r;
+
+                if (existingData.Count() == 0)
+                {
+                    //DogShow selectedDogShow = ctx.DogShows.Where(d => d.ID == dogShowId).First();
+                    //List<BreedChallenge> breedChallenges = ctx.BreedChallenges.OrderBy(d => d.JudgingOrder).ToList();
+
+                    var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
+                                     from b in ctx.Breeds.Where(d => d.ID == breedId)
+                                     from bc in ctx.BreedChallenges.OrderBy(d => d.JudgingOrder)
+                                     select new 
+                                     {
+                                         DogShow = ds,
+                                         Breed = b,
+                                         BreedChallenge = bc
+                                     };
+
+                    foreach (var newEntry in newEntries)
+                    {
+                        BreedChallengeResult realEntry = new BreedChallengeResult()
+                        {
+                            DogShow = newEntry.DogShow,
+                            Breed = newEntry.Breed,
+                            BreedChallenge = newEntry.BreedChallenge,
+                            Placing = "",
+                            EntryNumber = ""
+                        };
+
+                        ctx.BreedChallengeResults.Add(realEntry);
+                    }
+                    ctx.SaveChanges();
+                }
                 // see if there is nothing in the table
                 // and then create it
 
-            // return what is in the table
+                var actualEntries = from r in ctx.BreedChallengeResults
+                                    where r.DogShow.ID == dogShowId && r.Breed.ID == breedId
+                                    orderby r.BreedChallenge.JudgingOrder, r.Placing
+                                    select new T
+                                    {
+                                        Id = r.ID,
+                                        Challenge = r.BreedChallenge.Name,
+                                        EntryNumber = r.EntryNumber,
+                                        Placing = r.Placing,
+                                        Print = false
+                                    };
+
+                foreach (var entry in actualEntries)
+                    items.Add(entry);
             }
 
             return items;

@@ -51,6 +51,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Breed.cs" />
     <Compile Include="BreedChallenge.cs" />
+    <Compile Include="BreedChallengeResults.cs" />
     <Compile Include="BreedClass.cs" />
     <Compile Include="BreedClassEntry.cs" />
     <Compile Include="BreedEntry.cs" />
@@ -137,6 +138,10 @@
     <Compile Include="Migrations\202001082203100_ShowHandlerJudges2.Designer.cs">
       <DependentUpon>202001082203100_ShowHandlerJudges2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001091129306_BreedChallengeResults.cs" />
+    <Compile Include="Migrations\202001091129306_BreedChallengeResults.Designer.cs">
+      <DependentUpon>202001091129306_BreedChallengeResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001082203100_ShowHandlerJudges2.resx">
       <DependentUpon>202001082203100_ShowHandlerJudges2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001091129306_BreedChallengeResults.resx">
+      <DependentUpon>202001091129306_BreedChallengeResults.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
