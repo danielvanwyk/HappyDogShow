@@ -32,41 +32,52 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             Dictionary<string, object> datasources = new Dictionary<string, object>();
             List<ICertficateDetail> certs = new List<ICertficateDetail>();
 
-            List<IChallengeResult> resultstoprint = obj.Results.Where(i => i.Print && !String.IsNullOrEmpty(i.EntryNumber)).ToList();
+            List<IChallengeResult> resultstoprint = obj.Results.Where(i => i.Print && !string.IsNullOrEmpty(i.EntryNumber)).ToList();
 
-            foreach (IChallengeResult result in obj.Results)
+            foreach (IChallengeResult result in resultstoprint)
             {
-                if (result.ShowId <= 0)
-                    throw new Exception("The Show ID is not set");
-
-                var entries = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(result.ShowId, result.EntryNumber);
-                if (entries.Count == 1)
-                {
-                    IBreedEntryEntityWithAdditionalData entryData = entries.First();
-                    certs.Add(new CertificateDetail()
-                    {
-                        RegionName = "Western Cape",
-                        DateAsString = "11 January 2020",
-                        SecretaryName = "Dr Annemari Groenewald",
-                        VenueName = "Kleinmond Primary School",
-
-                        ShowName = entryData.ShowName,
-
-                        BreedName = entryData.BreedName,
-                        DogName = entryData.DogName,
-                        EntryNumber = entryData.EntryNumber,
-                        JudgeName = entryData.ActualJudgeName,
-                        OwnerName = entryData.RegisteredOwner,
-                        RegistrationNumber = entryData.DogRegistrationNumber,
-                        SexName = entryData.GenderName
-
-                    });
-                };
+                await AddDataForCertificate(certs, result);
             };
 
             datasources.Add("dsCertificateDetail", certs);
 
             _reportViewerService.ShowReport(@"Reports\Certificate.rdlc", datasources, null);
+        }
+
+        private async Task AddDataForCertificate(List<ICertficateDetail> certs, IChallengeResult result)
+        {
+            if (!result.Print)
+                return;
+
+            if (string.IsNullOrEmpty(result.EntryNumber))
+                return;
+
+            if (result.ShowId <= 0)
+                return;
+
+            var entries = await _breedEntryService.GetBreedEntryListAsync<BreedEntryEntityWithAdditionalData>(result.ShowId, result.EntryNumber);
+            if (entries.Count == 1)
+            {
+                IBreedEntryEntityWithAdditionalData entryData = entries.First();
+                certs.Add(new CertificateDetail()
+                {
+                    RegionName = "Western Cape",
+                    DateAsString = "11 January 2020",
+                    SecretaryName = "Dr Annemari Groenewald",
+                    VenueName = "Kleinmond Primary School",
+
+                    ShowName = entryData.ShowName,
+
+                    BreedName = entryData.BreedName,
+                    DogName = entryData.DogName,
+                    EntryNumber = entryData.EntryNumber,
+                    JudgeName = entryData.ActualJudgeName,
+                    OwnerName = entryData.RegisteredOwner,
+                    RegistrationNumber = entryData.DogRegistrationNumber,
+                    SexName = entryData.GenderName
+
+                });
+            };
         }
     }
 }

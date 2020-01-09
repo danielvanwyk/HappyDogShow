@@ -80,8 +80,6 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             set
             {
                 SetProperty(ref selectedDogShow, value);
-                SelectedBreedGroup = null;
-                SelectedChallenge = null;
                 LoadResultsList();
             }
         }
@@ -93,7 +91,6 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             set
             {
                 SetProperty(ref selectedBreedGroup, value);
-                SelectedChallenge = null;
                 LoadResultsList();
             }
         }

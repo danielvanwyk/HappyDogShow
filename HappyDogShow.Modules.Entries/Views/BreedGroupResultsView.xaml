@@ -67,7 +67,7 @@
 
         <infrastructureControls:BasicContentLayout.ButtonContent>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Save" Command="{x:Static globalCommands:ResultsCommands.SaveBreedResultsCommand}" CommandParameter="{Binding}" />
+                <Button Content="Save" Command="{x:Static globalCommands:ResultsCommands.SaveBreedGroupResultsCommand}" CommandParameter="{Binding}" />
                 <Button Content="Print certificates for selected results" Command="{x:Static globalCommands:PrintCommands.PrintCertificatesForDogRelatedChallengeResults }" CommandParameter="{Binding ChallengeResults}" />
                 <Label Content="{Binding CRUDActionMessage}" />
             </StackPanel>
