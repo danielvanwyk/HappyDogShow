@@ -41,6 +41,9 @@ namespace HappyDogShow.Modules.Entries
         private ShowBreedGroupResultsCommandExecutor showBreedGroupResultsCommandExecutor;
         private SaveBreedGroupResultsCommandExecutor saveBreedGroupResultsCommandExecutor;
 
+        private ShowInShowResultsCommandExecutor showInShowResultsCommandExecutor;
+        private SaveInShowResultsCommandExecutor saveInShowResultsCommandExecutor;
+
         public EntriesModule(IUnityContainer container, IRegionManager regionManager)
                     : base(container, regionManager)
         {
@@ -74,6 +77,9 @@ namespace HappyDogShow.Modules.Entries
 
             showBreedGroupResultsCommandExecutor = Container.Resolve<ShowBreedGroupResultsCommandExecutor>();
             saveBreedGroupResultsCommandExecutor = Container.Resolve<SaveBreedGroupResultsCommandExecutor>();
+
+            showInShowResultsCommandExecutor = Container.Resolve<ShowInShowResultsCommandExecutor>();
+            saveInShowResultsCommandExecutor = Container.Resolve<SaveInShowResultsCommandExecutor>();
         }
 
         protected override void RegisterTypes()
@@ -140,6 +146,10 @@ namespace HappyDogShow.Modules.Entries
             // the breedgroup results form
             Container.RegisterType<object, BreedGroupResultsViewViewModel>(FormNameConstants.Results.BreedGroup.ViewName);
             Container.RegisterType<IBreedGroupResultsView, BreedGroupResultsView>();
+
+            // the in show results form
+            Container.RegisterType<object, InShowResultsViewViewModel>(FormNameConstants.Results.InShow.ViewName);
+            Container.RegisterType<IInShowResultsView, InShowResultsView>();
         }
 
     }

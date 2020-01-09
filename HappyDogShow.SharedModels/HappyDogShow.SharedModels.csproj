@@ -71,6 +71,7 @@
     <Compile Include="HandlerEntry.cs" />
     <Compile Include="HandlerEntryEntityWithAdditionalData.cs" />
     <Compile Include="HandlerRegistrationDetail.cs" />
+    <Compile Include="InShowChallengeResult.cs" />
     <Compile Include="JudgeAssignmentInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SexDetail.cs" />

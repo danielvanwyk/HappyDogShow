@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="HappyDogShow.Modules.Entries.Views.InShowResultsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HappyDogShow.Modules.Entries.Views"
+             mc:Ignorable="d" 
+             xmlns:infrastructureControls="clr-namespace:HappyDogShow.Infrastructure.UserControls;assembly=HappyDogShow.Infrastructure"
+             xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+             xmlns:globalCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+             xmlns:SharedUserControls="clr-namespace:HappyDogShow.SharedUserControls;assembly=HappyDogShow.SharedUserControls"
+             xmlns:infrastructureCommands="clr-namespace:HappyDogShow.Infrastructure.Commands;assembly=HappyDogShow.Infrastructure"
+             Style="{StaticResource BusyAwareEnabledUserControl}"
+             >
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="cvsGroupedItems" Source="{Binding CurrentEntity.BreedClassEntries}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="GenderName" />
+                <PropertyGroupDescription PropertyName="EnteredClassName" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+
+    <infrastructureControls:BasicContentLayout>
+        <infrastructureControls:BasicContentLayout.MainTitleText>Capture and/or view IN SHOW results</infrastructureControls:BasicContentLayout.MainTitleText>
+        <infrastructureControls:BasicContentLayout.MainContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Show</Label>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Width="200" ItemsSource="{Binding DogShowList}" DisplayMemberPath="DogShowName" SelectedItem="{Binding SelectedDogShow}"></ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="0" Width="100" HorizontalContentAlignment="Right">Challenge</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Width="200" ItemsSource="{Binding ChallengeList}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedChallenge}"></ComboBox>
+
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Background="Red">You can print without saving so please remember to save if you should save :)</Label>
+                </Grid>
+
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+
+                    <SharedUserControls:ChallengeResultsList Margin="10" />
+
+                </Grid>
+            </Grid>
+        </infrastructureControls:BasicContentLayout.MainContent>
+
+        <infrastructureControls:BasicContentLayout.ButtonContent>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save" Command="{x:Static globalCommands:ResultsCommands.SaveInShowResultsCommand}" CommandParameter="{Binding}" />
+                <Button Content="Print certificates for selected results" Command="{x:Static globalCommands:PrintCommands.PrintCertificatesForDogRelatedChallengeResults }" CommandParameter="{Binding ChallengeResults}" />
+                <Label Content="{Binding CRUDActionMessage}" />
+            </StackPanel>
+        </infrastructureControls:BasicContentLayout.ButtonContent>
+    </infrastructureControls:BasicContentLayout>
+</UserControl>

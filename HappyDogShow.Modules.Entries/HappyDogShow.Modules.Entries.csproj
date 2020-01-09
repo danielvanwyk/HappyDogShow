@@ -92,6 +92,7 @@
     <Compile Include="CommandExecutors\SaveBreedResultsCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveExistingBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveExistingHandlerEntryEntityCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\SaveInShowResultsCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveMultipleNewBreedEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveMultipleNewHandlerEntryEntityCommandExecutor.cs" />
     <Compile Include="CommandExecutors\SaveNewBreedEntryEntityCommandExecutor.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="CommandExecutors\ShowEntryByClassListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowEntryListCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowHandlerEntryListCommandExecutor.cs" />
+    <Compile Include="CommandExecutors\ShowInShowResultsCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewEntryCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToCaptureNewHandlerEntryCommandExecutor.cs" />
     <Compile Include="CommandExecutors\ShowViewToEditEntryCommandExecutor.cs" />
@@ -131,6 +133,8 @@
     <Compile Include="Infrastructure\IExploreEntriesViewViewModel.cs" />
     <Compile Include="Infrastructure\IExploreHandlerEntriesView.cs" />
     <Compile Include="Infrastructure\IExploreHandlerEntriesViewViewModel.cs" />
+    <Compile Include="Infrastructure\IInShowResultsView.cs" />
+    <Compile Include="Infrastructure\IInShowResultsViewViewModel.cs" />
     <Compile Include="Models\MultipleBreedEntry.cs" />
     <Compile Include="Models\MultipleBreedEntryClassEntry.cs" />
     <Compile Include="Models\MultipleHandlerEntry.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="ViewModels\ExploreEntriesByClassViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreEntriesViewViewModel.cs" />
     <Compile Include="ViewModels\ExploreHandlerEntriesViewViewModel.cs" />
+    <Compile Include="ViewModels\InShowResultsViewViewModel.cs" />
     <Compile Include="Views\BreedEntryResultsView.xaml.cs">
       <DependentUpon>BreedEntryResultsView.xaml</DependentUpon>
     </Compile>
@@ -182,6 +187,9 @@
     </Compile>
     <Compile Include="Views\ExploreHandlerEntriesView.xaml.cs">
       <DependentUpon>ExploreHandlerEntriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InShowResultsView.xaml.cs">
+      <DependentUpon>InShowResultsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExploreHandlerEntriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InShowResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

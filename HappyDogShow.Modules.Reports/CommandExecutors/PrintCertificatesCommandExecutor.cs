@@ -34,6 +34,9 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
 
             List<IChallengeResult> resultstoprint = obj.Results.Where(i => i.Print && !string.IsNullOrEmpty(i.EntryNumber)).ToList();
 
+            if (resultstoprint.Count == 0)
+                return;
+
             foreach (IChallengeResult result in resultstoprint)
             {
                 await AddDataForCertificate(certs, result);

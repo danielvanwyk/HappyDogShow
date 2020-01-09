@@ -64,6 +64,7 @@
     <Compile Include="HandlerEntryService.cs" />
     <Compile Include="HandlerMultipleEntryService.cs" />
     <Compile Include="HandlerRegistrationService.cs" />
+    <Compile Include="InShowChallengeResultsService.cs" />
     <Compile Include="JudgesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SexService.cs" />
