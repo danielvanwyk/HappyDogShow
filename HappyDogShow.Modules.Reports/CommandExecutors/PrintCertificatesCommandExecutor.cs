@@ -32,7 +32,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             Dictionary<string, object> datasources = new Dictionary<string, object>();
             List<ICertficateDetail> certs = new List<ICertficateDetail>();
 
-            List<IChallengeResult> resultstoprint = obj.Results.Where(i => i.Print && !string.IsNullOrEmpty(i.EntryNumber)).ToList();
+            List<IChallengeResult> resultstoprint = obj.Results.Where(i => i.Print && !string.IsNullOrEmpty(i.EntryNumber)).OrderBy(c => c.JudgingOrder).ToList();
 
             if (resultstoprint.Count == 0)
                 return;

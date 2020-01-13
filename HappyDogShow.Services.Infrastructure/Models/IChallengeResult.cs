@@ -7,5 +7,6 @@
         string EntryNumber { get; set; }
         bool Print { get; set; }
         int ShowId { get; set; }
+        int JudgingOrder { get; set; }
     }
 }

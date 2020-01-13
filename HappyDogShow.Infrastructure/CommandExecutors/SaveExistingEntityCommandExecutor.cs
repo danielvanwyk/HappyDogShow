@@ -90,7 +90,7 @@ namespace HappyDogShow.Infrastructure.CommandExecutors
                 _regionManager.Regions[RegionNames.ContentRegion].NavigationService.Journal.GoBack();
         }
 
-        private async Task NotifyUserThatSaveWentWell(T vm)
+        protected async Task NotifyUserThatSaveWentWell(T vm)
         {
             ICRUDActionAwareViewViewModel crudactionawarevm = vm as ICRUDActionAwareViewViewModel;
             if (crudactionawarevm == null)

@@ -5,6 +5,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 using HappyDogShow.Services.Infrastructure.Services;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
+using System.Threading.Tasks;
 
 namespace HappyDogShow.Modules.Entries.CommandExecutors
 {
@@ -15,5 +16,9 @@ namespace HappyDogShow.Modules.Entries.CommandExecutors
         {
         }
 
+        protected override async Task HandleSuccessfulSave(IBreedGroupResultsViewViewModel vm)
+        {
+            await NotifyUserThatSaveWentWell(vm);
+        }
     }
 }

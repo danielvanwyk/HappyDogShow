@@ -20,5 +20,9 @@ namespace HappyDogShow.Modules.Entries.CommandExecutors
         {
         }
 
+        protected override async Task HandleSuccessfulSave(IHandlerResultsViewViewModel vm)
+        {
+            await NotifyUserThatSaveWentWell(vm);
+        }
     }
 }

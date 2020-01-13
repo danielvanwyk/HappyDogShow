@@ -11,5 +11,6 @@ namespace HappyDogShow.SharedModels
         public string EntryNumber { get; set; }
         public bool Print { get; set; }
         public int ShowId { get; set; }
+        public int JudgingOrder { get; set; }
     }
 }

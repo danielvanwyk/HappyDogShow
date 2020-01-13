@@ -108,7 +108,8 @@ namespace HappyDogShow.Services
                                         Challenge = r.BreedChallenge.Name,
                                         EntryNumber = r.EntryNumber,
                                         Placing = r.Placing,
-                                        Print = false
+                                        Print = false,
+                                        JudgingOrder = r.BreedChallenge.JudgingOrder
                                     };
 
                 foreach (var entry in actualEntries)
