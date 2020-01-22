@@ -119,7 +119,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             if (selectedChallenge == null)
                 return;
 
-            List<IChallengeResult> challengeResults = await _breedGroupChallengeResultsService.GetListAsync<BreedGroupChallengeResult>(selectedDogShow.Id, selectedBreedGroup.Id, selectedChallenge.Id);
+            List<IBreedGroupChallengeResult> challengeResults = await _breedGroupChallengeResultsService.GetListAsync<BreedGroupChallengeResult>(selectedDogShow.Id, selectedBreedGroup.Id, selectedChallenge.Id);
 
             challengeResults.ForEach(result => ChallengeResults.Results.Add(result));
         }

@@ -11,11 +11,11 @@ namespace HappyDogShow.Services
 {
     public class BreedGroupChallengeResultsService : IBreedGroupChallengeResultsService
     {
-        public Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId, int breedGroupId, int challengeId) where T : IChallengeResult, new()
+        public Task<List<IBreedGroupChallengeResult>> GetListAsync<T>(int dogShowId, int breedGroupId, int challengeId) where T : IBreedGroupChallengeResult, new()
         {
-            Task<List<IChallengeResult>> t = Task<List<IChallengeResult>>.Run(() =>
+            Task<List<IBreedGroupChallengeResult>> t = Task<List<IBreedGroupChallengeResult>>.Run(() =>
             {
-                List<IChallengeResult> items = GetList<T>(dogShowId, breedGroupId, challengeId);
+                List<IBreedGroupChallengeResult> items = GetList<T>(dogShowId, breedGroupId, challengeId);
                 //List<IChallengeResult> items = GetTempList<T>();
                 return items;
             });
@@ -23,54 +23,122 @@ namespace HappyDogShow.Services
             return t;
         }
 
-        private List<IChallengeResult> GetList<T>(int dogShowId, int breedGroupId, int challengeId) where T : IChallengeResult, new()
+        public Task<List<IBreedGroupChallengeResult>> GetListAsync<T>(int dogShowId) where T : IBreedGroupChallengeResult, new()
         {
-            List<IChallengeResult> items = new List<IChallengeResult>();
+            Task<List<IBreedGroupChallengeResult>> t = Task<List<IBreedGroupChallengeResult>>.Run(() =>
+            {
+                List<IBreedGroupChallengeResult> items = GetList<T>(dogShowId, -1, -1);
+                //List<IChallengeResult> items = GetTempList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IBreedGroupChallengeResult> GetList<T>(int dogShowId, int breedGroupId, int challengeId) where T : IBreedGroupChallengeResult, new()
+        {
+            List<IBreedGroupChallengeResult> items = new List<IBreedGroupChallengeResult>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var existingData = from r in ctx.BreedGroupChallengeResults
-                                   where r.DogShow.ID == dogShowId && r.BreedGroup.ID == breedGroupId && r.BreedGroupChallenge.ID == challengeId
-                                   select r;
+                List<string> placings = new List<string>();
+                placings.Add("1st");
+                placings.Add("2nd");
+                placings.Add("3rd");
+                placings.Add("4th");
 
-                if (existingData.Count() == 0)
+                var whatwemusthaveeventually = from bc in ctx.BreedGroupChallenges
+                                               from bg in ctx.BreedGroups
+                                               from s in ctx.DogShows.Where(i => i.ID == dogShowId)
+                                               from p in placings
+                                               select new
+                                               {
+                                                   BreedGroupChallenge = bc,
+                                                   BreedGroup = bg,
+                                                   Show = s,
+                                                   Placing = p
+                                               };
+
+                var whatwehavenow = from res in ctx.BreedGroupChallengeResults
+                                    where res.DogShow.ID == dogShowId
+                                    select res;
+
+                BreedGroupChallengeResult defaultValue = new BreedGroupChallengeResult();
+
+                var whatwehavewithwhatwemusthave = from i in whatwemusthaveeventually
+                                                   join res in whatwehavenow on
+                                                   new
+                                                   {
+                                                       breedgroupid = i.BreedGroup.ID,
+                                                       breedgroupchallengeid = i.BreedGroupChallenge.ID,
+                                                       dogshowid = i.Show.ID,
+                                                       placing = i.Placing
+                                                   } equals
+                                                   new
+                                                   {
+                                                       breedgroupid = res.BreedGroup.ID,
+                                                       breedgroupchallengeid = res.BreedGroupChallenge.ID,
+                                                       dogshowid = res.DogShow.ID,
+                                                       placing = res.Placing
+                                                   }
+                                                   into gj
+                                                   from joinedresult in gj.DefaultIfEmpty()
+                                                   select new
+                                                   {
+                                                       breedgroupid = i.BreedGroup.ID,
+                                                       breedgroup = i.BreedGroup,
+                                                       breedgroupchallengeid = i.BreedGroupChallenge.ID,
+                                                       breedgroupchallenge = i.BreedGroupChallenge,
+                                                       dogshowid = i.Show.ID,
+                                                       dogshow = i.Show,
+                                                       placing = i.Placing,
+                                                       existingdata = joinedresult
+                                                   };
+
+                var yes = whatwehavewithwhatwemusthave.ToList();
+
+                var whatwemustcreate = yes.Where(i => i.existingdata == null);
+
+                foreach (var tocreate in whatwemustcreate)
                 {
-                    List<string> placings = new List<string>();
-                    placings.Add("1st");
-                    placings.Add("2nd");
-                    placings.Add("3rd");
-                    placings.Add("4th");
-
-                    var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
-                                     from bg in ctx.BreedGroups.Where(d => d.ID == breedGroupId)
-                                     from bgc in ctx.BreedGroupChallenges.Where(d => d.ID == challengeId)
-                                     from p in placings
-                                     select new
-                                     {
-                                         DogShow = ds,
-                                         BreedGroup = bg,
-                                         BreedGroupChallenge = bgc,
-                                         Placing = p
-                                     };
-
-                    foreach (var newEntry in newEntries)
+                    BreedGroupChallengeResult realEntry = new BreedGroupChallengeResult()
                     {
-                        BreedGroupChallengeResult realEntry = new BreedGroupChallengeResult()
-                        {
-                            DogShow = newEntry.DogShow,
-                            BreedGroup = newEntry.BreedGroup,
-                            BreedGroupChallenge = newEntry.BreedGroupChallenge,
-                            Placing = newEntry.Placing,
-                            EntryNumber = ""
-                        };
+                        DogShow = tocreate.dogshow,
+                        BreedGroup = tocreate.breedgroup,
+                        BreedGroupChallenge = tocreate.breedgroupchallenge,
+                        Placing = tocreate.placing,
+                        EntryNumber = ""
+                    };
 
-                        ctx.BreedGroupChallengeResults.Add(realEntry);
-                    }
-                    ctx.SaveChanges();
+                    ctx.BreedGroupChallengeResults.Add(realEntry);
                 }
+                ctx.SaveChanges();
 
-                var actualEntries = from r in ctx.BreedGroupChallengeResults
-                                    where r.DogShow.ID == dogShowId && r.BreedGroup.ID == breedGroupId && r.BreedGroupChallenge.ID == challengeId
+
+            }
+
+
+
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var rawdata = from r in ctx.BreedGroupChallengeResults
+                              where r.DogShow.ID == dogShowId
+                              select r;
+
+                if (breedGroupId > 0)
+                    rawdata = rawdata.Where(i => i.BreedGroup.ID == breedGroupId);
+
+                if (challengeId > 0)
+                    rawdata = rawdata.Where(i => i.BreedGroupChallenge.ID == challengeId);
+
+                var breedGroupJudges = from j in ctx.ShowGroupJudges
+                                       where j.DogShow.ID == dogShowId
+                                       select j;
+
+                var actualEntries = from r in rawdata
+                                    join j in breedGroupJudges on
+                                        r.BreedGroup.ID equals j.BreedGroup.ID
                                     orderby r.Placing
                                     select new T
                                     {
@@ -80,11 +148,20 @@ namespace HappyDogShow.Services
                                         Challenge = r.BreedGroupChallenge.Name,
                                         EntryNumber = r.EntryNumber,
                                         Placing = r.Placing,
-                                        Print = false
+                                        Print = false,
+                                        BreedGroupName = r.BreedGroup.Name,
+                                        BreedGroupJudgeName = j.Judge.Name,
+                                        JudgingOrder = r.BreedGroupChallenge.JudgingOrder
                                     };
 
-                foreach (var entry in actualEntries)
+                foreach (var entry in actualEntries.ToList())
+                {
+                    if (entry.EntryNumber != "")
+                    {
+                        entry.BreedName = ctx.BreedEntries.Include("Dog").Include("Dog.Breed").Where(e => e.Show.ID == dogShowId && e.Number == entry.EntryNumber).First().Dog.Breed.Name;
+                    }
                     items.Add(entry);
+                }
             }
 
             return items;

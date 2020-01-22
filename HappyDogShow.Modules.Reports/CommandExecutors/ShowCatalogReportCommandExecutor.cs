@@ -29,10 +29,11 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         private IJudgesService _judgesService;
         private IBreedChallengeService _breedChallengeService;
         private IBreedChallengeResultsService _breedChallengeResultsService;
+        private IBreedGroupChallengeResultsService _breedGroupChallengeResultsService;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService)
+        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService, IBreedGroupChallengeResultsService breedGroupChallengeResultsService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
@@ -40,6 +41,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             _judgesService = judgesService;
             _breedChallengeService = breedChallengeService;
             _breedChallengeResultsService = breedChallengeResultsService;
+            _breedGroupChallengeResultsService = breedGroupChallengeResultsService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
             DogShowReportCommands.ShowCatalogReportCommand.RegisterCommand(commandHandler);
@@ -125,9 +127,8 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             List<IBreedChallengeEntity> breedChallenges = await _breedChallengeService.GetListAsync<BreedChallengeEntity>();
             datasources.Add("DSBreedChallenges", breedChallenges);
 
-
-
-
+            var breedGroupChallengeResults = await _breedGroupChallengeResultsService.GetListAsync<BreedGroupChallengeResult>(obj.Id);
+            datasources.Add("DSBreedGroupChallengResults", breedGroupChallengeResults);
 
 
             //Dictionary<string, string> parms = new Dictionary<string, string>();

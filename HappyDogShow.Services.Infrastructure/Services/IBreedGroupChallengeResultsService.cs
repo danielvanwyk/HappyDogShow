@@ -6,6 +6,7 @@ namespace HappyDogShow.Services.Infrastructure.Services
 {
     public interface IBreedGroupChallengeResultsService : IEntityUpdateService<IChallengeResultCollection<IChallengeResult>>
     {
-        Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId, int breedGroupId, int challengeId) where T : IChallengeResult, new();
+        Task<List<IBreedGroupChallengeResult>> GetListAsync<T>(int dogShowId, int breedGroupId, int challengeId) where T : IBreedGroupChallengeResult, new();
+        Task<List<IBreedGroupChallengeResult>> GetListAsync<T>(int dogShowId) where T : IBreedGroupChallengeResult, new();
     }
 }

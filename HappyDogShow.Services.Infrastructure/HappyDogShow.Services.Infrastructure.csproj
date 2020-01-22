@@ -50,6 +50,7 @@
     <Compile Include="Models\IBreedEntryEntity.cs" />
     <Compile Include="Models\IBreedEntryEntityWithAdditionalData.cs" />
     <Compile Include="Models\IBreedGroupChallengeEntity.cs" />
+    <Compile Include="Models\IBreedGroupChallengeResult.cs" />
     <Compile Include="Models\IBreedGroupEntity.cs" />
     <Compile Include="Models\ICertficateDetail.cs" />
     <Compile Include="Models\IChallengeResult.cs" />
