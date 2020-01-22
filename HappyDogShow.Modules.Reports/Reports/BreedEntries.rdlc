@@ -317,7 +317,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>RegisteredOwner</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Height>6mm</Height>
                               <Width>9cm</Width>
                               <Style>
@@ -350,7 +349,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox264</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>9cm</Left>
                               <Height>0.6cm</Height>
                               <Width>1cm</Width>
@@ -385,7 +383,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox264</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>13cm</Left>
                               <Height>0.6cm</Height>
                               <Width>1cm</Width>
@@ -419,7 +416,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox264</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>10cm</Left>
                               <Height>0.6cm</Height>
                               <Width>3cm</Width>
@@ -453,7 +449,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox264</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>14cm</Left>
                               <Height>0.6cm</Height>
                               <Width>4cm</Width>
@@ -504,7 +499,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>EntryNumber</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Height>0.6cm</Height>
                               <Width>10mm</Width>
                               <Style>
@@ -532,7 +526,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>DogName</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>1cm</Left>
                               <Height>0.6cm</Height>
                               <Width>12cm</Width>
@@ -564,7 +557,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>EnteredClassNames</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>14cm</Left>
                               <Height>0.6cm</Height>
                               <Width>4cm</Width>
@@ -730,7 +722,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>EnteredClassNames</rd:DefaultName>
-                              <Top>0cm</Top>
                               <Left>13cm</Left>
                               <Height>0.6cm</Height>
                               <Width>1cm</Width>
@@ -1095,7 +1086,7 @@
                                   </Group>
                                   <SortExpressions>
                                     <SortExpression>
-                                      <Value>=Fields!EntryNumber.Value</Value>
+                                      <Value>=CInt(Fields!EntryNumber.Value)</Value>
                                     </SortExpression>
                                   </SortExpressions>
                                 </TablixMember>

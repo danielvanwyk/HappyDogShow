@@ -1,4 +1,5 @@
-﻿using HappyDogShow.Services.Infrastructure.Services;
+﻿using HappyDogShow.Services.Infrastructure.Models;
+using HappyDogShow.Services.Infrastructure.Services;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
@@ -94,12 +95,24 @@ namespace HappyDogShow.Modules.ReportViewer
 
             if (e.ReportPath.Contains("BreedEntries"))
             {
-                e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSBreedEntriesForShow").First());
+                string breedName = e.Parameters["parmBreedName"].Values[0];
+
+                var originaldata = parentReport.DataSources["DSBreedEntriesForShow"].Value;
+                List<IBreedEntryEntityWithAdditionalData> data = originaldata as List<IBreedEntryEntityWithAdditionalData>;
+                List<IBreedEntryEntityWithAdditionalData> newdata = data.Where(b => b.BreedName == breedName).ToList();
+
+                e.DataSources.Add(new ReportDataSource("DSBreedEntriesForShow", newdata));
             }
 
             if (e.ReportPath.Contains("BreedResults"))
             {
-                e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSBreedEntryClassEntriesForShow").First());
+                string breedName = e.Parameters["parmBreedName"].Values[0];
+
+                var originaldata = parentReport.DataSources["DSBreedEntryClassEntriesForShow"].Value;
+                List<IBreedEntryClassEntry> data = originaldata as List<IBreedEntryClassEntry>;
+                List<IBreedEntryClassEntry> newdata = data.Where(b => b.BreedName == breedName).ToList();
+
+                e.DataSources.Add(new ReportDataSource("DSBreedEntryClassEntriesForShow", newdata));
             }
         }
     }
