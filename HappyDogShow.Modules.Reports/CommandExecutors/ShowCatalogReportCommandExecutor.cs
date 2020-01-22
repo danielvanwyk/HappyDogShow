@@ -27,15 +27,17 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         private IReportViewerService _reportViewerService;
         private IHandlerEntryService _handlerEntryService;
         private IJudgesService _judgesService;
+        private IBreedChallengeService _breedChallengeService;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService)
+        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
             _handlerEntryService = handlerEntryService;
             _judgesService = judgesService;
+            _breedChallengeService = breedChallengeService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
             DogShowReportCommands.ShowCatalogReportCommand.RegisterCommand(commandHandler);
@@ -74,13 +76,65 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             ds.Add(obj); 
             datasources.Add("DSShowInfo", ds);
 
+
+
+
+
+
+
+            List<IBreedEntryClassEntry> classEntryItems = await _breedEntryService.GetBreedEntryClassEntryListAsync<BreedEntryClassEntry>();
+            var classEntryData = classEntryItems.Where(i => i.ShowId == obj.Id).ToList();
+
+            var rankeddata = classEntryData.GroupBy(d => d.ReportGroupingKey)
+                .SelectMany(g => g.OrderBy(y => y.ReportSortingKey)
+                                   .Select((x, i) => new { g.Key, Item = x, Rank = i + 1 }));
+
+            foreach (var i in rankeddata)
+            {
+                i.Item.ReportingRank = i.Rank;
+            }
+
+            var tempData = from c in classEntryData
+                           select new
+                           {
+                               TempShowName = c.ShowName,
+                               TempBreedGroupName = c.BreedGroupName,
+                               TempBreedName = c.BreedName
+                           };
+
+            var moreTempData = tempData.Distinct().ToList();
+
+            List<IBreedChallengeEntity> breedChallenges = await _breedChallengeService.GetListAsync<BreedChallengeEntity>();
+            foreach (IBreedChallengeEntity breedChallenge in breedChallenges)
+            {
+                foreach (var tempydatay in moreTempData)
+                {
+                    classEntryData.Add(new BreedEntryClassEntry()
+                    {
+                        ShowName = tempydatay.TempShowName,
+                        BreedGroupName = tempydatay.TempBreedGroupName,
+                        BreedName = tempydatay.TempBreedName,
+                        GenderName = "ALL",
+                        EntryNumber = "",
+                        EnteredClassName = breedChallenge.Name,
+                        JudgingOrder = breedChallenge.JudginOrder
+                    });
+                }
+            }
+            datasources.Add("DSBreedEntryClassEntriesForShow", classEntryData);
+
+
+
+
+
+
             //Dictionary<string, string> parms = new Dictionary<string, string>();
             //parms.Add("parmClubName", "Overberg Kennel Club");
             //parms.Add("parmDogShowName", obj.DogShowName);
             //parms.Add("parmDogShowDate", obj.ShowDate.ToString("yyyy-MM-dd"));
 
 
-            _reportViewerService.ShowReport(@"Reports\ShowCatalog.rdlc", datasources, null);
+            _reportViewerService.ShowReport(@"Reports\MarkedShowCatalog.rdlc", datasources, null);
         }
     }
 }
