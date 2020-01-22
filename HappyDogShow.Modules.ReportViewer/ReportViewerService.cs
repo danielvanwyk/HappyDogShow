@@ -90,7 +90,13 @@ namespace HappyDogShow.Modules.ReportViewer
 
             if (e.ReportPath.Contains("BreedGroupEntryBreakdown"))
             {
-                e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSBreedEntriesForShow").First());
+                string breedGroupName = e.Parameters["parmBreedGroupName"].Values[0];
+
+                var originaldata = parentReport.DataSources["DSBreedEntriesForShow"].Value;
+                List<IBreedEntryEntityWithAdditionalData> data = originaldata as List<IBreedEntryEntityWithAdditionalData>;
+                List<IBreedEntryEntityWithAdditionalData> newdata = data.Where(b => b.BreedGroupName == breedGroupName).ToList();
+
+                e.DataSources.Add(new ReportDataSource("DSBreedEntriesForShow", newdata));
             }
 
             if (e.ReportPath.Contains("BreedEntries"))
