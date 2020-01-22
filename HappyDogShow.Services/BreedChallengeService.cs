@@ -28,7 +28,7 @@ namespace HappyDogShow.Services
 
             using (var ctx = new HappyDogShowContext())
             {
-                var data = from d in ctx.BreedChallenges
+                var data = from d in ctx.BreedChallenges.Include("BreedGroupChallenge")
                            select d;
 
                 foreach (BreedChallenge d in data)

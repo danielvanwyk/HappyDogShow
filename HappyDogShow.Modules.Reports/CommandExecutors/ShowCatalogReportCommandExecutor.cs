@@ -27,18 +27,18 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         private IReportViewerService _reportViewerService;
         private IHandlerEntryService _handlerEntryService;
         private IJudgesService _judgesService;
-        //private IBreedChallengeService _breedChallengeService;
+        private IBreedChallengeService _breedChallengeService;
         private IBreedChallengeResultsService _breedChallengeResultsService;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeResultsService breedChallengeResultsService)
+        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
             _handlerEntryService = handlerEntryService;
             _judgesService = judgesService;
-            //_breedChallengeService = breedChallengeService;
+            _breedChallengeService = breedChallengeService;
             _breedChallengeResultsService = breedChallengeResultsService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
@@ -120,27 +120,10 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
                     JudgingOrder = challengeResult.JudgingOrder
                 });
             }
-
-            /*
-            List<IBreedChallengeEntity> breedChallenges = await _breedChallengeService.GetListAsync<BreedChallengeEntity>();
-            foreach (IBreedChallengeEntity breedChallenge in breedChallenges)
-            {
-                foreach (var tempydatay in moreTempData)
-                {
-                    classEntryData.Add(new BreedEntryClassEntry()
-                    {
-                        ShowName = tempydatay.TempShowName,
-                        BreedGroupName = tempydatay.TempBreedGroupName,
-                        BreedName = tempydatay.TempBreedName,
-                        GenderName = "ALL",
-                        EntryNumber = "",
-                        EnteredClassName = breedChallenge.Name,
-                        JudgingOrder = breedChallenge.JudginOrder
-                    });
-                }
-            }
-            */
             datasources.Add("DSBreedEntryClassEntriesForShow", classEntryData);
+
+            List<IBreedChallengeEntity> breedChallenges = await _breedChallengeService.GetListAsync<BreedChallengeEntity>();
+            datasources.Add("DSBreedChallenges", breedChallenges);
 
 
 

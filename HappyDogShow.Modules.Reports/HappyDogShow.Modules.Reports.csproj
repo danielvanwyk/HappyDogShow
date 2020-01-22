@@ -105,6 +105,7 @@
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedChallengeEntity.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryClassEntry.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryEntityWithAdditionalData.datasource" />
+    <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedGroupChallengeEntity.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.CertificateDetail.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.DogShowDetail.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.HandlerEntryEntityWithAdditionalData.datasource" />

@@ -120,6 +120,29 @@ namespace HappyDogShow.Modules.ReportViewer
 
                 e.DataSources.Add(new ReportDataSource("DSBreedEntryClassEntriesForShow", newdata));
             }
+
+            if (e.ReportPath.Contains("BreedGroupResults"))
+            {
+                string breedGroupName = e.Parameters["parmBreedGroupName"].Values[0];
+
+                var breedChallengesrawdata = parentReport.DataSources["DSBreedChallenges"].Value;
+                List<IBreedChallengeEntity> breedChallenges = breedChallengesrawdata as List<IBreedChallengeEntity>;
+                List<IBreedChallengeEntity> filteredBreedChallenges = breedChallenges.Where(i => i.BreedGroupChallengeName != "").ToList();
+
+                var originaldata = parentReport.DataSources["DSBreedEntryClassEntriesForShow"].Value;
+                List<IBreedEntryClassEntry> data = originaldata as List<IBreedEntryClassEntry>;
+                List<IBreedEntryClassEntry> filteredData = data.Where(d => d.BreedGroupName == breedGroupName).ToList();
+
+
+                var newdata = from ee in data
+                              join bc in breedChallenges on
+                                ee.EnteredClassName equals bc.Name
+                              where bc.BreedGroupChallengeName != ""
+                              && ee.BreedGroupName == breedGroupName
+                              select ee;
+
+                e.DataSources.Add(new ReportDataSource("DSBreedEntryClassEntriesForShow", newdata));
+            }
         }
     }
 }

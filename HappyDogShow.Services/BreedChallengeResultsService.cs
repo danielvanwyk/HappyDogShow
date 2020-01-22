@@ -98,7 +98,15 @@ namespace HappyDogShow.Services
                 if (breedId > 0)
                     rawdata = rawdata.Where(r => r.Breed.ID == breedId);
 
+                // get a list of all the breeds we have entries for
+                // filter the 
+                var enteredBreeds = (from e in ctx.BreedClassEntries
+                                     where e.Entry.Show.ID == dogShowId
+                                     select e.Entry.Dog.Breed.ID).Distinct().ToList();
+
                 var actualEntries = from r in rawdata
+                                    join b in enteredBreeds on
+                                        r.Breed.ID equals b
                                     orderby r.BreedChallenge.JudgingOrder, r.Placing
                                     select new T
                                     {
