@@ -115,7 +115,7 @@
       <Rectangle Name="Rectangle5">
         <ReportItems>
           <Subreport Name="Subreport7">
-            <ReportName>BreedGroupsEntriesAndResults</ReportName>
+            <ReportName>BreedsCatalog</ReportName>
             <Height>1.09125cm</Height>
             <Width>18cm</Width>
             <Style>
@@ -138,8 +138,35 @@
           </Border>
         </Style>
       </Rectangle>
+      <Rectangle Name="Rectangle6">
+        <ReportItems>
+          <Subreport Name="Subreport3">
+            <ReportName>HandlersCatalog</ReportName>
+            <Height>1.35583cm</Height>
+            <Width>18cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>Start</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>7.84978cm</Top>
+        <Height>1.35583cm</Height>
+        <Width>18cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
-    <Height>3.21176in</Height>
+    <Height>3.76384in</Height>
     <Style />
   </Body>
   <Width>18cm</Width>

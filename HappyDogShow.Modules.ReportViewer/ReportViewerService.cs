@@ -78,7 +78,7 @@ namespace HappyDogShow.Modules.ReportViewer
                 e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSBreedEntriesForShow").First());
             }
 
-            if (e.ReportPath.Contains("BreedGroupsEntriesAndResults"))
+            if (e.ReportPath.Contains("BreedsCatalog"))
             {
                 e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSBreedEntriesForShow").First());
             }
