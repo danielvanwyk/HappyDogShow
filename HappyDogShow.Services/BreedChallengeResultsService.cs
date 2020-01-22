@@ -11,11 +11,23 @@ namespace HappyDogShow.Services
 {
     public class BreedChallengeResultsService : IBreedChallengeResultsService
     {
-        public Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId, int breedId) where T : IChallengeResult, new()
+        public Task<List<IBreedChallengeResult>> GetListAsync<T>(int dogShowId, int breedId) where T : IBreedChallengeResult, new()
         {
-            Task<List<IChallengeResult>> t = Task<List<IChallengeResult>>.Run(() =>
+            Task<List<IBreedChallengeResult>> t = Task<List<IBreedChallengeResult>>.Run(() =>
             {
-                List<IChallengeResult> items = GetList<T>(dogShowId, breedId);
+                List<IBreedChallengeResult> items = GetList<T>(dogShowId, breedId);
+                //List<IChallengeResult> items = GetTempList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        public Task<List<IBreedChallengeResult>> GetListAsync<T>(int dogShowId) where T : IBreedChallengeResult, new()
+        {
+            Task<List<IBreedChallengeResult>> t = Task<List<IBreedChallengeResult>>.Run(() =>
+            {
+                List<IBreedChallengeResult> items = GetList<T>(dogShowId, -1);
                 //List<IChallengeResult> items = GetTempList<T>();
                 return items;
             });
@@ -55,10 +67,62 @@ namespace HappyDogShow.Services
 
         }
 
-        private List<IChallengeResult> GetList<T>(int dogShowId, int breedId) where T : IChallengeResult, new()
+        private List<IBreedChallengeResult> GetList<T>(int dogShowId, int breedId) where T : IBreedChallengeResult, new()
         {
-            List<IChallengeResult> items = new List<IChallengeResult>();
+            List<IBreedChallengeResult> items = new List<IBreedChallengeResult>();
 
+            if (breedId > 0)
+            {
+                CreateBlankRecordsIfThereAreNoRecordsYet(dogShowId, breedId);
+            }
+            else
+            {
+                using (var ctx = new HappyDogShowContext())
+                {
+                    foreach (Breed breed in ctx.Breeds)
+                    {
+                        CreateBlankRecordsIfThereAreNoRecordsYet(dogShowId, breed.ID);
+                    }
+                }
+            }
+                // see if there is nothing in the table
+                // and then create it
+
+                using (var ctx = new HappyDogShowContext())
+            {
+
+                var rawdata = from r in ctx.BreedChallengeResults
+                              where r.DogShow.ID == dogShowId
+                              select r;
+
+                if (breedId > 0)
+                    rawdata = rawdata.Where(r => r.Breed.ID == breedId);
+
+                var actualEntries = from r in rawdata
+                                    orderby r.BreedChallenge.JudgingOrder, r.Placing
+                                    select new T
+                                    {
+                                        Id = r.ID,
+                                        ShowId = r.DogShow.ID,
+                                        ShowName = r.DogShow.Name,
+                                        Challenge = r.BreedChallenge.Name,
+                                        EntryNumber = r.EntryNumber,
+                                        Placing = r.Placing,
+                                        Print = false,
+                                        JudgingOrder = r.BreedChallenge.JudgingOrder,
+                                        BreedGroupName = r.Breed.BreedGroup.Name,
+                                        BreedName = r.Breed.Name
+                                    };
+
+                foreach (var entry in actualEntries)
+                    items.Add(entry);
+            }
+
+            return items;
+        }
+
+        private static void CreateBlankRecordsIfThereAreNoRecordsYet(int dogShowId, int breedId)
+        {
             using (var ctx = new HappyDogShowContext())
             {
                 var existingData = from r in ctx.BreedChallengeResults
@@ -73,7 +137,7 @@ namespace HappyDogShow.Services
                     var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
                                      from b in ctx.Breeds.Where(d => d.ID == breedId)
                                      from bc in ctx.BreedChallenges.OrderBy(d => d.JudgingOrder)
-                                     select new 
+                                     select new
                                      {
                                          DogShow = ds,
                                          Breed = b,
@@ -95,28 +159,7 @@ namespace HappyDogShow.Services
                     }
                     ctx.SaveChanges();
                 }
-                // see if there is nothing in the table
-                // and then create it
-
-                var actualEntries = from r in ctx.BreedChallengeResults
-                                    where r.DogShow.ID == dogShowId && r.Breed.ID == breedId
-                                    orderby r.BreedChallenge.JudgingOrder, r.Placing
-                                    select new T
-                                    {
-                                        Id = r.ID,
-                                        ShowId = r.DogShow.ID,
-                                        Challenge = r.BreedChallenge.Name,
-                                        EntryNumber = r.EntryNumber,
-                                        Placing = r.Placing,
-                                        Print = false,
-                                        JudgingOrder = r.BreedChallenge.JudgingOrder
-                                    };
-
-                foreach (var entry in actualEntries)
-                    items.Add(entry);
             }
-
-            return items;
         }
 
         public Task UpdateEntityAsync(IChallengeResultCollection<IChallengeResult> entity)

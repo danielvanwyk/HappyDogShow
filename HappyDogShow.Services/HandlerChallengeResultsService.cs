@@ -73,6 +73,7 @@ namespace HappyDogShow.Services
                                     {
                                         Id = r.ID,
                                         ShowId = r.DogShow.ID,
+                                        ShowName = r.DogShow.Name,
                                         Challenge = r.HandlerClass.Name,
                                         EntryNumber = r.EntryNumber,
                                         Placing = r.Placing,

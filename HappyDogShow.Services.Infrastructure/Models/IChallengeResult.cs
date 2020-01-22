@@ -8,5 +8,6 @@
         bool Print { get; set; }
         int ShowId { get; set; }
         int JudgingOrder { get; set; }
+        string ShowName { get; set; }
     }
 }

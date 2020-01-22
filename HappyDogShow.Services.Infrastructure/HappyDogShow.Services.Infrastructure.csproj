@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\IBreedChallengeEntity.cs" />
+    <Compile Include="Models\IBreedChallengeResult.cs" />
     <Compile Include="Models\IBreedClassEntity.cs" />
     <Compile Include="Models\IBreedClassEntryEntityWithClassDetailForSelection.cs" />
     <Compile Include="Models\IBreedEntity.cs" />
