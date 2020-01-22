@@ -30,10 +30,11 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         private IBreedChallengeService _breedChallengeService;
         private IBreedChallengeResultsService _breedChallengeResultsService;
         private IBreedGroupChallengeResultsService _breedGroupChallengeResultsService;
+        private IInShowChallengeResultsService _inShowChallengeResultsService;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService, IBreedGroupChallengeResultsService breedGroupChallengeResultsService)
+        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService, IBreedGroupChallengeResultsService breedGroupChallengeResultsService, IInShowChallengeResultsService inShowChallengeResultsService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
@@ -42,6 +43,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             _breedChallengeService = breedChallengeService;
             _breedChallengeResultsService = breedChallengeResultsService;
             _breedGroupChallengeResultsService = breedGroupChallengeResultsService;
+            _inShowChallengeResultsService = inShowChallengeResultsService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
             DogShowReportCommands.ShowCatalogReportCommand.RegisterCommand(commandHandler);
@@ -132,6 +134,8 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
 
             datasources.Add("DSBreedChallengeResults", breedchallengeresults);
 
+            var inshowChallengeResults = await _inShowChallengeResultsService.GetListAsync<InShowChallengeResult>(obj.Id);
+            datasources.Add("DSInShowChallengeResuls", inshowChallengeResults);
 
             //Dictionary<string, string> parms = new Dictionary<string, string>();
             //parms.Add("parmClubName", "Overberg Kennel Club");

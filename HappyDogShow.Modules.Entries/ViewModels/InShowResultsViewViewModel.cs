@@ -104,7 +104,7 @@ namespace HappyDogShow.Modules.Entries.ViewModels
             if (selectedChallenge == null)
                 return;
 
-            List<IChallengeResult> challengeResults = await _inShowChallengeResultsService.GetListAsync<InShowChallengeResult>(selectedDogShow.Id, selectedChallenge.ChallengeId);
+            List<IInShowChallengeResult> challengeResults = await _inShowChallengeResultsService.GetListAsync<InShowChallengeResult>(selectedDogShow.Id, selectedChallenge.ChallengeId);
 
             challengeResults.ForEach(result => ChallengeResults.Results.Add(result));
         }

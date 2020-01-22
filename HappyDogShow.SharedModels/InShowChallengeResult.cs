@@ -3,7 +3,7 @@ using HappyDogShow.Services.Infrastructure.Models;
 
 namespace HappyDogShow.SharedModels
 {
-    public class InShowChallengeResult : ValidatableBindableBase, IChallengeResult
+    public class InShowChallengeResult : ValidatableBindableBase, IInShowChallengeResult
     {
         public int Id { get; set; }
         public string Challenge { get; set; }
@@ -13,5 +13,7 @@ namespace HappyDogShow.SharedModels
         public int ShowId { get; set; }
         public string ShowName { get; set; }
         public int JudgingOrder { get; set; }
+        public string JudgeName { get; set; }
+        public string BreedName { get; set; }
     }
 }

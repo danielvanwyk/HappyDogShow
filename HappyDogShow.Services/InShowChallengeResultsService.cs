@@ -11,63 +11,90 @@ namespace HappyDogShow.Services
 {
     public class InShowChallengeResultsService : IInShowChallengeResultsService
     {
-        public Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId, int challengeId) where T : IChallengeResult, new()
+        public Task<List<IInShowChallengeResult>> GetListAsync<T>(int dogShowId, int challengeId) where T : IInShowChallengeResult, new()
         {
-            Task<List<IChallengeResult>> t = Task<List<IChallengeResult>>.Run(() =>
+            Task<List<IInShowChallengeResult>> t = Task<List<IInShowChallengeResult>>.Run(() =>
             {
-                List<IChallengeResult> items = GetList<T>(dogShowId, challengeId);
-                //List<IChallengeResult> items = GetTempList<T>();
+                List<IInShowChallengeResult> items = GetList<T>(dogShowId, challengeId);
+                //List<IInShowChallengeResult> items = GetTempList<T>();
                 return items;
             });
 
             return t;
         }
 
-        private List<IChallengeResult> GetList<T>(int dogShowId, int challengeId) where T : IChallengeResult, new()
+        public Task<List<IInShowChallengeResult>> GetListAsync<T>(int dogShowId) where T : IInShowChallengeResult, new()
         {
-            List<IChallengeResult> items = new List<IChallengeResult>();
+            Task<List<IInShowChallengeResult>> t = Task<List<IInShowChallengeResult>>.Run(() =>
+            {
+                List<IInShowChallengeResult> items = GetList<T>(dogShowId, -1);
+                //List<IInShowChallengeResult> items = GetTempList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
+        private List<IInShowChallengeResult> GetList<T>(int dogShowId, int challengeId) where T : IInShowChallengeResult, new()
+        {
+            List<IInShowChallengeResult> items = new List<IInShowChallengeResult>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var existingData = from r in ctx.InShowChallengeResults
-                                   where r.DogShow.ID == dogShowId && r.ShowChallenge.ID == challengeId
-                                   select r;
-
-                if (existingData.Count() == 0)
+                if (challengeId > 0)
                 {
-                    List<string> placings = new List<string>();
-                    placings.Add("1st");
-                    placings.Add("2nd");
-                    placings.Add("3rd");
-                    placings.Add("4th");
+                    var existingData = from r in ctx.InShowChallengeResults
+                                       where r.DogShow.ID == dogShowId && r.ShowChallenge.ID == challengeId
+                                       select r;
 
-                    var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
-                                     from scc in ctx.ShowChallenges.Where(d => d.ID == challengeId)
-                                     from p in placings
-                                     select new
-                                     {
-                                         DogShow = ds,
-                                         ShowChallenge = scc,
-                                         Placing = p
-                                     };
-
-                    foreach (var newEntry in newEntries)
+                    if (existingData.Count() == 0)
                     {
-                        InShowChallengeResult realEntry = new InShowChallengeResult()
-                        {
-                            DogShow = newEntry.DogShow,
-                            ShowChallenge = newEntry.ShowChallenge,
-                            Placing = newEntry.Placing,
-                            EntryNumber = ""
-                        };
+                        List<string> placings = new List<string>();
+                        placings.Add("1st");
+                        placings.Add("2nd");
+                        placings.Add("3rd");
+                        placings.Add("4th");
 
-                        ctx.InShowChallengeResults.Add(realEntry);
+                        var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
+                                         from scc in ctx.ShowChallenges.Where(d => d.ID == challengeId)
+                                         from p in placings
+                                         select new
+                                         {
+                                             DogShow = ds,
+                                             ShowChallenge = scc,
+                                             Placing = p
+                                         };
+
+                        foreach (var newEntry in newEntries)
+                        {
+                            InShowChallengeResult realEntry = new InShowChallengeResult()
+                            {
+                                DogShow = newEntry.DogShow,
+                                ShowChallenge = newEntry.ShowChallenge,
+                                Placing = newEntry.Placing,
+                                EntryNumber = ""
+                            };
+
+                            ctx.InShowChallengeResults.Add(realEntry);
+                        }
+                        ctx.SaveChanges();
                     }
-                    ctx.SaveChanges();
                 }
 
-                var actualEntries = from r in ctx.InShowChallengeResults
-                                    where r.DogShow.ID == dogShowId && r.ShowChallenge.ID == challengeId
+                var rawdata = from r in ctx.InShowChallengeResults
+                              where r.DogShow.ID == dogShowId
+                              select r;
+
+                if (challengeId > 0)
+                    rawdata = rawdata.Where(r => r.ShowChallenge.ID == challengeId);
+
+                var judges = from j in ctx.ShowInShowChallengeJudges
+                                       where j.DogShow.ID == dogShowId
+                                       select j;
+
+                var actualEntries = from r in rawdata
+                                    join j in judges on 
+                                        r.ShowChallenge.ID equals j.ShowChallenge.ID
                                     orderby r.Placing
                                     select new T
                                     {
@@ -77,21 +104,31 @@ namespace HappyDogShow.Services
                                         Challenge = r.ShowChallenge.Name,
                                         EntryNumber = r.EntryNumber,
                                         Placing = r.Placing,
-                                        Print = false
+                                        Print = false,
+                                        JudgeName = j.Judge.Name,
+                                        BreedName = ""
                                     };
 
-                foreach (var entry in actualEntries)
+                foreach (var entry in actualEntries.ToList())
+                {
+                    if (entry.EntryNumber != "")
+                    {
+                        entry.BreedName = ctx.BreedEntries.Include("Dog").Include("Dog.Breed").Where(e => e.Show.ID == dogShowId && e.Number == entry.EntryNumber).First().Dog.Breed.Name;
+
+
+                    }
                     items.Add(entry);
+                }
             }
 
             return items;
         }
 
-        private List<IChallengeResult> GetTempList<T>() where T : IChallengeResult, new()
+        private List<IInShowChallengeResult> GetTempList<T>() where T : IInShowChallengeResult, new()
         {
-            List<IChallengeResult> items = new List<IChallengeResult>();
+            List<IInShowChallengeResult> items = new List<IInShowChallengeResult>();
 
-            IChallengeResult t = new T();
+            IInShowChallengeResult t = new T();
             t.Id = 1;
             t.Challenge = "Best in Show";
             t.Placing = "1st";
@@ -99,7 +136,7 @@ namespace HappyDogShow.Services
             t.Print = true;
             items.Add(t);
 
-            IChallengeResult t2 = new T();
+            IInShowChallengeResult t2 = new T();
             t2.Id = 2;
             t2.Challenge = "Best in Show";
             t2.Placing = "2nd";
@@ -107,7 +144,7 @@ namespace HappyDogShow.Services
             t2.Print = true;
             items.Add(t2);
 
-            IChallengeResult t3 = new T();
+            IInShowChallengeResult t3 = new T();
             t3.Id = 3;
             t3.Challenge = "Best in Show";
             t3.Placing = "3rd";

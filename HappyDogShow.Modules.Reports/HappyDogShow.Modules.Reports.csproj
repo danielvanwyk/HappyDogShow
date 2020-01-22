@@ -111,6 +111,7 @@
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.CertificateDetail.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.DogShowDetail.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.HandlerEntryEntityWithAdditionalData.datasource" />
+    <None Include="Properties\DataSources\HappyDogShow.SharedModels.InShowChallengeResult.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.JudgeAssignmentInformation.datasource" />
   </ItemGroup>
   <ItemGroup>
