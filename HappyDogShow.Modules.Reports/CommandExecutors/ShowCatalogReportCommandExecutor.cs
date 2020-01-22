@@ -130,6 +130,8 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             var breedGroupChallengeResults = await _breedGroupChallengeResultsService.GetListAsync<BreedGroupChallengeResult>(obj.Id);
             datasources.Add("DSBreedGroupChallengResults", breedGroupChallengeResults);
 
+            datasources.Add("DSBreedChallengeResults", breedchallengeresults);
+
 
             //Dictionary<string, string> parms = new Dictionary<string, string>();
             //parms.Add("parmClubName", "Overberg Kennel Club");

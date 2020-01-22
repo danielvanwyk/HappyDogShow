@@ -103,6 +103,7 @@
     <None Include="Properties\DataSources\HappyDogShow.Modules.Reports.CommandExecutors.KeyValueCombo.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.Modules.Reports.Models.ReportExecutionProperties.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedChallengeEntity.datasource" />
+    <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedChallengeResult.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryClassEntry.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedEntryEntityWithAdditionalData.datasource" />
     <None Include="Properties\DataSources\HappyDogShow.SharedModels.BreedGroupChallengeEntity.datasource" />
@@ -129,6 +130,9 @@
   <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Reports\BreedEntries.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BreedGroupBreedChallengeResults.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\BreedGroupCatalog.rdlc">

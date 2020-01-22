@@ -39,6 +39,57 @@ namespace HappyDogShow.Services
         {
             List<IBreedGroupChallengeResult> items = new List<IBreedGroupChallengeResult>();
 
+            PopulateBreedGroupChallengeResultsTableForDogShow(dogShowId);
+
+            using (var ctx = new HappyDogShowContext())
+            {
+                var rawdata = from r in ctx.BreedGroupChallengeResults
+                              where r.DogShow.ID == dogShowId
+                              select r;
+
+                if (breedGroupId > 0)
+                    rawdata = rawdata.Where(i => i.BreedGroup.ID == breedGroupId);
+
+                if (challengeId > 0)
+                    rawdata = rawdata.Where(i => i.BreedGroupChallenge.ID == challengeId);
+
+                var breedGroupJudges = from j in ctx.ShowGroupJudges
+                                       where j.DogShow.ID == dogShowId
+                                       select j;
+
+                var actualEntries = from r in rawdata
+                                    join j in breedGroupJudges on
+                                        r.BreedGroup.ID equals j.BreedGroup.ID
+                                    orderby r.Placing
+                                    select new T
+                                    {
+                                        Id = r.ID,
+                                        ShowId = r.DogShow.ID,
+                                        ShowName = r.DogShow.Name,
+                                        Challenge = r.BreedGroupChallenge.Name,
+                                        EntryNumber = r.EntryNumber,
+                                        Placing = r.Placing,
+                                        Print = false,
+                                        BreedGroupName = r.BreedGroup.Name,
+                                        BreedGroupJudgeName = j.Judge.Name,
+                                        JudgingOrder = r.BreedGroupChallenge.JudgingOrder
+                                    };
+
+                foreach (var entry in actualEntries.ToList())
+                {
+                    if (entry.EntryNumber != "")
+                    {
+                        entry.BreedName = ctx.BreedEntries.Include("Dog").Include("Dog.Breed").Where(e => e.Show.ID == dogShowId && e.Number == entry.EntryNumber).First().Dog.Breed.Name;
+                    }
+                    items.Add(entry);
+                }
+            }
+
+            return items;
+        }
+
+        private static void PopulateBreedGroupChallengeResultsTableForDogShow(int dogShowId)
+        {
             using (var ctx = new HappyDogShowContext())
             {
                 List<string> placings = new List<string>();
@@ -116,55 +167,6 @@ namespace HappyDogShow.Services
 
 
             }
-
-
-
-
-            using (var ctx = new HappyDogShowContext())
-            {
-                var rawdata = from r in ctx.BreedGroupChallengeResults
-                              where r.DogShow.ID == dogShowId
-                              select r;
-
-                if (breedGroupId > 0)
-                    rawdata = rawdata.Where(i => i.BreedGroup.ID == breedGroupId);
-
-                if (challengeId > 0)
-                    rawdata = rawdata.Where(i => i.BreedGroupChallenge.ID == challengeId);
-
-                var breedGroupJudges = from j in ctx.ShowGroupJudges
-                                       where j.DogShow.ID == dogShowId
-                                       select j;
-
-                var actualEntries = from r in rawdata
-                                    join j in breedGroupJudges on
-                                        r.BreedGroup.ID equals j.BreedGroup.ID
-                                    orderby r.Placing
-                                    select new T
-                                    {
-                                        Id = r.ID,
-                                        ShowId = r.DogShow.ID,
-                                        ShowName = r.DogShow.Name,
-                                        Challenge = r.BreedGroupChallenge.Name,
-                                        EntryNumber = r.EntryNumber,
-                                        Placing = r.Placing,
-                                        Print = false,
-                                        BreedGroupName = r.BreedGroup.Name,
-                                        BreedGroupJudgeName = j.Judge.Name,
-                                        JudgingOrder = r.BreedGroupChallenge.JudgingOrder
-                                    };
-
-                foreach (var entry in actualEntries.ToList())
-                {
-                    if (entry.EntryNumber != "")
-                    {
-                        entry.BreedName = ctx.BreedEntries.Include("Dog").Include("Dog.Breed").Where(e => e.Show.ID == dogShowId && e.Number == entry.EntryNumber).First().Dog.Breed.Name;
-                    }
-                    items.Add(entry);
-                }
-            }
-
-            return items;
         }
 
         private List<IChallengeResult> GetTempList<T>() where T : IChallengeResult, new()

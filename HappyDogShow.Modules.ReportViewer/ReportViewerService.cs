@@ -127,6 +127,11 @@ namespace HappyDogShow.Modules.ReportViewer
 
                 e.DataSources.Add(new ReportDataSource("DSBreedGroupChallengResults", parentReport.DataSources["DSBreedGroupChallengResults"].Value));
             }
+
+            if (e.ReportPath.Contains("BreedGroupBreedChallengeResults"))
+            {
+                e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSBreedChallengeResults").First());
+            }
         }
     }
 }
