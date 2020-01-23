@@ -81,6 +81,20 @@ namespace HappyDogShow.Services
                     {
                         entry.BreedName = ctx.BreedEntries.Include("Dog").Include("Dog.Breed").Where(e => e.Show.ID == dogShowId && e.Number == entry.EntryNumber).First().Dog.Breed.Name;
                     }
+
+                    var relatedInShowChallenges = from bgc in ctx.BreedGroupChallenges.Include("ShowChallenge")
+                                                      where bgc.Name == entry.Challenge
+                                                      select bgc.ShowChallenge;
+
+                    var relatedData = relatedInShowChallenges.ToList();
+
+                    if (relatedData.Count == 1)
+                    {
+                        var challenge = relatedData.First();
+                        if (challenge != null)
+                            entry.RelatedInShowChallengeName = challenge.Name;
+                    }
+
                     items.Add(entry);
                 }
             }

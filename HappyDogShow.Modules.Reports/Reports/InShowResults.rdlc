@@ -25,6 +25,7 @@
                               <Value>In Show</Value>
                               <Style>
                                 <FontSize>20pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -63,6 +64,7 @@
                               <Value>=Fields!Challenge.Value</Value>
                               <Style>
                                 <FontSize>20pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -101,6 +103,7 @@
                               <Value>="Judge: " &amp; Fields!JudgeName.Value</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -165,34 +168,19 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox12">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>sub report</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                    <Subreport Name="Subreport1">
+                      <ReportName>InShowBreedGroupChallengResults</ReportName>
+                      <Parameters>
+                        <Parameter Name="parmInShowChallengeName">
+                          <Value>=Fields!Challenge.Value</Value>
+                        </Parameter>
+                      </Parameters>
                       <Style>
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>Maroon</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Textbox>
+                    </Subreport>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -359,7 +347,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.83313cm</Height>
+              <Height>0.70084cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -454,7 +442,7 @@
                             </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Height>0.72438cm</Height>
+                          <Height>0.6cm</Height>
                           <Width>18cm</Width>
                           <Style>
                             <Border>
@@ -564,7 +552,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSInShowChallengeResuls</DataSetName>
-        <Height>6.9462cm</Height>
+        <Height>6.81392cm</Height>
         <Width>18cm</Width>
         <Style>
           <Border>
@@ -573,7 +561,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.20347in</Height>
+    <Height>2.68265in</Height>
     <Style />
   </Body>
   <Width>7.08661in</Width>

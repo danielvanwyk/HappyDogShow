@@ -16,5 +16,6 @@ namespace HappyDogShow.SharedModels
         public string BreedGroupName { get; set; }
         public string BreedGroupJudgeName { get; set; }
         public string BreedName { get; set; }
+        public string RelatedInShowChallengeName { get; set; }
     }
 }

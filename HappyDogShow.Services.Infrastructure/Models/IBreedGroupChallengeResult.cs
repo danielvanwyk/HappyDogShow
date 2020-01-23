@@ -11,5 +11,6 @@ namespace HappyDogShow.Services.Infrastructure.Models
         string BreedGroupName { get; set; }
         string BreedGroupJudgeName { get; set; }
         string BreedName { get; set; }
+        string RelatedInShowChallengeName { get; set; }
     }
 }
