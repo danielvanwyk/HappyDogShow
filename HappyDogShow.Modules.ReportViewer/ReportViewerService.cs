@@ -146,6 +146,7 @@ namespace HappyDogShow.Modules.ReportViewer
             if (e.ReportPath.Contains("HandlersCatalog"))
             {
                 e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSHandlerEntriesForShow").First());
+                e.DataSources.Add(parentReport.DataSources.Where(d => d.Name == "DSHandlerChallengeResults").First());
             }
         }
     }

@@ -4718,6 +4718,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>f7bf823e-3b50-42de-8977-f66eec9c01b8</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="HappyDogShowSharedModels4">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>62f14c4c-49cb-4e01-9773-238ba9237db2</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DSBreedEntriesForShow">
@@ -5052,6 +5059,59 @@
         <rd:DataSetName>HappyDogShow.Modules.Reports.CommandExecutors</rd:DataSetName>
         <rd:TableName>KeyValueCombo</rd:TableName>
         <rd:ObjectDataSourceType>HappyDogShow.Modules.Reports.CommandExecutors.KeyValueCombo, HappyDogShow.Modules.Reports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DSHandlerChallengeResults">
+      <Query>
+        <DataSourceName>HappyDogShowSharedModels4</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Challenge">
+          <DataField>Challenge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EntryNumber">
+          <DataField>EntryNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HasErrors">
+          <DataField>HasErrors</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IsDirty">
+          <DataField>IsDirty</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="JudgingOrder">
+          <DataField>JudgingOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Placing">
+          <DataField>Placing</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Print">
+          <DataField>Print</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowId">
+          <DataField>ShowId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ShowName">
+          <DataField>ShowName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>HappyDogShow.SharedModels</rd:DataSetName>
+        <rd:TableName>HandlerChallengeResult</rd:TableName>
+        <rd:ObjectDataSourceType>HappyDogShow.SharedModels.HandlerChallengeResult, HappyDogShow.SharedModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

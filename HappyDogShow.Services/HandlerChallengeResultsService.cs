@@ -23,51 +23,72 @@ namespace HappyDogShow.Services
             return t;
         }
 
+        public Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId) where T : IChallengeResult, new()
+        {
+            Task<List<IChallengeResult>> t = Task<List<IChallengeResult>>.Run(() =>
+            {
+                List<IChallengeResult> items = GetList<T>(dogShowId, -1);
+                //List<IChallengeResult> items = GetTempList<T>();
+                return items;
+            });
+
+            return t;
+        }
+
         private List<IChallengeResult> GetList<T>(int dogShowId, int classId) where T : IChallengeResult, new()
         {
             List<IChallengeResult> items = new List<IChallengeResult>();
 
             using (var ctx = new HappyDogShowContext())
             {
-                var existingData = from r in ctx.HandlerChallengeResults
-                                   where r.DogShow.ID == dogShowId && r.HandlerClass.ID == classId
-                                   select r;
-
-                if (existingData.Count() == 0)
+                if (classId > 0)
                 {
-                    List<string> placings = new List<string>();
-                    placings.Add("1st");
-                    placings.Add("2nd");
-                    placings.Add("3rd");
-                    placings.Add("4th");
+                    var existingData = from r in ctx.HandlerChallengeResults
+                                       where r.DogShow.ID == dogShowId && r.HandlerClass.ID == classId
+                                       select r;
 
-                    var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
-                                     from scc in ctx.HandlerClasses
-                                     from p in placings
-                                     select new
-                                     {
-                                         DogShow = ds,
-                                         HandlerClass = scc,
-                                         Placing = p
-                                     };
-
-                    foreach (var newEntry in newEntries)
+                    if (existingData.Count() == 0)
                     {
-                        HandlerChallengeResult realEntry = new HandlerChallengeResult()
-                        {
-                            DogShow = newEntry.DogShow,
-                            HandlerClass = newEntry.HandlerClass,
-                            Placing = newEntry.Placing,
-                            EntryNumber = ""
-                        };
+                        List<string> placings = new List<string>();
+                        placings.Add("1st");
+                        placings.Add("2nd");
+                        placings.Add("3rd");
+                        placings.Add("4th");
 
-                        ctx.HandlerChallengeResults.Add(realEntry);
+                        var newEntries = from ds in ctx.DogShows.Where(d => d.ID == dogShowId)
+                                         from scc in ctx.HandlerClasses
+                                         from p in placings
+                                         select new
+                                         {
+                                             DogShow = ds,
+                                             HandlerClass = scc,
+                                             Placing = p
+                                         };
+
+                        foreach (var newEntry in newEntries)
+                        {
+                            HandlerChallengeResult realEntry = new HandlerChallengeResult()
+                            {
+                                DogShow = newEntry.DogShow,
+                                HandlerClass = newEntry.HandlerClass,
+                                Placing = newEntry.Placing,
+                                EntryNumber = ""
+                            };
+
+                            ctx.HandlerChallengeResults.Add(realEntry);
+                        }
+                        ctx.SaveChanges();
                     }
-                    ctx.SaveChanges();
                 }
 
-                var actualEntries = from r in ctx.HandlerChallengeResults
-                                    where r.DogShow.ID == dogShowId && r.HandlerClass.ID == classId
+                var rawdata = from r in ctx.HandlerChallengeResults
+                              where r.DogShow.ID == dogShowId
+                              select r;
+
+                if (classId > 0)
+                    rawdata = rawdata.Where(r => r.HandlerClass.ID == classId);
+
+                var actualEntries = from r in rawdata
                                     orderby r.Placing
                                     select new T
                                     {

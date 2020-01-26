@@ -31,10 +31,11 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
         private IBreedChallengeResultsService _breedChallengeResultsService;
         private IBreedGroupChallengeResultsService _breedGroupChallengeResultsService;
         private IInShowChallengeResultsService _inShowChallengeResultsService;
+        private IHandlerChallengeResultsService _handlerChallengeResultsService;
 
         private DelegateCommand<IDogShowEntity> commandHandler { get; set; }
 
-        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService, IBreedGroupChallengeResultsService breedGroupChallengeResultsService, IInShowChallengeResultsService inShowChallengeResultsService)
+        public ShowCatalogReportCommandExecutor(IReportViewerService reportViewerService, IBreedEntryService breedEntryService, IHandlerEntryService handlerEntryService, IJudgesService judgesService, IBreedChallengeService breedChallengeService, IBreedChallengeResultsService breedChallengeResultsService, IBreedGroupChallengeResultsService breedGroupChallengeResultsService, IInShowChallengeResultsService inShowChallengeResultsService, IHandlerChallengeResultsService handlerChallengeResultsService)
         {
             _breedEntryService = breedEntryService;
             _reportViewerService = reportViewerService;
@@ -44,6 +45,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             _breedChallengeResultsService = breedChallengeResultsService;
             _breedGroupChallengeResultsService = breedGroupChallengeResultsService;
             _inShowChallengeResultsService = inShowChallengeResultsService;
+            _handlerChallengeResultsService = handlerChallengeResultsService;
 
             commandHandler = new DelegateCommand<IDogShowEntity>(ExecuteCommand);
             DogShowReportCommands.ShowCatalogReportCommand.RegisterCommand(commandHandler);
@@ -142,6 +144,8 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             //parms.Add("parmDogShowName", obj.DogShowName);
             //parms.Add("parmDogShowDate", obj.ShowDate.ToString("yyyy-MM-dd"));
 
+            var handlerChallengeResults = await _handlerChallengeResultsService.GetListAsync<HandlerChallengeResult>(obj.Id);
+            datasources.Add("DSHandlerChallengeResults", handlerChallengeResults);
 
             _reportViewerService.ShowReport(@"Reports\MarkedShowCatalog.rdlc", datasources, null);
         }

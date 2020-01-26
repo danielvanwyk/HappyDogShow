@@ -10,5 +10,6 @@ namespace HappyDogShow.Services.Infrastructure.Services
     public interface IHandlerChallengeResultsService : IEntityUpdateService<IChallengeResultCollection<IChallengeResult>>
     {
         Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId, int classId) where T : IChallengeResult, new();
+        Task<List<IChallengeResult>> GetListAsync<T>(int dogShowId) where T : IChallengeResult, new();
     }
 }
