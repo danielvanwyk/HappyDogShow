@@ -25,7 +25,25 @@ namespace HappyDogShow.SharedModels
         public int DogId { get; set; }
         public string DogRegistrationNumber { get; set; }
         public DateTime DogDOB { get; set; }
-        public string EntryNumber { get; set; }
+
+        private string entryNumber;
+        public string EntryNumber 
+        { 
+            get 
+            {
+                if (entryNumber == null)
+                    entryNumber = "";
+
+                return entryNumber; 
+            }
+            set 
+            {
+                if (value == null)
+                    value = "";
+
+                SetProperty(ref entryNumber, value); 
+            }
+        }
         public string EnteredClassName { get; set; }
         public int EnteredClassMaxAgeInMonths { get; set; }
         public int EnteredClassMinAgeInMonths { get; set; }
