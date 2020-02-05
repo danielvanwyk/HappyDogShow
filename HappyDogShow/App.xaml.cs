@@ -25,6 +25,10 @@ namespace HappyDogShow
         {
             base.OnStartup(e);
 
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+
             PerformBackup();
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<HappyDogShowContext, Data.Migrations.Configuration>());
