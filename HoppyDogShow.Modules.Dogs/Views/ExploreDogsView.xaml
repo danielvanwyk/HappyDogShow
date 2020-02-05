@@ -48,7 +48,7 @@
                                 <DataGrid Grid.Row="0"
                           Style="{StaticResource AzureDataGrid}"
                           AutoGenerateColumns="False"
-                          ItemsSource="{Binding Items}"
+                          ItemsSource="{Binding Source={StaticResource cvsItems}}"
                                       SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           IsReadOnly="True"
                           >
