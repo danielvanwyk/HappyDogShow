@@ -31,12 +31,19 @@ namespace HappyDogShow
 
             PerformBackup();
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<HappyDogShowContext, Data.Migrations.Configuration>());
-
-            using (var db = new HappyDogShowContext())
+            try
             {
-                var breeds = db.Breeds.Where(b => b.Name == "Great Dane");
-                int count = breeds.Count();
+                Database.SetInitializer(new MigrateDatabaseToLatestVersion<HappyDogShowContext, Data.Migrations.Configuration>());
+
+                using (var db = new HappyDogShowContext())
+                {
+                    var breeds = db.Breeds.Where(b => b.Name == "Great Dane");
+                    int count = breeds.Count();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.IO.File.WriteAllText("logfile.error.txt", ex.Message);
             }
 
             bootstrapper = new Bootstrapper();
