@@ -1,0 +1,12 @@
+﻿REGION_NAME|Western Cape
+SHOWDATE_AS_STRING|23 & 24 October 2020
+SECRETARY|Ms D Hull
+VENUE_NAME|Sunshine Pet Resort
+CLUB_NAME|Breede Rivier Vallei Kennel Club
+CHAIRMAN|Mr K Hull
+SHOWMANAGER|Mr K Hull
+VETONCALL|Dr J J Jackson
+KUSA_REP|Ms Doreen Powell
+JUDGING_ORDER_BREED|Neuter, Baby Puppy, Veteran,Junior, Puppy, Best of Breed
+JUDGING_ORDER_GROUP|Neuter, Baby Puppy, Veteran,Junior, Puppy, Best in Group
+JUDGING_ORDER_SHOW|Neuter, Baby Puppy, Veteran,Junior, Puppy, Best in Show

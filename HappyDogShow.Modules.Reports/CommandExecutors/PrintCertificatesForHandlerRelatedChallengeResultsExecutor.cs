@@ -65,11 +65,11 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
                 IHandlerEntryEntityWithAdditionalData entryData = entries.First();
                 certs.Add(new CertificateDetail()
                 {
-                    RegionName = "Western Cape",
-                    DateAsString = "11 January 2020",
-                    SecretaryName = "Dr Annemari Groenewald",
-                    VenueName = "Kleinmond Primary School",
-                    ClubName = "Overberg Kennel Club",
+                    RegionName = ReportConstants.REGION_NAME,
+                    DateAsString = ReportConstants.SHOWDATE_AS_STRING,
+                    SecretaryName = ReportConstants.SECRETARY,
+                    VenueName = ReportConstants.VENUE_NAME,
+                    ClubName = ReportConstants.CLUB_NAME,
                     ShowName = entryData.ShowName,
 
                     DateOfBirth = entryData.DOB.ToString("yyyy-MM-dd"),

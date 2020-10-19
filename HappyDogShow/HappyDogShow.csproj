@@ -218,6 +218,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="reportsettings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SampleDatabase\SampleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

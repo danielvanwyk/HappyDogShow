@@ -35,7 +35,7 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             datasources.Add("DSBreedEntriesForShow", data);
 
             Dictionary<string, string> parms = new Dictionary<string, string>();
-            parms.Add("parmClubName", "Overberg Kennel Club");
+            parms.Add("parmClubName", ReportConstants.CLUB_NAME);
             parms.Add("parmDogShowName", obj.DogShowName);
             parms.Add("parmDogShowDate", obj.ShowDate.ToString("yyyy-MM-dd"));
 

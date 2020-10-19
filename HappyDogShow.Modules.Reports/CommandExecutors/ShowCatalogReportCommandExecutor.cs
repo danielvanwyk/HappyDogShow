@@ -67,17 +67,17 @@ namespace HappyDogShow.Modules.Reports.CommandExecutors
             datasources.Add("DSJudgesInformation", judgesList);
 
             List<KeyValueCombo> officials = new List<KeyValueCombo>();
-            officials.Add(new KeyValueCombo() { Key = "Chairman", Value = "Mr Herman Groenewald" });
-            officials.Add(new KeyValueCombo() { Key = "Show Manager", Value = "Ms Nadine Snyman 083 227 9827" });
-            officials.Add(new KeyValueCombo() { Key = "Secretary", Value = "Dr Annemari Groenewald" });
-            officials.Add(new KeyValueCombo() { Key = "Vet on Call", Value = "To be announced" });
-            officials.Add(new KeyValueCombo() { Key = "KUSA Rep", Value = "Ms Doreen Powell" });
+            officials.Add(new KeyValueCombo() { Key = "Chairman", Value = ReportConstants.CHAIRMAN });
+            officials.Add(new KeyValueCombo() { Key = "Show Manager", Value = ReportConstants.SHOWMANAGER });
+            officials.Add(new KeyValueCombo() { Key = "Secretary", Value = ReportConstants.SECRETARY });
+            officials.Add(new KeyValueCombo() { Key = "Vet on Call", Value = ReportConstants.VETONCALL });
+            officials.Add(new KeyValueCombo() { Key = "KUSA Rep", Value = ReportConstants.KUSA_REP });
             datasources.Add("dsOfficials", officials);
 
             List<KeyValueCombo> judgingOrder = new List<KeyValueCombo>();
-            judgingOrder.Add(new KeyValueCombo() { Key = "In Breed", Value = "Best of Breed, Puppy, Junior, Veteran, Baby Puppy, Neuter" });
-            judgingOrder.Add(new KeyValueCombo() { Key = "In Group", Value = "Best in Group, Puppy, Junior, Veteran, Baby Puppy, Neuter" });
-            judgingOrder.Add(new KeyValueCombo() { Key = "In Show", Value = "Best in Show, Puppy, Junior, Veteran, Baby Puppy, Neuter" });
+            judgingOrder.Add(new KeyValueCombo() { Key = "In Breed", Value = ReportConstants.JUDGING_ORDER_BREED });
+            judgingOrder.Add(new KeyValueCombo() { Key = "In Group", Value = ReportConstants.JUDGING_ORDER_GROUP });
+            judgingOrder.Add(new KeyValueCombo() { Key = "In Show", Value = ReportConstants.JUDGING_ORDER_SHOW });
             datasources.Add("dsJudgingOrder", judgingOrder);
 
             var ds = new List<IDogShowEntity>();

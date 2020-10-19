@@ -51,69 +51,71 @@
                     <TabItem Header="Detail" Visibility="Collapsed">
                     </TabItem>
                     <TabItem Header="Reports">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
+                        <ScrollViewer>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
 
-                            <Button Grid.Row="0" Grid.Column="0" Content="Breed Breakdown" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedBreakdownReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="0" Grid.Column="1" >View the breakdown of the entries per breed per group</Label>
+                                <Button Grid.Row="0" Grid.Column="0" Content="Breed Breakdown" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedBreakdownReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Label Grid.Row="0" Grid.Column="1" >View the breakdown of the entries per breed per group</Label>
 
-                            <Button Grid.Row="1" Grid.Column="0" Content="Breed Splash" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedSplashReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="1" Grid.Column="1" >The "notice" for each ring</Label>
+                                <Button Grid.Row="1" Grid.Column="0" Content="Breed Splash" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedSplashReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Label Grid.Row="1" Grid.Column="1" >The "notice" for each ring</Label>
 
-                            <Button Grid.Row="2" Grid.Column="0" Content="Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="2" Grid.Column="1" >View the labels of the entries</Label>
+                                <Button Grid.Row="2" Grid.Column="0" Content="Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Label Grid.Row="2" Grid.Column="1" >View the labels of the entries</Label>
 
-                            <Button Grid.Row="3" Grid.Column="0" Content="Registered Owner Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowRegisteredOwnerLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="3" Grid.Column="1" >View the labels of the registered owners</Label>
+                                <Button Grid.Row="3" Grid.Column="0" Content="Registered Owner Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowRegisteredOwnerLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Label Grid.Row="3" Grid.Column="1" >View the labels of the registered owners</Label>
 
-                            <Button Grid.Row="4" Grid.Column="0" Content="Catalog" Command="{x:Static globalCommands:DogShowReportCommands.ShowCatalogReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="4" Grid.Column="1" >View the marked catalog for the show</Label>
+                                <Button Grid.Row="4" Grid.Column="0" Content="Catalog" Command="{x:Static globalCommands:DogShowReportCommands.ShowCatalogReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Label Grid.Row="4" Grid.Column="1" >View the marked catalog for the show</Label>
 
-                            <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Vertical">
-                                <Button Content="Breed Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                                <Button Content="Breed Results Sheets (Judge)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            </StackPanel>
-                            <Label Grid.Row="5" Grid.Column="1" >View the sheets to capture breed results for the show</Label>
+                                <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Vertical">
+                                    <Button Content="Breed Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                    <Button Content="Breed Results Sheets (Judge)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                </StackPanel>
+                                <Label Grid.Row="5" Grid.Column="1" >View the sheets to capture breed results for the show</Label>
 
-                            <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Vertical">
-                                <Button Content="Group Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedGroupResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                                <Button Content="Group Results Sheets (Judge)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedGroupResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            </StackPanel>
-                            <Label Grid.Row="6" Grid.Column="1" >View the sheets to capture group results for the show</Label>
+                                <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Vertical">
+                                    <Button Content="Group Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedGroupResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                    <Button Content="Group Results Sheets (Judge)" Command="{x:Static globalCommands:DogShowReportCommands.ShowBreedGroupResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                </StackPanel>
+                                <Label Grid.Row="6" Grid.Column="1" >View the sheets to capture group results for the show</Label>
 
-                            <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Vertical">
-                                <Button Content="In Show Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowInShowResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                                <Button Content="In Show Results Sheets (Judge)"   Command="{x:Static globalCommands:DogShowReportCommands.ShowInShowResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            </StackPanel>
-                            <Label Grid.Row="7" Grid.Column="1" >View the sheets to capture in show results for the show</Label>
+                                <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Vertical">
+                                    <Button Content="In Show Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowInShowResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                    <Button Content="In Show Results Sheets (Judge)"   Command="{x:Static globalCommands:DogShowReportCommands.ShowInShowResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                </StackPanel>
+                                <Label Grid.Row="7" Grid.Column="1" >View the sheets to capture in show results for the show</Label>
 
-                            <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Vertical">
-                                <Button Content="Handler Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                                <Button Content="Handler Results Sheets (Judge)"   Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            </StackPanel>
-                            <Label Grid.Row="8" Grid.Column="1" >View the sheets to capture Handler results for the show</Label>
+                                <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Vertical">
+                                    <Button Content="Handler Results Sheets (Steward)" Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerResultsStewardsSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                    <Button Content="Handler Results Sheets (Judge)"   Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerResultsJudgesSheetReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                </StackPanel>
+                                <Label Grid.Row="8" Grid.Column="1" >View the sheets to capture Handler results for the show</Label>
 
-                            <Button Grid.Row="9" Grid.Column="0" Content="Handler Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
-                            <Label Grid.Row="9" Grid.Column="1" >View the labels of the handler entries</Label>
-                        </Grid>
+                                <Button Grid.Row="9" Grid.Column="0" Content="Handler Number Labels" Command="{x:Static globalCommands:DogShowReportCommands.ShowHandlerEntryNumberLabelsReportCommand}"  CommandParameter="{Binding SelectedItem}" />
+                                <Label Grid.Row="9" Grid.Column="1" >View the labels of the handler entries</Label>
+                            </Grid>
+                        </ScrollViewer>
                     </TabItem>
                     <TabItem Header="Admin">
                         <Grid>
